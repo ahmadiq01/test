@@ -5,8 +5,7 @@ import frameLogo from "../../assets/Frame.svg"; // Adjust path if needed
 const Footer = () => {
   return (
     <div className="bg-[#dee13e] w-full h-[425px] px-8 py-6">
-      <div className="flex flex-col h-full justify-between">
-        {/* Empty divs for future content customization */}
+      <div className="flex flex-col h-full justify-between relative">
         <div className="w-[588px] h-[137px] absolute flex-row left-[53px] ">
             <p className="font-[Heathergreen] text-[100px] font-normal leading-[136.62px] text-black">
                 Let’s Build Your Apps Together
@@ -38,7 +37,7 @@ const Footer = () => {
             <img 
                     src="https://s3-alpha-sig.figma.com/img/df8f/7fc5/ebcb86426df7897596bb0414358e852b?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b8bdb7I4xHqz6FGkNKco3XX3o4MQise~UBwD4xGtGIlsFnXL~rah-ADXo9mjP9tipTBI9klnh2kGIVxPs6eF5NpUOtCB2YvLLseVr8obvwub5qnwmghEntRY7q~UGGe0QsFaUwY35msY22B-~coqv~HjqS1oIKoBP2RMzomkpUTnclw3UnPaBeb1zur97mOcQqHm2mg8xqHxlgCeh8QpezH9NFI2N833ck~RWeGVTFl6E~cbFy4nOqB80H1DF7AI11W6TuHy8-YRVQOqxWlSLTM5ypvit8H9ET-211EQXvGNE2H3RLZweyQdGglIrMke9sLbZVJPgoy56znyWaSCRQ__"
                     alt="img" 
-                    className="w-[353px] h-[353px] rounded-full absolute top-[3px] left-[1457px]"
+                    className="w-[353px] h-[353px] rounded-full absolute top-[-19px] left-[1457px]"
                   />
             </div>
           </div>
