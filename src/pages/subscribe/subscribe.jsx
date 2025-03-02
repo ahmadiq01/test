@@ -67,7 +67,9 @@ const Home = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum Lorem Ipsum is simply dummy text of the
             printing and typesetting industry. Lorem Ipsum Lorem Ipsum is simply
-            dummy text of the printing and typesetting industry. Lorem Ipsumdummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry.dewrwin
+            dummy text of the printing and typesetting industry. Lorem
+            Ipsumdummy text of the printing and typesetting industry. dummy text
+            of the printing and typesetting industry.dewrwin
           </p>
         </div>
       </div>
@@ -103,7 +105,9 @@ const Home = () => {
 
       {/* Plan Comparison Table */}
       <div className="bg-[#dee13e] py-10 flex flex-col items-center font-[Heathergreen] font-normal ">
-        <h2 className="text-black font=[Heathergreen] text-5xl mt-10  md:text-[150px] w-full  mb-34 flex flex-col items-center ">Plan Comparison</h2>
+        <h2 className="text-black font=[Heathergreen] text-5xl mt-10  md:text-[150px] w-full  mb-34 flex flex-col items-center ">
+          Plan Comparison
+        </h2>
         <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-5 gap-6 items-start ">
           {/* Feature Column */}
           <div className="bg-black text-white rounded-xl shadow-lg p-6 w-full">
@@ -143,35 +147,33 @@ const Home = () => {
 
         {/* FAQ List */}
         <div className="w-full pb-[100px] space-y-4">
-  {faqs.map((faq, index) => (
-    <div key={index} className="w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-4">
-      
-      {/* Question Section */}
-      <div
-        className="w-[80%] mx-auto flex justify-between items-center text-4xl p-4 font-[Poppins]"
-        onClick={() => toggleFAQ(index)}
-      >
-        <span>{faq.question}</span>
-        {openIndex === index ? (
-          <FaChevronUp className="text-white" />
-        ) : (
-          <FaChevronDown className="text-white" />
-        )}
-      </div>
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-4"
+            >
+              {/* Question Section */}
+              <div
+                className="w-[80%] mx-auto flex justify-between items-center text-4xl p-4 font-[Poppins]"
+                onClick={() => toggleFAQ(index)}
+              >
+                <span>{faq.question}</span>
+                {openIndex === index ? (
+                  <FaChevronUp className="text-white" />
+                ) : (
+                  <FaChevronDown className="text-white" />
+                )}
+              </div>
 
-      {/* Answer Section (Aligned with the question) */}
-      {openIndex === index && (
-       <p className="w-[70%] ml-auto mr-[19%] text-white bg-red-500 text-2xl font-semibold mt-2 p-4 rounded-lg">
-       {faq.answer}
-     </p>
-     
-     
-      )}
-    </div>
-  ))}
-</div>
-
-
+              {/* Answer Section (Aligned with the question) */}
+              {openIndex === index && (
+                <p className="w-[70%] ml-auto mr-[19%] text-white text-2xl font-semibold mt-2 p-4 rounded-lg">
+                  {faq.answer}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Extra Spacing Before Footer */}
