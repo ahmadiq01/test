@@ -20,10 +20,10 @@ const ContactPage = () => {
       <div className="flex flex-col bg-green-800 items-start w-full gap-10 container mx-auto px-4">
         
         {/* First Section: Contact Info */}
-        <div className="flex flex-col items-center gap-6 p-8 bg-[#dee13e] rounded-lg shadow-lg w-full max-w-md mx-auto">
+        <div className="flex flex-col items-center gap-6 p-8 font-[Heathergreen] text-6xl bg-[#dee13e] rounded-lg shadow-lg w-full max-w-md mx-auto">
           {/* Column 1: Title */}
           <div className="text-center">
-            <h2 className="text-4xl font-bold">LET'S CONNECT.</h2>
+            <h2 className="text-8xl font-bold">LET'S CONNECT.</h2>
             <p className="text-lg mt-2">Get in Touch</p>
           </div>
 
