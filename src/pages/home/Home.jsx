@@ -37,7 +37,8 @@ const Home = () => {
             paddingLeft: "min(16px, calc(16px * (100vw/1920)))" 
           }}
         >
-          <h1 
+          <a
+          href="subscribe" 
             className="text-[240px] font-light w-full leading-[1] tracking-wider transition-colors duration-300 hover:text-[#5cba47] pl-10 -mt-[85px]"
             style={{ 
               fontSize: "min(240px, calc(240px * (100vw/1920)))",
@@ -46,8 +47,9 @@ const Home = () => {
             }}
           >
             Work
-          </h1>
-          <h2 
+          </a>
+          <a
+          href="subscribe" 
             className="text-[200px] font-light leading-none w-full transition-colors duration-300 hover:text-[#474cba] -mt-[40px] pl-40"
             style={{ 
               fontSize: "min(200px, calc(200px * (100vw/1920)))",
@@ -56,7 +58,7 @@ const Home = () => {
             }}
           >
             Services
-          </h2>
+          </a>
           <h2 
             className="text-[180px] font-light leading-none w-full transition-colors duration-300 hover:text-[#dee13e] -mt-[20px] pl-55"
             style={{ 
@@ -118,7 +120,8 @@ const Home = () => {
           />
 
           {/* Button */}
-          <button 
+          <a
+            href="subscribe"  
             className="absolute top-[686px] left-[550px] w-[367px] h-[130.8px] bg-green-500 text-black font-bold rounded-[65px] text-2xl flex items-center justify-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
             style={{ 
               top: "min(686px, calc(686px * (100vw/1920)))",
@@ -130,7 +133,7 @@ const Home = () => {
             }}
           >
             Subscribe Now!
-          </button>
+          </a>
         </div>
       </div>
     </>

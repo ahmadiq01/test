@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import vectorIcon from "../../assets/Vector.svg"; // Adjust the path as needed
+
 
 const Home = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -43,11 +45,11 @@ const Home = () => {
   ];
 
   const features = [
-    "Feature 1",
-    "Feature 2",
-    "Feature 3",
-    "Feature 4",
-    "Feature 5",
+    "Ayein",
+    "Ayein",
+    "Ayein",
+    "Ayein",
+    "Ayein",
   ];
   const plans = ["Basic", "Standard", "Premium", "Custom"];
 
@@ -104,40 +106,41 @@ const Home = () => {
       </div>
 
       {/* Plan Comparison Table */}
-      <div className="bg-[#dee13e] py-10 flex flex-col items-center font-[Heathergreen] font-normal ">
-        <h2 className="text-black font=[Heathergreen] text-5xl mt-10  md:text-[150px] w-full  mb-34 flex flex-col items-center ">
-          Plan Comparison
-        </h2>
-        <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-5 gap-6 items-start ">
-          {/* Feature Column */}
-          <div className="bg-black text-white rounded-xl shadow-lg p-6 w-full">
-            <h3 className="text-xl font-normal text-center border-b border-white pb-4">
-              Features
-            </h3>
-            <ul className="mt-4 text-center space-y-4">
-              {features.map((feature, index) => (
-                <li key={index} className="text-lg">
-                  {feature}
+      <div className="bg-[#dee13e] py-16 flex flex-col items-center font-[Heathergreen] font-normal">
+      {/* Title */}
+      <h2 className="text-black font-[Heathergreen] text-5xl mt-10 md:text-[150px] w-full text-center mb-16">
+        Plan Comparison
+      </h2>
+
+      {/* Grid Layout */}
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-5 gap-12 items-start pb-[50px]">
+        {/* Feature Column */}
+        <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
+        <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
+          Plans
+        </h3>
+        <ul className="mt-6 text-center space-y-6 flex-grow">
+          {features.map((feature, index) => (
+            <li key={index} className="text-4xl font-[Poppins] font-semi-bold">{feature}</li>
+          ))}
+        </ul>
+        </div>
+        {/* Plan Columns */}
+        {plans.map((plan, index) => (
+          <div key={index} className="text-black text-center mt-[-14px] w-[250px] md:w-full min-h-[500px] flex flex-col">
+            <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
+            <ul className="space-y-6 flex-grow">
+              {features.map((_, idx) => (
+                <li key={idx} className="flex justify-center">
+                  <img src={vectorIcon} alt="Checkmark" className="w-10 h-10" />
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Plan Columns */}
-          {plans.map((plan, index) => (
-            <div key={index} className="text-black text-center">
-              <h3 className="text-xl font-normal mb-4">{plan}</h3>
-              <ul className="space-y-4">
-                {features.map((_, idx) => (
-                  <li key={idx} className="text-xl">
-                    ✅
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
+    </div>
+
 
       {/* FAQ Section */}
       <div className="bg-[#914A8E] py-16 px-5 flex flex-col items-center">
