@@ -59,7 +59,7 @@ const Home = () => {
           >
             Services
           </a>
-          <h2 
+          <a href="contact" 
             className="text-[180px] font-light leading-none w-full transition-colors duration-300 hover:text-[#dee13e] -mt-[20px] pl-55"
             style={{ 
               fontSize: "min(180px, calc(180px * (100vw/1920)))",
@@ -68,7 +68,7 @@ const Home = () => {
             }}
           >
             Contact Us
-          </h2>
+          </a>
           <h2 
             className="text-[120px] font-light leading-none w-full transition-colors duration-300 hover:text-[#5cba47] -mt-[20px] pl-72"
             style={{ 
