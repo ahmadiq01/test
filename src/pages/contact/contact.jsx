@@ -17,7 +17,7 @@ const ContactPage = () => {
       </a>
 
       {/* Main Content Wrapper */}
-      <div className="flex flex-col items-center w-full gap-10 container mx-auto px-4">
+      <div className="flex flex-col bg-green-800 items-start w-full gap-10 container mx-auto px-4">
         
         {/* First Section: Contact Info */}
         <div className="flex flex-col items-center gap-6 p-8 bg-[#dee13e] rounded-lg shadow-lg w-full max-w-md mx-auto">
@@ -67,7 +67,6 @@ const ContactPage = () => {
             <button type="submit" className="bg-blue-600 text-white py-3 px-6 rounded w-full hover:bg-blue-700 col-span-2">Submit</button>
           </form>
         </div>
-
       </div>
 
       <Footer />
