@@ -46,29 +46,47 @@ const ContactPage = () => {
 
         {/* Second Section: Contact Form */}
         <div className="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
-          <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="text" placeholder="First Name*" className="border p-3 rounded w-full" required />
-            <input type="text" placeholder="Last Name*" className="border p-3 rounded w-full" required />
-            <input type="email" placeholder="Email*" className="border p-3 rounded w-full col-span-2" required />
-            <textarea placeholder="Message*" className="border p-3 rounded w-full col-span-2" rows="4" required></textarea>
+        <h2 className="text-3xl font-bold mb-6 text-white">Contact Us</h2>
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
+            {/* First Name */}
+            <div className="flex flex-col col-span-1">
+            <label className="text-gray-700 font-semibold mb-1">First Name*</label>
+            <input type="text" placeholder="First Name" className="border p-3 rounded-full w-full" required />
+            </div>
+
+            {/* Last Name */}
+            <div className="flex flex-col col-span-1">
+            <label className="text-gray-700 font-semibold mb-1">Last Name*</label>
+            <input type="text" placeholder="Last Name" className="border p-3 rounded-full w-full" required />
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col col-span-2">
+            <label className="text-gray-700 font-semibold mb-1">Email*</label>
+            <input type="email" placeholder="Email" className="border p-3 rounded-full w-full" required />
+            </div>
+
+            {/* Message */}
+            <div className="flex flex-col col-span-1">
+            <label className="text-gray-700 font-semibold mb-1">Message*</label>
+            <textarea placeholder="Write your message here..." className="border p-6 rounded-[20px] w-full" rows="4" required></textarea>
+            </div>
+
             {/* Budget Options */}
-            <fieldset className="col-span-2">
-              <legend className="text-lg font-semibold mb-2">Budget*</legend>
-              <div className="flex flex-col space-y-2">
-                <label><input type="radio" name="budget" value="250-1000" /> $250-$1000</label>
-                <label><input type="radio" name="budget" value="1000-2000" /> $1000-$2000</label>
-                <label><input type="radio" name="budget" value="2000-5000" /> $2000-$5000</label>
-                <label><input type="radio" name="budget" value="5000-10000" /> $5000-$10000</label>
-              </div>
+            <fieldset className="col-span-1">
+            <legend className="text-lg font-semibold mb-2 text-gray-700">Budget*</legend>
+            <div className="flex flex-col space-y-2 text-gray-700">
+                <label><input type="radio" name="budget" value="250-1000" className="mr-2" /> $250-$1000</label>
+                <label><input type="radio" name="budget" value="1000-2000" className="mr-2" /> $1000-$2000</label>
+                <label><input type="radio" name="budget" value="2000-5000" className="mr-2" /> $2000-$5000</label>
+                <label><input type="radio" name="budget" value="5000-10000" className="mr-2" /> $5000-$10000</label>
+            </div>
             </fieldset>
-            
-            <button type="submit" className="bg-blue-600 text-white py-3 px-6 rounded w-full hover:bg-blue-700 col-span-2">Submit</button>
-          </form>
+            <button type="submit" className="bg-blue-600 text-white py-3 px-6 rounded-full w-[30%] hover:bg-blue-700 col-span-1">Submit</button>
+        </form>
         </div>
       </div>
-
       <Footer />
     </div>
   );
