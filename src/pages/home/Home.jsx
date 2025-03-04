@@ -38,7 +38,7 @@ const Home = () => {
           }}
         >
           <a
-          href="subscribe" 
+          href="work" 
             className="text-[240px] font-light w-full leading-[1] tracking-wider transition-colors duration-300 hover:text-[#5cba47] pl-10 -mt-[85px]"
             style={{ 
               fontSize: "min(240px, calc(240px * (100vw/1920)))",
@@ -49,7 +49,7 @@ const Home = () => {
             Work
           </a>
           <a
-          href="subscribe" 
+          href="services" 
             className="text-[200px] font-light leading-none w-full transition-colors duration-300 hover:text-[#474cba] -mt-[40px] pl-40"
             style={{ 
               fontSize: "min(200px, calc(200px * (100vw/1920)))",

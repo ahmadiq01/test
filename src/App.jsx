@@ -5,6 +5,7 @@ import Subscribe from "./pages/subscribe/subscribe";
 import Contact from "./pages/contact/contact";
 import Clients from "./pages/clients/clients";
 import Story from "./pages/story/story";
+import Services from "./pages/services/services";
 
 
 import Footer from './components/footer/footer';
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/clients" element={<Clients />} />
         <Route path="/story" element={<Story />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
     </Router>
   );
