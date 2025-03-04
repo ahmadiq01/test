@@ -49,13 +49,13 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-row justify-between space-x-6 ml-[80px]">
-            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600 cursor-pointer">
+            <a href="work" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600 cursor-pointer">
                 Work
             </a>
-            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600 cursor-pointer">
+            <a href="contact" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600 cursor-pointer">
                 Contact
             </a>
-            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600 cursor-pointer">
+            <a href="about" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600 cursor-pointer">
                 About Us
             </a>
             <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600 cursor-pointer">

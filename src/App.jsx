@@ -3,6 +3,8 @@ import Home from './pages/home/Home';
 import Work from './pages/work/Work';
 import Subscribe from "./pages/subscribe/subscribe";
 import Contact from "./pages/contact/contact";
+import Clients from "./pages/clients/clients";
+import Story from "./pages/story/story";
 
 
 import Footer from './components/footer/footer';
@@ -19,6 +21,8 @@ export default function App() {
         <Route path="/footer" element={<Footer />} />
         <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/clients" element={<Clients />} />
+        <Route path="/story" element={<Story />} />
       </Routes>
     </Router>
   );

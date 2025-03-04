@@ -69,7 +69,8 @@ const Home = () => {
           >
             Contact Us
           </a>
-          <h2 
+          <a
+           href="clients" 
             className="text-[120px] font-light leading-none w-full transition-colors duration-300 hover:text-[#5cba47] -mt-[20px] pl-72"
             style={{ 
               fontSize: "min(120px, calc(120px * (100vw/1920)))",
@@ -78,8 +79,9 @@ const Home = () => {
             }}
           >
             Our Clients
-          </h2>
-          <h1 
+          </a>
+          <a 
+            href="story"
             className="text-[100px] font-light leading-none w-full transition-colors duration-300 hover:text-[#ba47ae] -mt-[20px] pl-102"
             style={{ 
               fontSize: "min(100px, calc(100px * (100vw/1920)))",
@@ -88,7 +90,7 @@ const Home = () => {
             }}
           >
             Our Story
-          </h1>
+          </a>
         </div>
 
         {/* Column 2: Centered Rectangle Image */}
