@@ -11,21 +11,33 @@ const ContactPage = () => {
             <Header />
             
             <div className="container mx-auto px-6 lg:px-20 mt-10 relative ">
-                <div className="">
+                <div className="relative">
                     <img 
                         src={V1} 
                         alt="Vector 1" 
-                        className="absolute w-[284px] h-[94px] top-[174px] left-[950px] -rotate-9"
+                        className="
+                            absolute 
+                            w-[142px] h-[47px] top-[867px] left-[275px] rotate-[-4.5deg] 
+                            md:w-[284px] md:h-[94px] md:top-[335px] md:left-[950px] md:rotate-[-9deg]
+                        "
                     />
                     <img 
                         src={V2} 
                         alt="Vector 2" 
-                        className="absolute w-[284px] h-[64px] top-[170px] left-[1150px] rotate-19"
+                        className="
+                            absolute 
+                            w-[142px] h-[32px] top-[960px] left-[275px] rotate-[9.5deg] 
+                            md:w-[284px] md:h-[64px] md:top-[320px] md:left-[1150px] md:rotate-[19deg]
+                        "
                     />
                     <img 
                         src={V3} 
                         alt="Vector 3" 
-                        className="absolute w-[284px] h-[84px] top-[320px] left-[1070px] rotate-6"
+                        className="
+                            absolute 
+                            w-[142px] h-[42px] top-[837px] left-[235px] rotate-[3deg] 
+                            md:w-[284px] md:h-[84px] md:top-[475px] md:left-[1070px] md:rotate-[6deg]
+                        "
                     />
                 </div>
 
