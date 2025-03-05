@@ -5,14 +5,12 @@ import V1 from "../../assets/Vector 1.svg"; // Adjust path if needed
 import V2 from "../../assets/Vector 2.svg"; // Adjust path if needed
 import V3 from "../../assets/Vector 3.svg"; // Adjust path if needed
 
-
 const ContactPage = () => {
     return (
         <div className="relative bg-white">
             <Header />
             
-                <div className="container mx-auto px-6 lg:px-20 mt-10 relative bg-amber-950 ">
-
+            <div className="container mx-auto px-6 lg:px-20 mt-10 relative ">
                 <div className="">
                     <img 
                         src={V1} 
@@ -34,11 +32,11 @@ const ContactPage = () => {
                 {/* Main Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10">
                     {/* Left Column - Story Text */}
-                    <div className=' bg-red-600'>
+                    <div className=''>
                         <div className="mb-12 ">
                             <h1 className="text-9xl font-bold tracking-[0.5rem] uppercase font-[Heathergreen]">Our Story</h1>
                         </div>
-                        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                        <p className="text-lg text-gray-700 leading-relaxed mb-6 ">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                             when an unknown printer took a galley of type and scrambled it to make a type 
@@ -51,7 +49,18 @@ const ContactPage = () => {
                     </div>
 
                     {/* Right Column - Team Members */}
-                    <div className="relative">
+                    <div className="">
+                        {/* New Text Div Added Above Team Members */}
+                        <div className="mb-[-70px] p-6 rounded-lg">
+                            <p className="text-gray-700 leading-relaxed mt-[-80px]">
+                                We started our mission with a vision to transform the industry. 
+                                Our team combines passion, expertise, and innovative thinking 
+                                to deliver exceptional solutions. From our humble beginnings 
+                                to our current success, we've remained committed to excellence 
+                                and continuous improvement.
+                            </p>
+                        </div>
+
                         <div className="flex flex-col items-center space-y-8">
                             {/* Team Member: Moutamid */}
                             <div className="flex items-center flex-col col-1 space-x-6 mt-[60px] ml-[140px]">
@@ -59,7 +68,7 @@ const ContactPage = () => {
                                     <img 
                                         src="https://s3-alpha-sig.figma.com/img/cd4b/18e8/6e997e80693617249606bd8795db8ec0?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=L1OMp1YIJy5lKxwGQXm8L-6mJgwvD7kGYHnyT7~-GPvO2qUR-mJnUpfqrcBvzZuikmXGBXJgja25uedfiPgTpBNkw6PONI9fxKdQ~2rIDKkhzHOmuN5kVuddDGB0-KaHeHEfAPQJqDDXjoRaCXBQXbGFClLqj2juiypQlFfzajzuXbaKvQkuUSrojZmqhpZI2R6DMg25W02X0rqccvRzaD~rKBnUUwukdKL4YF8dMTq3v5Jk3FpOlY6iU~FZ~15IFhKuJEbjBYpWxcPIqKYbvSAl5I6gGh-GdYPMu7ybQLBetvAP2Za29Q3V-TxMBOrEWB4O2d2xmzMv3Up4FHxkOw__" 
                                         alt="Moutamid" 
-                                        className="w-full h-full object-cover" 
+                                        className="w-full h-full " 
                                     />
                                 </div>
                                 <div>
@@ -82,7 +91,6 @@ const ContactPage = () => {
                                     <p className="text-gray-600">CTO</p>
                                 </div>
                             </div>
-
 
                             {/* Team Member: Faizan */}
                             <div className="flex  mr-[108px] mt-[-175px] mb-[10px] items-center flex-col col-1 space-x-6">
