@@ -26,7 +26,7 @@ const ContactPage = () => {
                         alt="Vector 2" 
                         className="
                             absolute 
-                            w-[142px] h-[47px] top-[960px] left-[275px] rotate-[9.5deg] 
+                            w-[142px] h-[47px] top-[999px] left-[240px] rotate-[26.5deg] 
                             md:w-[284px] md:h-[64px] md:top-[320px] md:left-[1070px] md:rotate-[19deg]
                         "
                     />
@@ -35,7 +35,7 @@ const ContactPage = () => {
                         alt="Vector 3" 
                         className="
                             absolute 
-                            w-[142px] h-[47px] top-[837px] left-[235px] rotate-[3deg] 
+                            w-[142px] h-[47px] top-[837px] left-[335px] rotate-[3deg] 
                             md:w-[284px] md:h-[84px] md:top-[475px] md:left-[994px] md:rotate-[6deg]
                         "
                     />
@@ -75,7 +75,7 @@ const ContactPage = () => {
 
                         <div className="flex flex-col items-center space-y-8">
                             {/* Team Member: Moutamid */}
-                            <div className="flex items-center flex-col col-1 space-x-6 mt-[60px] ml-[140px]">
+                            <div className="flex items-center flex-col col-1 space-x-6 md:mt-[60px] mr-[-40px] mb-[20px] md:ml-[140px]">
                                 <div className="w-32 h-32 rounded-full border-4 border-yellow-400 overflow-hidden">
                                     <img 
                                         src="https://s3-alpha-sig.figma.com/img/cd4b/18e8/6e997e80693617249606bd8795db8ec0?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=L1OMp1YIJy5lKxwGQXm8L-6mJgwvD7kGYHnyT7~-GPvO2qUR-mJnUpfqrcBvzZuikmXGBXJgja25uedfiPgTpBNkw6PONI9fxKdQ~2rIDKkhzHOmuN5kVuddDGB0-KaHeHEfAPQJqDDXjoRaCXBQXbGFClLqj2juiypQlFfzajzuXbaKvQkuUSrojZmqhpZI2R6DMg25W02X0rqccvRzaD~rKBnUUwukdKL4YF8dMTq3v5Jk3FpOlY6iU~FZ~15IFhKuJEbjBYpWxcPIqKYbvSAl5I6gGh-GdYPMu7ybQLBetvAP2Za29Q3V-TxMBOrEWB4O2d2xmzMv3Up4FHxkOw__" 
@@ -90,7 +90,7 @@ const ContactPage = () => {
                             </div>
 
                             {/* Team Member: Sajjad */}
-                            <div className="flex items-center flex-col self-end space-y-3 mr-[20px] mt-[-40px]">
+                            <div className="flex items-center flex-col self-end space-y-3 md:mr-[20px] mr-[1px] md:mt-[-40px]">
                                 <div className="w-32 h-32 rounded-full border-4 border-blue-500 overflow-hidden">
                                     <img 
                                         src="https://s3-alpha-sig.figma.com/img/2517/76a7/c47934b95505556a5d40dfcc24d3aee2?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=g2xGkrFKR1GNkF-ZnlINHifQuDPBJqwR4wxxMUnrbe3spAbkOlLwkjRDwKTM78RX6ZBt4hviv2ClMfPahruWOyk10~fw-lrA087rGMnBjdMvn~UpvpKOQEmHSYHE1hPDcSA8ud0-ym59lPZV5JiXmaBHGIhv18k4K15DJlcGnNjEapm8jm61cJlhjPqBjiHJLr0~fP0QHFMdBaJV53pN1J1LO6MBBuN3f7d2I4EYTGiAKDpLxbHNF1SsdzX2QhpVfMAEl1fTXRczjFrZpC~RYdT8S7GJoM9YV5lRsYJkc2pGO4KVaCliMTB6gbHDINPRwoE7jiBNv18-cxuhTJiCzA__" 
