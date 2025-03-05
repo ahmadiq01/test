@@ -51,13 +51,13 @@ const ContactPage = () => {
                     {/* Right Column - Team Members */}
                     <div className="">
                         {/* New Text Div Added Above Team Members */}
-                        <div className="mb-[-70px] p-6 rounded-lg">
-                            <p className="text-gray-700 leading-relaxed mt-[-80px]">
-                                We started our mission with a vision to transform the industry. 
-                                Our team combines passion, expertise, and innovative thinking 
-                                to deliver exceptional solutions. From our humble beginnings 
-                                to our current success, we've remained committed to excellence 
-                                and continuous improvement.
+                        <div className="mb-12">
+                            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                            We started our mission with a vision to transform the industry. 
+                            Our team combines passion, expertise, and innovative thinking 
+                            to deliver exceptional solutions. From our humble beginnings 
+                            to our current success, we've remained committed to excellence 
+                            and continuous improvement.
                             </p>
                         </div>
 

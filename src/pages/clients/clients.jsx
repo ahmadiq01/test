@@ -27,7 +27,7 @@ const ContactPage = () => {
         {
             name: "GBPLUS",
             text: "Absolutely blown away by the app developed! It's like you read our minds. User-friendly, sleek design, and flawless performance. A game-changer for our business!",
-            image: "https://s3-alpha-sig.figma.com/img/7583/57be/ae9594f1160471db992db1cf36ca3f46?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mOmGXSlvFwEnhHA0TuxrSF-w6lKg3BdkFPJGdPxoYicdEnpD~wSE~YZP129lr9iEMWV2DQM992nl6cHeMV2RmTDbEtv5DVESb5uX5ukdsEAHn8oapeaocNC6~wmPsPFp-X8CYftLYjLc3RzJ3V8FCsVGh14HB6qbn0O0sE2qtpnyvcHaEa8yb-sRq8m42akE8xk-YG8q1yfPP~tpjLjiC8wrjycTIH3fyyn1k7eEXSJOHKl8BGaRMI4SqXS2aq9YnHc5dUJAJcqm4od6At4gHLgPNFAS~-woPPt1cutDUBK62uP9~Woc90J8xMqCm1ojfnXo1qUDSPy-jIHGJ-7NvQ__",
+            image: "https://s3-alpha-sig.figma.com/img/9cc4/464c/2f27326011ba562898e108aa9522819c?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ISICWf-~48Sjl3A6MMVpHY75PsDbkBGho8nB6iaLnA4Uw9RW1avWHxw~kpkDZ0uM0XLwvdZ~3XVj4oR5nQkFGpdOj2qiVjuBZjzpESTOyluAp6aspYoCHpTFRlNg7Bq-l5VvzfmynwXS7MWOCBwqG~E9UrIwFr3cd2bmF4FKLfz-LzPMUW2~Rc6o4DDJiEZ4CW~JOICBlZCniZLk5mSOy9ApNXOPCk5jdB4qz1VyuiMf6fUv6svD5dD6wH~oPuEHsaVYFISsMMTTa6pQ1x5UwAUZbJTWbTlWKNRYdtMTiruoLEA1bsREdco1hpXLTj961U5aMQHiG4NAV0wpt4Xbfg__",
             bgColor: "bg-blue-800",
           },
           {
