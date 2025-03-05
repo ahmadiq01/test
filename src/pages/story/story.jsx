@@ -13,16 +13,16 @@ const ContactPage = () => {
             
                 <div className="container mx-auto px-6 lg:px-20 mt-10 relative">
 
-                <div className="absolute z-0">
+                <div className="mt-[10px] bg-red-800">
                     <img 
                         src={V1} 
                         alt="Vector 1" 
-                        className="absolute w-[84px] h-[104px] top-[150px] left-[900px] rotate-0"
+                        className="absolute w-[284px] h-[284px] top-[1250px] left-[9200px] rotate-0"
                     />
                     <img 
                         src={V2} 
                         alt="Vector 2" 
-                        className="absolute w-[84px] h-[104px] top-[422px] left-[1489px] -rotate-83"
+                        className="absolute w-[284px] h-[284px] top-[422px] left-[1489px] -rotate-83"
                     />
                     <img 
                         src={V3} 

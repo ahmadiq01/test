@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import vectorIcon from "../../assets/Group 55.svg";
+import './style.css'
 
 const ContactPage = () => {
     const testimonials = [
@@ -71,7 +72,6 @@ const ContactPage = () => {
             image: "https://s3-alpha-sig.figma.com/img/7583/57be/ae9594f1160471db992db1cf36ca3f46?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=mOmGXSlvFwEnhHA0TuxrSF-w6lKg3BdkFPJGdPxoYicdEnpD~wSE~YZP129lr9iEMWV2DQM992nl6cHeMV2RmTDbEtv5DVESb5uX5ukdsEAHn8oapeaocNC6~wmPsPFp-X8CYftLYjLc3RzJ3V8FCsVGh14HB6qbn0O0sE2qtpnyvcHaEa8yb-sRq8m42akE8xk-YG8q1yfPP~tpjLjiC8wrjycTIH3fyyn1k7eEXSJOHKl8BGaRMI4SqXS2aq9YnHc5dUJAJcqm4od6At4gHLgPNFAS~-woPPt1cutDUBK62uP9~Woc90J8xMqCm1ojfnXo1qUDSPy-jIHGJ-7NvQ__",
             bgColor: "bg-green-500",
           },
-        // ... rest of the testimonials remain the same
     ];
 
     const carouselRef = useRef(null);
@@ -126,6 +126,7 @@ const ContactPage = () => {
                 onTouchMove={drag}
                 onTouchEnd={stopDragging}
                 className="
+                slider
                     grid 
                     grid-cols-1 
                     sm:grid-cols-2 

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="bg-[#dee13e] w-full h-[425px] px-8 py-6">
       <div className="flex flex-col h-full justify-between relative">
-        <div className="w-[588px] h-[137px] absolute flex-row left-[53px] ">
+        <div className="w-[588px] h-[137px] absolute flex-row left-[53px]  ">
             <p className="font-[Heathergreen] text-[100px] font-normal leading-[136.62px] text-black">
                 Let’s Build Your Apps Together
             </p>
