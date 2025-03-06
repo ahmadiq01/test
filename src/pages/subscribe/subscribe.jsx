@@ -4,6 +4,16 @@ import Footer from "../../components/footer/footer";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import vectorIcon from "../../assets/Vector.svg"; // Adjust the path as needed
 
+import Basic from "../../assets/basic.svg"; 
+import Standard from "../../assets/standard.svg"; 
+import Premium from "../../assets/premium.svg"; 
+import Single from "../../assets/single.svg"; 
+
+import Basic2 from "../../assets/basic2.svg"; 
+import Standard2 from "../../assets/standard2.svg"; 
+import Premium2 from "../../assets/premium2.svg"; 
+import Single2 from "../../assets/single2.svg"; 
+
 
 const Home = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -112,7 +122,6 @@ const Home = () => {
   return (
     <div className="flex flex-col bg-[#dee13e] min-h-screen">
       <Header />
-
       {/* Hero Section */}
       <div className=" flex flex-col items-center justify-center text-center py-10">
         <div className="md:w-full font-[Heathergreen] font-normal flex flex-col items-center">
@@ -134,32 +143,56 @@ const Home = () => {
 
       {/* Pricing Plans Section */}
       <div className="bg-[#dee13e] flex items-center justify-center px-4 sm:px-6 py-6 sm:py-10">
+      
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          
           {/* Basic Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[30px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-2xl shadow-lg flex flex-col items-center justify-center relative">
-            <h2 className="text-black font-bold text-sm sm:text-xl">Basic</h2>
-            <div className="w-16 h-16 sm:w-24 sm:h-24 bg-green-300 rounded-full shadow-2xl absolute bottom-6 sm:bottom-10"></div>
-          </div>
+          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+              <img src={Basic} className="object-cover w-full h-full" alt="Basic Plan" />
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              <img src={Basic2} className="object-cover w-full h-full" alt="Basic Plan Hover" />
+            </div>
+        </div>
+
 
           {/* Standard Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-purple-500 to-orange-300 rounded-2xl shadow-lg flex flex-col items-center justify-center relative">
-            <h2 className="text-black font-bold text-sm sm:text-xl">Standard</h2>
-            <div className="w-0 h-0 border-l-[30px] border-r-[30px] sm:border-l-[50px] sm:border-r-[50px] border-b-[60px] sm:border-b-[86px] border-transparent border-b-gray-400 opacity-80 absolute bottom-6 sm:bottom-10"></div>
-          </div>
+          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+              <img src={Standard} className="object-cover w-full h-full" alt="Basic Plan" />
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              <img src={Standard2} className="object-cover w-full h-full" alt="Basic Plan Hover" />
+            </div>
+        </div>
 
           {/* Premium Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-white rounded-2xl shadow-lg flex flex-col items-center justify-center relative">
-            <h2 className="text-black font-bold text-sm sm:text-xl">Premium</h2>
-            <div className="w-16 h-16 sm:w-24 sm:h-24 text-gray-500 opacity-50">★</div>
-          </div>
+          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+              <img src={Premium} className="object-cover w-full h-full" alt="Basic Plan" />
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+              <img src={Premium2} className="object-cover w-full h-full" alt="Basic Plan Hover" />
+            </div>
+         </div>
 
           {/* Single Payment Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-black rounded-2xl shadow-lg flex flex-col items-center justify-center">
-            <h2 className="text-white font-bold text-sm sm:text-xl">Single Payment</h2>
-            <div className="w-10 h-10 sm:w-16 sm:h-16 border-4 border-white"></div>
-          </div>
+          
+          <a href="" className="block">
+            <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+              <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+                <img src={Single} className="object-cover w-full h-full" alt="Basic Plan" />
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-800 opacity-0 group-hover:opacity-100">
+                <img src={Single2} className="object-cover w-full h-full" alt="Basic Plan Hover" />
+              </div>
+            </div>
+          </a>
+
+
         </div>
-      </div>
+    </div>
 
 
       {/* Plan Comparison Table */}
