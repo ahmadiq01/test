@@ -18,6 +18,18 @@ import Pic8 from "../../assets/8.svg";
 import Pic9 from "../../assets/9.svg";
 
 const ContactPage = () => {
+  const imageData = [
+    { id: 1, primary: Mobile1, secondary: Mobile2, text: "Image 1", icon: Pic21 },
+    { id: 2, primary: Pic2, text: "Image 2", icon: Pic21 },
+    { id: 3, primary: Pic3, text: "Image 3" },
+    { id: 4, primary: Pic4, text: "Image 4" },
+    { id: 5, primary: Pic5, text: "Image 5", icon: Pic21 },
+    { id: 6, primary: Pic6, text: "Image 6" },
+    { id: 7, primary: Pic7, text: "Image 7" },
+    { id: 8, primary: Pic8, text: "Image 8" },
+    { id: 9, primary: Pic9, text: "Image 9", icon: Pic21 },
+  ];
+  
   return (
     <div className="relative min-h-screen bg-white">
       {/* Header */}
@@ -57,97 +69,48 @@ const ContactPage = () => {
           </p>
         </div>
       </div>
+      
       <div className="relative flex flex-wrap justify-center gap-16 mt-10">
+      {imageData.map((item) => (
         <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center relative overflow-hidden"
+          key={item.id}
+          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg transition-all duration-300 flex items-center justify-center relative overflow-hidden group"
           style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
         >
-          <img
-            src={Mobile1}
-            alt="Mobile1"
-            className="absolute w-[580px] h-[420px] object-contain transition-opacity duration-800 opacity-100 hover:opacity-0"
-          />
-          <img
-            src={Mobile2}
-            alt="Mobile2"
-            className="absolute w-[580px] h-[420px] object-contain transition-opacity duration-300 opacity-0 hover:opacity-100"
-          />
-        </div>
+          {item.secondary ? (
+            <>
+              <img
+                src={item.primary}
+                alt="Primary"
+                className="absolute w-[580px] h-[420px] object-contain transition-opacity duration-800 opacity-100 group-hover:opacity-0"
+              />
+              <img
+                src={item.secondary}
+                alt="Secondary"
+                className="absolute w-[580px] h-[420px] object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              />
+            </>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center relative">
+              <img src={item.primary} alt="" className="w-full h-full object-contain" />
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+            </div>
+          )}
+          
+          {/* Bottom left text */}
+          <div className="absolute bottom-4 left-4 text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {item.text}
+          </div>
 
-        <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center relative overflow-hidden"
-          style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
-        >
-          <img
-            src={Pic2}
-            alt="Mobile1"
-            className="absolute w-[580px] h-[420px] object-contain transition-opacity duration-800 opacity-100 hover:opacity-0"
-          />
-          <img
-            src={Pic21}
-            alt="Mobile2"
-            className="absolute w-[580px] h-[420px] object-contain transition-opacity duration-300 opacity-0 hover:opacity-100"
-          />
+          {/* Bottom right icon */}
+          {item.icon && (
+            <div className="absolute bottom-4 right-4 w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <img src={item.icon} alt="icon" className="w-full h-full" />
+            </div>
+          )}
         </div>
-
-        <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center"
-          style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
-        >
-          <div className="w-100% h-100% flex items-center justify-center">
-            <img src={Pic3} alt="" className="w-100% h-100%" />{" "}
-          </div>
-        </div>
-
-        <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center"
-          style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
-        >
-          <div className="w-24 h-24 flex items-center justify-center">
-            <img src={Pic4} alt="" className="w-full h-full" />{" "}
-          </div>
-        </div>
-        <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center"
-          style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
-        >
-          <div className="w-24 h-24 flex items-center justify-center">
-            <img src={Pic5} alt="" className="w-full h-full" />{" "}
-          </div>
-        </div>
-        <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center"
-          style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
-        >
-          <div className="w-24 h-24 flex items-center justify-center">
-            <img src={Pic6} alt="" className="w-full h-full" />{" "}
-          </div>
-        </div>
-        <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center"
-          style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
-        >
-          <div className="w-24 h-24 flex items-center justify-center">
-            <img src={Pic7} alt="" className="w-full h-full" />{" "}
-          </div>
-        </div>
-        <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center"
-          style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
-        >
-          <div className="w-24 h-24 flex items-center justify-center">
-            <img src={Pic8} alt="" className="w-full h-full" />{" "}
-          </div>
-        </div>
-        <div
-          className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg hover:bg-gray-300 transition-all duration-300 flex items-center justify-center"
-          style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
-        >
-          <div className="w-full h-full flex items-center justify-center">
-            <img src={Pic9} alt="" className="w-full h-full" />
-          </div>
-        </div>
-      </div>
+      ))}
+    </div>
       <div className="flex flex-col items-center justify-center text-center font-[Just_Another_Hand,cursive] mb-[180px] mt-[180px]">
         <p className="text-[50px] leading-[121px] font-normal text-black">
           Want to see what can Fooliz do for you?
