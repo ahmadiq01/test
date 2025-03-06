@@ -19,7 +19,7 @@ import Pic9 from "../../assets/9.svg";
 
 const ContactPage = () => {
   const imageData = [
-    { id: 1, primary: Mobile1, secondary: Mobile2, text: "Image 1", icon: Pic21 },
+    { id: 1, primary: Mobile1, secondary: Mobile2, text: "Image 1", icon: Pic21, link: "talktogather" },
     { id: 2, primary: Pic2, text: "Image 2", icon: Pic21 },
     { id: 3, primary: Pic3, text: "Image 3" },
     { id: 4, primary: Pic4, text: "Image 4" },
@@ -72,8 +72,9 @@ const ContactPage = () => {
       
       <div className="relative flex flex-wrap justify-center gap-16 mt-10">
       {imageData.map((item) => (
-        <div
+        <a
           key={item.id}
+          href={item.link}
           className="w-[487.76px] h-[332.09px] rounded-[10px] bg-white shadow-lg transition-all duration-300 flex items-center justify-center relative overflow-hidden group"
           style={{ boxShadow: "10px 10px 20px rgba(0, 0, 0, 0.3)" }}
         >
@@ -108,7 +109,7 @@ const ContactPage = () => {
               <img src={item.icon} alt="icon" className="w-full h-full" />
             </div>
           )}
-        </div>
+        </a>
       ))}
     </div>
       <div className="flex flex-col items-center justify-center text-center font-[Just_Another_Hand,cursive] mb-[180px] mt-[180px]">

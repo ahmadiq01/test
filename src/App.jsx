@@ -6,6 +6,7 @@ import Contact from "./pages/contact/contact";
 import Clients from "./pages/clients/clients";
 import Story from "./pages/story/story";
 import Services from "./pages/services/services";
+import Talk from "./pages/work/talktogather";
 
 
 import Footer from './components/footer/footer';
@@ -25,6 +26,8 @@ export default function App() {
         <Route path="/clients" element={<Clients />} />
         <Route path="/story" element={<Story />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/talktogather" element={<Talk />} />
+        
       </Routes>
     </Router>
   );
