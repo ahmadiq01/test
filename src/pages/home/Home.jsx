@@ -11,7 +11,7 @@ const Home = () => {
       </div>
 
       {/* Subscription Section */}
-      <div className="relative z-10 -mt-[50px]" style={{ marginTop: "min(-50px, calc(-50px * (100vw/1920)))" }}>
+      <div className="relative z-10  -mt-[50px]" style={{ marginTop: "min(-50px, calc(-50px * (100vw/1920)))" }}>
         <div className="flex flex-col text-black w-full h-auto font-extrabold italic text-[50px] font-poppins items-end pr-[80px] py-4"
           style={{ 
             fontSize: "min(50px, calc(50px * (100vw/1920)))",
@@ -28,10 +28,10 @@ const Home = () => {
       </div>
 
       {/* Main Container: Two Columns Layout */}
-      <div className="w-full flex flex-row relative">
+      <div className="w-full flex flex-row relative ">
         {/* Column 1: Text */}
         <div 
-          className="relative flex flex-col text-black font-bold uppercase w-1/2 py-10 pl-16"
+          className="relative bg-y flex flex-col text-black font-bold uppercase w-1/2 py-10 pl-16"
           style={{ 
             fontFamily: 'Heathergreen, sans-serif',
             paddingLeft: "min(16px, calc(16px * (100vw/1920)))" 

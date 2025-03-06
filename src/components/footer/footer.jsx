@@ -4,7 +4,7 @@ import frameLogo from "../../assets/Frame.svg"; // Adjust path if needed
 
 const Footer = () => {
   return (
-    <div className="bg-[#dee13e] w-full px-4 md:px-6 py-4 md:py-6 md:mt-[23px]">
+    <div className="bg-[#dee13e] w-full px-4 md:px-6 py-4 md:py-6 ">
       <div className="flex flex-col h-full justify-between relative">
         {/* Headline Section */}
         <div className="w-full md:w-[588px] md:h-[137px] relative flex flex-col space-y-2 md:space-y-0">
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Information */}
-        <div className="flex flex-col justify-center items-center mt-8 lg:mt-[119px] ">
+        <div className="flex flex-col justify-center items-center mt-8 lg:mt-[75px] ">
           <div className="flex flex-col space-y-4 md:space-y-6 text-base md:text-[30px]  text-[#474cba] font-extrabold leading-relaxed tracking-[-0.04em] font-[Poppins] text-center md:text-left lg:mt-[-170px]">
             <div>
               <p>Dubai, Lahore, wtv Road</p>
