@@ -44,36 +44,39 @@ const ContactPage = () => {
       </div>
 
       {/* Form Section */}
-      <div className="w-full sm:w-1/2 md:w-[60%] lg:w-[65%] p-8 md:ml-[150px]">
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      <div className="w-full sm:w-1/2 md:w-[60%] lg:w-[65%] p-4 md:p-8 md:ml-[75px]">
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
           <div className="flex flex-col col-span-1">
-            <label className="text-gray-700 font-semibold mb-2 text-lg">First Name*</label>
-            <input type="text" placeholder="First Name" className="border p-6 rounded-full w-full h-20 text-lg" required />
+            <label className="text-gray-700 font-semibold mb-1 md:mb-2 text-base md:text-lg">First Name*</label>
+            <input type="text" placeholder="First Name" className="border p-3 md:p-6 rounded-full w-full h-10 md:h-20 text-base md:text-lg" required />
           </div>
           <div className="flex flex-col col-span-1">
-            <label className="text-gray-700 font-semibold mb-2 text-lg">Last Name*</label>
-            <input type="text" placeholder="Last Name" className="border md:p-6 p-1 rounded-full w-full h-20 text-lg" required />
+            <label className="text-gray-700 font-semibold mb-1 md:mb-2 text-base md:text-lg">Last Name*</label>
+            <input type="text" placeholder="Last Name" className="border p-3 md:p-6 rounded-full w-full h-10 md:h-20 text-base md:text-lg" required />
           </div>
-          <div className="flex flex-col col-span-2">
-            <label className="text-gray-700 font-semibold mb-2 text-lg">Email*</label>
-            <input type="email" placeholder="Email" className="border p-6 rounded-full w-full h-20 text-lg" required />
+          <div className="flex flex-col col-span-2 md:col-span-2">
+            <label className="text-gray-700 font-semibold mb-1 md:mb-2 text-base md:text-lg">Email*</label>
+            <input type="email" placeholder="Email" className="border p-3 md:p-6 rounded-full w-full h-10 md:h-20 text-base md:text-lg" required />
           </div>
-          <div className="flex flex-col col-span-2">
-            <label className="text-gray-700 font-semibold mb-2 text-lg">Message*</label>
-            <textarea placeholder="Write your message here..." className="border p-6 rounded-[20px] w-full h-40 text-lg" rows="6" required></textarea>
+          <div className="flex flex-col col-span-1 md:col-span-2">
+            <label className="text-gray-700 font-semibold mb-1 md:mb-2 text-base md:text-lg">Message*</label>
+            <textarea placeholder="Write your message here..." className="border p-3 md:p-6 rounded-[20px] w-full h-20 md:h-40 text-base md:text-lg" rows="3" required></textarea>
           </div>
-          <fieldset className="col-span-2">
-            <legend className="text-lg font-semibold mb-4 text-gray-700">Budget*</legend>
-            <div className="grid grid-cols-2 gap-4 text-gray-700">
+          <fieldset className="col-span-1 md:col-span-2">
+            <legend className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-700">Budget*</legend>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-gray-700">
               <label><input type="radio" name="budget" value="250-1000" className="mr-2" /> $250-$1000</label>
               <label><input type="radio" name="budget" value="1000-2000" className="mr-2" /> $1000-$2000</label>
               <label><input type="radio" name="budget" value="2000-5000" className="mr-2" /> $2000-$5000</label>
               <label><input type="radio" name="budget" value="5000-10000" className="mr-2" /> $5000-$10000</label>
             </div>
           </fieldset>
-          <button type="submit" className="bg-blue-600 text-white py-5 px-10 rounded-full md:w-1/4 w-full hover:bg-blue-700 col-span-2 mt-6 text-lg">Submit</button>
+          <button type="submit" className="bg-blue-600 text-white py-3 md:py-5 px-6 md:px-10 rounded-full w-full md:w-1/4 hover:bg-blue-700 col-span-1 md:col-span-2 mt-4 md:mt-6 text-base md:text-lg">
+            Submit
+          </button>
         </form>
       </div>
+
     </div>
 
 
