@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import monkey from "../../assets/monkey.gif";
-import bee from "../../assets/bee.svg";
+import bee from "../../assets/bee.gif";
 import human from "../../assets/human.gif";
 import banana from "../../assets/banana.gif";
 import { FaArrowLeft } from "react-icons/fa";
