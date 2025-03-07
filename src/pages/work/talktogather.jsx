@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import Talk from "../../assets/talk.svg"; // Adjust path if needed
@@ -23,11 +24,37 @@ const ContactPage = () => {
         <img src={Talk} alt="" className="" />
       </div>
 
-      <div className="bg-[#1554f6] flex justify-center">
-        <img src={LeftImg} alt="" className="" />
-        <img src={MainScreen} alt="" className="" />
-        <img src={RightImg} alt="" className="" />
-      </div>
+      <div className="bg-[#1554f6] flex justify-center items-center h-screen relative overflow-hidden">
+      {/* Left Image - From Left to Center */}
+      <motion.img
+        src={LeftImg}
+        alt="Left Image"
+        initial={{ x: "-100vw", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+        className="absolute w-[500px] h-[1000px] md:ml-[480px] left-0"
+      />
+
+      {/* Main Image - From Bottom to Center */}
+      <motion.img
+        src={MainScreen}
+        alt="Main Image"
+        initial={{ y: "100vh", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5, type: "spring", bounce: 0.4 }}
+        className="relative w-[620px] h-[900px] top-[-12px] z-10"
+      />
+
+      {/* Right Image - From Right to Center */}
+      <motion.img
+        src={RightImg}
+        alt="Right Image"
+        initial={{ x: "100vw", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 1, delay: 1, type: "spring", bounce: 0.4 }}
+        className="absolute w-[500px] h-[1000px] md:mr-[480px] right-0"
+      />
+    </div>
 
       <div className="flex flex-col items-center text-center px-4 py-10">
         <h1 className="text-[#1B1B1B] font-poppins font-bold text-[100px] leading-[150px] md:text-[80px] md:leading-[120px] sm:text-[60px] sm:leading-[90px] xs:text-[40px] xs:leading-[60px]">
