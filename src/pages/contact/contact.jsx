@@ -19,7 +19,7 @@ const ContactPage = () => {
       {/* Contact Info Section */}
       <div className="flex flex-row sm:flex-row md:flex-col items-center bg-[#dee13e] w-full sm:w-1/2 md:w-[30%] lg:w-[15%] p-6 md:rounded-t-2xl space-y-6 sm:space-y-0 sm:space-x-4 md:space-x-0 md:ml-[45px]">
         <div className="flex flex-col items-center sm:items-start">
-          <p className="text-[58px] md:text-[50px] lg:text-[50px] xl:text-[69px] mt-[-30px] md:font-semi-bold font-semi-bold font-[Heathergreen] md:tracking-wider tracking-[px] mr-[14px]  md:mr-[1px] md:scale-y-125 scale-y-145">
+          <p className="text-[48px] md:text-[50px] lg:text-[50px] xl:text-[69px] mt-[-30px] md:font-semi-bold font-semi-bold font-[Heathergreen] md:tracking-wider tracking-[px] mr-[14px]  md:mr-[1px] md:scale-y-125 scale-y-145">
             LET'S CONNECT.
           </p>
           <p className="text-xl font-black text-left w-full break-words md:mt-[-6px] md:ml-[2px] scale-y-200 mt-[10px] ml-[2px] tracking-[0px] leading-tight">
