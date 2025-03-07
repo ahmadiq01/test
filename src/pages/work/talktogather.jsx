@@ -168,11 +168,11 @@ const ContactPage = () => {
 
 
         <div className="px-6 py-12">
-            <h2 className="text-[#1B1B1B] font-poppins font-bold text-[50px] leading-[70px] md:text-[40px] md:leading-[55px] sm:text-[30px] sm:leading-[45px]">
+            <h2 className="text-[#1B1B1B] font-poppins mt-[40px] ml-[90px] font-bold text-[50px] leading-[70px] md:text-[40px] md:leading-[55px] sm:text-[30px] sm:leading-[45px]">
                 Key Features
             </h2>
 
-                <div className="grid grid-cols-3 gap-4 w-full max-w-[1471px] mx-auto mt-8">
+                <div className="grid grid-cols-3 gap-4 w-full max-w-[1471px] mx-auto mt-[160px]">
                     <div className="bg-[#1554F6] text-white font-bold text-2xl rounded-xl py-4 text-center">
                     Live Rooms
                     </div>
