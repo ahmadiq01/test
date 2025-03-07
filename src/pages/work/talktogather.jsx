@@ -214,7 +214,7 @@ const ContactPage = () => {
         </p>
         <div className="flex items-center gap-2 mt-4 ">
           <a
-            href="/your-target-url" // Replace with your actual URL
+            href="contact" // Replace with your actual URL
             className="bg-[#D9E021] text-black px-8 py-4 rounded-full text-[50px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
           >
             Fill out a project
