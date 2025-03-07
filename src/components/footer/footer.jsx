@@ -11,17 +11,17 @@ const Footer = () => {
           <p className="font-[Heathergreen] text-[25px] md:text-[50px] lg:text-[100px] font-normal leading-tight md:leading-[136.62px] text-black text-center md:text-left">
             Let's Build Your Apps Together
           </p>
-          <p className="text-[#474CBA] text-[10px] md:text-[12px] lg:text-[24px] text-center md:text-left cursor-pointer hover:text-gray-600">
+          <a href="apply" className="text-[#474CBA] text-[10px] md:text-[12px] lg:text-[24px] text-center md:text-left cursor-pointer hover:text-gray-600">
             Get In Touch
-          </p>
+          </a>
           
           <div className="text-right md:pr-13 mt-4 md:mt-[-45px]">
             <p className="font-[Heathergreen] text-[50px] md:text-[100px] font-normal leading-tight md:leading-[136.62px] text-black text-center md:text-right">
               Careers
             </p>
-            <p className="text-[#474CBA] text-[10px] md:text-[24px] text-center md:text-right cursor-pointer hover:text-gray-600">
+            <a href="apply" className="text-[#474CBA] text-[10px] md:text-[24px] text-center md:text-right cursor-pointer hover:text-gray-600">
               Apply here
-            </p>
+            </a>
           </div>
         </div>
 
