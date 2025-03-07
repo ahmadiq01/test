@@ -112,30 +112,22 @@ const ContactPage = () => {
         </a>
       ))}
     </div>
-    <div className="flex flex-col items-center justify-center text-center font-[Just_Another_Hand,cursive] 
-      mb-[180px] mt-[180px] lg:mb-[90px] lg:mt-[90px] md:mb-[60px] md:mt-[60px] sm:mb-[45px] sm:mt-[45px]">
-      
-      <p className="text-[50px] leading-[121px] font-normal text-black 
-        lg:text-[25px] lg:leading-[60px] md:text-[20px] md:leading-[40px] sm:text-[18px] sm:leading-[35px]">
-        Want to see what can Fooliz do for you?
-      </p>
-
-      <div className="flex items-center gap-2 mt-4 lg:flex-col lg:gap-4 md:flex-col md:gap-3 sm:flex-col sm:gap-2">
-        <a
-          href="contact"
-          className="bg-[#D9E021] text-black px-8 py-4 rounded-full text-[25px] font-handwritten transition-all duration-300 ease-out hover:opacity-80 
-            lg:text-[25px] lg:px-4 lg:py-2 md:text-[20px] md:px-3 md:py-1 sm:text-[18px] sm:px-2 sm:py-1"
-        >
-          Fill out a project
-        </a>
-
-        <p className="text-[40px] text-black 
-          lg:text-[50px] md:text-[40px] sm:text-[35px]">
-          Brief and get the ball rolling!
+      <div className="flex flex-col items-center justify-center text-center font-[Just_Another_Hand,cursive] mb-[180px] mt-[180px]">
+        <p className="md:text-[90px] text-[40px] leading-[121px] font-normal text-black">
+          Want to see what can Fooliz do for you?
         </p>
+        <div className="flex items-center gap-2 mt-4 ">
+          <a
+            href="/your-target-url" // Replace with your actual URL
+            className="bg-[#D9E021] font-semi-bold px-8 py-4 rounded-full md:text-[35px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
+          >
+            Fill out a project
+          </a>
+          <p className="text-[40px] md:text-[80px]  text-black">
+            Brief and get the ball rolling!
+          </p>
+        </div>
       </div>
-    </div>
-
       {/* Footer */}
       <Footer />
     </div>
