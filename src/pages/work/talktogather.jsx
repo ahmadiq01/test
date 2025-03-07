@@ -11,8 +11,8 @@ import Img3 from "../../assets/image 3.svg"; // Adjust path if needed
 import Img4 from "../../assets/image 4.svg"; // Adjust path if needed
 import Img5 from "../../assets/Show Categories 2.svg"; // Adjust path if needed
 import Img6 from "../../assets/Messages - Selection 1.svg"; // Adjust path if needed
-// import Img7 from "../../assets/Group 16.svg"; // Adjust path if needed
-// import Img8 from "../../assets/Group 17.svg"; // Adjust path if needed
+import Img7 from "../../assets/Group 16.svg"; // Adjust path if needed
+import Img8 from "../../assets/Group 17.svg"; // Adjust path if needed
 
 const ContactPage = () => {
   return (
@@ -110,36 +110,35 @@ const ContactPage = () => {
         </div>
 
 
-        <div className="flex bg-[#fc721f]   ">
-            <div>
-            <img
-                src={Img5}
-                alt="App Screenshot 1"
-                className="w-full h-full  "
-            />
-            </div>
-           <div>
-           <img
-                src={Img6}
-                alt="App Screenshot 2"
-                className="w-full h-full "
-            />
-           </div>
+        <div className="relative flex justify-center items-center h-screen bg-[#fc721f]">
+        <div className="relative flex space-x-4">
+          {/* First Image - Increased Width */}
+          <div className="relative w-[750px] h-[1424px] top-[-110px] rounded-2xl overflow-hidden">
+            <img src={Img5} alt="App Screenshot 1" className="w-full h-full object-cover" />
+          </div>
+
+          {/* Second Image - Increased Width */}
+          <div className="relative w-[750px] h-[1424px] md:ml-[-320px] md:top-[80px] md:mr-[20px] rounded-2xl overflow-hidden">
+            <img src={Img6} alt="App Screenshot 2" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+
+
+      <div className="relative flex justify-center items-center h-screen bg-[#fbdc30]">
+      <div className="relative flex flex-col space-y-4">
+        {/* First Image - On Top */}
+        <div className="relative w-[1342px] h-[454] md:top-[120px] lg:top-[160px] lg:mr-[340px] rounded-2xl overflow-hidden">
+          <img src={Img7} alt="App Screenshot 1" className="w-full h-full object-cover" /> 
         </div>
 
-        {/* <div className="flex flex-col items-start text-left ">
-            <img
-                src={Img7}
-                alt="App Screenshot 1"
-                className="w-full bg-[#32BBFF] h-full"
-            />
-            <img
-                src={Img8}
-                alt="App Screenshot 2"
-                className="w-full bg-[#32BBFF] h-full"
-            />
+        {/* Second Image - Below */}
+        <div className="relative w-[1342px] h-[1342px] rounded-2xl overflow-hidden ml-[440px] top-[140px]">
+          <img src={Img8} alt="App Screenshot 2" className="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
 
-        </div> */}
 
         <div className="px-6 py-12">
             <h2 className="text-[#1B1B1B] font-poppins font-bold text-[50px] leading-[70px] md:text-[40px] md:leading-[55px] sm:text-[30px] sm:leading-[45px]">
@@ -183,7 +182,7 @@ const ContactPage = () => {
 
       {/* End of the divs */}
       <div className="flex flex-col items-center justify-center text-center font-[Just_Another_Hand,cursive] mb-[180px] mt-[180px]">
-        <p className="text-[50px] leading-[121px] font-normal text-black">
+        <p className="text-[70px] leading-[121px] font-normal text-black">
           Want to see what can Fooliz do for you?
         </p>
         <div className="flex items-center gap-2 mt-4 ">
@@ -193,7 +192,7 @@ const ContactPage = () => {
           >
             Fill out a project
           </a>
-          <p className="text-[100px]  text-black">
+          <p className="text-[70px]  text-black">
             Brief and get the ball rolling!
           </p>
         </div>
