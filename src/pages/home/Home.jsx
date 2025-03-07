@@ -159,13 +159,13 @@ const Home = ({
         </div>
 
         {/* Yellow Background Area with Subscription Text */}
-        <div className="bg-[#dee13e] p-4">
+        <div className="bg-[#dee13e] ">
           {/* Subscription Text */}
-          <div className="text-black font-extrabold italic text-xl font-poppins">
-            <p style={{ paddingLeft: mobileTextPadding.line1 }} className="ml-[50px]">
+          <div className="text-black font-extrabold italic text-xl font-poppins ">
+            <p style={{ paddingLeft: mobileTextPadding.line1 }} className="ml-[50px] pt-[12px]">
               SUBSCRIPTION BASED SOLUTIONS
             </p>
-            <p style={{ paddingLeft: mobileTextPadding.line2 }} className="ml-[14px]">
+            <p style={{ paddingLeft: mobileTextPadding.line2 }} className="ml-[14px] mt-[4px]">
               FOR ALL YOUR BUSINESS DIGITAL NEEDS
             </p>
           </div>
@@ -182,7 +182,7 @@ const Home = ({
             {/* Button positioned on top of the GIF */}
             <a
               href="subscribe"  
-              className="absolute z-10 w-[200px] h-[70px] bg-green-500 ml-[160px] top-[300px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
+              className="absolute w-[200px] h-[70px] bg-green-500 ml-[160px] top-[300px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
               style={{ 
                 bottom: '40%'
               }}
@@ -194,7 +194,7 @@ const Home = ({
 
         {/* Navigation Links with hover color changes */}
         <div className="flex flex-col items-start p-4 font-bold uppercase" style={{ fontFamily: 'Heathergreen, sans-serif' }}>
-          <a href="work" className="text-7xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
+          <a href="work" className="text-8xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
             Work
           </a>
           <a href="services" className="text-8xl ml-[130px] font-light transition-colors duration-300 hover:text-[#474cba]">
@@ -203,10 +203,10 @@ const Home = ({
           <a href="contact" className="text-8xl font-light ml-[65px] transition-colors duration-300 hover:text-[#dee13e]">
             Contact Us
           </a>
-          <a href="clients" className="text-5xl font-light ml-[65px] transition-colors duration-300 hover:text-[#5cba47]">
+          <a href="clients" className="text-6xl font-light ml-[70px] transition-colors duration-300 hover:text-[#5cba47]">
             Our Clients
           </a>
-          <a href="story" className="text-3xl font-light ml-[65px] transition-colors duration-300 hover:text-[#ba47ae]">
+          <a href="story" className="text-4xl font-light ml-[225px] mt-[-60px] transition-colors duration-300 hover:text-[#ba47ae]">
             Our Story
           </a>
         </div>
