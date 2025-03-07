@@ -125,7 +125,7 @@ const Home = () => {
       {/* Hero Section */}
       <div className=" flex flex-col items-center justify-center text-center py-10">
         <div className="md:w-full font-[Heathergreen] font-normal flex flex-col items-center">
-          <p className="font-semibold text-9xl md:text-[150px] md:leading-[50px] leading-[50px] tracking-[2px]">
+          <p className="font-semibold text-8xl md:text-[150px] md:leading-[50px] leading-[50px] tracking-[2px]">
             Find the Right Plan
           </p>
         </div>
