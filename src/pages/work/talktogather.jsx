@@ -6,12 +6,19 @@ import MainScreen from "../../assets/Main Screen 1.svg"; // Adjust path if neede
 import LeftImg from "../../assets/Show Categories 1.svg"; // Adjust path if needed
 import RightImg from "../../assets/Messages - Conversation 1.svg"; // Adjust path if needed
 import Img1 from "../../assets/image 1.svg"; // Adjust path if needed
+import Img2 from "../../assets/image 2.svg"; // Adjust path if needed
+import Img3 from "../../assets/image 3.svg"; // Adjust path if needed
+import Img4 from "../../assets/image 4.svg"; // Adjust path if needed
+import Img5 from "../../assets/Show Categories 2.svg"; // Adjust path if needed
+import Img6 from "../../assets/Messages - Selection 1.svg"; // Adjust path if needed
+// import Img7 from "../../assets/Group 16.svg"; // Adjust path if needed
+// import Img8 from "../../assets/Group 17.svg"; // Adjust path if needed
 
 const ContactPage = () => {
   return (
     <div className="relative bg-white">
       <Header />
-      
+
       <div className="flex justify-center md:mt-[100px] md:mb-[40px]">
         <img src={Talk} alt="" className="" />
       </div>
@@ -56,19 +63,141 @@ const ContactPage = () => {
         </p>
       </div>
 
-      <div className="flex flex-col items-center text-center px-4 py-12">
-        <h2 className="text-[#1B1B1B] font-poppins font-bold text-[60px] leading-[90px]">
+      <div className="flex flex-col items-start text-left px-4 py-12">
+        <h2 className="text-[#1B1B1B] font-poppins font-bold text-[60px] ml-[100px] leading-[90px]">
           App User Flow
         </h2>
-        <div className="mt-6">
+        <div className="mt-6 w-full ">
           <img
             src={Img1}
             alt="App User Flow Diagram"
-            className="w-full max-w-[1924px] h-auto"
+            className="w-[1924px] h-auto mr-[-2100px]"
           />
         </div>
       </div>
 
+      <div className="flex flex-col items-start text-left px-4 py-12">
+        <h2 className="text-[#1B1B1B] font-poppins font-bold text-[60px] ml-[100px] leading-[90px]">
+          Wireframes
+        </h2>
+        <div className="mt-6 w-full ">
+          <img
+            src={Img2}
+            alt="App User Flow Diagram"
+            className="w-full h-auto mr-[-2100px]"
+          />
+        </div>
+      </div>
+
+        <div className="flex w-ful flex-col items-start text-left">
+            <h2 className="text-[#1B1B1B] mb-[100px] font-poppins font-bold text-[80px] leading-[110px] ml-[98px] md:text-[50px] md:leading-[70px] md:ml-[90px] sm:text-[40px] sm:leading-[55px] sm:ml-[25px]">
+                App Shots
+            </h2>
+            
+            <div className="w-full h-full bg-[#32BBFF] p-10 md:p-5  sm:p-3 flex flex-col gap-2" style={{ paddingBottom: "400px" }}>
+                <img
+                src={Img3}
+                alt="App Screenshot 1"
+                className="w-[80%] h-full  mx-auto"
+                />
+                <div className="h-2"></div>
+                <img
+                src={Img4}
+                alt="App Screenshot 2"
+                className="w-[90%] h-full  mt-2 mx-auto"
+                />
+            </div>
+        </div>
+
+
+        <div className="flex bg-[#fc721f]   ">
+            <div>
+            <img
+                src={Img5}
+                alt="App Screenshot 1"
+                className="w-full h-full  "
+            />
+            </div>
+           <div>
+           <img
+                src={Img6}
+                alt="App Screenshot 2"
+                className="w-full h-full "
+            />
+           </div>
+        </div>
+
+        {/* <div className="flex flex-col items-start text-left ">
+            <img
+                src={Img7}
+                alt="App Screenshot 1"
+                className="w-full bg-[#32BBFF] h-full"
+            />
+            <img
+                src={Img8}
+                alt="App Screenshot 2"
+                className="w-full bg-[#32BBFF] h-full"
+            />
+
+        </div> */}
+
+        <div className="px-6 py-12">
+            <h2 className="text-[#1B1B1B] font-poppins font-bold text-[50px] leading-[70px] md:text-[40px] md:leading-[55px] sm:text-[30px] sm:leading-[45px]">
+                Key Features
+            </h2>
+
+                <div className="grid grid-cols-3 gap-4 w-full max-w-[1471px] mx-auto mt-8">
+                    <div className="bg-[#1554F6] text-white font-bold text-2xl rounded-xl py-4 text-center">
+                    Live Rooms
+                    </div>
+                    <div className="bg-[#1554F6] text-white font-bold text-2xl rounded-xl py-4 text-center">
+                    Live Rooms
+                    </div>
+                    <div className="bg-[#1554F6] text-white font-bold text-2xl rounded-xl py-4 text-center">
+                    Live Rooms
+                    </div>
+
+                    {/* Second Row */}
+                    <div className="bg-[#FBD81B] text-black font-bold text-2xl rounded-xl py-4 text-center">
+                    Chat Rooms
+                    </div>
+                    <div className="bg-[#FBD81B] text-black font-bold text-2xl rounded-xl py-4 text-center">
+                    Chat Rooms
+                    </div>
+                    <div className="bg-[#FBD81B] text-black font-bold text-2xl rounded-xl py-4 text-center">
+                    Chat Rooms
+                    </div>
+
+                    {/* Third Row */}
+                    <div className="bg-[#FF7F32] text-white font-bold text-2xl rounded-xl py-4 text-center">
+                    Events
+                    </div>
+                    <div className="bg-[#FF7F32] text-white font-bold text-2xl rounded-xl py-4 text-center">
+                    Events
+                    </div>
+                    <div className="bg-[#FF7F32] text-white font-bold text-2xl rounded-xl py-4 text-center">
+                    Events
+                    </div>
+                </div>
+        </div>
+
+      {/* End of the divs */}
+      <div className="flex flex-col items-center justify-center text-center font-[Just_Another_Hand,cursive] mb-[180px] mt-[180px]">
+        <p className="text-[50px] leading-[121px] font-normal text-black">
+          Want to see what can Fooliz do for you?
+        </p>
+        <div className="flex items-center gap-2 mt-4 ">
+          <a
+            href="/your-target-url" // Replace with your actual URL
+            className="bg-[#D9E021] text-black px-8 py-4 rounded-full text-[50px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
+          >
+            Fill out a project
+          </a>
+          <p className="text-[100px]  text-black">
+            Brief and get the ball rolling!
+          </p>
+        </div>
+      </div>
       <Footer />
     </div>
   );
