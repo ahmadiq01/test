@@ -147,7 +147,7 @@ const Home = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           
           {/* Basic Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
               <img src={Basic} className="object-cover w-full h-full" alt="Basic Plan" />
             </div>
@@ -158,7 +158,7 @@ const Home = () => {
 
 
           {/* Standard Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
               <img src={Standard} className="object-cover w-full h-full" alt="Basic Plan" />
             </div>
@@ -168,7 +168,7 @@ const Home = () => {
         </div>
 
           {/* Premium Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
               <img src={Premium} className="object-cover w-full h-full" alt="Basic Plan" />
             </div>
@@ -180,7 +180,7 @@ const Home = () => {
           {/* Single Payment Plan */}
           
           <a href="" className="block">
-            <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b from-green-500 to-green-700 rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+            <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
               <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
                 <img src={Single} className="object-cover w-full h-full" alt="Basic Plan" />
               </div>
