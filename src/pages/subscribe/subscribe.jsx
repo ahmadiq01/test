@@ -222,113 +222,64 @@ const Home = () => {
       {/* Pricing Plans Section */}
       <div className="bg-[#dee13e] flex items-center justify-center px-4 sm:px-6 py-6 sm:py-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          {/* Basic Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-              <img
-                src={Basic}
-                className="object-cover w-full h-full"
-                alt="Basic Plan"
-              />
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <img
-                src={Basic2}
-                className="object-cover w-full h-full"
-                alt="Basic Plan Hover"
-              />
-            </div>
-          </div>
-
-          {/* Standard Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-              <img
-                src={Standard}
-                className="object-cover w-full h-full"
-                alt="Basic Plan"
-              />
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <img
-                src={Standard2}
-                className="object-cover w-full h-full"
-                alt="Basic Plan Hover"
-              />
-            </div>
-          </div>
-
-          {/* Premium Plan */}
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-              <img
-                src={Premium}
-                className="object-cover w-full h-full"
-                alt="Basic Plan"
-              />
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <img
-                src={Premium2}
-                className="object-cover w-full h-full"
-                alt="Basic Plan Hover"
-              />
-            </div>
-          </div>
-
-          {/* Single Payment Plan */}
-
-          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-            {/* Background images that cover the entire div */}
-            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-              <img
-                src={Single}
-                className="object-cover w-full h-full"
-                alt="Basic Plan"
-              />
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-800 opacity-0 group-hover:opacity-100">
-              <img
-                src={Single2}
-                className="object-cover w-full h-full"
-                alt="Basic Plan Hover"
-              />
-            </div>
-
-            {/* Invisible divisions with functionality */}
-            {/* Top third - static, just for visual purposes */}
-            <div className="absolute top-0 left-0 w-full h-1/3 z-10">
-              {/* No visible content */}
-            </div>
-
-            {/* Middle third - WhatsApp link */}
-            <a
-              href="https://wa.me/yourphonenumber"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-1/3 left-0 w-full h-1/3 z-10 cursor-pointer"
-            >
-              {/* No visible content */}
-            </a>
-
-            {/* Bottom third - Scroll to div */}
+          {[
+            { img: Basic, imgHover: Basic2 },
+            { img: Standard, imgHover: Standard2 },
+            { img: Premium, imgHover: Premium2 },
+            { img: Single, imgHover: Single2 },
+          ].map((plan, index) => (
             <div
-              onClick={() => {
-                const targetDiv = document.getElementById("targetDivId");
-                if (targetDiv) {
-                  targetDiv.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-              className="absolute bottom-0 left-0 w-full h-1/3 z-10 cursor-pointer"
+              key={index}
+              className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
             >
-              {/* No visible content */}
+              <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
+                <img
+                  src={plan.img}
+                  className="object-cover w-full h-full"
+                  alt={`Plan ${index}`}
+                />
+              </div>
+              <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <img
+                  src={plan.imgHover}
+                  className="object-cover w-full h-full"
+                  alt={`Plan ${index} Hover`}
+                />
+              </div>
+
+              {/* Invisible divisions for functionality */}
+              <div className="absolute top-0 left-0 w-full h-1/2 z-10">
+                {/* Static division */}
+              </div>
+
+              {/* WhatsApp link */}
+              <a
+                href="https://wa.me/yourphonenumber"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-1/3 left-0 w-full h-1/2 z-10 cursor-pointer"
+              ></a>
+
+              {/* Scroll functionality */}
+              <div
+                onClick={() => {
+                  const targetDiv = document.getElementById("targetDivId");
+                  if (targetDiv) {
+                    targetDiv.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="absolute bottom-0 left-0 w-full h-1/4 z-10 cursor-pointer"
+              ></div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
       {/* Plan Comparison Section */}
-      <div className="bg-[#dee13e] py-16 flex flex-col items-center font-[Heathergreen] font-normal">
+      <div
+        id="targetDivId"
+        className="bg-[#dee13e] py-16 flex flex-col items-center font-[Heathergreen] font-normal"
+      >
         {/* Title for both views */}
         <h2 className="text-black font-[Heathergreen] md:text-5xl md:mt-10 md:text-[150px] rounded-2xl text-[130px] md:w-full text-center mb-16">
           Plan Comparison
