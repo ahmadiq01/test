@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaCheck, FaTimes } from "react-icons/fa";
 import vectorIcon from "../../assets/Vector.svg"; // Adjust the path as needed
 
 import Basic from "../../assets/basic.svg"; 
@@ -21,6 +21,26 @@ const Home = () => {
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  // Fixed plan data structure
+  const mobilePlans = [
+    { name: 'Basic', hours: 4, devs: 1, designers: 0, managers: 1, social: 0, weekendRate: 3, maintenance: true, cancel: true },
+    { name: 'Standard', hours: 6, devs: 1, designers: 1, managers: 1, social: 0, weekendRate: 4, maintenance: true, cancel: true },
+    { name: 'Premium', hours: 8, devs: 2, designers: 2, managers: 1, social: 1, weekendRate: 5, maintenance: true, cancel: true },
+    { name: 'Single', hours: 8, devs: 1, designers: 1, managers: 1, social: 1, weekendRate: 'N/A', maintenance: false, cancel: false },
+  ];
+
+  // Fixed the features data structure
+  const mobileFeatures = [
+    { label: 'Daily Working Hours', key: 'hours' },
+    { label: 'Android Developer(s)', key: 'devs' },
+    { label: 'Creative Designer(s)', key: 'designers' },
+    { label: 'Project Manager(s)', key: 'managers' },
+    { label: 'Social Media Manager(s)', key: 'social' },
+    { label: 'Weekend Hourly Rate ($)', key: 'weekendRate' },
+    { label: 'Ongoing App Maintenance', key: 'maintenance', icon: true },
+    { label: 'Free Cancellation?', key: 'cancel', icon: true },
+  ];
 
   const faqs = [
     {
@@ -62,7 +82,7 @@ const Home = () => {
     },
     {
       question: "How long does it take to get started after signing up?",
-      answer: "Once you’ve subscribed to a plan and completed payment, the team will be assigned and ready to start instantly.",
+      answer: "Once you've subscribed to a plan and completed payment, the team will be assigned and ready to start instantly.",
     },
     {
       question: "Can I request multiple projects in one subscription plan?",
@@ -118,6 +138,11 @@ const Home = () => {
     "Ayein",
   ];
   const plans = ["Basic", "Standard", "Premium", "Custom"];
+
+  // Render check icons for comparison table
+  const renderCheckIcon = () => (
+    <img src={vectorIcon} alt="Checkmark" className="w-10 h-10" />
+  );
 
   return (
     <div className="flex flex-col bg-[#dee13e] min-h-screen">
@@ -189,21 +214,17 @@ const Home = () => {
               </div>
             </div>
           </a>
-
-
         </div>
     </div>
 
-
-      {/* Plan Comparison Table */}
+      {/* Plan Comparison Section */}
       <div className="bg-[#dee13e] py-16 flex flex-col items-center font-[Heathergreen] font-normal">
-      {/* Title */}
-      <h2 className="text-black font-[Heathergreen] md:text-5xl md:mt-10 md:text-[150px] rounded-2xl text-[130px] md:w-full text-center mb-16">
-        Plan Comparison
-      </h2>
+        {/* Title for both views */}
+        <h2 className="text-black font-[Heathergreen] md:text-5xl md:mt-10 md:text-[150px] rounded-2xl text-[130px] md:w-full text-center mb-16">
+          Plan Comparison
+        </h2>
 
-      {/* Grid Layout */}
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-5 gap-12 items-start pb-[50px]">
+        <div className="w-full hidden md:block max-w-6xl flex flex-cols-1 md:grid-cols-5 gap-12 items-start pb-[50px]">
         {/* Feature Column */}
         <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
         <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
@@ -228,9 +249,42 @@ const Home = () => {
             </ul>
           </div>
         ))}
-      </div>
-    </div>
+       </div>
 
+        {/* Mobile Comparison Table - Only visible on small screens */}
+        <div className="block md:hidden w-full max-w-6xl px-4 pb-[50px]">
+          <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
+            <div className="grid grid-cols-5 bg-black text-white font-bold text-sm py-4 text-center">
+              <div className="col-span-1">Features</div>
+              {mobilePlans.map((plan) => (
+                <div key={plan.name} className="px-2">{plan.name}</div>
+              ))}
+            </div>
+            
+            {mobileFeatures.map((feature) => (
+              <div key={feature.key} className="text-xs grid grid-cols-5 items-center text-center">
+                <div className="col-span-1 text-left pl-4 py-3 font-medium border-b">
+                  {feature.label}
+                </div>
+                
+                {mobilePlans.map((plan) => (
+                  <div key={`${plan.name}-${feature.key}`} className="border-b py-3">
+                    {feature.icon ? (
+                      plan[feature.key] ? (
+                        <FaCheck className="w-4 h-4 mx-auto text-green-600" />
+                      ) : (
+                        <FaTimes className="w-4 h-4 mx-auto text-red-500" />
+                      )
+                    ) : (
+                      plan[feature.key]
+                    )}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* FAQ Section */}
       <div className="bg-[#914A8E] py-16 px-5 flex flex-col items-center">
