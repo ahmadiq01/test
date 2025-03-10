@@ -178,7 +178,7 @@ const ContactPage = () => {
                             className="w-[133px] h-[129.88px] rounded-full mb-4"
                         />
                         <h3 className="text-white font-bold text-xl">{testimonial.name}</h3>
-                        <p className="text-white mt-2 text-sm">{testimonial.text}</p>
+                        <p className="text-black mt-2 text-sm">{testimonial.text}</p>
                     </div>
                 ))}
             </div>
