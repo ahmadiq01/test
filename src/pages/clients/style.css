@@ -5,3 +5,39 @@
 .slider::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
+
+/* Add these styles to your style.css file */
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+  
+  /* Animation for continuous scrolling */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-295px * 4 - 24px * 4)); /* Width of 4 cards + gaps */
+    }
+  }
+  
+  .infinite-scroll-wrapper {
+    display: flex;
+    width: max-content;
+  }
+  
+  .auto-scrolling {
+    animation: scroll 15s linear infinite;
+  }
+  
+  /* Pause animation on hover/interaction */
+  .paused {
+    animation-play-state: paused;
+  }
