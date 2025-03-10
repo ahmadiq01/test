@@ -268,7 +268,7 @@ const Home = () => {
                     targetDiv.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="absolute bottom-0 left-0 w-full h-1/4 z-10 cursor-pointer"
+                className="absolute bottom-0 left-0 w-full h-1/5 z-10 cursor-pointer"
               ></div>
             </div>
           ))}
