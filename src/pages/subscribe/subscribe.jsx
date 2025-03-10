@@ -224,32 +224,32 @@ const Home = () => {
           Plan Comparison
         </h2>
 
-        <div className="w-full hidden md:block max-w-6xl flex flex-cols-1 md:grid-cols-5 gap-12 items-start pb-[50px]">
-        {/* Feature Column */}
-        <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
-        <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
-          Plans
-        </h3>
-        <ul className="mt-6 text-center space-y-6 flex-grow">
-          {features.map((feature, index) => (
-            <li key={index} className="text-4xl font-[Poppins] font-semi-bold">{feature}</li>
-          ))}
-        </ul>
-        </div>
-        {/* Plan Columns */}
-        {plans.map((plan, index) => (
-          <div key={index} className="text-black text-center mt-[-14px] w-[250px] md:w-full min-h-[500px] flex flex-col">
-            <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
-            <ul className="space-y-6 flex-grow">
-              {features.map((_, idx) => (
-                <li key={idx} className="flex justify-center">
-                  <img src={vectorIcon} alt="Checkmark" className="w-10 h-10" />
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="w-full hidden md:grid md:grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
+  {/* Feature Column */}
+  <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
+    <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
+      Plans
+    </h3>
+    <ul className="mt-6 text-center space-y-6 flex-grow">
+      {features.map((feature, index) => (
+        <li key={index} className="text-4xl font-[Poppins] font-semi-bold">{feature}</li>
+      ))}
+    </ul>
+  </div>
+  {/* Plan Columns */}
+  {plans.map((plan, index) => (
+    <div key={index} className="text-black text-center mt-[-14px] w-[250px] md:w-full min-h-[500px] flex flex-col">
+      <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
+      <ul className="space-y-6 flex-grow">
+        {features.map((_, idx) => (
+          <li key={idx} className="flex justify-center">
+            <img src={vectorIcon} alt="Checkmark" className="w-10 h-10" />
+          </li>
         ))}
-       </div>
+      </ul>
+    </div>
+  ))}
+</div>
 
         {/* Mobile Comparison Table - Only visible on small screens */}
         <div className="block md:hidden w-full max-w-6xl px-4 pb-[50px]">
@@ -286,43 +286,44 @@ const Home = () => {
         </div>
       </div>
 
-      {/* FAQ Section */}
-      <div className="bg-[#914A8E] py-16 px-5 flex flex-col items-center">
-        <h2 className="text-black font-normal font-[Heathergreen] text-5xl mb-10 text-center font=[Heathergreen] mt-[0]  md:text-[150px] w-full flex flex-col items-center">
-          Frequently Asked Questions
-        </h2>
+    {/* FAQ Section */}
+<div className="bg-[#914A8E] py-16 px-5 flex flex-col items-center">
+  <h2 className="text-black font-normal font-[Heathergreen] text-5xl mb-10 text-center font=[Heathergreen] mt-[0] md:text-[150px] w-full flex flex-col items-center">
+    Frequently Asked Questions
+  </h2>
 
-        {/* FAQ List */}
-        <div className="w-full pb-[100px] space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-4"
-            >
-              {/* Question Section */}
-              <div
-                className="w-[80%] mx-auto flex justify-between items-center text-4xl p-4 font-[Poppins]"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span>{faq.question}</span>
-                {openIndex === index ? (
-                  <FaChevronUp className="text-white" />
-                ) : (
-                  <FaChevronDown className="text-white" />
-                )}
-              </div>
-
-              {/* Answer Section (Aligned with the question) */}
-              {openIndex === index && (
-                <p className="w-[70%] ml-auto mr-[19%] text-white text-2xl font-semibold mt-2 p-4 rounded-lg">
-                  {faq.answer}
-                </p>
-              )}
-            </div>
-          ))}
+  {/* FAQ List */}
+  <div className="w-full pb-[100px] space-y-4">
+    {faqs.map((faq, index) => (
+      <div
+        key={index}
+        className={`w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-4 ${
+          index >= 2 ? "md:hidden" : "" // Hide after first two on md and larger screens
+        }`}
+      >
+        {/* Question Section */}
+        <div
+          className="w-[80%] mx-auto flex justify-between items-center text-4xl p-4 font-[Poppins]"
+          onClick={() => toggleFAQ(index)}
+        >
+          <span>{faq.question}</span>
+          {openIndex === index ? (
+            <FaChevronUp className="text-white" />
+          ) : (
+            <FaChevronDown className="text-white" />
+          )}
         </div>
-      </div>
 
+        {/* Answer Section (Aligned with the question) */}
+        {openIndex === index && (
+          <p className="w-[70%] ml-auto mr-[19%] text-white text-2xl font-semibold mt-2 p-4 rounded-lg">
+            {faq.answer}
+          </p>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
       {/* Extra Spacing Before Footer */}
       <div className="h-16"></div>
 
