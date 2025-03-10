@@ -9,7 +9,7 @@ import Standard from "../../assets/standard.svg";
 import Premium from "../../assets/premium.svg";
 import Single from "../../assets/single.svg";
 
-import Basic2 from "../../assets/basic2.png";
+import Basic2 from "../../assets/basic2.svg";
 import Standard2 from "../../assets/standard2.svg";
 import Premium2 from "../../assets/premium2.svg";
 import Single2 from "../../assets/single2.svg";
