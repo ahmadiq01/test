@@ -209,17 +209,17 @@ const ContactPage = () => {
 
       {/* End of the divs */}
       <div className="flex flex-col items-center justify-center text-center font-[Just_Another_Hand,cursive] mb-[180px] mt-[180px]">
-        <p className="text-[70px] leading-[121px] font-normal text-black">
+        <p className="md:text-[90px] text-[40px] leading-[121px] font-normal text-black">
           Want to see what can Fooliz do for you?
         </p>
         <div className="flex items-center gap-2 mt-4 ">
           <a
-            href="contact" // Replace with your actual URL
-            className="bg-[#D9E021] text-black px-8 py-4 rounded-full text-[50px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
+            href="/contact" // Replace with your actual URL
+            className="bg-[#D9E021] font-semi-bold px-8 py-4 rounded-full md:text-[35px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
           >
             Fill out a project
           </a>
-          <p className="text-[70px]  text-black">
+          <p className="text-[40px] md:text-[80px]  text-black">
             Brief and get the ball rolling!
           </p>
         </div>
