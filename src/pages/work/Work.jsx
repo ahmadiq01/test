@@ -20,14 +20,14 @@ import Pic9 from "../../assets/9.svg";
 const ContactPage = () => {
   const imageData = [
     { id: 1, primary: Mobile1, secondary: Mobile2, text: "Image 1", icon: Pic21, link: "talktogather" },
-    { id: 2, primary: Pic2, text: "Image 2", icon: Pic21 },
-    { id: 3, primary: Pic3, text: "Image 3" },
-    { id: 4, primary: Pic4, text: "Image 4" },
-    { id: 5, primary: Pic5, text: "Image 5", icon: Pic21 },
-    { id: 6, primary: Pic6, text: "Image 6" },
-    { id: 7, primary: Pic7, text: "Image 7" },
-    { id: 8, primary: Pic8, text: "Image 8" },
-    { id: 9, primary: Pic9, text: "Image 9", icon: Pic21 },
+    { id: 2, primary: Pic2, secondary: Mobile2, text: "Image 2", icon: Pic21 },
+    { id: 3, primary: Pic3, secondary: Mobile2, text: "Image 3" },
+    { id: 4, primary: Pic4, secondary: Mobile2, text: "Image 4" },
+    { id: 5, primary: Pic5, secondary: Mobile2, text: "Image 5", icon: Pic21 },
+    { id: 6, primary: Pic6, secondary: Mobile2, text: "Image 6" },
+    { id: 7, primary: Pic7, secondary: Mobile2, text: "Image 7" },
+    { id: 8, primary: Pic8, secondary: Mobile2, text: "Image 8" },
+    { id: 9, primary: Pic9, secondary: Mobile2, text: "Image 9", icon: Pic21 },
   ];
   
   return (
@@ -118,7 +118,7 @@ const ContactPage = () => {
         </p>
         <div className="flex items-center gap-2 mt-4 ">
           <a
-            href="/your-target-url" // Replace with your actual URL
+            href="/contact" // Replace with your actual URL
             className="bg-[#D9E021] font-semi-bold px-8 py-4 rounded-full md:text-[35px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
           >
             Fill out a project
