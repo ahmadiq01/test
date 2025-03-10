@@ -4,16 +4,15 @@ import Footer from "../../components/footer/footer";
 import { FaChevronDown, FaChevronUp, FaCheck, FaTimes } from "react-icons/fa";
 import vectorIcon from "../../assets/Vector.svg"; // Adjust the path as needed
 
-import Basic from "../../assets/basic.svg"; 
-import Standard from "../../assets/standard.svg"; 
-import Premium from "../../assets/premium.svg"; 
-import Single from "../../assets/single.svg"; 
+import Basic from "../../assets/basic.svg";
+import Standard from "../../assets/standard.svg";
+import Premium from "../../assets/premium.svg";
+import Single from "../../assets/single.svg";
 
-import Basic2 from "../../assets/basic2.svg"; 
-import Standard2 from "../../assets/standard2.svg"; 
-import Premium2 from "../../assets/premium2.svg"; 
-import Single2 from "../../assets/single2.svg"; 
-
+import Basic2 from "../../assets/basic2.png";
+import Standard2 from "../../assets/standard2.svg";
+import Premium2 from "../../assets/premium2.svg";
+import Single2 from "../../assets/single2.svg";
 
 const Home = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -24,22 +23,62 @@ const Home = () => {
 
   // Fixed plan data structure
   const mobilePlans = [
-    { name: 'Basic', hours: 4, devs: 1, designers: 0, managers: 1, social: 0, weekendRate: 3, maintenance: true, cancel: true },
-    { name: 'Standard', hours: 6, devs: 1, designers: 1, managers: 1, social: 0, weekendRate: 4, maintenance: true, cancel: true },
-    { name: 'Premium', hours: 8, devs: 2, designers: 2, managers: 1, social: 1, weekendRate: 5, maintenance: true, cancel: true },
-    { name: 'Single', hours: 8, devs: 1, designers: 1, managers: 1, social: 1, weekendRate: 'N/A', maintenance: false, cancel: false },
+    {
+      name: "Basic",
+      hours: 4,
+      devs: 1,
+      designers: 0,
+      managers: 1,
+      social: 0,
+      weekendRate: 3,
+      maintenance: true,
+      cancel: true,
+    },
+    {
+      name: "Standard",
+      hours: 6,
+      devs: 1,
+      designers: 1,
+      managers: 1,
+      social: 0,
+      weekendRate: 4,
+      maintenance: true,
+      cancel: true,
+    },
+    {
+      name: "Premium",
+      hours: 8,
+      devs: 2,
+      designers: 2,
+      managers: 1,
+      social: 1,
+      weekendRate: 5,
+      maintenance: true,
+      cancel: true,
+    },
+    {
+      name: "Single",
+      hours: 8,
+      devs: 1,
+      designers: 1,
+      managers: 1,
+      social: 1,
+      weekendRate: "N/A",
+      maintenance: false,
+      cancel: false,
+    },
   ];
 
   // Fixed the features data structure
   const mobileFeatures = [
-    { label: 'Daily Working Hours', key: 'hours' },
-    { label: 'Android Developer(s)', key: 'devs' },
-    { label: 'Creative Designer(s)', key: 'designers' },
-    { label: 'Project Manager(s)', key: 'managers' },
-    { label: 'Social Media Manager(s)', key: 'social' },
-    { label: 'Weekend Hourly Rate ($)', key: 'weekendRate' },
-    { label: 'Ongoing App Maintenance', key: 'maintenance', icon: true },
-    { label: 'Free Cancellation?', key: 'cancel', icon: true },
+    { label: "Daily Working Hours", key: "hours" },
+    { label: "Android Developer(s)", key: "devs" },
+    { label: "Creative Designer(s)", key: "designers" },
+    { label: "Project Manager(s)", key: "managers" },
+    { label: "Social Media Manager(s)", key: "social" },
+    { label: "Weekend Hourly Rate ($)", key: "weekendRate" },
+    { label: "Ongoing App Maintenance", key: "maintenance", icon: true },
+    { label: "Free Cancellation?", key: "cancel", icon: true },
   ];
 
   const faqs = [
@@ -54,15 +93,18 @@ const Home = () => {
     },
     {
       question: "Are there discounts for long-term subscriptions?",
-      answer: "Yes, we offer 5% and 10% discounts for clients who commit to 6-month or 12-month subscriptions.",
+      answer:
+        "Yes, we offer 5% and 10% discounts for clients who commit to 6-month or 12-month subscriptions.",
     },
     {
       question: "Are weekends included in the subscription plans?",
-      answer: "No, the subscription plans cover work from Monday to Friday only. However, if you need work done on Saturdays or Sundays, it can be arranged at an additional hourly rate.",
+      answer:
+        "No, the subscription plans cover work from Monday to Friday only. However, if you need work done on Saturdays or Sundays, it can be arranged at an additional hourly rate.",
     },
     {
       question: "How do I cancel my subscription, and are there any fees?",
-      answer: "You can cancel your subscription at any time without any cancellation fees. However, we require a 1-month notice before cancellation.",
+      answer:
+        "You can cancel your subscription at any time without any cancellation fees. However, we require a 1-month notice before cancellation.",
     },
     {
       question: "How can I make payments for the services?",
@@ -70,73 +112,84 @@ const Home = () => {
     },
     {
       question: "Can I upgrade or downgrade my subscription plan?",
-      answer: "Yes, you can upgrade or downgrade your subscription plan at any time. However, changes will be effective from the start of the next billing cycle.",
+      answer:
+        "Yes, you can upgrade or downgrade your subscription plan at any time. However, changes will be effective from the start of the next billing cycle.",
     },
     {
       question: "What are the hourly rates for weekend work?",
-      answer: "Hourly rate for weekend work of Developer ($10/hr), Designer ($5/hr), Social Media Manager ($5/hr).",
+      answer:
+        "Hourly rate for weekend work of Developer ($10/hr), Designer ($5/hr), Social Media Manager ($5/hr).",
     },
     {
       question: "Will my project be maintained as part of the subscription?",
-      answer: "Yes, maintenance is included in all subscription plans. We will ensure your app is updated and functional.",
+      answer:
+        "Yes, maintenance is included in all subscription plans. We will ensure your app is updated and functional.",
     },
     {
       question: "How long does it take to get started after signing up?",
-      answer: "Once you've subscribed to a plan and completed payment, the team will be assigned and ready to start instantly.",
+      answer:
+        "Once you've subscribed to a plan and completed payment, the team will be assigned and ready to start instantly.",
     },
     {
       question: "Can I request multiple projects in one subscription plan?",
-      answer: "Yes, you can request multiple projects as long as they fit within the allocated hours and team roles provided in your subscription package.",
+      answer:
+        "Yes, you can request multiple projects as long as they fit within the allocated hours and team roles provided in your subscription package.",
     },
     {
       question: "How do you handle confidential or proprietary information?",
-      answer: "We are committed to protecting your confidentiality. All team members sign Non-Disclosure Agreements (NDAs) to ensure your information remains secure.",
+      answer:
+        "We are committed to protecting your confidentiality. All team members sign Non-Disclosure Agreements (NDAs) to ensure your information remains secure.",
     },
     {
-      question: "What happens if I need more hours than allocated in my subscription plan?",
-      answer: "If you require additional hours, you can consider upgrading to a higher subscription plan.",
+      question:
+        "What happens if I need more hours than allocated in my subscription plan?",
+      answer:
+        "If you require additional hours, you can consider upgrading to a higher subscription plan.",
     },
     {
       question: "Do I have direct communication with the assigned team?",
-      answer: "Yes, you will have direct communication with your project manager, who will serve as your primary point of contact and facilitate communication with the team.",
+      answer:
+        "Yes, you will have direct communication with your project manager, who will serve as your primary point of contact and facilitate communication with the team.",
     },
     {
       question: "Can I pause my subscription temporarily?",
-      answer: "Yes, you can pause your subscription temporarily. Please inform us at least 2 weeks in advance.",
+      answer:
+        "Yes, you can pause your subscription temporarily. Please inform us at least 2 weeks in advance.",
     },
     {
       question: "How do I track the progress of my project?",
-      answer: "Your project manager will provide regular updates through reports and meetings. You can also request additional updates as needed.",
+      answer:
+        "Your project manager will provide regular updates through reports and meetings. You can also request additional updates as needed.",
     },
     {
       question: "What kind of apps or software do you specialize in?",
-      answer: "We specialize in Android app development, UI/UX design, Graphic Design, social media management, all tailored to your needs.",
+      answer:
+        "We specialize in Android app development, UI/UX design, Graphic Design, social media management, all tailored to your needs.",
     },
     {
-      question: "Are there any limits to the features I can request in a subscription plan?",
+      question:
+        "Are there any limits to the features I can request in a subscription plan?",
       answer: "There are no limits!",
     },
     {
       question: "What tools and technologies do you use for development?",
-      answer: "We use industry-standard tools and technologies, including Android Studio, Firebase, Kotlin, Java, Adobe XD, Figma, and other modern frameworks as per project requirements.",
+      answer:
+        "We use industry-standard tools and technologies, including Android Studio, Firebase, Kotlin, Java, Adobe XD, Figma, and other modern frameworks as per project requirements.",
     },
     {
       question: "Do you offer post-project support for Single Payment?",
-      answer: "Yes, we offer post-project support at an additional cost or you can subscribe to any plan too and get any feature for free.",
+      answer:
+        "Yes, we offer post-project support at an additional cost or you can subscribe to any plan too and get any feature for free.",
     },
     {
-      question: "Can I modify the scope of work during an ongoing Single Payment?",
-      answer: "Yes, but any additional work or requirements not initially agreed upon will incur extra charges. We will provide a new cost and time estimate for the added scope.",
+      question:
+        "Can I modify the scope of work during an ongoing Single Payment?",
+      answer:
+        "Yes, but any additional work or requirements not initially agreed upon will incur extra charges. We will provide a new cost and time estimate for the added scope.",
     },
   ];
 
-  const features = [
-    "Ayein",
-    "Ayein",
-    "Ayein",
-    "Ayein",
-    "Ayein",
-  ];
+  const features = ["Ayein", "Ayein", "Ayein", "Ayein", "Ayein"];
   const plans = ["Basic", "Standard", "Premium", "Custom"];
 
   // Render check icons for comparison table
@@ -168,54 +221,111 @@ const Home = () => {
 
       {/* Pricing Plans Section */}
       <div className="bg-[#dee13e] flex items-center justify-center px-4 sm:px-6 py-6 sm:py-10">
-      
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          
           {/* Basic Plan */}
           <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-              <img src={Basic} className="object-cover w-full h-full" alt="Basic Plan" />
+              <img
+                src={Basic}
+                className="object-cover w-full h-full"
+                alt="Basic Plan"
+              />
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <img src={Basic2} className="object-cover w-full h-full" alt="Basic Plan Hover" />
+              <img
+                src={Basic2}
+                className="object-cover w-full h-full"
+                alt="Basic Plan Hover"
+              />
             </div>
-        </div>
-
+          </div>
 
           {/* Standard Plan */}
           <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-              <img src={Standard} className="object-cover w-full h-full" alt="Basic Plan" />
+              <img
+                src={Standard}
+                className="object-cover w-full h-full"
+                alt="Basic Plan"
+              />
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <img src={Standard2} className="object-cover w-full h-full" alt="Basic Plan Hover" />
+              <img
+                src={Standard2}
+                className="object-cover w-full h-full"
+                alt="Basic Plan Hover"
+              />
             </div>
-        </div>
+          </div>
 
           {/* Premium Plan */}
           <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-              <img src={Premium} className="object-cover w-full h-full" alt="Basic Plan" />
+              <img
+                src={Premium}
+                className="object-cover w-full h-full"
+                alt="Basic Plan"
+              />
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <img src={Premium2} className="object-cover w-full h-full" alt="Basic Plan Hover" />
+              <img
+                src={Premium2}
+                className="object-cover w-full h-full"
+                alt="Basic Plan Hover"
+              />
             </div>
-         </div>
+          </div>
 
           {/* Single Payment Plan */}
-          
-          <a href="" className="block">
-            <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b  rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
-                <img src={Single} className="object-cover w-full h-full" alt="Basic Plan" />
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-800 opacity-0 group-hover:opacity-100">
-                <img src={Single2} className="object-cover w-full h-full" alt="Basic Plan Hover" />
-              </div>
+
+          <div className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg flex flex-col items-center justify-center relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+            {/* Background images that cover the entire div */}
+            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0">
+              <img
+                src={Single}
+                className="object-cover w-full h-full"
+                alt="Basic Plan"
+              />
             </div>
-          </a>
+            <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-800 opacity-0 group-hover:opacity-100">
+              <img
+                src={Single2}
+                className="object-cover w-full h-full"
+                alt="Basic Plan Hover"
+              />
+            </div>
+
+            {/* Invisible divisions with functionality */}
+            {/* Top third - static, just for visual purposes */}
+            <div className="absolute top-0 left-0 w-full h-1/3 z-10">
+              {/* No visible content */}
+            </div>
+
+            {/* Middle third - WhatsApp link */}
+            <a
+              href="https://wa.me/yourphonenumber"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute top-1/3 left-0 w-full h-1/3 z-10 cursor-pointer"
+            >
+              {/* No visible content */}
+            </a>
+
+            {/* Bottom third - Scroll to div */}
+            <div
+              onClick={() => {
+                const targetDiv = document.getElementById("targetDivId");
+                if (targetDiv) {
+                  targetDiv.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="absolute bottom-0 left-0 w-full h-1/3 z-10 cursor-pointer"
+            >
+              {/* No visible content */}
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
       {/* Plan Comparison Section */}
       <div className="bg-[#dee13e] py-16 flex flex-col items-center font-[Heathergreen] font-normal">
@@ -225,31 +335,43 @@ const Home = () => {
         </h2>
 
         <div className="w-full hidden md:grid md:grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
-  {/* Feature Column */}
-  <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
-    <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
-      Plans
-    </h3>
-    <ul className="mt-6 text-center space-y-6 flex-grow">
-      {features.map((feature, index) => (
-        <li key={index} className="text-4xl font-[Poppins] font-semi-bold">{feature}</li>
-      ))}
-    </ul>
-  </div>
-  {/* Plan Columns */}
-  {plans.map((plan, index) => (
-    <div key={index} className="text-black text-center mt-[-14px] w-[250px] md:w-full min-h-[500px] flex flex-col">
-      <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
-      <ul className="space-y-6 flex-grow">
-        {features.map((_, idx) => (
-          <li key={idx} className="flex justify-center">
-            <img src={vectorIcon} alt="Checkmark" className="w-10 h-10" />
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
-</div>
+          {/* Feature Column */}
+          <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
+            <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
+              Plans
+            </h3>
+            <ul className="mt-6 text-center space-y-6 flex-grow">
+              {features.map((feature, index) => (
+                <li
+                  key={index}
+                  className="text-4xl font-[Poppins] font-semi-bold"
+                >
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Plan Columns */}
+          {plans.map((plan, index) => (
+            <div
+              key={index}
+              className="text-black text-center mt-[-14px] w-[250px] md:w-full min-h-[500px] flex flex-col"
+            >
+              <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
+              <ul className="space-y-6 flex-grow">
+                {features.map((_, idx) => (
+                  <li key={idx} className="flex justify-center">
+                    <img
+                      src={vectorIcon}
+                      alt="Checkmark"
+                      className="w-10 h-10"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
         {/* Mobile Comparison Table - Only visible on small screens */}
         <div className="block md:hidden w-full max-w-6xl px-4 pb-[50px]">
@@ -257,18 +379,26 @@ const Home = () => {
             <div className="grid grid-cols-5 bg-black text-white font-bold text-sm py-4 text-center">
               <div className="col-span-1">Features</div>
               {mobilePlans.map((plan) => (
-                <div key={plan.name} className="px-2">{plan.name}</div>
+                <div key={plan.name} className="px-2">
+                  {plan.name}
+                </div>
               ))}
             </div>
-            
+
             {mobileFeatures.map((feature) => (
-              <div key={feature.key} className="text-xs grid grid-cols-5 items-center text-center">
+              <div
+                key={feature.key}
+                className="text-xs grid grid-cols-5 items-center text-center"
+              >
                 <div className="col-span-1 text-left pl-4 py-3 font-medium border-b">
                   {feature.label}
                 </div>
-                
+
                 {mobilePlans.map((plan) => (
-                  <div key={`${plan.name}-${feature.key}`} className="border-b py-3">
+                  <div
+                    key={`${plan.name}-${feature.key}`}
+                    className="border-b py-3"
+                  >
                     {feature.icon ? (
                       plan[feature.key] ? (
                         <FaCheck className="w-4 h-4 mx-auto text-green-600" />
@@ -286,44 +416,44 @@ const Home = () => {
         </div>
       </div>
 
-    {/* FAQ Section */}
-<div className="bg-[#914A8E] py-16 px-5 flex flex-col items-center">
-  <h2 className="text-black font-normal font-[Heathergreen] text-5xl mb-10 text-center font=[Heathergreen] mt-[0] md:text-[150px] w-full flex flex-col items-center">
-    Frequently Asked Questions
-  </h2>
+      {/* FAQ Section */}
+      <div className="bg-[#914A8E] py-16 px-5 flex flex-col items-center">
+        <h2 className="text-black font-normal font-[Heathergreen] text-5xl mb-10 text-center font=[Heathergreen] mt-[0] md:text-[150px] w-full flex flex-col items-center">
+          Frequently Asked Questions
+        </h2>
 
-  {/* FAQ List */}
-  <div className="w-full pb-[100px] space-y-4">
-    {faqs.map((faq, index) => (
-      <div
-        key={index}
-        className={`w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-4 ${
-          index >= 2 ? "md:hidden" : "" // Hide after first two on md and larger screens
-        }`}
-      >
-        {/* Question Section */}
-        <div
-          className="w-[80%] mx-auto flex justify-between items-center text-4xl p-4 font-[Poppins]"
-          onClick={() => toggleFAQ(index)}
-        >
-          <span>{faq.question}</span>
-          {openIndex === index ? (
-            <FaChevronUp className="text-white" />
-          ) : (
-            <FaChevronDown className="text-white" />
-          )}
+        {/* FAQ List */}
+        <div className="w-full pb-[100px] space-y-4">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className={`w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-4 ${
+                index >= 2 ? "md:hidden" : "" // Hide after first two on md and larger screens
+              }`}
+            >
+              {/* Question Section */}
+              <div
+                className="w-[80%] mx-auto flex justify-between items-center text-4xl p-4 font-[Poppins]"
+                onClick={() => toggleFAQ(index)}
+              >
+                <span>{faq.question}</span>
+                {openIndex === index ? (
+                  <FaChevronUp className="text-white" />
+                ) : (
+                  <FaChevronDown className="text-white" />
+                )}
+              </div>
+
+              {/* Answer Section (Aligned with the question) */}
+              {openIndex === index && (
+                <p className="w-[70%] ml-auto mr-[19%] text-white text-2xl font-semibold mt-2 p-4 rounded-lg">
+                  {faq.answer}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
-
-        {/* Answer Section (Aligned with the question) */}
-        {openIndex === index && (
-          <p className="w-[70%] ml-auto mr-[19%] text-white text-2xl font-semibold mt-2 p-4 rounded-lg">
-            {faq.answer}
-          </p>
-        )}
       </div>
-    ))}
-  </div>
-</div>
       {/* Extra Spacing Before Footer */}
       <div className="h-16"></div>
 
