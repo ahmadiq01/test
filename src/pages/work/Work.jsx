@@ -18,17 +18,77 @@ import Pic8 from "../../assets/8.svg";
 import Pic9 from "../../assets/9.svg";
 
 const ContactPage = () => {
+  // Add category property to each item
   const imageData = [
-    { id: 1, primary: Mobile1, secondary: Mobile2, text: "Image 1", icon: Pic21, link: "talktogather" },
-    { id: 2, primary: Pic2, secondary: Mobile2, text: "Image 2", icon: Pic21 },
-    { id: 3, primary: Pic3, secondary: Mobile2, text: "Image 3" },
-    { id: 4, primary: Pic4, secondary: Mobile2, text: "Image 4" },
-    { id: 5, primary: Pic5, secondary: Mobile2, text: "Image 5", icon: Pic21 },
-    { id: 6, primary: Pic6, secondary: Mobile2, text: "Image 6" },
-    { id: 7, primary: Pic7, secondary: Mobile2, text: "Image 7" },
-    { id: 8, primary: Pic8, secondary: Mobile2, text: "Image 8" },
-    { id: 9, primary: Pic9, secondary: Mobile2, text: "Image 9", icon: Pic21 },
+    { 
+      id: 1, 
+      primary: Mobile1, 
+      secondary: Mobile2, 
+      text: "Talk To Gather", 
+      link: "talktogather",
+      category: "App" 
+    },
+    { 
+      id: 2, 
+      primary: Pic2, 
+      text: "Multi Search Engine", 
+      icon: Pic21, 
+      category: "Web" 
+    },
+    { 
+      id: 3, 
+      primary: Pic3, 
+      text: "Image 3",
+      category: "UI/UX" 
+    },
+    { 
+      id: 4, 
+      primary: Pic4, 
+      text: "Image 4",
+      category: "Creative" 
+    },
+    { 
+      id: 5, 
+      primary: Pic5, 
+      text: "Image 5", 
+      category: "App" 
+    },
+    { 
+      id: 6, 
+      primary: Pic6, 
+      text: "Image 6",
+      category: "Web" 
+    },
+    { 
+      id: 7, 
+      primary: Pic7, 
+      text: "Image 7",
+      category: "UI/UX" 
+    },
+    { 
+      id: 8, 
+      primary: Pic8, 
+      text: "Image 8",
+      category: "Creative" 
+    },
+    { 
+      id: 9, 
+      primary: Pic9, 
+      text: "Image 9", 
+      category: "App" 
+    },
   ];
+  
+  // State for active filter
+  const [activeFilter, setActiveFilter] = useState("All");
+  
+  // Get filtered images based on active filter
+  const getFilteredImages = () => {
+    if (activeFilter === "All") {
+      return imageData;
+    }
+    return imageData.filter(item => item.category === activeFilter);
+  };
   
   return (
     <div className="relative min-h-screen bg-white">
@@ -59,11 +119,34 @@ const ContactPage = () => {
         <div className="w-[1588px] h-[185px] flex items-center justify-start">
           <p className="font-poppins font-normal text-[25px] leading-[37.5px] text-black">
             Filter by:
-            <span className="ml-4 cursor-pointer hover:underline">All</span>
-            <span className="ml-4 cursor-pointer hover:underline">App</span>
-            <span className="ml-4 cursor-pointer hover:underline">Web</span>
-            <span className="ml-4 cursor-pointer hover:underline">UI/UX</span>
-            <span className="ml-4 cursor-pointer hover:underline">
+            <span 
+              className={`ml-4 cursor-pointer hover:underline ${activeFilter === "All" ? "underline font-semibold" : ""}`}
+              onClick={() => setActiveFilter("All")}
+            >
+              All
+            </span>
+            <span 
+              className={`ml-4 cursor-pointer hover:underline ${activeFilter === "App" ? "underline font-semibold" : ""}`}
+              onClick={() => setActiveFilter("App")}
+            >
+              App
+            </span>
+            <span 
+              className={`ml-4 cursor-pointer hover:underline ${activeFilter === "Web" ? "underline font-semibold" : ""}`}
+              onClick={() => setActiveFilter("Web")}
+            >
+              Web
+            </span>
+            <span 
+              className={`ml-4 cursor-pointer hover:underline ${activeFilter === "UI/UX" ? "underline font-semibold" : ""}`}
+              onClick={() => setActiveFilter("UI/UX")}
+            >
+              UI/UX
+            </span>
+            <span 
+              className={`ml-4 cursor-pointer hover:underline ${activeFilter === "Creative" ? "underline font-semibold" : ""}`}
+              onClick={() => setActiveFilter("Creative")}
+            >
               Creative
             </span>
           </p>
@@ -71,7 +154,7 @@ const ContactPage = () => {
       </div>
       
       <div className="relative flex flex-wrap justify-center gap-16 mt-10">
-      {imageData.map((item) => (
+      {getFilteredImages().map((item) => (
         <a
           key={item.id}
           href={item.link}
@@ -99,13 +182,18 @@ const ContactPage = () => {
           )}
           
           {/* Bottom left text */}
-          <div className="absolute bottom-4 left-4 text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute bottom-4 left-4 text-white  text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             {item.text}
+          </div>
+
+          {/* Category badge */}
+          <div className="absolute top-4 left-4 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {item.category}
           </div>
 
           {/* Bottom right icon */}
           {item.icon && (
-            <div className="absolute bottom-4 right-4 w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute bottom-8 right-4 w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <img src={item.icon} alt="icon" className="w-full h-full" />
             </div>
           )}
