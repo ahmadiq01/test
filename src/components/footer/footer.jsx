@@ -1,7 +1,6 @@
 import React from "react";
 import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 import frameLogo from "../../assets/Frame.svg"; // Adjust path if needed
-
 const Footer = () => {
   return (
     <div className="bg-[#dee13e] flex flex-col gap-8 md:gap-4 lg:gap-8">
