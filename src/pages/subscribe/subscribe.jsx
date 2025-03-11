@@ -230,7 +230,7 @@ const Home = () => {
     ].map((plan, index) => (
       <div
         key={index}
-        className="w-[215px] h-[307px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+        className="w-[185px] h-[297px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
       >
         <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
           <img
