@@ -167,8 +167,10 @@ export default function Home() {
         }
       `}</style>
 
+
+
       {/* monkey div */}
-      <div
+      <div id="1"
         ref={monkeySectionRef}
         className="bg-[rgba(92,186,71,1)] min-h-screen relative"
       >
@@ -188,7 +190,7 @@ export default function Home() {
 
           {/* Right side with APPS text and monkey */}
           <div className="relative md:mt-0">
-            <p className="text-black text-[650px] font-Heathergreen leading-[1]">
+            <p className="text-black text-[900px] font-[Heathergreen]  -translate-x-[-600px] leading-[1]">
               APPS
             </p>
             <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
@@ -213,8 +215,12 @@ export default function Home() {
         </div>
       </div>
 
+
+
+
+
       {/* bee div */}
-      <div
+      <div id="2"
         ref={beeSectionRef}
         className="bg-[rgba(71,76,186,1)] min-h-screen relative"
       >
@@ -234,7 +240,7 @@ export default function Home() {
 
           {/* Right side with WEBSITES text and bee */}
           <div className="relative md:mt-20">
-            <p className="text-black text-[350px] ">WEBSITES</p>
+            <p className="text-black text-[500px] font-[Heathergreen] -translate-x-[-600px] ">WEBSITES</p>
             <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-0.5/5">
               <img
                 ref={beeRef}
@@ -257,8 +263,12 @@ export default function Home() {
         </div>
       </div>
 
+
+
+
+
       {/* ui/ux div */}
-      <div
+      <div id="3"
         ref={humanSectionRef}
         className="bg-[rgba(186,71,174,1)] min-h-screen relative"
       >
@@ -281,7 +291,7 @@ export default function Home() {
             <button className="bg-[rgba(222,225,62,1)] absolute top-1/2 left-[-250px] whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
               SEE APPS WORK
             </button>
-            <p className="text-black text-[550px] font-Heathergreen float-right whitespace-nowrap leading-[1]">
+            <p className="text-black text-[900px] font-[Heathergreen] -translate-x-[-600px] float-right whitespace-nowrap leading-[1]">
               UI/UX
             </p>
             <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
@@ -303,8 +313,11 @@ export default function Home() {
         </div>
       </div>
 
+
+
+
       {/* banana div */}
-      <div
+      <div id="4"
         ref={bananaSectionRef}
         className="bg-[rgba(222,225,62,1)] min-h-screen relative"
       >
@@ -327,7 +340,7 @@ export default function Home() {
             <button className="bg-[rgba(92,186,71,1)] absolute left-3/5 whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
               SEE APPS WORK
             </button>
-            <p className="text-black text-[350px]  font-Heathergreen float-right whitespace-nowrap ">
+            <p className="text-black text-[500px]  font-[Heathergreen] -translate-x-[-600px] float-right whitespace-nowrap ">
               CREATIVE
             </p>
             <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
@@ -348,6 +361,9 @@ export default function Home() {
           </button>
         </div>
       </div>
+
+
+      
     </>
   );
 }
