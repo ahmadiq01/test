@@ -1,8 +1,6 @@
 import React from "react";
 import Header from "../../components/header/header";
 import Rectangle from "../../assets/Rectangle 44.svg";
-import Image from "../../assets/walk-cycle-animation-pci4kmfuUS.svg";
-
 const Home = ({ 
   desktopTextPadding = { 
     line1: "104px", 
@@ -19,28 +17,19 @@ const Home = ({
         <Header />
       </div>
 
-      {/* Large and Medium Screens Layout */}
       <div className="hidden md:block">
-        {/* Subscription Section */}
-        <div className="relative z-10 -mt-[50px]" style={{ marginTop: "min(-50px, calc(-50px * (100vw/1920)))" }}>
-          <div className="flex flex-col text-black w-full h-auto font-extrabold italic text-[50px] font-poppins items-end pr-[80px] py-4"
-            style={{ 
-              fontSize: "min(50px, calc(50px * (100vw/1920)))",
-              paddingRight: "min(80px, calc(80px * (100vw/1920)))" 
-            }}
-          >
-            <p className="pr-[104px]" style={{ paddingRight: `min(${desktopTextPadding.line1}, calc(${desktopTextPadding.line1} * (100vw/1920)))` }}>
+        <div className="relative lg:mt-[-60px]" >
+          <div className="flex flex-col text-black font-extrabold italic text-[0px] md:text-[30px] lg:text-[50px] font-poppins items-end ">
+            <p className="md:pr-[120px] lg:pr-[104px]">
               SUBSCRIPTION BASED SOLUTIONS
             </p>
-            <p className="pr-[75px]" style={{ paddingRight: `min(${desktopTextPadding.line2}, calc(${desktopTextPadding.line2} * (100vw/1920)))` }}>
+            <p className="pr-[75px]">
               FOR ALL YOUR BUSINESS DIGITAL NEEDS
             </p>
           </div>
         </div>
 
-        {/* Main Container: Two Columns Layout */}
         <div className="w-full flex flex-row relative">
-          {/* Column 1: Text */}
           <div 
             className="relative bg-y flex flex-col text-black font-bold uppercase w-1/2 py-10 pl-16"
             style={{ 
@@ -104,12 +93,10 @@ const Home = ({
             </a>
           </div>
 
-          {/* Column 2: Centered Rectangle Image */}
           <div 
             className="w-1/2 flex justify-center items-center py-10 -mt-[80px] relative"
             style={{ marginTop: "min(-80px, calc(-80px * (100vw/1920)))" }}
           >
-            {/* Background Circle */}
             <img 
               src={Rectangle} 
               alt="Rectangle" 
@@ -120,11 +107,10 @@ const Home = ({
               }}
             />
 
-            {/* GIF inside the circle */}
             <img 
               src="https://s3-alpha-sig.figma.com/img/bd8f/abf6/26326235eef46325d90d16d73d3154ed?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=foQJ8Xhk5fxXVQy~ImxS0BlUNHFxQqrBmdYsAS9XgjcsVhY29gUmFTz34KHonMhslrN2LygjdOy65I1NbLqbTwXc40MnwHmUfQR7Mz44Jovq6DIaLwi74JXl1kLuW3~PEKDjdL9EnvgyPIMkB6btLifXcWbYZPBhYNU-jYO6gYJfvRjDUfm3Ob4rqyFxmgsM5zq7cVEQkcS3VLEPgHxTypbNap6y6AHECmXBVFNLCCZafBpqlE-y4GXxM1QiMSHiP45hgS9ZxwRgqgAj6qk3~tyRKGBhzsEiA0odYKlyTHii9cZ5RaJP73kEk0mj9APgf4R6-p7Wq6rEs~eWpXex2Q__"
               alt="img" 
-              className="w-[883px] h-[883px] rounded-full absolute top-[5px] left-[-108px]"
+              className="w-[783px] h-[783px] rounded-full absolute top-[5px] left-[90px]"
               style={{ 
                 width: "min(883px, calc(883px * (100vw/1920)))",
                 height: "min(883px, calc(883px * (100vw/1920)))",
@@ -132,10 +118,9 @@ const Home = ({
               }}
             />
 
-            {/* Button */}
             <a
               href="subscribe"  
-              className="absolute top-[686px] left-[550px] w-[367px] h-[130.8px] bg-green-500 text-black font-bold rounded-[65px] text-2xl flex items-center justify-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
+              className="absolute top-[626px] left-[590px] w-[367px] h-[130.8px] bg-green-500 text-black font-bold rounded-[65px] text-2xl flex items-center justify-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
               style={{ 
                 top: "min(686px, calc(686px * (100vw/1920)))",
                 left: "min(550px, calc(550px * (100vw/1920)))",
@@ -149,18 +134,15 @@ const Home = ({
             </a>
           </div>
         </div>
+
       </div>
 
-      {/* Small Screens Layout */}
       <div className="block md:hidden">
-        {/* Header with left margin */}
         <div className="ml-5">
-          {/* Header is already included above, so we're just adding margin */}
         </div>
 
-        {/* Yellow Background Area with Subscription Text */}
         <div className="bg-[#dee13e] ">
-          {/* Subscription Text */}
+
           <div className="text-black font-extrabold italic text-xl font-poppins ">
             <p style={{ paddingLeft: mobileTextPadding.line1 }} className="ml-[50px] pt-[12px]">
               SUBSCRIPTION BASED SOLUTIONS
@@ -170,16 +152,13 @@ const Home = ({
             </p>
           </div>
 
-          {/* Container for GIF and Button */}
           <div className="relative w-full flex justify-center top-[-20px]">
-            {/* GIF as background */}
             <img 
               src="https://s3-alpha-sig.figma.com/img/bd8f/abf6/26326235eef46325d90d16d73d3154ed?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=foQJ8Xhk5fxXVQy~ImxS0BlUNHFxQqrBmdYsAS9XgjcsVhY29gUmFTz34KHonMhslrN2LygjdOy65I1NbLqbTwXc40MnwHmUfQR7Mz44Jovq6DIaLwi74JXl1kLuW3~PEKDjdL9EnvgyPIMkB6btLifXcWbYZPBhYNU-jYO6gYJfvRjDUfm3Ob4rqyFxmgsM5zq7cVEQkcS3VLEPgHxTypbNap6y6AHECmXBVFNLCCZafBpqlE-y4GXxM1QiMSHiP45hgS9ZxwRgqgAj6qk3~tyRKGBhzsEiA0odYKlyTHii9cZ5RaJP73kEk0mj9APgf4R6-p7Wq6rEs~eWpXex2Q__"
               alt="img" 
               className="w-full max-w-md rounded-full"
             />
             
-            {/* Button positioned on top of the GIF */}
             <a
               href="subscribe"  
               className="absolute w-[200px] h-[70px] bg-green-500 ml-[160px] top-[300px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
@@ -192,7 +171,6 @@ const Home = ({
           </div>
         </div>
 
-        {/* Navigation Links with hover color changes */}
         <div className="flex flex-col items-start p-4 font-bold uppercase" style={{ fontFamily: 'Heathergreen, sans-serif' }}>
           <a href="work" className="text-8xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
             Work
