@@ -20,6 +20,7 @@ const ContactPage = () => {
           </div>
 
           {/* Mobile-only team members section - Shown second on mobile */}
+          
           <div className="lg:w-1/2 md:hidden container mx-auto px-6 lg:px-20 mt-10 relative">
             {/* Team Members Circle Layout for Mobile */}
             <div className="flex flex-col items-center w-full">
@@ -123,6 +124,8 @@ const ContactPage = () => {
           </div>
 
           {/* Team Members Section for Desktop */}
+
+
           <div className="w-full md:mt-[100px]">
             {/* Team Member Circle Layout for Desktop */}
             <div className="relative flex flex-wrap justify-center">
@@ -196,6 +199,8 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
+
+
         </div>
       </div>
       <Footer />
