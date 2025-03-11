@@ -66,9 +66,9 @@ const ContactPage = () => {
       <textarea placeholder="Write your message here..." className="border p-3 md:p-6 rounded-[20px] w-full h-20 md:h-40 text-base md:text-lg" rows="3" required></textarea>
     </div>
 
-    <fieldset className="col-span-1">
+    <fieldset className="col-span-2 md:col-span-1 lg:col-span-1">
       <legend className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-700">Budget*</legend>
-      <div className="grid grid-cols-1 gap-2 text-gray-700">
+      <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-1 gap-2 text-gray-700">
         <label><input type="radio" name="budget" value="250-1000" className="mr-2" /> $250-$1000</label>
         <label><input type="radio" name="budget" value="1000-2000" className="mr-2" /> $1000-$2000</label>
         <label><input type="radio" name="budget" value="2000-5000" className="mr-2" /> $2000-$5000</label>
