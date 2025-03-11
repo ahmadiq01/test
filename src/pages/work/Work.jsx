@@ -96,20 +96,20 @@ const ContactPage = () => {
       <Header />
 
       {/* Floating Icon */}
-      <a href="home">
+      {/* <a href="home">
         <img
           src={vectorIcon}
           alt="Decoration"
           className="fixed top-6 right-6 w-10 h-10 cursor-pointer "
         />
-      </a>
+      </a> */}
 
       {/* Background Image */}
       <div className="md:w-full">
         <img
           src="https://s3-alpha-sig.figma.com/img/dd4f/9d43/80fbdbdcfb9e32c6aa893ccf48e17ab7?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=k9rcfgzH4xuSqz6UjTdezXwAqs2L0G~RlYEUo7N-QfujR0e6TsnGOJhjx9Oa7rypnQT2ndP6Pnd2RBR8rxWQj2beg~5sO98JEc-uCbshBZPwzhDCE7S28ei0wavv5iSeQSwzV5pbCc4MaK1BqTBHqLYEHBZRfpq0kcO5sXtzGCBcjWx3GAOO1~DW9KOcKRQe8ZQ2EOGNAzwBODRldnYfpZRGNP-9lPn2kTyB9nqRrTMFsyYWN5W~GDUZB9Ebx71qxGVjnBryVb2hx7xp7lWc3wY7HS8ZVFJFYXxC9h~Q0F6ojN6sX8ircChh3~G8L8hX6HIHXKaNjOCe7h8Wm~dH~w__"
           alt="Background"
-          className="w-[1920px] h-[881px] top-[139px]"
+          className="lg:w-[1920px] lg:h-[881px] lg:top-[139px] top-[139px] w-[960px] h-[440.5px]"
         />
       </div>
 
