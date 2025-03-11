@@ -65,11 +65,11 @@ export default function Home() {
 
           if (beeRef.current) {
             if (isBeeVisible) {
-              beeRef.current.classList.add("animate-from-left");
-              beeRef.current.classList.remove("animate-to-left");
+              beeRef.current.classList.add("animate-from-right");
+              beeRef.current.classList.remove("animate-to-right");
             } else {
-              beeRef.current.classList.add("animate-to-left");
-              beeRef.current.classList.remove("animate-from-left");
+              beeRef.current.classList.add("animate-to-right");
+              beeRef.current.classList.remove("animate-from-right");
             }
           }
         }
@@ -144,6 +144,14 @@ export default function Home() {
           animation: slideOutToLeft 1s forwards;
         }
 
+        .animate-from-right {
+          animation: slideInFromRight 1s forwards;
+        }
+
+        .animate-to-right {
+          animation: slideOutToRight 1s forwards;
+        }
+
         @keyframes slideInFromLeft {
           0% {
             transform: translateX(-200%);
@@ -162,6 +170,28 @@ export default function Home() {
           }
           100% {
             transform: translateX(-100%);
+            opacity: 0;
+          }
+        }
+
+        @keyframes slideInFromRight {
+          0% {
+            transform: translateX(200%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideOutToRight {
+          0% {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(100%);
             opacity: 0;
           }
         }
@@ -361,9 +391,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-
-
-      
     </>
   );
 }
