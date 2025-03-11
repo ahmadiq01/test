@@ -8,11 +8,7 @@ import Story from "./pages/story/story";
 import Services from "./pages/services/services";
 import Talk from "./pages/work/talktogather";
 import Apply from "./pages/apply/apply";
-// import Getintouch from "./pages/getintouch/getintouch";
 import Getintouch from "./pages/getintouch/getintouch";
-
-
-
 import Footer from './components/footer/footer';
 import './App.css'; // Ensure Tailwind CSS is imported here
 
@@ -31,7 +27,7 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/talktogather" element={<Talk />} />
         <Route path="/apply" element={<Apply />} />
-        <Route path="/getintouch" element={<Getintouch />} />
+        <Route path="/footer" element={<Footer />} />
         
       </Routes>
     </Router>
