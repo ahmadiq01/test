@@ -27,7 +27,7 @@ const ContactPage = () => {
                 alt="Vector 1"
                 className="
                 absolute 
-                w-[142px] h-[65px] top-[405px] left-[15px] rotate-[-6.5deg] 
+                w-[142px] h-[65px] top-[108px] left-[15px] rotate-[-6.5deg] 
                 md:w-[84px] md:h-[100px] md:top-[315px] md:left-[-35px] md:rotate-[-4deg]
                 lg:w-[84px] lg:h-[100px] lg:top-[215px] lg:left-[-25px] lg:rotate-[-4deg]
                 "
@@ -37,7 +37,7 @@ const ContactPage = () => {
                 alt="Vector 2"
                 className="
                 absolute 
-                w-[142px] h-[45px] top-[360px] left-[186px] rotate-[16deg] 
+                w-[142px] h-[45px] top-[65px] left-[186px] rotate-[16deg] 
                 md:w-[284px] md:h-[65px] md:top-[180px] md:left-[190px] md:rotate-[12deg]
                 lg:w-[284px] lg:h-[65px] lg:top-[180px] lg:left-[190px] lg:rotate-[12deg]
                 "
@@ -46,7 +46,7 @@ const ContactPage = () => {
                 src={V3}
                 alt="Vector 3"
                 className="
-                absolute w-[132px] h-[50px] top-[540px] left-[120px] rotate-[3deg]
+                absolute w-[132px] h-[50px] top-[240px] left-[120px] rotate-[3deg]
                 md:w-[284px] md:h-[104px] md:top-[435px] md:left-[89px] md:rotate-[6deg]
                 lg:w-[284px] lg:h-[104px] lg:top-[435px] lg:left-[89px] lg:rotate-[6deg]
                 "
