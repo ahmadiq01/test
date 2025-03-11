@@ -167,34 +167,38 @@ const ContactPage = () => {
                 <img
                   src={item.primary}
                   alt="Primary"
-                  className="absolute w-full h-full object-contain transition-opacity duration-800 opacity-100 group-hover:opacity-0"
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-800 opacity-100 group-hover:opacity-0"
                 />
                 <img
                   src={item.secondary}
                   alt="Secondary"
-                  className="absolute w-full h-full object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100"
                 />
               </>
             ) : (
-              <div className="w-full h-full flex items-center justify-center relative">
-                <img src={item.primary} alt="" className="w-full h-full object-contain" />
+              <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+                <img 
+                  src={item.primary} 
+                  alt="" 
+                  className="absolute inset-0 w-full h-full object-cover" 
+                />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
               </div>
             )}
             
             {/* Bottom left text - hidden on smallest screens, visible on hover for larger */}
-            <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 text-white text-[10px] sm:text-xs md:text-sm lg:text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 text-white text-[10px] sm:text-xs md:text-sm lg:text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
               {item.text}
             </div>
 
             {/* Category badge - hidden on smallest screens, visible on hover for larger */}
-            <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-black bg-opacity-70 text-white text-[8px] sm:text-xs px-1 py-0.5 md:px-2 md:py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-black bg-opacity-70 text-white text-[8px] sm:text-xs px-1 py-0.5 md:px-2 md:py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
               {item.category}
             </div>
 
             {/* Bottom right icon */}
             {item.icon && (
-              <div className="absolute bottom-2 right-2 md:bottom-8 md:right-4 w-3 h-3 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-2 right-2 md:bottom-8 md:right-4 w-3 h-3 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                 <img src={item.icon} alt="icon" className="w-full h-full" />
               </div>
             )}
