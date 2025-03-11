@@ -1,6 +1,7 @@
 import React from "react";
 import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 import frameLogo from "../../assets/Frame.svg"; // Adjust path if needed
+
 const Footer = () => {
   return (
     <div className="bg-[#dee13e] flex flex-col gap-8 md:gap-4 lg:gap-8">
@@ -46,7 +47,7 @@ const Footer = () => {
           <p>Address, wtv, 43543</p>
         </div>
 
-        <div className=" flex justify-end mt-[-50px] md:mt-[-120px] lg:mt-[-200px]  ">
+        <div className="flex justify-end mt-[-50px] md:mt-[-120px] lg:mt-[-200px]">
           <img
             src="https://s3-alpha-sig.figma.com/img/df8f/7fc5/ebcb86426df7897596bb0414358e852b?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b8bdb7I4xHqz6FGkNKco3XX3o4MQise~UBwD4xGtGIlsFnXL~rah-ADXo9mjP9tipTBI9klnh2kGIVxPs6eF5NpUOtCB2YvLLseVr8obvwub5qnwmghEntRY7q~UGGe0QsFaUwY35msY22B-~coqv~HjqS1oIKoBP2RMzomkpUTnclw3UnPaBeb1zur97mOcQqHm2mg8xqHxlgCeh8QpezH9NFI2N833ck~RWeGVTFl6E~cbFy4nOqB80H1DF7AI11W6TuHy8-YRVQOqxWlSLTM5ypvit8H9ET-211EQXvGNE2H3RLZweyQdGglIrMke9sLbZVJPgoy56znyWaSCRQ__"
             alt="img"
@@ -55,65 +56,61 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Navigation and Social Icons */}
-      <div className="flex justify-between items-center ">
-        {/* Left Section: Logo & Navigation */}
-        <div className="flex items-center ">
-          {/* Logo */}
-          <div className="text-black md:ml-[20px] ml-[10px] text-lg md:text-xl lg:text-2xl font-bold">
-            <img
-              src={frameLogo}
-              alt="Logo"
-              className="w-[2.5em] h-[2.5em] object-contain"
-            />
-          </div>
-        </div>
-        <div>
-          {/* Navigation Links */}
-          <nav className="flex space-x-4 md:space-x-6 lg:space-x-8">
-            <a
-              href="work"
-              target="_blank"
-              className="text-black hover:text-gray-600 cursor-pointer text-sm md:text-lg lg:text-xl"
-            >
-              Work
-            </a>
-            <a
-              href="contact"
-              target="_blank"
-              className="text-black hover:text-gray-600 cursor-pointer text-sm md:text-lg lg:text-xl"
-            >
-              Contact
-            </a>
-            <a
-              href="about"
-              target="_blank"
-              className="text-black hover:text-gray-600 cursor-pointer text-sm md:text-lg lg:text-xl"
-            >
-              About Us
-            </a>
-            <a
-              href="https://www.google.com"
-              target="_blank"
-              className="text-black hover:text-gray-600 cursor-pointer text-sm md:text-lg lg:text-xl"
-            >
-              Clients
-            </a>
-            <a
-              href="https://www.google.com"
-              target="_blank"
-              className="text-black hover:text-gray-600 cursor-pointer text-sm md:text-lg lg:text-xl"
-            >
-              Services
-            </a>
-          </nav>
+      {/* Bottom Navigation and Social Icons - FIXED LAYOUT WITH RESPONSIVE SIZING */}
+      <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-8">
+        {/* Left Section: Logo */}
+        <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
+          <img
+            src={frameLogo}
+            alt="Logo"
+            className="w-[1.8em] h-[1.8em] md:w-[2.2em] md:h-[2.2em] lg:w-[2.5em] lg:h-[2.5em] object-contain"
+          />
         </div>
 
+        {/* Middle Section: Navigation Links */}
+        <nav className="flex items-center">
+          <a
+            href="work"
+            target="_blank"
+            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+          >
+            Work
+          </a>
+          <a
+            href="contact"
+            target="_blank"
+            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+          >
+            Contact
+          </a>
+          <a
+            href="about"
+            target="_blank"
+            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+          >
+            About
+          </a>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+          >
+            Clients
+          </a>
+          <a
+            href="https://www.google.com"
+            target="_blank"
+            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+          >
+            Services
+          </a>
+        </nav>
+
         {/* Right Section: Social Media Icons */}
-        <div className="flex space-x-4 md:space-x-6 lg:space-x-8 mr-[30px]">
-          <FaInstagram className="text-black text-lg md:text-xl lg:text-2xl cursor-pointer" />
-          <FaLinkedin className="text-black text-lg md:text-xl lg:text-2xl cursor-pointer" />
-          <FaFacebook className="text-black text-lg md:text-xl lg:text-2xl cursor-pointer" />
+        <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1 md:mr-3 lg:mr-6">
+          <FaInstagram className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
+          <FaLinkedin className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
+          <FaFacebook className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
         </div>
       </div>
     </div>
