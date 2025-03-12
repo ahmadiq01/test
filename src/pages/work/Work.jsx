@@ -31,50 +31,66 @@ const ContactPage = () => {
     { 
       id: 2, 
       primary: Pic2, 
+      secondary: Mobile2, 
       text: "Multi Search Engine", 
       icon: Pic21, 
+      link: "secondaryimg",
       category: "Web" 
     },
     { 
       id: 3, 
       primary: Pic3, 
       text: "Image 3",
+      secondary: Mobile2, 
+      link: "secondaryimg",
       category: "UI/UX" 
     },
     { 
       id: 4, 
       primary: Pic4, 
       text: "Image 4",
+      secondary: Mobile2, 
+      link: "secondaryimg",
       category: "Creative" 
     },
     { 
       id: 5, 
       primary: Pic5, 
-      text: "Image 5", 
+      text: "Image 5",
+      secondary: Mobile2,  
+      link: "secondaryimg",
       category: "App" 
     },
     { 
       id: 6, 
       primary: Pic6, 
       text: "Image 6",
+      secondary: Mobile2, 
+      link: "secondaryimg",
       category: "Web" 
     },
     { 
       id: 7, 
       primary: Pic7, 
       text: "Image 7",
+      secondary: Mobile2, 
+      link: "secondaryimg",
       category: "UI/UX" 
     },
     { 
       id: 8, 
       primary: Pic8, 
       text: "Image 8",
+      secondary: Mobile2, 
+      link: "secondaryimg",
       category: "Creative" 
     },
     { 
       id: 9, 
       primary: Pic9, 
-      text: "Image 9", 
+      text: "Image 9",
+      secondary: Mobile2,  
+      link: "secondaryimg",
       category: "App" 
     },
   ];

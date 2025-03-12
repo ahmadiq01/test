@@ -8,6 +8,7 @@ import Story from "./pages/story/story";
 import Services from "./pages/services/services";
 import Talk from "./pages/work/talktogather";
 import Imgtogether from "./pages/work/imgtogether";
+import Secondaryimg from "./pages/work/secondaryimg";
 import Apply from "./pages/apply/apply";
 import Getintouch from "./pages/getintouch/getintouch";
 import Footer from './components/footer/footer';
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/apply" element={<Apply />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="/imgtogether" element={<Imgtogether />} />
+        <Route path="/secondaryimg" element={<Secondaryimg />} />
         
       </Routes>
     </Router>
