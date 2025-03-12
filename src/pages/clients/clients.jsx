@@ -137,7 +137,7 @@ const ContactPage = () => {
                 <div className="w-[979px] h-[13px] bg-[#D9D9D9]"></div>
             </div>
             
-            <div className="overflow-hidden relative">
+            <div className="overflow-hidden relative mt-[60px] mb-[60px]">
                 <div 
                     ref={carouselRef}
                     onMouseDown={startDragging}

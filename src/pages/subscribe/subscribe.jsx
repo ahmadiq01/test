@@ -368,7 +368,7 @@ const Home = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-[#914A8E] py-16 px-5 flex flex-col items-center">
+      <div className="bg-[#a7429c] py-16 px-5 flex flex-col items-center">
         <h2 className="text-black font-normal font-[Heathergreen] text-5xl mb-10 text-center font=[Heathergreen] mt-[0] md:text-[150px] w-full flex flex-col items-center">
           Frequently Asked Questions
         </h2>
