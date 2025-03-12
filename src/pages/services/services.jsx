@@ -25,32 +25,43 @@ export default function Home() {
   
   const [activeSection, setActiveSection] = useState(1);
   const [lastScrollPos, setLastScrollPos] = useState(0);
+  const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
-    // Reset animations on initial load to ensure they work properly
-    const resetAnimations = () => {
-      if (monkeyRef.current) {
-        monkeyRef.current.classList.remove("animate-from-left", "animate-to-left");
-        // Force a reflow to ensure animations can be applied again
-        void monkeyRef.current.offsetWidth;
-      }
-      if (beeRef.current) {
-        beeRef.current.classList.remove("animate-from-right", "animate-to-right");
-        void beeRef.current.offsetWidth;
-      }
-      if (humanRef.current) {
-        humanRef.current.classList.remove("animate-from-left", "animate-to-left");
-        void humanRef.current.offsetWidth;
-      }
-      if (bananaRef.current) {
-        bananaRef.current.classList.remove("animate-from-left", "animate-to-left");
-        void bananaRef.current.offsetWidth;
+    // Initialize animations on initial load
+    if (initialLoad && monkeyRef.current) {
+      // Add animation class to first section's monkey on initial load
+      monkeyRef.current.classList.add("animate-from-left");
+      setInitialLoad(false);
+    }
+  }, [initialLoad]);
+
+  useEffect(() => {
+    // Handle animations when active section changes
+    const handleSectionChange = () => {
+      if (activeSection === 1 && monkeyRef.current) {
+        monkeyRef.current.classList.remove("animate-to-left");
+        void monkeyRef.current.offsetWidth; // Force reflow
+        monkeyRef.current.classList.add("animate-from-left");
+      } else if (activeSection === 2 && beeRef.current) {
+        beeRef.current.classList.remove("animate-to-right");
+        void beeRef.current.offsetWidth; // Force reflow
+        beeRef.current.classList.add("animate-from-right");
+      } else if (activeSection === 3 && humanRef.current) {
+        humanRef.current.classList.remove("animate-to-left");
+        void humanRef.current.offsetWidth; // Force reflow
+        humanRef.current.classList.add("animate-from-left");
+      } else if (activeSection === 4 && bananaRef.current) {
+        bananaRef.current.classList.remove("animate-to-left");
+        void bananaRef.current.offsetWidth; // Force reflow
+        bananaRef.current.classList.add("animate-from-left");
       }
     };
 
-    // Initial reset
-    resetAnimations();
+    handleSectionChange();
+  }, [activeSection]);
 
+  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -63,113 +74,48 @@ export default function Home() {
       const section3Top = humanSectionRef.current?.offsetTop || 0;
       const section4Top = bananaSectionRef.current?.offsetTop || 0;
       
+      // When leaving a section, trigger the exit animation
       if (scrollPosition < section2Top - windowHeight/2) {
         if (activeSection !== 1) {
+          // When transitioning to section 1
+          if (activeSection === 2 && beeRef.current) {
+            beeRef.current.classList.remove("animate-from-right");
+            beeRef.current.classList.add("animate-to-right");
+          }
           setActiveSection(1);
-          // Reset animations when changing sections
-          resetAnimations();
         }
       } else if (scrollPosition < section3Top - windowHeight/2) {
         if (activeSection !== 2) {
+          // When transitioning to section 2
+          if (activeSection === 1 && monkeyRef.current) {
+            monkeyRef.current.classList.remove("animate-from-left");
+            monkeyRef.current.classList.add("animate-to-left");
+          } else if (activeSection === 3 && humanRef.current) {
+            humanRef.current.classList.remove("animate-from-left");
+            humanRef.current.classList.add("animate-to-left");
+          }
           setActiveSection(2);
-          resetAnimations();
         }
       } else if (scrollPosition < section4Top - windowHeight/2) {
         if (activeSection !== 3) {
+          // When transitioning to section 3
+          if (activeSection === 2 && beeRef.current) {
+            beeRef.current.classList.remove("animate-from-right");
+            beeRef.current.classList.add("animate-to-right");
+          } else if (activeSection === 4 && bananaRef.current) {
+            bananaRef.current.classList.remove("animate-from-left");
+            bananaRef.current.classList.add("animate-to-left");
+          }
           setActiveSection(3);
-          resetAnimations();
         }
       } else {
         if (activeSection !== 4) {
+          // When transitioning to section 4
+          if (activeSection === 3 && humanRef.current) {
+            humanRef.current.classList.remove("animate-from-left");
+            humanRef.current.classList.add("animate-to-left");
+          }
           setActiveSection(4);
-          resetAnimations();
-        }
-      }
-
-      // Check each section's position and update visibility
-      if (monkeySectionRef.current) {
-        const monkeyRect = monkeySectionRef.current.getBoundingClientRect();
-        const isMonkeyVisible = monkeyRect.top < windowHeight/2 && monkeyRect.bottom > windowHeight/2;
-
-        if (isMonkeyVisible !== sectionVisibility.monkey) {
-          setSectionVisibility((prev) => ({
-            ...prev,
-            monkey: isMonkeyVisible,
-          }));
-
-          if (monkeyRef.current) {
-            if (isMonkeyVisible) {
-              // Monkey comes from left regardless of scroll direction
-              monkeyRef.current.classList.remove("animate-to-left");
-              monkeyRef.current.classList.add("animate-from-left");
-            } else {
-              monkeyRef.current.classList.remove("animate-from-left");
-              monkeyRef.current.classList.add("animate-to-left");
-            }
-          }
-        }
-      }
-
-      if (beeSectionRef.current) {
-        const beeRect = beeSectionRef.current.getBoundingClientRect();
-        const isBeeVisible = beeRect.top < windowHeight/2 && beeRect.bottom > windowHeight/2;
-
-        if (isBeeVisible !== sectionVisibility.bee) {
-          setSectionVisibility((prev) => ({ ...prev, bee: isBeeVisible }));
-
-          if (beeRef.current) {
-            if (isBeeVisible) {
-              // Bee comes from right regardless of scroll direction
-              beeRef.current.classList.remove("animate-to-right");
-              beeRef.current.classList.add("animate-from-right");
-            } else {
-              beeRef.current.classList.remove("animate-from-right");
-              beeRef.current.classList.add("animate-to-right");
-            }
-          }
-        }
-      }
-
-      if (humanSectionRef.current) {
-        const humanRect = humanSectionRef.current.getBoundingClientRect();
-        const isHumanVisible = humanRect.top < windowHeight/2 && humanRect.bottom > windowHeight/2;
-
-        if (isHumanVisible !== sectionVisibility.human) {
-          setSectionVisibility((prev) => ({ ...prev, human: isHumanVisible }));
-
-          if (humanRef.current) {
-            if (isHumanVisible) {
-              // Human comes from left regardless of scroll direction
-              humanRef.current.classList.remove("animate-to-left");
-              humanRef.current.classList.add("animate-from-left");
-            } else {
-              humanRef.current.classList.remove("animate-from-left");
-              humanRef.current.classList.add("animate-to-left");
-            }
-          }
-        }
-      }
-
-      if (bananaSectionRef.current) {
-        const bananaRect = bananaSectionRef.current.getBoundingClientRect();
-        const isBananaVisible = bananaRect.top < windowHeight/2 && bananaRect.bottom > windowHeight/2;
-
-        if (isBananaVisible !== sectionVisibility.banana) {
-          setSectionVisibility((prev) => ({
-            ...prev,
-            banana: isBananaVisible,
-          }));
-
-          if (bananaRef.current) {
-            if (isBananaVisible) {
-              // Banana comes from left regardless of scroll direction
-              bananaRef.current.classList.remove("animate-to-left");
-              bananaRef.current.classList.add("animate-from-left");
-            } else {
-              bananaRef.current.classList.remove("animate-from-left");
-              bananaRef.current.classList.add("animate-to-left");
-            }
-          }
         }
       }
     };
@@ -182,7 +128,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [sectionVisibility, activeSection, lastScrollPos]);
+  }, [activeSection, lastScrollPos]);
 
   // Function to handle scrolling to a specific section
   const scrollToSection = (sectionId) => {
