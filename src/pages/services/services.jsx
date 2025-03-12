@@ -4,6 +4,8 @@ import bee from "../../assets/bee.gif";
 import human from "../../assets/human.gif";
 import banana from "../../assets/banana.gif";
 import { FaArrowLeft } from "react-icons/fa";
+import Header from "../../components/header/header";
+
 
 export default function Home() {
   const monkeyRef = useRef(null);
@@ -26,46 +28,77 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState(1);
   const [lastScrollPos, setLastScrollPos] = useState(0);
   const [initialLoad, setInitialLoad] = useState(true);
+  const [scrollDirection, setScrollDirection] = useState('none');
 
   useEffect(() => {
     // Initialize animations on initial load
     if (initialLoad && monkeyRef.current) {
       // Add animation class to first section's monkey on initial load
-      monkeyRef.current.classList.add("animate-from-left");
+      monkeyRef.current.classList.add("animate-from-right");
       setInitialLoad(false);
     }
   }, [initialLoad]);
 
   useEffect(() => {
-    // Handle animations when active section changes
+    // Handle animations when active section changes based on scroll direction
     const handleSectionChange = () => {
-      if (activeSection === 1 && monkeyRef.current) {
-        monkeyRef.current.classList.remove("animate-to-left");
-        void monkeyRef.current.offsetWidth; // Force reflow
-        monkeyRef.current.classList.add("animate-from-left");
-      } else if (activeSection === 2 && beeRef.current) {
-        beeRef.current.classList.remove("animate-to-right");
-        void beeRef.current.offsetWidth; // Force reflow
-        beeRef.current.classList.add("animate-from-right");
-      } else if (activeSection === 3 && humanRef.current) {
-        humanRef.current.classList.remove("animate-to-left");
-        void humanRef.current.offsetWidth; // Force reflow
-        humanRef.current.classList.add("animate-from-left");
-      } else if (activeSection === 4 && bananaRef.current) {
-        bananaRef.current.classList.remove("animate-to-left");
-        void bananaRef.current.offsetWidth; // Force reflow
-        bananaRef.current.classList.add("animate-from-left");
+      // Clear all animations first
+      clearAllAnimations();
+      
+      // Apply animations based on scroll direction
+      if (scrollDirection === 'up') {
+        // Moving up (animate from right to left)
+        if (activeSection === 1 && monkeyRef.current) {
+          monkeyRef.current.classList.add("animate-from-right");
+        } else if (activeSection === 2 && beeRef.current) {
+          beeRef.current.classList.add("animate-from-right");
+        } else if (activeSection === 3 && humanRef.current) {
+          humanRef.current.classList.add("animate-from-right");
+        } else if (activeSection === 4 && bananaRef.current) {
+          bananaRef.current.classList.add("animate-from-right");
+        }
+      } else if (scrollDirection === 'down') {
+        // Moving down (animate from left to right)
+        if (activeSection === 1 && monkeyRef.current) {
+          monkeyRef.current.classList.add("animate-from-left");
+        } else if (activeSection === 2 && beeRef.current) {
+          beeRef.current.classList.add("animate-from-left");
+        } else if (activeSection === 3 && humanRef.current) {
+          humanRef.current.classList.add("animate-from-left");
+        } else if (activeSection === 4 && bananaRef.current) {
+          bananaRef.current.classList.add("animate-from-left");
+        }
+      } else if (scrollDirection === 'none' && activeSection === 1 && monkeyRef.current) {
+        // Initial load
+        monkeyRef.current.classList.add("animate-from-right");
       }
     };
 
+    // Clear all animation classes from all elements
+    const clearAllAnimations = () => {
+      const elements = [monkeyRef.current, beeRef.current, humanRef.current, bananaRef.current];
+      const classes = ["animate-from-left", "animate-to-left", "animate-from-right", "animate-to-right"];
+      
+      elements.forEach(element => {
+        if (element) {
+          classes.forEach(className => {
+            element.classList.remove(className);
+            // Force reflow
+            void element.offsetWidth;
+          });
+        }
+      });
+    };
+
     handleSectionChange();
-  }, [activeSection]);
+  }, [activeSection, scrollDirection]);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const scrollDirection = scrollPosition > lastScrollPos ? 'down' : 'up';
+      const direction = scrollPosition > lastScrollPos ? 'down' : 'up';
+      setScrollDirection(direction);
       setLastScrollPos(scrollPosition);
       
       // Determine which section should be active based on scroll position
@@ -74,13 +107,18 @@ export default function Home() {
       const section3Top = humanSectionRef.current?.offsetTop || 0;
       const section4Top = bananaSectionRef.current?.offsetTop || 0;
       
-      // When leaving a section, trigger the exit animation
+      // Apply animations when leaving sections
       if (scrollPosition < section2Top - windowHeight/2) {
         if (activeSection !== 1) {
           // When transitioning to section 1
           if (activeSection === 2 && beeRef.current) {
-            beeRef.current.classList.remove("animate-from-right");
-            beeRef.current.classList.add("animate-to-right");
+            if (direction === 'up') {
+              beeRef.current.classList.remove("animate-from-right");
+              beeRef.current.classList.add("animate-to-left");
+            } else {
+              beeRef.current.classList.remove("animate-from-left");
+              beeRef.current.classList.add("animate-to-right");
+            }
           }
           setActiveSection(1);
         }
@@ -88,11 +126,21 @@ export default function Home() {
         if (activeSection !== 2) {
           // When transitioning to section 2
           if (activeSection === 1 && monkeyRef.current) {
-            monkeyRef.current.classList.remove("animate-from-left");
-            monkeyRef.current.classList.add("animate-to-left");
+            if (direction === 'down') {
+              monkeyRef.current.classList.remove("animate-from-right");
+              monkeyRef.current.classList.add("animate-to-right");
+            } else {
+              monkeyRef.current.classList.remove("animate-from-left");
+              monkeyRef.current.classList.add("animate-to-left");
+            }
           } else if (activeSection === 3 && humanRef.current) {
-            humanRef.current.classList.remove("animate-from-left");
-            humanRef.current.classList.add("animate-to-left");
+            if (direction === 'up') {
+              humanRef.current.classList.remove("animate-from-right");
+              humanRef.current.classList.add("animate-to-left");
+            } else {
+              humanRef.current.classList.remove("animate-from-left");
+              humanRef.current.classList.add("animate-to-right");
+            }
           }
           setActiveSection(2);
         }
@@ -100,11 +148,21 @@ export default function Home() {
         if (activeSection !== 3) {
           // When transitioning to section 3
           if (activeSection === 2 && beeRef.current) {
-            beeRef.current.classList.remove("animate-from-right");
-            beeRef.current.classList.add("animate-to-right");
+            if (direction === 'down') {
+              beeRef.current.classList.remove("animate-from-right");
+              beeRef.current.classList.add("animate-to-right");
+            } else {
+              beeRef.current.classList.remove("animate-from-left");
+              beeRef.current.classList.add("animate-to-left");
+            }
           } else if (activeSection === 4 && bananaRef.current) {
-            bananaRef.current.classList.remove("animate-from-left");
-            bananaRef.current.classList.add("animate-to-left");
+            if (direction === 'up') {
+              bananaRef.current.classList.remove("animate-from-right");
+              bananaRef.current.classList.add("animate-to-left");
+            } else {
+              bananaRef.current.classList.remove("animate-from-left");
+              bananaRef.current.classList.add("animate-to-right");
+            }
           }
           setActiveSection(3);
         }
@@ -112,8 +170,13 @@ export default function Home() {
         if (activeSection !== 4) {
           // When transitioning to section 4
           if (activeSection === 3 && humanRef.current) {
-            humanRef.current.classList.remove("animate-from-left");
-            humanRef.current.classList.add("animate-to-left");
+            if (direction === 'down') {
+              humanRef.current.classList.remove("animate-from-right");
+              humanRef.current.classList.add("animate-to-right");
+            } else {
+              humanRef.current.classList.remove("animate-from-left");
+              humanRef.current.classList.add("animate-to-left");
+            }
           }
           setActiveSection(4);
         }
@@ -134,6 +197,12 @@ export default function Home() {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
+      // Determine scroll direction based on current and target section
+      const currentId = activeSection.toString();
+      const targetId = sectionId;
+      const newScrollDirection = parseInt(targetId) > parseInt(currentId) ? 'down' : 'up';
+      setScrollDirection(newScrollDirection);
+      
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -187,7 +256,7 @@ export default function Home() {
             opacity: 1;
           }
           100% {
-            transform: translateX(-100%);
+            transform: translateX(-200%);
             opacity: 0;
           }
         }
@@ -209,7 +278,7 @@ export default function Home() {
             opacity: 1;
           }
           100% {
-            transform: translateX(100%);
+            transform: translateX(200%);
             opacity: 0;
           }
         }
