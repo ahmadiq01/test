@@ -85,10 +85,10 @@ const Home = () => {
     {
       question: "What is included in each subscription package?",
       answer: `
-        - **Basic Subscription Package:** Includes 1 Android Developer working 4 hours daily and a Project Manager (Available always).
-        - **Medium Subscription Package:** Includes 1 Android Developer, 1 Creative Designer (both working 6 hours daily), and a Project Manager (Available always).
-        - **Premium Subscription Package:** Includes 2 Android developers, 1 Creative Designer, 1 Social Media Manager, and a Project Manager, all working 8 hours daily.
-        - **Single Payment:** Tailored to your specific requirements with a one-time project completion quote based on cost and time. Additional requests not initially agreed upon will be charged extra.
+         Basic Subscription Package: Includes 1 Android Developer working 4 hours daily and a Project Manager (Available always).
+         Medium Subscription Package: Includes 1 Android Developer, 1 Creative Designer (both working 6 hours daily), and a Project Manager (Available always).
+         Premium Subscription Package: Includes 2 Android developers, 1 Creative Designer, 1 Social Media Manager, and a Project Manager, all working 8 hours daily.
+         Single Payment: Tailored to your specific requirements with a one-time project completion quote based on cost and time. Additional requests not initially agreed upon will be charged extra.
       `,
     },
     {
@@ -203,7 +203,7 @@ const Home = () => {
       {/* Hero Section */}
       <div className=" flex flex-col items-center justify-center text-center py-10">
         <div className="md:w-full font-[Heathergreen] font-normal flex flex-col items-center">
-          <p className="font-semibold text-8xl md:text-[150px] md:leading-[50px] leading-[50px] tracking-[2px]">
+          <p className="font-semibold text-8xl md:text-[150px] md:leading-[50px] leading-[50px] tracking-[6px]">
             Find the Right Plan
           </p>
         </div>
@@ -221,59 +221,59 @@ const Home = () => {
 
       {/* Pricing Plans Section */}
       <div className="bg-[#dee13e] flex items-center justify-center px-4 sm:px-6 py-6 sm:py-10">
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-    {[
-      { img: Basic, imgHover: Basic2 },
-      { img: Standard, imgHover: Standard2 },
-      { img: Premium, imgHover: Premium2 },
-      { img: Single, imgHover: Single2 },
-    ].map((plan, index) => (
-      <div
-        key={index}
-        className="w-[185px] h-[297px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
-      >
-        <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
-          <img
-            src={plan.img}
-            className="object-cover w-full h-full"
-            alt={`Plan ${index}`}
-          />
-        </div>
-        <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-          <img
-            src={plan.imgHover}
-            className="object-cover w-full h-full"
-            alt={`Plan ${index} Hover`}
-          />
-        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          {[
+            { img: Basic, imgHover: Basic2 },
+            { img: Standard, imgHover: Standard2 },
+            { img: Premium, imgHover: Premium2 },
+            { img: Single, imgHover: Single2 },
+          ].map((plan, index) => (
+            <div
+              key={index}
+              className="w-[185px] h-[297px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+            >
+              <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
+                <img
+                  src={plan.img}
+                  className="object-cover w-full h-full"
+                  alt={`Plan ${index}`}
+                />
+              </div>
+              <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <img
+                  src={plan.imgHover}
+                  className="object-cover w-full h-full"
+                  alt={`Plan ${index} Hover`}
+                />
+              </div>
 
-        {/* First div - Static */}
-        <div className="absolute top-0 left-0 w-full h-1/3 z-10">
-          {/* Static division */}
+              {/* First div - Static */}
+              <div className="absolute top-0 left-0 w-full h-1/3 z-10">
+                {/* Static division */}
+              </div>
+
+              {/* Second div - Scroll to div functionality */}
+              <div
+                onClick={() => {
+                  const targetDiv = document.getElementById("targetDivId");
+                  if (targetDiv) {
+                    targetDiv.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="absolute top-1/2 left-0 w-full h-1/3 z-10 cursor-pointer"
+              ></div>
+
+              {/* Third div - WhatsApp link */}
+              <a
+                href="https://api.whatsapp.com/send?phone=923315829371&text=12%20%2034"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-0 left-0 w-full h-1/6 z-10 cursor-pointer"
+              ></a>
+            </div>
+          ))}
         </div>
-
-        {/* Second div - Scroll to div functionality */}
-        <div
-          onClick={() => {
-            const targetDiv = document.getElementById("targetDivId");
-            if (targetDiv) {
-              targetDiv.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
-          className="absolute top-1/2 left-0 w-full h-1/3 z-10 cursor-pointer"
-        ></div>
-
-        {/* Third div - WhatsApp link */}
-        <a
-          href="https://api.whatsapp.com/send?phone=923315829371&text=Send%20a%20quote"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute bottom-0 left-0 w-full h-1/6 z-10 cursor-pointer"
-        ></a>
       </div>
-    ))}
-  </div>
-</div>
 
       {/* Plan Comparison Section */}
       <div

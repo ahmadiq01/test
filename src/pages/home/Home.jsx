@@ -161,7 +161,7 @@ const Home = ({
             
             <a
               href="subscribe"  
-              className="absolute w-[150px] h-[60px] bg-green-500 ml-[190px] top-[112px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
+              className="absolute w-[150px] h-[60px] bg-[#5cba47] ml-[190px] top-[112px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
               style={{ 
                 bottom: '40%'
               }}
