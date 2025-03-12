@@ -7,6 +7,7 @@ import Clients from "./pages/clients/clients";
 import Story from "./pages/story/story";
 import Services from "./pages/services/services";
 import Talk from "./pages/work/talktogather";
+import Imgtogether from "./pages/work/imgtogether";
 import Apply from "./pages/apply/apply";
 import Getintouch from "./pages/getintouch/getintouch";
 import Footer from './components/footer/footer';
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/talktogather" element={<Talk />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="/footer" element={<Footer />} />
+        <Route path="/imgtogether" element={<Imgtogether />} />
         
       </Routes>
     </Router>

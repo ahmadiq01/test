@@ -25,7 +25,7 @@ const ContactPage = () => {
       primary: Mobile1, 
       secondary: Mobile2, 
       text: "Talk To Gather", 
-      link: "talktogather",
+      link: "imgtogether",
       category: "App" 
     },
     { 
@@ -108,7 +108,7 @@ const ContactPage = () => {
       <div className="w-full">
         <img
           src="https://s3-alpha-sig.figma.com/img/dd4f/9d43/80fbdbdcfb9e32c6aa893ccf48e17ab7?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=k9rcfgzH4xuSqz6UjTdezXwAqs2L0G~RlYEUo7N-QfujR0e6TsnGOJhjx9Oa7rypnQT2ndP6Pnd2RBR8rxWQj2beg~5sO98JEc-uCbshBZPwzhDCE7S28ei0wavv5iSeQSwzV5pbCc4MaK1BqTBHqLYEHBZRfpq0kcO5sXtzGCBcjWx3GAOO1~DW9KOcKRQe8ZQ2EOGNAzwBODRldnYfpZRGNP-9lPn2kTyB9nqRrTMFsyYWN5W~GDUZB9Ebx71qxGVjnBryVb2hx7xp7lWc3wY7HS8ZVFJFYXxC9h~Q0F6ojN6sX8ircChh3~G8L8hX6HIHXKaNjOCe7h8Wm~dH~w__"
-          alt="Background"
+          alt="Background Img"
           className="w-full h-auto max-h-[440.5px] md:max-h-[881px]"
         />
       </div>
@@ -211,15 +211,15 @@ const ContactPage = () => {
         <p className="text-[26px] sm:text-[36px] md:text-[20px] lg:text-[75px] leading-tight md:leading-[121px] font-normal text-black">
           Want to see what can Fooliz do for you?
         </p>
-        <div className="flex flex-col md:flex-row items-center gap-2 mt-[-10px]">
+        <div className="flex flex-col md:flex-row items-center gap-4 mt-[-13px]">
           <a
             href="/contact"
-            className="bg-[#D9E021] font-semi-bold px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-[16px] sm:text-[20px] md:text-[65px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
+            className="bg-[#D9E021] font-semi-bold px-4 py-8 sm:px-6 sm:py-3 md:px-8 md:py-2 rounded-full text-[16px] sm:text-[20px] md:text-[65px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
           >
             Fill out a project
           </a>
           <p className="text-[24px] sm:text-[30px] md:text-[50px] lg:text-[80px] text-black">
-            Brief and get the ball rolling!
+            brief and get the ball rolling!
           </p>
         </div>
       </div>
