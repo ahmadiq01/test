@@ -22,18 +22,34 @@ export default function Home() {
     human: false,
     banana: false,
   });
+  
+  const [activeSection, setActiveSection] = useState(1);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Determine which section should be active based on scroll position
+      const section1Top = monkeySectionRef.current?.offsetTop || 0;
+      const section2Top = beeSectionRef.current?.offsetTop || 0;
+      const section3Top = humanSectionRef.current?.offsetTop || 0;
+      const section4Top = bananaSectionRef.current?.offsetTop || 0;
+      
+      if (scrollPosition < section2Top - windowHeight/2) {
+        setActiveSection(1);
+      } else if (scrollPosition < section3Top - windowHeight/2) {
+        setActiveSection(2);
+      } else if (scrollPosition < section4Top - windowHeight/2) {
+        setActiveSection(3);
+      } else {
+        setActiveSection(4);
+      }
 
       // Check each section's position and update visibility
       if (monkeySectionRef.current) {
         const monkeyRect = monkeySectionRef.current.getBoundingClientRect();
-        const monkeyTop = monkeyRect.top + window.scrollY;
-        const monkeyBottom = monkeyRect.bottom + window.scrollY;
-        const isMonkeyVisible =
-          scrollPosition >= monkeyTop && scrollPosition <= monkeyBottom;
+        const isMonkeyVisible = monkeyRect.top < windowHeight/2 && monkeyRect.bottom > windowHeight/2;
 
         if (isMonkeyVisible !== sectionVisibility.monkey) {
           setSectionVisibility((prev) => ({
@@ -55,10 +71,7 @@ export default function Home() {
 
       if (beeSectionRef.current) {
         const beeRect = beeSectionRef.current.getBoundingClientRect();
-        const beeTop = beeRect.top + window.scrollY;
-        const beeBottom = beeRect.bottom + window.scrollY;
-        const isBeeVisible =
-          scrollPosition >= beeTop && scrollPosition <= beeBottom;
+        const isBeeVisible = beeRect.top < windowHeight/2 && beeRect.bottom > windowHeight/2;
 
         if (isBeeVisible !== sectionVisibility.bee) {
           setSectionVisibility((prev) => ({ ...prev, bee: isBeeVisible }));
@@ -77,10 +90,7 @@ export default function Home() {
 
       if (humanSectionRef.current) {
         const humanRect = humanSectionRef.current.getBoundingClientRect();
-        const humanTop = humanRect.top + window.scrollY;
-        const humanBottom = humanRect.bottom + window.scrollY;
-        const isHumanVisible =
-          scrollPosition >= humanTop && scrollPosition <= humanBottom;
+        const isHumanVisible = humanRect.top < windowHeight/2 && humanRect.bottom > windowHeight/2;
 
         if (isHumanVisible !== sectionVisibility.human) {
           setSectionVisibility((prev) => ({ ...prev, human: isHumanVisible }));
@@ -99,10 +109,7 @@ export default function Home() {
 
       if (bananaSectionRef.current) {
         const bananaRect = bananaSectionRef.current.getBoundingClientRect();
-        const bananaTop = bananaRect.top + window.scrollY;
-        const bananaBottom = bananaRect.bottom + window.scrollY;
-        const isBananaVisible =
-          scrollPosition >= bananaTop && scrollPosition <= bananaBottom;
+        const isBananaVisible = bananaRect.top < windowHeight/2 && bananaRect.bottom > windowHeight/2;
 
         if (isBananaVisible !== sectionVisibility.banana) {
           setSectionVisibility((prev) => ({
@@ -133,9 +140,30 @@ export default function Home() {
     };
   }, [sectionVisibility]);
 
+  // Function to handle scrolling to a specific section
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <>
+    <div className="snap-y snap-mandatory h-screen w-screen overflow-y-scroll overflow-x-hidden">
       <style jsx global>{`
+        html, body {
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          height: 100%;
+          width: 100%;
+        }
+        
+        .snap-section {
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+        }
+        
         .animate-from-left {
           animation: slideInFromLeft 1s forwards;
         }
@@ -197,12 +225,11 @@ export default function Home() {
         }
       `}</style>
 
-
-
       {/* monkey div */}
-      <div id="1"
+      <div 
+        id="1"
         ref={monkeySectionRef}
-        className="bg-[rgba(92,186,71,1)] min-h-screen relative"
+        className={`bg-[rgba(92,186,71,1)] h-screen w-screen relative snap-section ${activeSection === 1 ? 'sticky top-0' : ''}`}
       >
         {/* Logo in top left corner */}
         <div className="absolute top-8 left-8">
@@ -220,10 +247,10 @@ export default function Home() {
 
           {/* Right side with APPS text and monkey */}
           <div className="relative md:mt-0">
-            <p className="text-black text-[900px] font-[Heathergreen]  -translate-x-[-600px] leading-[1]">
+            <p className="text-black text-[900px] font-[Heathergreen] -translate-x-[-600px] leading-[1]">
               APPS
             </p>
-            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[-200px] translate-y-8/8">
               <img
                 ref={monkeyRef}
                 src={monkey}
@@ -235,8 +262,11 @@ export default function Home() {
         </div>
 
         {/* Button and Back Arrow positioned together */}
-        <div className="absolute bottom-8 left-8 flex flex-col  space-y-4">
-          <button className="bg-[rgba(71,76,186,1)] text-white font-bold p-10 rounded-full text-5xl">
+        <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
+          <button 
+            className="bg-[rgba(71,76,186,1)] text-white font-bold p-10 rounded-full text-5xl"
+            onClick={() => scrollToSection("2")}
+          >
             SEE APPS WORK
           </button>
           <button className="text-white p-4 rounded-full">
@@ -245,14 +275,11 @@ export default function Home() {
         </div>
       </div>
 
-
-
-
-
       {/* bee div */}
-      <div id="2"
+      <div 
+        id="2"
         ref={beeSectionRef}
-        className="bg-[rgba(71,76,186,1)] min-h-screen relative"
+        className={`bg-[rgba(71,76,186,1)] h-screen w-screen relative snap-section ${activeSection === 2 ? 'sticky top-0' : ''}`}
       >
         {/* Logo in top left corner */}
         <div className="absolute top-8 left-8">
@@ -270,8 +297,8 @@ export default function Home() {
 
           {/* Right side with WEBSITES text and bee */}
           <div className="relative md:mt-20">
-            <p className="text-black text-[500px] font-[Heathergreen] -translate-x-[-600px] ">WEBSITES</p>
-            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-0.5/5">
+            <p className="text-black text-[500px] font-[Heathergreen] -translate-x-[-600px]">WEBSITES</p>
+            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[-310px] translate-y-0.5/5">
               <img
                 ref={beeRef}
                 src={bee}
@@ -283,24 +310,27 @@ export default function Home() {
         </div>
 
         {/* Button and Back Arrow positioned together */}
-        <div className="absolute bottom-8 left-8 flex flex-col  space-y-4">
-          <button className="bg-[rgba(186,71,174,1)] text-white ml-20 font-bold p-10 rounded-full text-5xl">
-            SEE APPS WORK
+        <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
+          <button 
+            className="bg-[rgba(186,71,174,1)] text-white ml-20 font-bold p-10 rounded-full text-5xl"
+            onClick={() => scrollToSection("3")}
+          >
+            SEE WEBSITES WORK
           </button>
-          <button className="text-white p-4 rounded-full">
+          <button 
+            className="text-white p-4 rounded-full"
+            onClick={() => scrollToSection("1")}
+          >
             <FaArrowLeft className="text-5xl" />
           </button>
         </div>
       </div>
 
-
-
-
-
       {/* ui/ux div */}
-      <div id="3"
+      <div 
+        id="3"
         ref={humanSectionRef}
-        className="bg-[rgba(186,71,174,1)] min-h-screen relative"
+        className={`bg-[rgba(186,71,174,1)] h-screen w-screen relative snap-section ${activeSection === 3 ? 'sticky top-0' : ''}`}
       >
         {/* Logo in top left corner */}
         <div className="absolute top-8 left-8">
@@ -318,13 +348,16 @@ export default function Home() {
 
           {/* Right side with UI/UX text and human */}
           <div className="relative md:mt-20">
-            <button className="bg-[rgba(222,225,62,1)] absolute top-1/2 left-[-250px] whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
-              SEE APPS WORK
+            <button 
+              className="bg-[rgba(222,225,62,1)] absolute top-1/2 left-[-250px] whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl"
+              onClick={() => scrollToSection("4")}
+            >
+              SEE UI/UX WORK
             </button>
             <p className="text-black text-[900px] font-[Heathergreen] -translate-x-[-600px] float-right whitespace-nowrap leading-[1]">
               UI/UX
             </p>
-            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[-340px] translate-y-8/9">
               <img
                 ref={humanRef}
                 src={human}
@@ -336,20 +369,21 @@ export default function Home() {
         </div>
 
         {/* Button and Back Arrow positioned together */}
-        <div className="absolute bottom-8 left-8 flex flex-col  space-y-4">
-          <button className="text-white p-4 rounded-full">
+        <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
+          <button 
+            className="text-white p-4 rounded-full"
+            onClick={() => scrollToSection("2")}
+          >
             <FaArrowLeft className="text-5xl" />
           </button>
         </div>
       </div>
 
-
-
-
       {/* banana div */}
-      <div id="4"
+      <div 
+        id="4"
         ref={bananaSectionRef}
-        className="bg-[rgba(222,225,62,1)] min-h-screen relative"
+        className={`bg-[rgba(222,225,62,1)] h-screen w-screen relative snap-section ${activeSection === 4 ? 'sticky top-0' : ''}`}
       >
         {/* Logo in top left corner */}
         <div className="absolute top-8 left-8">
@@ -367,13 +401,16 @@ export default function Home() {
 
           {/* Right side with CREATIVE text and banana */}
           <div className="relative md:mt-40">
-            <button className="bg-[rgba(92,186,71,1)] absolute left-3/5 whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
-              SEE APPS WORK
+            <button 
+              className="bg-[rgba(92,186,71,1)] absolute left-3/5 whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl"
+              onClick={() => scrollToSection("1")}
+            >
+              SEE CREATIVE WORK
             </button>
-            <p className="text-black text-[500px]  font-[Heathergreen] -translate-x-[-600px] float-right whitespace-nowrap ">
+            <p className="text-black text-[500px] font-[Heathergreen] -translate-x-[-600px] float-right whitespace-nowrap">
               CREATIVE
             </p>
-            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[-360px] translate-y-8/9">
               <img
                 ref={bananaRef}
                 src={banana}
@@ -385,12 +422,15 @@ export default function Home() {
         </div>
 
         {/* Button and Back Arrow positioned together */}
-        <div className="absolute bottom-8 left-8 flex flex-col  space-y-4">
-          <button className="text-black p-4 rounded-full">
+        <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
+          <button 
+            className="text-black p-4 rounded-full"
+            onClick={() => scrollToSection("3")}
+          >
             <FaArrowLeft className="text-5xl" />
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
