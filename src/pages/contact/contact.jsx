@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import vectorIcon from "../../assets/Group 55.svg";
-import { db } from "../../firebase"; // Import your Firebase configuration
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { database } from "../../firebase"; // Import your Firebase Realtime Database configuration
+import { ref, set, push, serverTimestamp } from "firebase/database";
 
 const ContactPage = () => {
-  // State for form fields
-  const [formData, setFormData] = useState({
+   // State for form fields
+   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -34,8 +34,14 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     try {
-      // Add document to Firestore
-      await addDoc(collection(db, "contacts"), {
+      // Create a reference to the contacts collection
+      const contactsRef = ref(database, "contacts");
+      
+      // Create a new contact entry with unique key
+      const newContactRef = push(contactsRef);
+      
+      // Set data to the Realtime Database
+      await set(newContactRef, {
         ...formData,
         timestamp: serverTimestamp(),
       });
