@@ -232,14 +232,14 @@ const ContactPage = () => {
         <p className="text-[26px] sm:text-[36px] md:text-[20px] lg:text-[75px] leading-tight md:leading-[121px] font-normal text-black">
           Want to see what can Fooliz do for you?
         </p>
-        <div className="flex flex-col md:flex-row items-center gap-4 mt-[-13px]">
+        <div className="flex flex-row md:flex-row items-center gap-2 mt-[-5px] md:mt-[-13px] lg:mt-[-13px]">
           <a
             href="/contact"
-            className="bg-[#D9E021] font-semi-bold px-4 py-8 sm:px-6 sm:py-3 md:px-8 md:py-2 rounded-full text-[16px] sm:text-[20px] md:text-[65px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
+            className="bg-[#D9E021] font-semi-bold px-8 py-2 sm:px-6 sm:py-3 md:px-8 md:py-2 rounded-full text-[16px] sm:text-[20px] md:text-[65px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
           >
             Fill out a project
           </a>
-          <p className="text-[24px] sm:text-[30px] md:text-[50px] lg:text-[80px] text-black">
+          <p className="text-[30px] md:text-[50px] lg:text-[80px] text-black">
             brief and get the ball rolling!
           </p>
         </div>

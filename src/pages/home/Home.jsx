@@ -143,7 +143,7 @@ const Home = ({
 
         <div className="bg-[#dee13e] ">
 
-          <div className="text-black font-extrabold italic text-xl font-poppins ">
+          <div className="text-black  font-extrabold italic text-xl font-poppins ">
             <p style={{ paddingLeft: mobileTextPadding.line1 }} className="ml-[50px] pt-[12px]">
               SUBSCRIPTION BASED SOLUTIONS
             </p>
@@ -152,16 +152,16 @@ const Home = ({
             </p>
           </div>
 
-          <div className="relative w-full flex justify-center top-[-20px]">
+          <div className="relative w-full flex justify-center ">
             <img 
               src="https://s3-alpha-sig.figma.com/img/bd8f/abf6/26326235eef46325d90d16d73d3154ed?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=foQJ8Xhk5fxXVQy~ImxS0BlUNHFxQqrBmdYsAS9XgjcsVhY29gUmFTz34KHonMhslrN2LygjdOy65I1NbLqbTwXc40MnwHmUfQR7Mz44Jovq6DIaLwi74JXl1kLuW3~PEKDjdL9EnvgyPIMkB6btLifXcWbYZPBhYNU-jYO6gYJfvRjDUfm3Ob4rqyFxmgsM5zq7cVEQkcS3VLEPgHxTypbNap6y6AHECmXBVFNLCCZafBpqlE-y4GXxM1QiMSHiP45hgS9ZxwRgqgAj6qk3~tyRKGBhzsEiA0odYKlyTHii9cZ5RaJP73kEk0mj9APgf4R6-p7Wq6rEs~eWpXex2Q__"
               alt="img" 
-              className="w-1/3 max-w-md rounded-full"
+              className="w-[350px] h-[350px] mb-[-50px] mt-[-55px] max-w-md rounded-full"
             />
             
             <a
               href="subscribe"  
-              className="absolute w-[150px] h-[60px] bg-[#5cba47] ml-[190px] top-[112px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
+              className="absolute w-[150px] h-[60px] bg-[#5cba47] ml-[190px] top-[182px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
               style={{ 
                 bottom: '40%'
               }}
@@ -171,11 +171,11 @@ const Home = ({
           </div>
         </div>
 
-        <div className="flex flex-col items-start p-4 font-bold uppercase" style={{ fontFamily: 'Heathergreen, sans-serif' }}>
+        <div className="flex flex-col items-start font-bold uppercase" style={{ fontFamily: 'Heathergreen, sans-serif' }}>
           <a href="work" className="text-8xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
             Work
           </a>
-          <a href="services" className="text-8xl ml-[130px] font-light transition-colors duration-300 hover:text-[#474cba]">
+          <a href="services" className="text-9xl mt-[-14px] ml-[130px] font-light transition-colors duration-300 hover:text-[#474cba]">
             Services
           </a>
           <a href="contact" className="text-8xl font-light ml-[65px] transition-colors duration-300 hover:text-[#dee13e]">
@@ -184,7 +184,7 @@ const Home = ({
           <a href="clients" className="text-6xl font-light ml-[70px] transition-colors duration-300 hover:text-[#5cba47]">
             Our Clients
           </a>
-          <a href="story" className="text-4xl font-light ml-[225px] mt-[-60px] transition-colors duration-300 hover:text-[#ba47ae]">
+          <a href="story" className="text-5xl font-light ml-[225px] mt-[-60px] transition-colors duration-300 hover:text-[#ba47ae]">
             Our Story
           </a>
         </div>
