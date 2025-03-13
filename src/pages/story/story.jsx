@@ -96,7 +96,7 @@ const ContactPage = () => {
           </div>
 
           {/* Lorem Ipsum paragraph - Shown third on mobile */}
-          <p className="text-gray-700 w-full leading-relaxed mb-8 font-semi-bold  text-2xl ml-[50px] lg:w-[50%] text-justify break-words">
+          <p className="text-gray-700 w-full leading-tight mb-[100px] font-semi-bold  text-2xl ml-[50px] lg:w-[55%] text-justify break-words">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -107,7 +107,7 @@ const ContactPage = () => {
           </p>
 
           {/* "We started our mission..." paragraph - Shown fourth on mobile with same styling as Lorem Ipsum */}
-          <p className="text-gray-700 w-full leading-relaxed mb-8 font-semi-bold text-2xl text-justify ml-[50px] lg:w-[50%]  break-words md:hidden">
+          <p className="text-gray-700 w-full leading-tight mb-8 font-semi-bold text-2xl text-justify ml-[50px] lg:w-[50%]  break-words md:hidden">
             We started our mission with a vision to transform the industry.
             we've remained committed to excellence and continuous improvementimprovementimprovement.
           </p>
@@ -117,7 +117,7 @@ const ContactPage = () => {
         <div className="lg:w-1/2 hidden md:block container mx-auto px-6 lg:px-20 mt-10 relative ">
           {/* Mission Statement for Desktop */}
           <div className="w-full p-4 md:p-6 md:ml-[-195px] md:mt-[-105px] text-justify ">
-            <p className="text-2xl md:text-3xl lg:text-2xl text-gray-700 leading-relaxed mb-8">
+            <p className="text-2xl md:text-3xl lg:text-2xl text-gray-700 leading-tight mb-8">
               We started our mission with a vision to transform the industry. We've remained committed to excellence and continuous improvement.
             </p>
           </div>

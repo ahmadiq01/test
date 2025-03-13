@@ -292,7 +292,7 @@ export default function Home() {
       >
         {/* Logo in top left corner */}
         <div className="absolute top-8 left-8">
-          <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          <h1 className="text-black text-3xl font-bold"><Header/></h1>
         </div>
 
         {/* Main content */}
@@ -342,7 +342,7 @@ export default function Home() {
       >
         {/* Logo in top left corner */}
         <div className="absolute top-8 left-8">
-          <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          <h1 className="text-black text-3xl font-bold"><Header/></h1>
         </div>
 
         {/* Main content */}
@@ -393,7 +393,7 @@ export default function Home() {
       >
         {/* Logo in top left corner */}
         <div className="absolute top-8 left-8">
-          <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          <h1 className="text-black text-3xl font-bold"><Header/></h1>
         </div>
 
         {/* Main content */}
@@ -446,7 +446,7 @@ export default function Home() {
       >
         {/* Logo in top left corner */}
         <div className="absolute top-8 left-8">
-          <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          <h1 className="text-black text-3xl font-bold"><Header/></h1>
         </div>
 
         {/* Main content */}
