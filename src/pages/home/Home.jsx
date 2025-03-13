@@ -108,7 +108,7 @@ const Home = ({
             />
 
             <img 
-              src="https://s3-alpha-sig.figma.com/img/bd8f/abf6/26326235eef46325d90d16d73d3154ed?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=foQJ8Xhk5fxXVQy~ImxS0BlUNHFxQqrBmdYsAS9XgjcsVhY29gUmFTz34KHonMhslrN2LygjdOy65I1NbLqbTwXc40MnwHmUfQR7Mz44Jovq6DIaLwi74JXl1kLuW3~PEKDjdL9EnvgyPIMkB6btLifXcWbYZPBhYNU-jYO6gYJfvRjDUfm3Ob4rqyFxmgsM5zq7cVEQkcS3VLEPgHxTypbNap6y6AHECmXBVFNLCCZafBpqlE-y4GXxM1QiMSHiP45hgS9ZxwRgqgAj6qk3~tyRKGBhzsEiA0odYKlyTHii9cZ5RaJP73kEk0mj9APgf4R6-p7Wq6rEs~eWpXex2Q__"
+              src="https://s3-alpha-sig.figma.com/img/bd8f/abf6/26326235eef46325d90d16d73d3154ed?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Iywn6ISSUEpi-0kVRim9tL4IbSIWNYYM5efAQ0OB15IHV8zF0FOOMDGDnV5AZZUxlikGKY3hBdfF5RP721xYIwti8DQaoWy6nHaAyswhxPPLIiwfBSavitV3zVx17QREbGY1IzDDPQrgxwXRavSGBPtJcHlHNFhuXUyh5bZqCm1cqcPGGrWPAifJh5DGYmA~qfcR~IfyTQQK4hA5dBH69ZgecUoskttD4ZocDUk3yH2vfhZVnYgPt~Xoi~f12iVdpxIRBy7k2dNF~26Q~HuUrVQN6yHy58z7~2NLLrKeIVozJuMrH0y61xa0IjCIl1LRHACxDEYCA1j0bjNiqOtOXg__"
               alt="img" 
               className="w-[783px] h-[783px] rounded-full absolute top-[5px] left-[90px]"
               style={{ 

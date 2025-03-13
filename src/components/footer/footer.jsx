@@ -49,7 +49,7 @@ const Footer = () => {
 
         <div className="flex justify-end mt-[-50px] md:mt-[-120px] lg:mt-[-200px]">
           <img
-            src="https://s3-alpha-sig.figma.com/img/df8f/7fc5/ebcb86426df7897596bb0414358e852b?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=b8bdb7I4xHqz6FGkNKco3XX3o4MQise~UBwD4xGtGIlsFnXL~rah-ADXo9mjP9tipTBI9klnh2kGIVxPs6eF5NpUOtCB2YvLLseVr8obvwub5qnwmghEntRY7q~UGGe0QsFaUwY35msY22B-~coqv~HjqS1oIKoBP2RMzomkpUTnclw3UnPaBeb1zur97mOcQqHm2mg8xqHxlgCeh8QpezH9NFI2N833ck~RWeGVTFl6E~cbFy4nOqB80H1DF7AI11W6TuHy8-YRVQOqxWlSLTM5ypvit8H9ET-211EQXvGNE2H3RLZweyQdGglIrMke9sLbZVJPgoy56znyWaSCRQ__"
+            src="https://s3-alpha-sig.figma.com/img/df8f/7fc5/ebcb86426df7897596bb0414358e852b?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HL7qpTWntbQigr5Mmaytg3PdG8IP4EheT3~Pg~tSLuSRzlAGrQplcUfEiFuCfi0yyccg3LwHlF4lTjTA0j5hjobohcdkQ9kn0c0X80rGa45XKp761dCxnvAsmKcpy6SPfbOC7XixDq1Azle969rwdGidSNkrDavh4FKPfYBRzWIr3xicVTON6mNu3zGxSkHQfkRcuVL9n90Y~psup6~cFHFiteNLg11gxi70yBNsah-9tm77MmZyQz4ihnyBz-VN708YlyRJVtSRlG-y3KTWVv7PyabNMk9BJSCgOdT~84sh56JXobomyzZ07XCSs5gPDJwx~rVf3xKPGm0p62ORtA__"
             alt="img"
             className="rounded-full w-[15em] h-[6em] md:w-[10em] md:h-[12em] lg:w-[12em] lg:h-[12em] object-contain"
           />

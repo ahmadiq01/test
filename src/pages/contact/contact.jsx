@@ -77,7 +77,7 @@ const ContactPage = () => {
       <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row w-full">
         {/* Contact Info Section */}
         <div className="flex flex-row sm:flex-row md:flex-col items-center bg-[#dee13e] w-full sm:w-1/2 md:w-[30%] lg:w-[15%] p-6 md:rounded-t-2xl space-y-6 sm:space-y-0 sm:space-x-4 md:space-x-0 md:ml-[45px]">
-          <p className="text-[106px] font-[400] font-[Heathergreen] leading-[100%] tracking-[0%] text-[#000000] w-[320px] h-[195px] mt-[-20px] ml-[39px]">
+          <p className="text-6xl md:text-[106px] lg:text-[106px] font-[400] font-[Heathergreen] leading-[100%] tracking-[0%] text-[#000000] w-[820px] md:w-[320px] lg:w-[320px] md:h-[195px] lg:h-[195px] mt-[-20px] ml-[39px]">
             LETS CONNECT.
           </p>
 
