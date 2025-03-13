@@ -148,7 +148,7 @@ const ContactPage = () => {
               />
             </div>
 
-            <div className="flex flex-col md:col-span-2">
+            <div className="flex flex-col col-span-2 md:col-span-2 lg:col-span-2">
               <label className="text-gray-700 font-semibold mb-1 md:mb-2 text-base md:text-lg">
                 Email*
               </label>
@@ -178,11 +178,11 @@ const ContactPage = () => {
               ></textarea>
             </div>
 
-            <fieldset className="col-span-2 md:col-span-1 lg:col-span-1 font-bold">
+            <fieldset className="col-span-1 md:col-span-1 lg:col-span-1 ">
               <legend className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-700">
                 Budget*
               </legend>
-              <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-1 gap-2 font-black text-gray-700">
+              <div className="grid grid-cols-1 md:grid-cols-1 md:text-2xl font-semibold lg:grid-cols-1 gap-2 text-gray-700">
                 <label>
                   <input
                     type="radio"
@@ -232,7 +232,7 @@ const ContactPage = () => {
 
             <button
               type="submit"
-              className={`bg-[#474cba] text-white py-3 md:py-5 px-6 md:px-10 rounded-full w-1/8 hover:bg-blue-700 col-span-2 mt-4 md:mt-6 text-base md:text-lg ${
+              className={`bg-[#474cba] text-white py-3 md:py-5 px-6 md:px-10 rounded-full w-1/4 md:w-1/8 lg:w-1/8 hover:bg-blue-700 col-span-2 mt-4 md:mt-6 text-base md:text-lg ${
                 isSubmitting ? "opacity-70 cursor-not-allowed" : ""
               }`}
               disabled={isSubmitting}
