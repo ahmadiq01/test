@@ -114,7 +114,7 @@ const ContactPage = () => {
         </div>
 
         {/* Form Section */}
-        <div className="w-full sm:w-1/2 md:w-[60%] lg:w-[65%] p-4 md:p-8 md:ml-[75px]">
+        <div className="w-full sm:w-1/2 md:w-[60%] lg:w-[65%] p-4 mt-[90px] md:p-8 md:ml-[75px]">
           {submitStatus === "success" && (
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
               Thank you! Your message has been sent successfully.
@@ -183,13 +183,13 @@ const ContactPage = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder=""
-                className="border p-3 md:p-6 rounded-[20px] w-full h-20 md:h-40 text-base md:text-lg"
+                className="border p-3 md:p-6 rounded-[20px] w-[220px] h-20 md:h-40 text-xl md:text-lg"
                 rows="3"
                 required
               ></textarea>
             </div>
 
-            <fieldset className="col-span-1 md:col-span-1 lg:col-span-1 ">
+            <fieldset className="col-span-1 md:col-span-1 lg:col-span-1 ml-[70px]">
               <legend className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-700">
                 Budget*
               </legend>
@@ -243,7 +243,7 @@ const ContactPage = () => {
 
             <button
               type="submit"
-              className={`bg-[#474cba] text-white py-3 md:py-5 px-6 md:px-10 rounded-full w-1/4 md:w-1/8 lg:w-1/8 hover:bg-blue-700 col-span-2 mt-4 md:mt-6 text-base md:text-lg ${
+              className={`bg-[#474cba] text-white py-2 mb-[28px] md:py-5 px-6 md:px-10 rounded-full w-1/3 md:w-1/8 lg:w-1/8 hover:bg-blue-700 col-span-2 mt-[-22px] md:mt-6 text-base md:text-lg ${
                 isSubmitting ? "opacity-70 cursor-not-allowed" : ""
               }`}
               disabled={isSubmitting}
