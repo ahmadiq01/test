@@ -11,10 +11,10 @@ const Footer = () => {
           <p className="font-[Heathergreen] p-[8px] text-[30px] md:text-[50px] lg:text-[100px] leading-tight md:leading-[68px] lg:leading-[136.62px] text-black text-start ">
             Let's Build Your Apps Together
           </p>
-          <div className="absolute bottom-0 translate-y-[15px] md:translate-y-[40px] lg:translate-y-[30px]">
+          <div className="absolute bottom-0 translate-y-[5px] md:translate-y-[40px] lg:translate-y-[30px]">
             <a
               href="apply"
-              className="text-[#474CBA] mt-[20px] ml-[10px] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
+              className="text-[#474CBA] ml-[8px] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
             >
               Get In Touch
             </a>
@@ -27,7 +27,7 @@ const Footer = () => {
         <p className="font-[Heathergreen] text-[35px] ml-[-4px] mt-[-15px] md:text-[50px] lg:text-[130px] leading-tight md:mr-[10px] lg:ml-[-100px] md:mt-[18px] lg:mt-[18px] md:leading-[68px] lg:leading-[136.62px] text-black text-left">
           Careers
         </p>
-        <div className="mt-[-10px] md:mt-[-10px] lg:mt-[-10px] md:ml-[-100px] lg:ml-[-100px]">
+        <div className="mt-[-10px] ml-[-6px] md:mt-[-10px] lg:mt-[-10px] md:ml-[-100px] lg:ml-[-100px]">
           <a
             href="apply"
             className="text-[#474CBA] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
