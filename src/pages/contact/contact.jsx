@@ -77,21 +77,26 @@ const ContactPage = () => {
       <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row w-full">
         {/* Contact Info Section */}
         <div className="flex flex-row sm:flex-row md:flex-col items-center bg-[#dee13e] w-full sm:w-1/2 md:w-[30%] lg:w-[15%] p-6 md:rounded-t-2xl space-y-6 sm:space-y-0 sm:space-x-4 md:space-x-0 md:ml-[45px]">
-          <p className="text-6xl md:text-[106px] lg:text-[106px] font-[400] font-[Heathergreen] leading-[100%] tracking-[0%] text-[#000000] w-[820px] md:w-[320px] lg:w-[320px] md:h-[195px] lg:h-[195px] mt-[-20px] ml-[39px]">
+        <div className="relative overflow-visible">
+          <p className="
+          absolute text-8xl md:text-[106px] lg:text-[106px] font-[400] font-[Heathergreen] leading-[100%] tracking-[0%] text-[#000000] 
+          w-[820px] md:w-[320px] lg:w-[320px] md:h-[195px] lg:h-[195px] mt-[-20px] md:mt-[-20px] lg:mt-[-20px] ml-[-2px] md:ml-[19px] lg:ml-[-9px] whitespace-nowrap">
             LETS CONNECT.
           </p>
 
-          <p className="text-[#000000] text-[30px] font-extrabold mt-[-80px] mr-[-70px] w-[335.98px] h-[33.1px] ">
-            +971 56 725 7157
-          </p>
+        <p className="text-[#000000]  text-[30px] font-extrabold mt-[80px] md:mt-[-10px] lg:mt-[86px] mr-[-70px] w-[335.98px] h-[33.1px] overflow-visible">
+          +971 56 725 7157
+        </p>
 
-          <p className="text-[#000000] text-[28px] font-bold mt-[3px] mr-[-88px] w-[335.31px] h-[38.74px] ">
-            fooliz@gmail.com
-          </p>
+        <p className="text-[#000000]  text-[28px] font-bold mt-[3px] mr-[-88px] w-[335.31px] h-[38.74px] overflow-visible">
+          fooliz@gmail.com
+        </p>
 
-          <p className="text-[#000000] md:text-[28px] break-words font-semi-bold mt-[2px] leading-tight mr-[-90px] w-[339.18px] h-[63.7px]">
+          <p className="text-[#000000] text-[28px] md:text-[28px] break-words font-semi-bold mt-[2px] leading-tight mr-[-90px] w-[339.18px] h-[63.7px]">
             Dubai, Business Bay,<br />SBK-506, UAE
           </p>
+
+          </div>
 
           <div className="flex justify-center items-center w-full sm:w-1/2 md:w-full pb-6">
             <img

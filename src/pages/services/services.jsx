@@ -4,6 +4,8 @@ import bee from "../../assets/bee.gif";
 import human from "../../assets/human.gif";
 import banana from "../../assets/banana.gif";
 import { FaArrowLeft } from "react-icons/fa";
+import Header from "../../components/header/header";
+
 
 export default function Home() {
   const monkeyRef = useRef(null);
@@ -35,21 +37,22 @@ export default function Home() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      
+
       // Determine which section should be visible based on scroll position
       const sectionIndex = Math.floor(scrollPosition / windowHeight);
       const sectionProgress = (scrollPosition % windowHeight) / windowHeight;
-      
+
       // Calculate visible section
-      const sections = ['monkey', 'bee', 'human', 'banana'];
-      const currentSection = sections[Math.min(sectionIndex, sections.length - 1)];
-      
+      const sections = ["monkey", "bee", "human", "banana"];
+      const currentSection =
+        sections[Math.min(sectionIndex, sections.length - 1)];
+
       // Update section visibility state
       const newVisibility = {
-        monkey: currentSection === 'monkey',
-        bee: currentSection === 'bee',
-        human: currentSection === 'human',
-        banana: currentSection === 'banana',
+        monkey: currentSection === "monkey",
+        bee: currentSection === "bee",
+        human: currentSection === "human",
+        banana: currentSection === "banana",
       };
 
       // Apply animations based on visibility changes
@@ -161,6 +164,7 @@ export default function Home() {
         }
       `}</style>
 
+
       <div ref={containerRef} className="sticky-container">
         {/* monkey div */}
         <div
@@ -169,22 +173,22 @@ export default function Home() {
           style={{ zIndex: sectionVisibility.monkey ? 40 : 10 }}
         >
           {/* Logo in top left corner */}
-          <div className="absolute top-8 left-8">
-            <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          <div className="absolute ">
+            <h1 className="text-black text-3xl font-bold"><Header/></h1>
           </div>
 
           {/* Main content */}
           <div className="flex flex-col md:flex-row px-8 gap-10">
             {/* Left side */}
-            <div className="flex flex-col space-y-12 md:pl-8">
-              <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
+            <div className="flex flex-col md:pl-4 md:mt-[40px]">
+              <p className="text-white text-[80px] font-light leading-[100%] py-20 whitespace-nowrap font-poppins">
                 WE MAKE
               </p>
             </div>
 
             {/* Right side with APPS text and monkey */}
             <div className="relative md:mt-0">
-              <p className="text-black text-[650px] font-Heathergreen leading-[1]">
+              <p className="text-black text-[1150px] md:mt-[-160px] md:ml-[260px] font-[Heathergreen] leading-[1]">
                 APPS
               </p>
               <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
@@ -200,14 +204,17 @@ export default function Home() {
 
           {/* Button and Back Arrow positioned together */}
           <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
-            <button className="bg-[rgba(71,76,186,1)] text-white font-bold p-10 rounded-full text-5xl">
+            <button className="bg-[rgba(71,76,186,1)] md:ml-[108px] text-white font-bold p-10 rounded-full text-5xl">
               SEE APPS WORK
             </button>
-            <button className="text-white p-4 rounded-full">
+            <button className="text-white p-4 rounded-full mt-[90px]">
               <FaArrowLeft className="text-5xl" />
             </button>
           </div>
         </div>
+
+
+
 
         {/* bee div */}
         <div
@@ -216,22 +223,22 @@ export default function Home() {
           style={{ zIndex: sectionVisibility.bee ? 30 : 9 }}
         >
           {/* Logo in top left corner */}
-          <div className="absolute top-8 left-8">
-            <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          <div className="absolute top-0 left-0">
+            <h1 className="text-black text-3xl font-bold"><Header/></h1>
           </div>
 
           {/* Main content */}
           <div className="flex flex-col md:flex-row px-8 gap-10">
             {/* Left side */}
-            <div className="flex flex-col space-y-12 md:pl-8">
-              <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
+            <div className="flex flex-col md:pl-4 md:mt-[40px]">
+              <p className="text-white text-[80px] font-light leading-[100%] py-20 whitespace-nowrap font-poppins">
                 WE MAKE
               </p>
             </div>
 
             {/* Right side with WEBSITES text and bee */}
             <div className="relative md:mt-20">
-              <p className="text-black text-[350px] ">WEBSITES</p>
+              <p className="text-black text-[350px] font-[Heathergreen]">WEBSITES</p>
               <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-0.5/5">
                 <img
                   ref={beeRef}
@@ -246,7 +253,7 @@ export default function Home() {
           {/* Button and Back Arrow positioned together */}
           <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
             <button className="bg-[rgba(186,71,174,1)] text-white ml-20 font-bold p-10 rounded-full text-5xl">
-              SEE APPS WORK
+              SEE WEBSITES WORK
             </button>
             <button className="text-white p-4 rounded-full">
               <FaArrowLeft className="text-5xl" />
@@ -261,15 +268,15 @@ export default function Home() {
           style={{ zIndex: sectionVisibility.human ? 20 : 8 }}
         >
           {/* Logo in top left corner */}
-          <div className="absolute top-8 left-8">
-            <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          <div className="absolute top-0 left-0">
+            <h1 className="text-black text-3xl font-bold"><Header/></h1>
           </div>
 
           {/* Main content */}
           <div className="flex flex-col md:flex-row px-8 gap-10">
             {/* Left side */}
-            <div className="flex flex-col space-y-40 md:pl-8">
-              <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
+            <div className="flex flex-col md:pl-4 md:mt-[40px]">
+              <p className="text-white text-[80px] font-light leading-[100%] py-20 whitespace-nowrap font-poppins">
                 WE MAKE
               </p>
             </div>
@@ -277,9 +284,9 @@ export default function Home() {
             {/* Right side with UI/UX text and human */}
             <div className="relative md:mt-20">
               <button className="bg-[rgba(222,225,62,1)] absolute top-1/2 left-[-250px] whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
-                SEE APPS WORK
+                SEE UI/UX WORK
               </button>
-              <p className="text-black text-[550px] font-Heathergreen float-right whitespace-nowrap leading-[1]">
+              <p className="text-black text-[550px] font-[Heathergreen] float-right whitespace-nowrap leading-[1]">
                 UI/UX
               </p>
               <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
@@ -308,15 +315,15 @@ export default function Home() {
           style={{ zIndex: sectionVisibility.banana ? 10 : 7 }}
         >
           {/* Logo in top left corner */}
-          <div className="absolute top-8 left-8">
-            <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          <div className="absolute top-0 left-0">
+            <h1 className="text-black text-3xl font-bold"><Header/></h1>
           </div>
 
           {/* Main content */}
           <div className="flex flex-col md:flex-row px-8 gap-10">
             {/* Left side */}
-            <div className="flex flex-col space-y-40 md:pl-8">
-              <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
+            <div className="flex flex-col md:pl-4 md:mt-[40px]">
+              <p className="text-white text-[80px] font-light leading-[100%] py-20 whitespace-nowrap font-poppins">
                 WE MAKE
               </p>
             </div>
@@ -324,12 +331,12 @@ export default function Home() {
             {/* Right side with CREATIVE text and banana */}
             <div className="relative md:mt-40">
               <button className="bg-[rgba(92,186,71,1)] absolute left-3/5 whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
-                SEE APPS WORK
+                SEE CREATIVE WORK
               </button>
-              <p className="text-black text-[350px] font-Heathergreen float-right whitespace-nowrap ">
+              <p className="text-black text-[550px] font-[Heathergreen] float-right whitespace-nowrap ml-[400px]">
                 CREATIVE
               </p>
-              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[400px] translate-y-[-100px]">
                 <img
                   ref={bananaRef}
                   src={banana}
