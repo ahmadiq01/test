@@ -183,7 +183,7 @@ const ContactPage = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder=""
-                className="border p-3 md:p-6 rounded-[20px] w-[220px] h-20 md:h-40 text-xl md:text-lg"
+                className="border p-3 md:p-6 rounded-[20px] w-[220px] h-30 md:h-40 text-[15px] md:text-lg"
                 rows="3"
                 required
               ></textarea>
@@ -243,7 +243,7 @@ const ContactPage = () => {
 
             <button
               type="submit"
-              className={`bg-[#474cba] text-white py-2 mb-[28px] md:py-5 px-6 md:px-10 rounded-full w-1/3 md:w-1/8 lg:w-1/8 hover:bg-blue-700 col-span-2 mt-[-22px] md:mt-6 text-base md:text-lg ${
+              className={`bg-[#474cba] text-white py-2 mb-[20px] md:py-5 px-6 md:px-10 rounded-full w-1/3 md:w-1/8 lg:w-1/8 hover:bg-blue-700 col-span-2 mt-[-6px]  md:mt-6 text-base md:text-lg ${
                 isSubmitting ? "opacity-70 cursor-not-allowed" : ""
               }`}
               disabled={isSubmitting}

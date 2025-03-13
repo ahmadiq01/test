@@ -10,25 +10,27 @@ import StoryImg from "../../assets/story.png";
 const ContactPage = () => {
   return (
     <div className="relative bg-white">
-      <Header />
+      <div className="ml-[-25px]">
+        <Header />
+      </div>
       <div className="flex flex-col lg:flex-row items-start">
         {/* Left Column - Title & Paragraph */}
         <div className="w-full lg:w-1/2 pr-10 md:mt-[40px] md:ml-[1px] ml-[-14px]">
           {/* Title "Our Story" - Shown first on all screen sizes */}
-          <div className="mb-12 ml-[50px] w-full">
-            <h1 className="text-[9rem] md:text-[12rem] font-bold tracking-[0.5rem] md:tracking-[1rem] uppercase font-[Heathergreen] leading-[1.1]">
+          <div className="mb-12 ml-[40px] w-full">
+            <h1 className="text-[7rem] md:text-[12rem] font-semi-bold tracking-[0.3rem] md:tracking-[1rem] uppercase font-[Heathergreen] leading-[1.1]">
               Our Story
             </h1>
           </div>
 
           {/* Mobile-only team members section - Shown second on mobile */}
           
-          <div className="lg:w-1/2 md:hidden container mx-auto px-6 lg:px-20 mt-[-58px] relative">
+          <div className="lg:w-1/2 md:hidden container mx-auto px-6 lg:px-20 mt-[-58px] ml-[40px] relative">
             <img src={StoryImg} alt="" />
           </div>
 
           {/* Lorem Ipsum paragraph - Shown third on mobile */}
-          <p className="text-gray-700 w-full leading-tight mb-[100px] font-semi-bold  text-2xl ml-[50px] lg:w-[55%] text-justify break-words">
+          <p className="text-gray-700 w-full leading-tight mb-[100px] font-semi-bold  text-2xl ml-[30px] lg:w-[55%] text-justify break-words">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -36,13 +38,11 @@ const ContactPage = () => {
             onlet sheets containing Lorem Ipsum passages, and more recently with
             desktop publishing software like Aldus PageMaker including versions
             of Lorem Ipsum.
-          </p>
 
-          {/* "We started our mission..." paragraph - Shown fourth on mobile with same styling as Lorem Ipsum */}
-          <p className="text-gray-700 w-full leading-tight mb-8 font-semi-bold text-2xl text-justify ml-[50px] lg:w-[50%]  break-words md:hidden">
             We started our mission with a vision to transform the industry.
             we've remained committed to excellence and continuous improvementimprovementimprovement.
-          </p>
+            </p>
+        
         </div>
 
         {/* Right Column - Images & Description (Desktop only) */}
