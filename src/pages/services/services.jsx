@@ -4,8 +4,6 @@ import bee from "../../assets/bee.gif";
 import human from "../../assets/human.gif";
 import banana from "../../assets/banana.gif";
 import { FaArrowLeft } from "react-icons/fa";
-import Header from "../../components/header/header";
-
 
 export default function Home() {
   const monkeyRef = useRef(null);
@@ -18,169 +16,92 @@ export default function Home() {
   const humanSectionRef = useRef(null);
   const bananaSectionRef = useRef(null);
 
+  const containerRef = useRef(null);
+
   const [sectionVisibility, setSectionVisibility] = useState({
     monkey: false,
     bee: false,
     human: false,
     banana: false,
   });
-  
-  const [activeSection, setActiveSection] = useState(1);
-  const [lastScrollPos, setLastScrollPos] = useState(0);
-  const [initialLoad, setInitialLoad] = useState(true);
-  const [scrollDirection, setScrollDirection] = useState('none');
 
   useEffect(() => {
-    // Initialize animations on initial load
-    if (initialLoad && monkeyRef.current) {
-      // Add animation class to first section's monkey on initial load
-      monkeyRef.current.classList.add("animate-from-right");
-      setInitialLoad(false);
+    // Calculate the height needed for smooth scrolling
+    if (containerRef.current) {
+      const containerHeight = window.innerHeight * 4; // 4 sections
+      containerRef.current.style.height = `${containerHeight}px`;
     }
-  }, [initialLoad]);
 
-  useEffect(() => {
-    // Handle animations when active section changes based on scroll direction
-    const handleSectionChange = () => {
-      // Clear all animations first
-      clearAllAnimations();
-      
-      // Apply animations based on scroll direction
-      if (scrollDirection === 'up') {
-        // Moving up (animate from right to left)
-        if (activeSection === 1 && monkeyRef.current) {
-          monkeyRef.current.classList.add("animate-from-right");
-        } else if (activeSection === 2 && beeRef.current) {
-          beeRef.current.classList.add("animate-from-right");
-        } else if (activeSection === 3 && humanRef.current) {
-          humanRef.current.classList.add("animate-from-right");
-        } else if (activeSection === 4 && bananaRef.current) {
-          bananaRef.current.classList.add("animate-from-right");
-        }
-      } else if (scrollDirection === 'down') {
-        // Moving down (animate from left to right)
-        if (activeSection === 1 && monkeyRef.current) {
-          monkeyRef.current.classList.add("animate-from-left");
-        } else if (activeSection === 2 && beeRef.current) {
-          beeRef.current.classList.add("animate-from-left");
-        } else if (activeSection === 3 && humanRef.current) {
-          humanRef.current.classList.add("animate-from-left");
-        } else if (activeSection === 4 && bananaRef.current) {
-          bananaRef.current.classList.add("animate-from-left");
-        }
-      } else if (scrollDirection === 'none' && activeSection === 1 && monkeyRef.current) {
-        // Initial load
-        monkeyRef.current.classList.add("animate-from-right");
-      }
-    };
-
-    // Clear all animation classes from all elements
-    const clearAllAnimations = () => {
-      const elements = [monkeyRef.current, beeRef.current, humanRef.current, bananaRef.current];
-      const classes = ["animate-from-left", "animate-to-left", "animate-from-right", "animate-to-right"];
-      
-      elements.forEach(element => {
-        if (element) {
-          classes.forEach(className => {
-            element.classList.remove(className);
-            // Force reflow
-            void element.offsetWidth;
-          });
-        }
-      });
-    };
-
-    handleSectionChange();
-  }, [activeSection, scrollDirection]);
-
-  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const direction = scrollPosition > lastScrollPos ? 'down' : 'up';
-      setScrollDirection(direction);
-      setLastScrollPos(scrollPosition);
       
-      // Determine which section should be active based on scroll position
-      const section1Top = monkeySectionRef.current?.offsetTop || 0;
-      const section2Top = beeSectionRef.current?.offsetTop || 0;
-      const section3Top = humanSectionRef.current?.offsetTop || 0;
-      const section4Top = bananaSectionRef.current?.offsetTop || 0;
+      // Determine which section should be visible based on scroll position
+      const sectionIndex = Math.floor(scrollPosition / windowHeight);
+      const sectionProgress = (scrollPosition % windowHeight) / windowHeight;
       
-      // Apply animations when leaving sections
-      if (scrollPosition < section2Top - windowHeight/2) {
-        if (activeSection !== 1) {
-          // When transitioning to section 1
-          if (activeSection === 2 && beeRef.current) {
-            if (direction === 'up') {
-              beeRef.current.classList.remove("animate-from-right");
-              beeRef.current.classList.add("animate-to-left");
-            } else {
-              beeRef.current.classList.remove("animate-from-left");
-              beeRef.current.classList.add("animate-to-right");
-            }
+      // Calculate visible section
+      const sections = ['monkey', 'bee', 'human', 'banana'];
+      const currentSection = sections[Math.min(sectionIndex, sections.length - 1)];
+      
+      // Update section visibility state
+      const newVisibility = {
+        monkey: currentSection === 'monkey',
+        bee: currentSection === 'bee',
+        human: currentSection === 'human',
+        banana: currentSection === 'banana',
+      };
+
+      // Apply animations based on visibility changes
+      if (newVisibility.monkey !== sectionVisibility.monkey) {
+        if (monkeyRef.current) {
+          if (newVisibility.monkey) {
+            monkeyRef.current.classList.add("animate-from-left");
+            monkeyRef.current.classList.remove("animate-to-left");
+          } else {
+            monkeyRef.current.classList.add("animate-to-left");
+            monkeyRef.current.classList.remove("animate-from-left");
           }
-          setActiveSection(1);
-        }
-      } else if (scrollPosition < section3Top - windowHeight/2) {
-        if (activeSection !== 2) {
-          // When transitioning to section 2
-          if (activeSection === 1 && monkeyRef.current) {
-            if (direction === 'down') {
-              monkeyRef.current.classList.remove("animate-from-right");
-              monkeyRef.current.classList.add("animate-to-right");
-            } else {
-              monkeyRef.current.classList.remove("animate-from-left");
-              monkeyRef.current.classList.add("animate-to-left");
-            }
-          } else if (activeSection === 3 && humanRef.current) {
-            if (direction === 'up') {
-              humanRef.current.classList.remove("animate-from-right");
-              humanRef.current.classList.add("animate-to-left");
-            } else {
-              humanRef.current.classList.remove("animate-from-left");
-              humanRef.current.classList.add("animate-to-right");
-            }
-          }
-          setActiveSection(2);
-        }
-      } else if (scrollPosition < section4Top - windowHeight/2) {
-        if (activeSection !== 3) {
-          // When transitioning to section 3
-          if (activeSection === 2 && beeRef.current) {
-            if (direction === 'down') {
-              beeRef.current.classList.remove("animate-from-right");
-              beeRef.current.classList.add("animate-to-right");
-            } else {
-              beeRef.current.classList.remove("animate-from-left");
-              beeRef.current.classList.add("animate-to-left");
-            }
-          } else if (activeSection === 4 && bananaRef.current) {
-            if (direction === 'up') {
-              bananaRef.current.classList.remove("animate-from-right");
-              bananaRef.current.classList.add("animate-to-left");
-            } else {
-              bananaRef.current.classList.remove("animate-from-left");
-              bananaRef.current.classList.add("animate-to-right");
-            }
-          }
-          setActiveSection(3);
-        }
-      } else {
-        if (activeSection !== 4) {
-          // When transitioning to section 4
-          if (activeSection === 3 && humanRef.current) {
-            if (direction === 'down') {
-              humanRef.current.classList.remove("animate-from-right");
-              humanRef.current.classList.add("animate-to-right");
-            } else {
-              humanRef.current.classList.remove("animate-from-left");
-              humanRef.current.classList.add("animate-to-left");
-            }
-          }
-          setActiveSection(4);
         }
       }
+
+      if (newVisibility.bee !== sectionVisibility.bee) {
+        if (beeRef.current) {
+          if (newVisibility.bee) {
+            beeRef.current.classList.add("animate-from-left");
+            beeRef.current.classList.remove("animate-to-left");
+          } else {
+            beeRef.current.classList.add("animate-to-left");
+            beeRef.current.classList.remove("animate-from-left");
+          }
+        }
+      }
+
+      if (newVisibility.human !== sectionVisibility.human) {
+        if (humanRef.current) {
+          if (newVisibility.human) {
+            humanRef.current.classList.add("animate-from-left");
+            humanRef.current.classList.remove("animate-to-left");
+          } else {
+            humanRef.current.classList.add("animate-to-left");
+            humanRef.current.classList.remove("animate-from-left");
+          }
+        }
+      }
+
+      if (newVisibility.banana !== sectionVisibility.banana) {
+        if (bananaRef.current) {
+          if (newVisibility.banana) {
+            bananaRef.current.classList.add("animate-from-left");
+            bananaRef.current.classList.remove("animate-to-left");
+          } else {
+            bananaRef.current.classList.add("animate-to-left");
+            bananaRef.current.classList.remove("animate-from-left");
+          }
+        }
+      }
+
+      setSectionVisibility(newVisibility);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -191,52 +112,17 @@ export default function Home() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [activeSection, lastScrollPos]);
-
-  // Function to handle scrolling to a specific section
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      // Determine scroll direction based on current and target section
-      const currentId = activeSection.toString();
-      const targetId = sectionId;
-      const newScrollDirection = parseInt(targetId) > parseInt(currentId) ? 'down' : 'up';
-      setScrollDirection(newScrollDirection);
-      
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  }, [sectionVisibility]);
 
   return (
-    <div className="snap-y snap-mandatory h-screen w-screen overflow-y-scroll overflow-x-hidden">
+    <>
       <style jsx global>{`
-        html, body {
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          height: 100%;
-          width: 100%;
-        }
-        
-        .snap-section {
-          scroll-snap-align: start;
-          scroll-snap-stop: always;
-        }
-        
         .animate-from-left {
           animation: slideInFromLeft 1s forwards;
         }
 
         .animate-to-left {
           animation: slideOutToLeft 1s forwards;
-        }
-
-        .animate-from-right {
-          animation: slideInFromRight 1s forwards;
-        }
-
-        .animate-to-right {
-          animation: slideOutToRight 1s forwards;
         }
 
         @keyframes slideInFromLeft {
@@ -256,240 +142,212 @@ export default function Home() {
             opacity: 1;
           }
           100% {
-            transform: translateX(-200%);
+            transform: translateX(-100%);
             opacity: 0;
           }
         }
 
-        @keyframes slideInFromRight {
-          0% {
-            transform: translateX(200%);
-            opacity: 0;
-          }
-          100% {
-            transform: translateX(0);
-            opacity: 1;
-          }
+        .sticky-container {
+          position: relative;
+          height: 400vh;
         }
 
-        @keyframes slideOutToRight {
-          0% {
-            transform: translateX(0);
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(200%);
-            opacity: 0;
-          }
+        .sticky-section {
+          position: sticky;
+          top: 0;
+          height: 100vh;
+          width: 100%;
+          overflow: hidden;
         }
       `}</style>
 
-      {/* monkey div */}
-      <div 
-        id="1"
-        ref={monkeySectionRef}
-        className={`bg-[rgba(92,186,71,1)] h-screen w-screen relative snap-section ${activeSection === 1 ? 'sticky top-0' : ''}`}
-      >
-        {/* Logo in top left corner */}
-        <div className="absolute top-8 left-8">
-          <h1 className="text-black text-3xl font-bold"><Header/></h1>
-        </div>
-
-        {/* Main content */}
-        <div className="flex flex-col md:flex-row px-8 gap-10">
-          {/* Left side */}
-          <div className="flex flex-col space-y-12 md:pl-8">
-            <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
-              WE MAKE
-            </p>
+      <div ref={containerRef} className="sticky-container">
+        {/* monkey div */}
+        <div
+          ref={monkeySectionRef}
+          className="sticky-section bg-[rgba(92,186,71,1)] min-h-screen relative"
+          style={{ zIndex: sectionVisibility.monkey ? 40 : 10 }}
+        >
+          {/* Logo in top left corner */}
+          <div className="absolute top-8 left-8">
+            <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
           </div>
 
-          {/* Right side with APPS text and monkey */}
-          <div className="relative md:mt-0">
-            <p className="text-black text-[900px] font-[Heathergreen] -translate-x-[-600px] leading-[1]">
-              APPS
-            </p>
-            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[-200px] translate-y-8/8">
-              <img
-                ref={monkeyRef}
-                src={monkey}
-                alt="Blue monkey meditating"
-                className="h-[500px]"
-              />
+          {/* Main content */}
+          <div className="flex flex-col md:flex-row px-8 gap-10">
+            {/* Left side */}
+            <div className="flex flex-col space-y-12 md:pl-8">
+              <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
+                WE MAKE
+              </p>
+            </div>
+
+            {/* Right side with APPS text and monkey */}
+            <div className="relative md:mt-0">
+              <p className="text-black text-[650px] font-Heathergreen leading-[1]">
+                APPS
+              </p>
+              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+                <img
+                  ref={monkeyRef}
+                  src={monkey}
+                  alt="Blue monkey meditating"
+                  className="h-[500px]"
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Button and Back Arrow positioned together */}
-        <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
-          <button 
-            className="bg-[rgba(71,76,186,1)] text-white font-bold p-10 rounded-full text-5xl"
-            onClick={() => scrollToSection("2")}
-          >
-            SEE APPS WORK
-          </button>
-          <button className="text-white p-4 rounded-full">
-            <FaArrowLeft className="text-5xl" />
-          </button>
-        </div>
-      </div>
-
-      {/* bee div */}
-      <div 
-        id="2"
-        ref={beeSectionRef}
-        className={`bg-[rgba(71,76,186,1)] h-screen w-screen relative snap-section ${activeSection === 2 ? 'sticky top-0' : ''}`}
-      >
-        {/* Logo in top left corner */}
-        <div className="absolute top-8 left-8">
-          <h1 className="text-black text-3xl font-bold"><Header/></h1>
-        </div>
-
-        {/* Main content */}
-        <div className="flex flex-col md:flex-row px-8 gap-10">
-          {/* Left side */}
-          <div className="flex flex-col space-y-12 md:pl-8">
-            <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
-              WE MAKE
-            </p>
-          </div>
-
-          {/* Right side with WEBSITES text and bee */}
-          <div className="relative md:mt-20">
-            <p className="text-black text-[500px] font-[Heathergreen] -translate-x-[-600px]">WEBSITES</p>
-            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[-310px] translate-y-0.5/5">
-              <img
-                ref={beeRef}
-                src={bee}
-                alt="Bee character"
-                className="h-[350px]"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Button and Back Arrow positioned together */}
-        <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
-          <button 
-            className="bg-[rgba(186,71,174,1)] text-white ml-20 font-bold p-10 rounded-full text-5xl"
-            onClick={() => scrollToSection("3")}
-          >
-            SEE WEBSITES WORK
-          </button>
-          <button 
-            className="text-white p-4 rounded-full"
-            onClick={() => scrollToSection("1")}
-          >
-            <FaArrowLeft className="text-5xl" />
-          </button>
-        </div>
-      </div>
-
-      {/* ui/ux div */}
-      <div 
-        id="3"
-        ref={humanSectionRef}
-        className={`bg-[rgba(186,71,174,1)] h-screen w-screen relative snap-section ${activeSection === 3 ? 'sticky top-0' : ''}`}
-      >
-        {/* Logo in top left corner */}
-        <div className="absolute top-8 left-8">
-          <h1 className="text-black text-3xl font-bold"><Header/></h1>
-        </div>
-
-        {/* Main content */}
-        <div className="flex flex-col md:flex-row px-8 gap-10">
-          {/* Left side */}
-          <div className="flex flex-col space-y-40 md:pl-8">
-            <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
-              WE MAKE
-            </p>
-          </div>
-
-          {/* Right side with UI/UX text and human */}
-          <div className="relative md:mt-20">
-            <button 
-              className="bg-[rgba(222,225,62,1)] absolute top-1/2 left-[-250px] whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl"
-              onClick={() => scrollToSection("4")}
-            >
-              SEE UI/UX WORK
+          {/* Button and Back Arrow positioned together */}
+          <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
+            <button className="bg-[rgba(71,76,186,1)] text-white font-bold p-10 rounded-full text-5xl">
+              SEE APPS WORK
             </button>
-            <p className="text-black text-[900px] font-[Heathergreen] -translate-x-[-600px] float-right whitespace-nowrap leading-[1]">
-              UI/UX
-            </p>
-            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[-340px] translate-y-8/9">
-              <img
-                ref={humanRef}
-                src={human}
-                alt="Human character"
-                className="h-[500px]"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Button and Back Arrow positioned together */}
-        <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
-          <button 
-            className="text-white p-4 rounded-full"
-            onClick={() => scrollToSection("2")}
-          >
-            <FaArrowLeft className="text-5xl" />
-          </button>
-        </div>
-      </div>
-
-      {/* banana div */}
-      <div 
-        id="4"
-        ref={bananaSectionRef}
-        className={`bg-[rgba(222,225,62,1)] h-screen w-screen relative snap-section ${activeSection === 4 ? 'sticky top-0' : ''}`}
-      >
-        {/* Logo in top left corner */}
-        <div className="absolute top-8 left-8">
-          <h1 className="text-black text-3xl font-bold"><Header/></h1>
-        </div>
-
-        {/* Main content */}
-        <div className="flex flex-col md:flex-row px-8 gap-10">
-          {/* Left side */}
-          <div className="flex flex-col space-y-40 md:pl-8">
-            <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
-              WE MAKE
-            </p>
-          </div>
-
-          {/* Right side with CREATIVE text and banana */}
-          <div className="relative md:mt-40">
-            <button 
-              className="bg-[rgba(92,186,71,1)] absolute left-3/5 whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl"
-              onClick={() => scrollToSection("1")}
-            >
-              SEE CREATIVE WORK
+            <button className="text-white p-4 rounded-full">
+              <FaArrowLeft className="text-5xl" />
             </button>
-            <p className="text-black text-[500px] font-[Heathergreen] -translate-x-[-600px] float-right whitespace-nowrap">
-              CREATIVE
-            </p>
-            <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[-360px] translate-y-8/9">
-              <img
-                ref={bananaRef}
-                src={banana}
-                alt="Banana character"
-                className="h-[400px]"
-              />
-            </div>
           </div>
         </div>
 
-        {/* Button and Back Arrow positioned together */}
-        <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
-          <button 
-            className="text-black p-4 rounded-full"
-            onClick={() => scrollToSection("3")}
-          >
-            <FaArrowLeft className="text-5xl" />
-          </button>
+        {/* bee div */}
+        <div
+          ref={beeSectionRef}
+          className="sticky-section bg-[rgba(71,76,186,1)] min-h-screen relative"
+          style={{ zIndex: sectionVisibility.bee ? 30 : 9 }}
+        >
+          {/* Logo in top left corner */}
+          <div className="absolute top-8 left-8">
+            <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          </div>
+
+          {/* Main content */}
+          <div className="flex flex-col md:flex-row px-8 gap-10">
+            {/* Left side */}
+            <div className="flex flex-col space-y-12 md:pl-8">
+              <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
+                WE MAKE
+              </p>
+            </div>
+
+            {/* Right side with WEBSITES text and bee */}
+            <div className="relative md:mt-20">
+              <p className="text-black text-[350px] ">WEBSITES</p>
+              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-0.5/5">
+                <img
+                  ref={beeRef}
+                  src={bee}
+                  alt="Bee character"
+                  className="h-[350px]"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Button and Back Arrow positioned together */}
+          <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
+            <button className="bg-[rgba(186,71,174,1)] text-white ml-20 font-bold p-10 rounded-full text-5xl">
+              SEE APPS WORK
+            </button>
+            <button className="text-white p-4 rounded-full">
+              <FaArrowLeft className="text-5xl" />
+            </button>
+          </div>
+        </div>
+
+        {/* ui/ux div */}
+        <div
+          ref={humanSectionRef}
+          className="sticky-section bg-[rgba(186,71,174,1)] min-h-screen relative"
+          style={{ zIndex: sectionVisibility.human ? 20 : 8 }}
+        >
+          {/* Logo in top left corner */}
+          <div className="absolute top-8 left-8">
+            <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          </div>
+
+          {/* Main content */}
+          <div className="flex flex-col md:flex-row px-8 gap-10">
+            {/* Left side */}
+            <div className="flex flex-col space-y-40 md:pl-8">
+              <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
+                WE MAKE
+              </p>
+            </div>
+
+            {/* Right side with UI/UX text and human */}
+            <div className="relative md:mt-20">
+              <button className="bg-[rgba(222,225,62,1)] absolute top-1/2 left-[-250px] whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
+                SEE APPS WORK
+              </button>
+              <p className="text-black text-[550px] font-Heathergreen float-right whitespace-nowrap leading-[1]">
+                UI/UX
+              </p>
+              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+                <img
+                  ref={humanRef}
+                  src={human}
+                  alt="Human character"
+                  className="h-[500px]"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Button and Back Arrow positioned together */}
+          <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
+            <button className="text-white p-4 rounded-full">
+              <FaArrowLeft className="text-5xl" />
+            </button>
+          </div>
+        </div>
+
+        {/* banana div */}
+        <div
+          ref={bananaSectionRef}
+          className="sticky-section bg-[rgba(222,225,62,1)] min-h-screen relative"
+          style={{ zIndex: sectionVisibility.banana ? 10 : 7 }}
+        >
+          {/* Logo in top left corner */}
+          <div className="absolute top-8 left-8">
+            <h1 className="text-black text-3xl font-bold">FOOLIZ</h1>
+          </div>
+
+          {/* Main content */}
+          <div className="flex flex-col md:flex-row px-8 gap-10">
+            {/* Left side */}
+            <div className="flex flex-col space-y-40 md:pl-8">
+              <p className="text-white text-5xl font-bold py-20 whitespace-nowrap">
+                WE MAKE
+              </p>
+            </div>
+
+            {/* Right side with CREATIVE text and banana */}
+            <div className="relative md:mt-40">
+              <button className="bg-[rgba(92,186,71,1)] absolute left-3/5 whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
+                SEE APPS WORK
+              </button>
+              <p className="text-black text-[350px] font-Heathergreen float-right whitespace-nowrap ">
+                CREATIVE
+              </p>
+              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+                <img
+                  ref={bananaRef}
+                  src={banana}
+                  alt="Banana character"
+                  className="h-[400px]"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Button and Back Arrow positioned together */}
+          <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
+            <button className="text-black p-4 rounded-full">
+              <FaArrowLeft className="text-5xl" />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
