@@ -52,7 +52,7 @@ const Footer = () => {
           <img
             src="https://s3-alpha-sig.figma.com/img/df8f/7fc5/ebcb86426df7897596bb0414358e852b?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HL7qpTWntbQigr5Mmaytg3PdG8IP4EheT3~Pg~tSLuSRzlAGrQplcUfEiFuCfi0yyccg3LwHlF4lTjTA0j5hjobohcdkQ9kn0c0X80rGa45XKp761dCxnvAsmKcpy6SPfbOC7XixDq1Azle969rwdGidSNkrDavh4FKPfYBRzWIr3xicVTON6mNu3zGxSkHQfkRcuVL9n90Y~psup6~cFHFiteNLg11gxi70yBNsah-9tm77MmZyQz4ihnyBz-VN708YlyRJVtSRlG-y3KTWVv7PyabNMk9BJSCgOdT~84sh56JXobomyzZ07XCSs5gPDJwx~rVf3xKPGm0p62ORtA__"
             alt="img"
-            className="rounded-full w-[250px] mr-[-80px] h-[6em] md:w-[10em] md:h-[12em] lg:w-[12em] lg:h-[12em] object-contain"
+            className="rounded-full w-[350px] mr-[-80px] h-[8em] md:w-[10em] md:h-[12em] lg:w-[12em] lg:h-[12em] object-contain"
           />
         </div>
       </div>
