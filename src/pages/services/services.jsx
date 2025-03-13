@@ -238,7 +238,7 @@ export default function Home() {
 
             {/* Right side with WEBSITES text and bee */}
             <div className="relative md:mt-20">
-              <p className="text-black text-[350px] font-[Heathergreen]">WEBSITES</p>
+              <p className="text-black md:text-[750px] lg:text-[750px] mt-[-190px] ml-[100px] font-[Heathergreen]">WEBSITES</p>
               <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-0.5/5">
                 <img
                   ref={beeRef}
@@ -252,7 +252,7 @@ export default function Home() {
 
           {/* Button and Back Arrow positioned together */}
           <div className="absolute bottom-8 left-8 flex flex-col space-y-4">
-            <button className="bg-[rgba(186,71,174,1)] text-white ml-20 font-bold p-10 rounded-full text-5xl">
+            <button className="bg-[rgba(186,71,174,1)] text-white ml-[370px] font-bold p-10 rounded-full text-2xl">
               SEE WEBSITES WORK
             </button>
             <button className="text-white p-4 rounded-full">
@@ -283,13 +283,13 @@ export default function Home() {
 
             {/* Right side with UI/UX text and human */}
             <div className="relative md:mt-20">
-              <button className="bg-[rgba(222,225,62,1)] absolute top-1/2 left-[-250px] whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
+              <button className="bg-[rgba(222,225,62,1)] absolute top-1/2 md:ml-[-58px] whitespace-nowrap text-black font-bold p-10 rounded-full text-4xl">
                 SEE UI/UX WORK
               </button>
-              <p className="text-black text-[550px] font-[Heathergreen] float-right whitespace-nowrap leading-[1]">
+              <p className="text-black text-[1050px] font-[Heathergreen] float-right whitespace-nowrap leading-[1] md:mt-[-180px] lg:mt-[-180px] md:ml-[280px] lg:ml-[280px]">
                 UI/UX
               </p>
-              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+              <div className="absolute left-[829px] bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
                 <img
                   ref={humanRef}
                   src={human}
@@ -323,20 +323,20 @@ export default function Home() {
           <div className="flex flex-col md:flex-row px-8 gap-10">
             {/* Left side */}
             <div className="flex flex-col md:pl-4 md:mt-[40px]">
-              <p className="text-white text-[80px] font-light leading-[100%] py-20 whitespace-nowrap font-poppins">
+              <p className="text-black text-[80px] font-light leading-[100%] py-20 whitespace-nowrap font-poppins">
                 WE MAKE
               </p>
             </div>
 
             {/* Right side with CREATIVE text and banana */}
             <div className="relative md:mt-40">
-              <button className="bg-[rgba(92,186,71,1)] absolute left-3/5 whitespace-nowrap text-white font-bold p-10 rounded-full text-5xl">
+              <button className="bg-[rgba(92,186,71,1)] absolute left-3/5 whitespace-nowrap text-black font-bold p-10 rounded-full text-5xl">
                 SEE CREATIVE WORK
               </button>
-              <p className="text-black text-[550px] font-[Heathergreen] float-right whitespace-nowrap ml-[400px]">
+              <p className="text-black text-[800px] font-[Heathergreen] float-right whitespace-nowrap mt-[-190px] md:ml-[100px] lg:ml-[100px]">
                 CREATIVE
               </p>
-              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[400px] translate-y-[-100px]">
+              <div className="absolute left-1/2 bottom-1/2 transform -translate-x-[140px] translate-y-[280px]">
                 <img
                   ref={bananaRef}
                   src={banana}
