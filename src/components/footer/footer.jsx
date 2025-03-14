@@ -4,117 +4,112 @@ import frameLogo from "../../assets/Frame.svg"; // Adjust path if needed
 
 const Footer = () => {
   return (
-    <div className="bg-[#dee13e] flex flex-col gap-8 md:gap-4 lg:gap-8">
-      {/* Section 1 */}
-      <div className="flex flex-col ml-[5px] md:ml-[10px] lg:ml-[20px]">
-        <div className="relative">
-          <p className="font-[Heathergreen] p-[8px] text-[30px] md:text-[50px] lg:text-[100px] leading-tight md:leading-[68px] lg:leading-[136.62px] text-black text-start ">
-            Let's Build Your Apps Together
-          </p>
-          <div className="absolute bottom-0 translate-y-[5px] md:translate-y-[40px] lg:translate-y-[30px]">
-            <a
-              href="apply"
-              className="text-[#474CBA] ml-[8px] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
-            >
-              Get In Touch
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Section 2 (Careers) */}
-      <div className="pl-[107px] md:pl-[215px] lg:pb-[70px] md:pb-[70px] lg:pl-[430px] mt-[-25px] md:mt-[-20px] lg:mt-[-60px]">
-        <p className="font-[Heathergreen] text-[35px] ml-[-4px] mt-[-15px] md:text-[50px] lg:text-[130px] leading-tight md:mr-[10px] lg:ml-[-100px] md:mt-[18px] lg:mt-[18px] md:leading-[68px] lg:leading-[136.62px] text-black text-left">
-          Careers
-        </p>
-        <div className="mt-[-10px] ml-[-6px] md:mt-[-10px] lg:mt-[-10px] md:ml-[-100px] lg:ml-[-100px]">
-          <a
-            href="apply"
-            className="text-[#474CBA] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
-          >
-            Apply here
-          </a>
-        </div>
-      </div>
-
-      <div className="flex flex-col text-[8px] ml-[90px] mt-[-99px] md:text-[14px] lg:text-[24px] text-[#474cba] font-extrabold leading-relaxed tracking-[-0.04em] font-[Poppins] text-center md:mt-[-220px] lg:mt-[-340px]">
-        <div className="mt-[-16px]">
-          <p>Dubai, Lahore, wtv Road bt</p>
-          <p className="mr-[25px] md:mr-[40px] lg:mr-[70px] ">Address, wtv, 43543</p>
-        </div>
-        <br />
-        <div className="">
-          <p className="mr-[25px] md:mr-[40px] lg:mr-[70px]">Address, wtv, 43543</p>
-          <p className="mr-[25px] md:mr-[40px] lg:mr-[70px]">Address, wtv, 43543</p>
-        </div>
-
-        <div className="flex justify-end mt-[-50px] md:mt-[-120px] lg:mt-[-200px]">
-          <img
-            src="https://s3-alpha-sig.figma.com/img/df8f/7fc5/ebcb86426df7897596bb0414358e852b?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HL7qpTWntbQigr5Mmaytg3PdG8IP4EheT3~Pg~tSLuSRzlAGrQplcUfEiFuCfi0yyccg3LwHlF4lTjTA0j5hjobohcdkQ9kn0c0X80rGa45XKp761dCxnvAsmKcpy6SPfbOC7XixDq1Azle969rwdGidSNkrDavh4FKPfYBRzWIr3xicVTON6mNu3zGxSkHQfkRcuVL9n90Y~psup6~cFHFiteNLg11gxi70yBNsah-9tm77MmZyQz4ihnyBz-VN708YlyRJVtSRlG-y3KTWVv7PyabNMk9BJSCgOdT~84sh56JXobomyzZ07XCSs5gPDJwx~rVf3xKPGm0p62ORtA__"
-            alt="img"
-            className="rounded-full w-[350px] mr-[-80px] h-[8em] md:w-[10em] md:h-[12em] lg:w-[12em] lg:h-[12em] object-contain"
-          />
-        </div>
-      </div>
-
-      {/* Bottom Navigation and Social Icons - FIXED LAYOUT WITH RESPONSIVE SIZING */}
-      <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-8">
-        {/* Left Section: Logo */}
-        <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
-          <img
-            src={frameLogo}
-            alt="Logo"
-            className="w-[1.8em] h-[1.8em] md:w-[3.2em] md:h-[3.2em] lg:w-[5.5em] lg:h-[5.5em] object-contain"
-          />
-        </div>
-
-        {/* Middle Section: Navigation Links */}
-        <nav className="flex items-center font-bold">
-          <a
-            href="work"
-            target="_blank"
-            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
-          >
-            Work
-          </a>
-          <a
-            href="contact"
-            target="_blank"
-            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
-          >
-            Contact
-          </a>
-          <a
-            href="about"
-            target="_blank"
-            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
-          >
-            About
-          </a>
-          <a
-            href="https://www.google.com"
-            target="_blank"
-            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
-          >
-            Clients
-          </a>
-          <a
-            href="https://www.google.com"
-            target="_blank"
-            className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
-          >
-            Services
-          </a>
-        </nav>
-
-        {/* Right Section: Social Media Icons */}
-        <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1 md:mr-3 lg:mr-6">
-          <FaInstagram className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
-          <FaLinkedin className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
-          <FaFacebook className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
-        </div>
+<div className="bg-[#dee13e] flex flex-col gap-8 md:gap-4 lg:gap-8">
+  {/* Section 1 */}
+  <div className="flex flex-col ml-[5px] md:ml-[10px] lg:ml-[20px]">
+    <div className="relative">
+      <p className="font-[Heathergreen] p-[8px] text-[30px] md:text-[50px] lg:text-[100px] leading-tight md:leading-[68px] lg:leading-[136.62px] text-black text-start">
+        Let's Build Your Apps Together
+      </p>
+      <div className="absolute bottom-0 translate-y-[5px] md:translate-y-[40px] lg:translate-y-[30px]">
+        <a
+          href="/apply"
+          className="text-[#474CBA] ml-[8px] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
+        >
+          Get In Touch
+        </a>
       </div>
     </div>
+  </div>
+
+  {/* Section 2 (Careers) */}
+  <div className="pl-[107px] bg-red-500 md:pl-[215px] lg:pl-[430px] mt-[-25px] md:mt-[-20px] lg:mt-[-60px]">
+    <p className="font-[Heathergreen] bg-yellow-500 text-[35px] ml-[-4px] mt-[-15px] md:text-[50px] lg:text-[130px] leading-tight md:mr-[10px] lg:ml-[-100px] md:mt-[18px] lg:mt-[18px] md:leading-[68px] lg:leading-[136.62px] text-black text-left">
+      Careers
+    </p>
+    <div className="mt-[-10px] ml-[-6px] md:mt-[-10px] lg:mt-[-10px] md:ml-[-100px] lg:ml-[-100px]">
+      <a
+        href="/apply"
+        className="text-[#474CBA] text-[12px] bg-green-500 font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
+      >
+        Apply here
+      </a>
+    </div>
+  </div>
+
+  <div className="flex flex-col text-[8px] ml-[90px] mt-[-99px] md:text-[14px] lg:text-[24px] text-[#474cba] font-extrabold leading-relaxed tracking-[-0.04em] font-[Poppins] text-center md:mt-[-220px] lg:mt-[-340px]">
+    <div className="md:mt-[45px] lg:mt-[45px] mt-[-18px]">
+      <p>Dubai, Lahore, wtv Road bt</p>
+      <p className="mr-[25px] md:mr-[40px] lg:mr-[70px]">Address, wtv, 43543</p>
+    </div>
+    <br />
+    <div className="">
+      <p className="mr-[25px] md:mr-[40px] lg:mr-[70px]">Address, wtv, 43543</p>
+      <p className="mr-[25px] md:mr-[40px] lg:mr-[70px]">Address, wtv, 43543</p>
+    </div>
+
+     <div>
+       <img
+        src="https://s3-alpha-sig.figma.com/img/df8f/7fc5/ebcb86426df7897596bb0414358e852b?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HL7qpTWntbQigr5Mmaytg3PdG8IP4EheT3~Pg~tSLuSRzlAGrQplcUfEiFuCfi0yyccg3LwHlF4lTjTA0j5hjobohcdkQ9kn0c0X80rGa45XKp761dCxnvAsmKcpy6SPfbOC7XixDq1Azle969rwdGidSNkrDavh4FKPfYBRzWIr3xicVTON6mNu3zGxSkHQfkRcuVL9n90Y~psup6~cFHFiteNLg11gxi70yBNsah-9tm77MmZyQz4ihnyBz-VN708YlyRJVtSRlG-y3KTWVv7PyabNMk9BJSCgOdT~84sh56JXobomyzZ07XCSs5gPDJwx~rVf3xKPGm0p62ORtA__"
+        alt="img"
+        className="bg-blue-500 flex justify-end mt-[-70px] ml-[310px] md:ml-[310px] lg:ml-[1620px] md:mt-[-120px] lg:mt-[-200px] lg:w-[12rem] lg:h-[16rem] max-w-none w-[5rem] h-[5rem]"
+      />
+     </div>
+  </div>
+
+  {/* Bottom Navigation and Social Icons - FIXED LAYOUT WITH RESPONSIVE SIZING */}
+  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-8">
+    {/* Left Section: Logo */}
+    <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
+      <img
+        src={frameLogo}
+        alt="Logo"
+        className="w-[1.8em] h-[1.8em] md:w-[3.2em] md:h-[3.2em] lg:w-[5.5em] lg:h-[5.5em] object-contain"
+      />
+    </div>
+
+    {/* Middle Section: Navigation Links */}
+    <nav className="flex items-center font-bold">
+      <a
+        href="/work"
+        className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+      >
+        Work
+      </a>
+      <a
+        href="/contact"
+        className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+      >
+        Contact
+      </a>
+      <a
+        href="/story"
+        className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+      >
+        About
+      </a>
+      <a
+        href="/clients"
+        className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+      >
+        Clients
+      </a>
+      <a
+        href="/services"
+        className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
+      >
+        Services
+      </a>
+    </nav>
+
+    {/* Right Section: Social Media Icons */}
+    <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1 md:mr-3 lg:mr-6">
+      <FaInstagram className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
+      <FaLinkedin className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
+      <FaFacebook className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
+    </div>
+  </div>
+</div>
   );
 };
 
