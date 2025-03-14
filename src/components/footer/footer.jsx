@@ -62,11 +62,13 @@ const Footer = () => {
   <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[0px]">
     {/* Left Section: Logo */}
     <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
+      <a href="home">
       <img
         src={frameLogo}
         alt="Logo"
         className="w-[1.8em] h-[1.8em] md:w-[3.2em] md:h-[3.2em] lg:w-[5.5em] lg:h-[5.5em] object-contain"
       />
+      </a>
     </div>
 
     {/* Middle Section: Navigation Links */}
