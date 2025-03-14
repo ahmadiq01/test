@@ -201,7 +201,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col bg-[#dee13e] min-h-screen">
-      <Header />
+      {/* <Header /> */}
       {/* Hero Section */}
       <div className=" flex flex-col items-center justify-center text-center py-10">
         <div className="md:w-full font-[Heathergreen] font-normal flex flex-col items-center">
