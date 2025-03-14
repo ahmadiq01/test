@@ -23,12 +23,12 @@ const ContactPage = () => {
           </div>
 
           {/* Mobile-only team members section - Shown second on mobile */}
-          <div className="lg:w-1/2 md:hidden container mx-auto px-4 lg:px-6 mt-[-58px] ml-4 lg:ml-[40px] relative">
+          <div className="lg:w-1/2 md:hidden container mx-auto px-4 ml-[-12px] lg:px-6 mt-[-58px] lg:ml-[40px] relative">
             <img src={StoryImg} alt="" className="max-w-full" />
           </div>
 
           {/* Lorem Ipsum paragraph - Shown third on mobile */}
-          <p className="text-gray-700 w-full leading-tight mb-[100px] font-semi-bold text-2xl ml-[-8px] md:ml-[-8px] lg:ml-[40px] lg:w-[55%] text-justify break-words">
+          <p className="text-gray-700 w-[390px] leading-tight mb-[100px] font-semi-bold text-xl ml-[3px] md:ml-[-8px] lg:ml-[40px] lg:w-[55%] text-justify break-words">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
