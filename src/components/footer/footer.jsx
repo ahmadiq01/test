@@ -58,7 +58,7 @@ const Footer = () => {
   </div>
 
   {/* Bottom Navigation and Social Icons - FIXED LAYOUT WITH RESPONSIVE SIZING */}
-  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-8">
+  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[10px]">
     {/* Left Section: Logo */}
     <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
       <img
@@ -69,7 +69,7 @@ const Footer = () => {
     </div>
 
     {/* Middle Section: Navigation Links */}
-    <nav className="flex items-center font-bold">
+    <nav className="flex items-center font-bold ">
       <a
         href="/work"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
@@ -103,7 +103,7 @@ const Footer = () => {
     </nav>
 
     {/* Right Section: Social Media Icons */}
-    <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1 md:mr-3 lg:mr-6">
+    <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1  md:mr-3 lg:mr-6">
       <FaInstagram className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
       <FaLinkedin className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
       <FaFacebook className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
