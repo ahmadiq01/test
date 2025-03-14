@@ -143,14 +143,42 @@ const Home = ({
 
         <div className="bg-[#dee13e] ">
 
-          <div className="text-black  font-extrabold italic text-xl font-poppins ">
-            <p style={{ paddingLeft: mobileTextPadding.line1 }} className="ml-[50px] pt-[12px]">
-              SUBSCRIPTION BASED SOLUTIONS
-            </p>
-            <p style={{ paddingLeft: mobileTextPadding.line2 }} className="ml-[14px] mt-[4px]">
-              FOR ALL YOUR BUSINESS DIGITAL NEEDS
-            </p>
-          </div>
+        <div 
+      style={{
+        color: 'black',
+        fontWeight: 900, // Increased from 800 to 900 for extra thickness
+        fontStyle: 'italic',
+        fontFamily: 'Poppins, sans-serif',
+        width: '100%',
+        maxWidth: '100%',
+        overflow: 'hidden',
+        padding: '10px 15px',
+      }}
+    >
+      <p 
+        style={{ 
+          paddingTop: '12px',
+          paddingLeft: 'clamp(0px, 8vw, 50px)', // Reduced padding to shift text more to the left
+          fontSize: 'clamp(1rem, 4vw, 1.75rem)',
+          whiteSpace: 'nowrap',
+          marginBottom: '4px',
+          fontWeight: 900, // Ensuring extra bold text
+        }}
+      >
+        SUBSCRIPTION BASED SOLUTIONS
+      </p>
+      <p 
+        style={{ 
+          paddingLeft: 'clamp(8px, 2vw, 14px)',
+          fontSize: 'clamp(1rem, 4vw, 1.75rem)',
+          whiteSpace: 'nowrap',
+          marginTop: '4px',
+          fontWeight: 900, // Ensuring extra bold text
+        }}
+      >
+        FOR ALL YOUR BUSINESS DIGITAL NEEDS
+      </p>
+    </div>
 
           <div className="relative w-full flex justify-center ">
             <img 
