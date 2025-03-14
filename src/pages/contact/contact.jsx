@@ -185,13 +185,13 @@ const ContactPage = () => {
             value={formData.message}
             onChange={handleChange}
             placeholder=""
-            className="border p-3 md:p-6 rounded-[20px] w-full md:w-full h-30 md:h-40 text-base md:text-lg"
+            className="border p-3 md:p-6 rounded-[20px] w-[200px] md:w-full h-30 md:h-40 text-base md:text-lg"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <fieldset className="col-span-1 md:col-span-1 ml-4 ">
+        <fieldset className="col-span-1 md:col-span-1 md:ml-4 lg:ml-4 ml-16">
           <legend className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-700">
             Budget*
           </legend>
