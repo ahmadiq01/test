@@ -58,7 +58,7 @@ const Footer = () => {
   </div>
 
   {/* Bottom Navigation and Social Icons - FIXED LAYOUT WITH RESPONSIVE SIZING */}
-  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[10px]">
+  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[40px]">
     {/* Left Section: Logo */}
     <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
       <img
