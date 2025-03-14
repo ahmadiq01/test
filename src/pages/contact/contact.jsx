@@ -191,7 +191,7 @@ const ContactPage = () => {
           ></textarea>
         </div>
 
-        <fieldset className="col-span-1 md:col-span-1 md:ml-4 lg:ml-4 ml-16">
+        <fieldset className="col-span-1 md:col-span-1 md:ml-4 lg:ml-4 ml-[86px]">
           <legend className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-700">
             Budget*
           </legend>
