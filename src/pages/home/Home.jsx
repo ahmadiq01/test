@@ -109,7 +109,8 @@ const Home = ({
             />
 
             <img 
-              src="https://s3-alpha-sig.figma.com/img/bd8f/abf6/26326235eef46325d90d16d73d3154ed?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Iywn6ISSUEpi-0kVRim9tL4IbSIWNYYM5efAQ0OB15IHV8zF0FOOMDGDnV5AZZUxlikGKY3hBdfF5RP721xYIwti8DQaoWy6nHaAyswhxPPLIiwfBSavitV3zVx17QREbGY1IzDDPQrgxwXRavSGBPtJcHlHNFhuXUyh5bZqCm1cqcPGGrWPAifJh5DGYmA~qfcR~IfyTQQK4hA5dBH69ZgecUoskttD4ZocDUk3yH2vfhZVnYgPt~Xoi~f12iVdpxIRBy7k2dNF~26Q~HuUrVQN6yHy58z7~2NLLrKeIVozJuMrH0y61xa0IjCIl1LRHACxDEYCA1j0bjNiqOtOXg__"
+              // src="https://s3-alpha-sig.figma.com/img/bd8f/abf6/26326235eef46325d90d16d73d3154ed?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Iywn6ISSUEpi-0kVRim9tL4IbSIWNYYM5efAQ0OB15IHV8zF0FOOMDGDnV5AZZUxlikGKY3hBdfF5RP721xYIwti8DQaoWy6nHaAyswhxPPLIiwfBSavitV3zVx17QREbGY1IzDDPQrgxwXRavSGBPtJcHlHNFhuXUyh5bZqCm1cqcPGGrWPAifJh5DGYmA~qfcR~IfyTQQK4hA5dBH69ZgecUoskttD4ZocDUk3yH2vfhZVnYgPt~Xoi~f12iVdpxIRBy7k2dNF~26Q~HuUrVQN6yHy58z7~2NLLrKeIVozJuMrH0y61xa0IjCIl1LRHACxDEYCA1j0bjNiqOtOXg__"
+              src={Girl}
               alt="img" 
               className="w-[783px] h-[783px] rounded-full absolute top-[5px] left-[90px]"
               style={{ 
@@ -202,9 +203,11 @@ const Home = ({
         </div>
 
         <div className="flex flex-col items-start font-bold uppercase" style={{ fontFamily: 'Heathergreen, sans-serif' }}>
+          <div>
           <a href="work" className="text-8xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
             Work
           </a>
+          </div>
           <a href="services" className="text-9xl mt-[-14px] ml-[130px] font-light transition-colors duration-300 hover:text-[#474cba]">
             Services
           </a>
@@ -218,6 +221,7 @@ const Home = ({
             Our Story
           </a>
         </div>
+
       </div>
     </>
   );
