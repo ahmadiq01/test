@@ -29,7 +29,7 @@ const Footer = () => {
     </p>
     <div className="mt-[-10px] ml-[-6px] md:mt-[-10px] lg:mt-[-10px] md:ml-[-100px] lg:ml-[-100px]">
       <a
-        href="/apply"
+        href="apply"
         className="text-[#474CBA] text-[12px] bg-green-500 font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
       >
         Apply here
@@ -52,13 +52,13 @@ const Footer = () => {
        <img
         src="https://s3-alpha-sig.figma.com/img/df8f/7fc5/ebcb86426df7897596bb0414358e852b?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HL7qpTWntbQigr5Mmaytg3PdG8IP4EheT3~Pg~tSLuSRzlAGrQplcUfEiFuCfi0yyccg3LwHlF4lTjTA0j5hjobohcdkQ9kn0c0X80rGa45XKp761dCxnvAsmKcpy6SPfbOC7XixDq1Azle969rwdGidSNkrDavh4FKPfYBRzWIr3xicVTON6mNu3zGxSkHQfkRcuVL9n90Y~psup6~cFHFiteNLg11gxi70yBNsah-9tm77MmZyQz4ihnyBz-VN708YlyRJVtSRlG-y3KTWVv7PyabNMk9BJSCgOdT~84sh56JXobomyzZ07XCSs5gPDJwx~rVf3xKPGm0p62ORtA__"
         alt="img"
-        className="bg-blue-500 flex justify-end mt-[-70px] ml-[310px] md:ml-[310px] lg:ml-[1620px] md:mt-[-120px] lg:mt-[-200px] lg:w-[12rem] lg:h-[16rem] max-w-none w-[5rem] h-[5rem]"
+        className="bg-blue-500 flex justify-end mt-[-70px] ml-[310px] md:ml-[310px] lg:ml-[1620px] md:mt-[-120px] lg:mt-[-220px] lg:w-[12rem] lg:h-[16rem] max-w-none w-[5rem] h-[5rem]"
       />
      </div>
   </div>
 
   {/* Bottom Navigation and Social Icons - FIXED LAYOUT WITH RESPONSIVE SIZING */}
-  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[10px]">
+  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[60px]">
     {/* Left Section: Logo */}
     <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
       <img
