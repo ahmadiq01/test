@@ -28,7 +28,7 @@ const ContactPage = () => {
           </div>
 
           {/* Lorem Ipsum paragraph - Shown third on mobile */}
-          <p className="text-gray-700 w-[390px] leading-tight mb-[100px] font-semi-bold text-xl ml-[3px] md:ml-[-8px] lg:ml-[40px] lg:w-[55%] text-justify break-words">
+          <p className="text-gray-700 w-[370px] leading-tight mb-[100px] font-semi-bold text-xl ml-[5px] md:ml-[-8px] lg:ml-[40px] lg:w-[55%] text-justify break-words">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
