@@ -24,7 +24,7 @@ const Home = ({
             <p className="md:pr-[120px] lg:pr-[104px]">
               SUBSCRIPTION BASED SOLUTIONS
             </p>
-            <p className="pr-[75px]">
+            <p className="pr-[75px] md:mt-[-20px] lg:mt-[-20px]">
               FOR ALL YOUR BUSINESS DIGITAL NEEDS
             </p>
           </div>
@@ -183,7 +183,6 @@ const Home = ({
 
           <div className="relative w-full flex justify-center ">
             <img 
-              // src="https://s3-alpha-sig.figma.com/img/bd8f/abf6/26326235eef46325d90d16d73d3154ed?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=foQJ8Xhk5fxXVQy~ImxS0BlUNHFxQqrBmdYsAS9XgjcsVhY29gUmFTz34KHonMhslrN2LygjdOy65I1NbLqbTwXc40MnwHmUfQR7Mz44Jovq6DIaLwi74JXl1kLuW3~PEKDjdL9EnvgyPIMkB6btLifXcWbYZPBhYNU-jYO6gYJfvRjDUfm3Ob4rqyFxmgsM5zq7cVEQkcS3VLEPgHxTypbNap6y6AHECmXBVFNLCCZafBpqlE-y4GXxM1QiMSHiP45hgS9ZxwRgqgAj6qk3~tyRKGBhzsEiA0odYKlyTHii9cZ5RaJP73kEk0mj9APgf4R6-p7Wq6rEs~eWpXex2Q__"
               src={Girl}
               alt="img" 
               className="w-[350px] h-[350px] mb-[-50px] mt-[-55px] max-w-md rounded-full"
