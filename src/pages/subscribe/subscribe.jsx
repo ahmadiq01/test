@@ -200,222 +200,220 @@ const Home = () => {
   );
 
   return (
-    <div className="flex flex-col bg-[#dee13e] min-h-screen">
-      <Header />
-      {/* Hero Section */}
-      <div className=" flex flex-col items-center justify-center text-center py-10">
-        <div className="md:w-full font-[Heathergreen] font-normal flex flex-col items-center">
-          <p className="font-semibold text-7xl md:text-[150px] md:leading-[50px] leading-[50px] tracking-[6px]">
-            Find the Right Plan
-          </p>
-        </div>
-        <div className="max-w-[80%]">
-          <p className="md:text-[22px] text-xl font-[Poppins] font-normal leading-[30px] tracking-[1px] mt-23">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry. Lorem Ipsum Lorem Ipsum is simply
-            dummy text of the printing and typesetting industry. Lorem
-            Ipsumdummy text of the printing and typesetting industry. dummy text
-            of the printing and typesetting industry.dewrwin
-          </p>
-        </div>
-      </div>
-
-      {/* Pricing Plans Section */}
-      <div className="bg-[#dee13e] flex items-center justify-center px-4 sm:px-6 py-6 sm:py-10">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-  {[
-    { img: Basic, imgHover: Basic2 },
-    { img: Standard, imgHover: Standard2 },
-    { img: Premium, imgHover: Premium2 },
-    { img: Single, imgHover: Single2 },
-  ].map((plan, index) => (
-    <div
-      key={index}
-      className="w-[185px] h-[297px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
-    >
-      <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
-        <img
-          src={plan.img}
-          className="object-cover w-full h-full"
-          alt={`Plan ${index}`}
-        />
-      </div>
-      <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <img
-          src={plan.imgHover}
-          className="object-cover w-full h-full"
-          alt={`Plan ${index} Hover`}
-        />
-      </div>
-
-      {/* First div - Static */}
-      <div className="absolute top-0 left-0 w-full h-1/3 z-10">
-        {/* Static division */}
-      </div>
-
-      {/* Second div - Scroll to div functionality */}
-      <div
-        onClick={() => {
-          const targetDiv = document.getElementById("targetDivId");
-          if (targetDiv) {
-            targetDiv.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-        className="absolute top-1/2 left-0 w-full h-1/3 z-10 cursor-pointer"
-      ></div>
-
-      {/* Third div - WhatsApp link with dynamic text parameter */}
-      <a
-        href={`https://api.whatsapp.com/send?phone=923315829371&text=${index + 1}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute bottom-0 left-0 w-full h-1/6 z-10 cursor-pointer"
-      ></a>
+<div className="flex flex-col bg-[#dee13e] min-h-screen overflow-x-hidden">
+  <Header />
+  {/* Hero Section */}
+  <div className="flex flex-col items-center justify-center text-center py-10 px-4">
+    <div className="w-full font-[Heathergreen] font-normal flex flex-col items-center">
+      <p className="font-semibold text-6xl md:text-[150px] md:leading-[50px] leading-[50px] tracking-[4px] md:tracking-[6px]">
+        Find the Right Plan
+      </p>
     </div>
-  ))}
-</div>
-
-      </div>
-
-      {/* Plan Comparison Section */}
-      <div
-        id="targetDivId"
-        className="bg-[#dee13e] py-16 flex flex-col items-center font-[Heathergreen] font-normal"
-      >
-        {/* Title for both views */}
-        <h2 className="text-black font-[Heathergreen] md:text-5xl md:mt-10 md:text-[150px] rounded-2xl text-[130px] md:w-full text-center mb-16">
-          Plan Comparison
-        </h2>
-
-        <div className="w-full hidden md:grid md:grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
-          {/* Feature Column */}
-          <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
-            <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
-              Plans
-            </h3>
-            <ul className="mt-6 text-center space-y-6 flex-grow">
-              {features.map((feature, index) => (
-                <li
-                  key={index}
-                  className="text-4xl font-[Poppins] font-semi-bold"
-                >
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-          {/* Plan Columns */}
-{plans.map((plan, index) => (
-  <div
-    key={index}
-    className="text-black text-center mt-[-14px] w-[250px] md:w-full min-h-[500px] flex flex-col"
-  >
-    <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
-    <ul className="space-y-6 flex-grow">
-      {features.map((_, idx) => {
-        // Cycle through the icons sequentially
-        const icons = [vectorIcon, naIcon, tickIcon];
-        const icon = icons[idx % icons.length];
-
-        return (
-          <li key={idx} className="flex justify-center">
-            <img src={icon} alt="Checkmark" className="w-10 h-10" />
-          </li>
-        );
-      })}
-    </ul>
+    <div className="w-full md:max-w-[80%]">
+      <p className="md:text-[22px] text-xl font-[Poppins] font-normal leading-[30px] tracking-[1px] mt-8">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum Lorem Ipsum is simply dummy text of the
+        printing and typesetting industry. Lorem Ipsum Lorem Ipsum is simply
+        dummy text of the printing and typesetting industry. Lorem
+        Ipsumdummy text of the printing and typesetting industry. dummy text
+        of the printing and typesetting industry.dewrwin
+      </p>
+    </div>
   </div>
-))}
 
-        </div>
-
-        {/* Mobile Comparison Table - Only visible on small screens */}
-        <div className="block md:hidden w-full max-w-6xl px-4 pb-[50px]">
-          <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
-            <div className="grid grid-cols-5 bg-black text-white font-bold text-sm py-4 text-center">
-              <div className="col-span-1">Features</div>
-              {mobilePlans.map((plan) => (
-                <div key={plan.name} className="px-2">
-                  {plan.name}
-                </div>
-              ))}
-            </div>
-
-            {mobileFeatures.map((feature) => (
-              <div
-                key={feature.key}
-                className="text-xs grid grid-cols-5 items-center text-center"
-              >
-                <div className="col-span-1 text-left pl-4 py-3 font-medium border-b">
-                  {feature.label}
-                </div>
-
-                {mobilePlans.map((plan) => (
-                  <div
-                    key={`${plan.name}-${feature.key}`}
-                    className="border-b py-3"
-                  >
-                    {feature.icon ? (
-                      plan[feature.key] ? (
-                        <FaCheck className="w-4 h-4 mx-auto text-green-600" />
-                      ) : (
-                        <FaTimes className="w-4 h-4 mx-auto text-red-500" />
-                      )
-                    ) : (
-                      plan[feature.key]
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
+  {/* Pricing Plans Section */}
+  <div className="bg-[#dee13e] flex items-center justify-center px-2 sm:px-6 py-6 sm:py-10">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-8 max-w-[100vw]">
+      {[
+        { img: Basic, imgHover: Basic2 },
+        { img: Standard, imgHover: Standard2 },
+        { img: Premium, imgHover: Premium2 },
+        { img: Single, imgHover: Single2 },
+      ].map((plan, index) => (
+        <div
+          key={index}
+          className="w-[160px] h-[260px] sm:w-[300px] sm:h-[500px] md:w-[368px] md:h-[500px] bg-gradient-to-b rounded-4xl shadow-lg relative group overflow-hidden transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+        >
+          <div className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0">
+            <img
+              src={plan.img}
+              className="object-cover w-full h-full"
+              alt={`Plan ${index}`}
+            />
           </div>
+          <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            <img
+              src={plan.imgHover}
+              className="object-cover w-full h-full"
+              alt={`Plan ${index} Hover`}
+            />
+          </div>
+
+          {/* First div - Static */}
+          <div className="absolute top-0 left-0 w-full h-1/3 z-10">
+            {/* Static division */}
+          </div>
+
+          {/* Second div - Scroll to div functionality */}
+          <div
+            onClick={() => {
+              const targetDiv = document.getElementById("targetDivId");
+              if (targetDiv) {
+                targetDiv.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="absolute top-1/2 left-0 w-full h-1/3 z-10 cursor-pointer"
+          ></div>
+
+          {/* Third div - WhatsApp link with dynamic text parameter */}
+          <a
+            href={`https://api.whatsapp.com/send?phone=923315829371&text=${index + 1}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-0 left-0 w-full h-1/6 z-10 cursor-pointer"
+          ></a>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
 
-      {/* FAQ Section */}
-      <div className="bg-[#a7429c] py-16 px-5 flex flex-col items-center">
-        <h2 className="text-black font-normal font-[Heathergreen] text-5xl mb-10 text-center font=[Heathergreen] mt-[0] md:text-[150px] w-full flex flex-col items-center">
-          Frequently Asked Questions
-        </h2>
+  {/* Plan Comparison Section */}
+  <div
+    id="targetDivId"
+    className="bg-[#dee13e] py-8 md:py-16 flex flex-col items-center font-[Heathergreen] font-normal"
+  >
+    {/* Title for both views */}
+    <h2 className="text-black font-[Heathergreen] text-5xl md:mt-10 md:text-[150px] rounded-2xl text-center mb-8 md:mb-16 px-4">
+      Plan Comparison
+    </h2>
 
-        {/* FAQ List */}
-        <div className="w-full pb-[100px] space-y-4">
-          {faqs.map((faq, index) => (
-            <div
+    <div className="w-full hidden md:grid md:grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
+      {/* Feature Column */}
+      <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
+        <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
+          Plans
+        </h3>
+        <ul className="mt-6 text-center space-y-6 flex-grow">
+          {features.map((feature, index) => (
+            <li
               key={index}
-              className={`w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-4 ${
-                index >= 2 ? "md:hidden" : "" // Hide after first two on md and larger screens
-              }`}
+              className="text-4xl font-[Poppins] font-semi-bold"
             >
-              {/* Question Section */}
-              <div
-                className="w-[80%] mx-auto flex justify-between items-center text-4xl p-4 font-[Poppins]"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span>{faq.question}</span>
-                {openIndex === index ? (
-                  <FaChevronUp className="text-white" />
-                ) : (
-                  <FaChevronDown className="text-white" />
-                )}
-              </div>
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* Plan Columns */}
+      {plans.map((plan, index) => (
+        <div
+          key={index}
+          className="text-black text-center mt-[-14px] w-[250px] md:w-full min-h-[500px] flex flex-col"
+        >
+          <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
+          <ul className="space-y-6 flex-grow">
+            {features.map((_, idx) => {
+              // Cycle through the icons sequentially
+              const icons = [vectorIcon, naIcon, tickIcon];
+              const icon = icons[idx % icons.length];
 
-              {/* Answer Section (Aligned with the question) */}
-              {openIndex === index && (
-                <p className="w-[70%] ml-auto mr-[20%] text-white text-2xl font-semibold mt-[-12px] p-4 rounded-lg">
-                  {faq.answer}
-                </p>
-              )}
+              return (
+                <li key={idx} className="flex justify-center">
+                  <img src={icon} alt="Checkmark" className="w-10 h-10" />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    {/* Mobile Comparison Table - Only visible on small screens */}
+    <div className="block md:hidden w-full max-w-full px-2 pb-[50px] overflow-x-hidden">
+      <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
+        <div className="grid grid-cols-5 bg-black text-white font-bold text-xs py-4 text-center">
+          <div className="col-span-1">Features</div>
+          {mobilePlans.map((plan) => (
+            <div key={plan.name} className="px-1 text-xs">
+              {plan.name}
             </div>
           ))}
         </div>
-      </div>
-      {/* Extra Spacing Before Footer */}
-      <div className="h-16"></div>
 
-      <Footer />
+        {mobileFeatures.map((feature) => (
+          <div
+            key={feature.key}
+            className="text-xs grid grid-cols-5 items-center text-center"
+          >
+            <div className="col-span-1 text-left pl-2 py-3 font-medium border-b text-xs">
+              {feature.label}
+            </div>
+
+            {mobilePlans.map((plan) => (
+              <div
+                key={`${plan.name}-${feature.key}`}
+                className="border-b py-3"
+              >
+                {feature.icon ? (
+                  plan[feature.key] ? (
+                    <FaCheck className="w-3 h-3 mx-auto text-green-600" />
+                  ) : (
+                    <FaTimes className="w-3 h-3 mx-auto text-red-500" />
+                  )
+                ) : (
+                  plan[feature.key]
+                )}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
+  </div>
+
+  {/* FAQ Section */}
+  <div className="bg-[#a7429c] py-10 md:py-16 px-4 flex flex-col items-center overflow-hidden">
+    <h2 className="text-black font-normal font-[Heathergreen] text-4xl md:text-5xl lg:text-[150px] mb-8 text-center w-full flex flex-col items-center">
+      Frequently Asked Questions
+    </h2>
+
+    {/* FAQ List */}
+    <div className="w-full pb-[100px] space-y-4">
+      {faqs.map((faq, index) => (
+        <div
+          key={index}
+          className={`w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-2 md:p-4 ${
+            index >= 2 ? "md:hidden" : "" // Hide after first two on md and larger screens
+          }`}
+        >
+          {/* Question Section */}
+          <div
+            className="w-full md:w-[80%] mx-auto flex justify-between items-center text-xl md:text-4xl p-2 md:p-4 font-[Poppins]"
+            onClick={() => toggleFAQ(index)}
+          >
+            <span className="pr-2">{faq.question}</span>
+            {openIndex === index ? (
+              <FaChevronUp className="text-white flex-shrink-0" />
+            ) : (
+              <FaChevronDown className="text-white flex-shrink-0" />
+            )}
+          </div>
+
+          {/* Answer Section (Aligned with the question) */}
+          {openIndex === index && (
+            <p className="w-full md:w-[70%] md:ml-auto md:mr-[20%] text-white text-lg md:text-2xl font-semibold mt-[-12px] p-2 md:p-4 rounded-lg">
+              {faq.answer}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+  {/* Extra Spacing Before Footer */}
+  <div className="h-16"></div>
+
+  <Footer />
+</div>
   );
 };
 
