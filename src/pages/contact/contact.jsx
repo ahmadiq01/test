@@ -131,7 +131,7 @@ const ContactPage = () => {
         onSubmit={handleSubmit}
         className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12"
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col col-span-1">
           <label className="text-gray-700 font-semibold mb-1 md:mb-2 text-base md:text-lg">
             First Name*
           </label>
@@ -146,7 +146,7 @@ const ContactPage = () => {
           />
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col col-span-1">
           <label className="text-gray-700 font-semibold mb-1 md:mb-2 text-base md:text-lg">
             Last Name*
           </label>
