@@ -472,7 +472,7 @@ const Home = () => {
         </div>
       </div>
       {/* Extra Spacing Before Footer */}
-      <div className="h-16"></div>
+      {/* <div className="h-16"></div> */}
 
       <Footer />
     </div>
