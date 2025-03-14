@@ -204,22 +204,21 @@ const Home = () => {
   <Header />
   {/* Hero Section */}
   <div className="flex flex-col items-center justify-center text-center py-10 px-4">
-    <div className="w-full font-[Heathergreen] font-normal flex flex-col items-center">
-      <p className="font-semibold text-8xl md:text-[150px] md:leading-[50px] leading-[50px] tracking-[4px] md:tracking-[6px]">
-        Find the Right Plan
-      </p>
-    </div>
-    <div className="w-full md:max-w-[80%]">
-      <p className="md:text-[22px] text-xl font-[Poppins] font-normal leading-[30px] tracking-[1px] mt-8">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum Lorem Ipsum is simply dummy text of the
-        printing and typesetting industry. Lorem Ipsum Lorem Ipsum is simply
-        dummy text of the printing and typesetting industry. Lorem
-        Ipsumdummy text of the printing and typesetting industry. dummy text
-        of the printing and typesetting industry.dewrwin
-      </p>
-    </div>
+  <div className="w-full font-[Heathergreen] font-normal flex flex-col items-center">
+    <p className="font-semibold text-6xl md:text-[150px] md:leading-[50px] leading-[50px] tracking-[4px] md:tracking-[6px]">
+      Find the Right Plan
+    </p>
   </div>
+  <div className="w-full md:max-w-[80%] mt-30"> {/* Added margin-top for spacing */}
+    <p className="md:text-[22px] text-xl font-[Poppins] font-normal leading-[30px] tracking-[1px]">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsumdummy text of the printing and typesetting industry. dummy text of the printing and typesetting industry.dewrwin
+    </p>
+  </div>
+</div>
+
 
   {/* Pricing Plans Section */}
   <div className="bg-[#dee13e] flex items-center justify-center px-2 sm:px-6 py-6 sm:py-10">
