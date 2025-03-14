@@ -58,7 +58,7 @@ const Footer = () => {
   </div>
 
   {/* Bottom Navigation and Social Icons - FIXED LAYOUT WITH RESPONSIVE SIZING */}
-  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[40px]">
+  <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[0px]">
     {/* Left Section: Logo */}
     <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
       <img
@@ -103,11 +103,20 @@ const Footer = () => {
     </nav>
 
     {/* Right Section: Social Media Icons */}
-    <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1  md:mr-3 lg:mr-6">
-      <FaInstagram className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
-      <FaLinkedin className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
-      <FaFacebook className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer" />
-    </div>
+   <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1 md:mr-3 lg:mr-6">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+      <FaInstagram className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
+    </a>
+
+    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+      <FaLinkedin className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
+    </a>
+
+    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+      <FaFacebook className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
+    </a>
+  </div>
+
   </div>
 </div>
   );
