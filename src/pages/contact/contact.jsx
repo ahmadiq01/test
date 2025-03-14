@@ -82,32 +82,37 @@ const ContactPage = () => {
 
   <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row w-full">
     {/* Contact Info Section */}
+    
     <div className="flex flex-row sm:flex-row md:flex-col items-center bg-[#dee13e] w-full sm:w-1/2 md:w-[30%] lg:w-[15%] p-6 md:rounded-t-2xl sm:space-x-4 md:space-x-0 md:ml-12">
-      <div className="relative overflow-visible bg-blue-500 ">
-        <p className="absolute text-[100px] ml-[-16px] md:text-9xl lg:text-8xl font-[400] font-[Heathergreen] leading-tight tracking-normal text-black whitespace-nowrap">
+      <div className="relative overflow-visible mb-12 md:mb-2 ">
+        <p className="absolute text-[90px] ml-[-3px] md:ml-[5px] md:text-9xl lg:text-8xl font-[400] font-[Heathergreen] leading-tight tracking-normal text-black whitespace-nowrap">
           LETS CONNECT.
         </p>
 
-        <p className="text-black text-3xl font-bold mt-30 md:mt-24 lg:mt-24 w-full">
+        <p className="text-black text-2xl md:text-3xl font-[1000] md:font-bold mt-[6.5rem] md:mt-24 lg:mt-30 w-full whitespace-nowrap">
           +971 56 725 7157
         </p>
 
-        <p className="text-black text-2xl font-bold mt-2 w-full">
+        <p className="text-black text-2xl font-bold md:mt-1 md:ml-2 w-full">
           fooliz@gmail.com
         </p>
 
-        <p className="text-black text-2xl md:text-2xl break-words font-semi-bold mt-2 leading-tight w-full">
-          Dubai, Business Bay,<br />SBK-506, UAE
+        <p className="text-black hidden md:block md:ml-2 text-2xl md:text-2xl break-words font-bold md:mt-1 leading-tight w-full">
+          Dubai, Business Bay,<br  />SBK-506, UAE
+        </p>
+        <p className="text-black md:hidden text-xl  break-words font-bold md:mt-1 leading-tight w-full">
+          Dubai, Business Bay,<br  />SBK-506, UAE
         </p>
       </div>
 
-      <div className="flex justify-center bg-green-400 items-center w-full ml-[45px] mt-[20px] md:w-full pb-6">
-        <img
-          className="w-60 h-[200px] md:w-64 lg:w-80 md:mt-16 object-contain"
-          src="https://s3-alpha-sig.figma.com/img/5092/9fd8/cf65f91df9f176a93f556878108115f9?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aYgv4YCQbmk85AWiVQD5GawAy7x3ZDdCfAex701M9r2BKufrsBiCyEgBeYq7lPNIGKHh7i-PiDFbVSMExtdGvF~N-U-y6Rpmj4tBf8IJp1q8qVbCTqkHOhxXypEVoPuvWbBQ21rZDQHiOhqpN3E6UMabqy-WlujTVOGKGE8eN~BNGfa~xZSNn0ogTjQjey20t7dPC90kRMUVFOKNXA6mtogF42YaxjX4~tICLYpbPPrA8ANEEpapDD7ZqQGPIBbSZZECW2OJLCug4RnvKgH-xs5nWIOHQaWXpGK3HbWEfs5m67bNGzTyYqXo8FED7JVWcomPlUw2K91F4jITmUVbqQ__"
-          alt="Animation"
-        />
-      </div>
+      <div className="flex justify-center items-center w-full ml-[45px] md:ml-[0px] mt-[20px] md:w-full mb-4 md:pb-6">
+  <img
+    className="w-60 h-[200px] md:w-64 md:h-[350px] lg:w-80 lg:h-[500px] md:mt-16 object-contain"
+    src="https://s3-alpha-sig.figma.com/img/5092/9fd8/cf65f91df9f176a93f556878108115f9?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=KY92W7nzsxH3hnnf0DSKksxmBAcip6ngnhtH~-NAKi9ch4lHcu2IwiM4fPJOnAfEFpzayqveoda~CKTc13X9Sv3TXw65Fg74A0yIm9CsIuvyH37trAHF-OY6zg~YYnowS4UzcK7IHK-jTpYH67~bkJOAI33SUnErn2thMvNzi0tU9BMUgo2EeJZn2W1Stevp7V33Lk3Lr0qIMkqn9NaiTQidFNJ8ps4xapz3bKDWPODs9WwrSMZzp-UDpFmI3xmbHLNwwUM-Fq~-m-Aa0LBuJfXfIhX6dfDVvTXCobza~K9qGCzvLFey7YCphJ1JTNAVepU8dQ~QyvcjZB6u3Gtbfw__"
+    alt="Animation"
+  />
+</div>
+
     </div>
 
     {/* Form Section */}
