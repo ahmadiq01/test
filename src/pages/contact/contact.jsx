@@ -176,7 +176,7 @@ const ContactPage = () => {
           />
         </div>
 
-        <div className="flex flex-col col-span-1">
+        <div className="flex flex-col sm:w-[70%] w-full col-span-1">
           <label className="text-gray-700 font-semibold mb-1 md:mb-2 text-base md:text-lg">
             Message*
           </label>
@@ -191,7 +191,7 @@ const ContactPage = () => {
           ></textarea>
         </div>
 
-        <fieldset className="col-span-1 md:col-span-1 ml-4 md:ml-8">
+        <fieldset className="col-span-1 md:col-span-1 ml-4 ">
           <legend className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-700">
             Budget*
           </legend>
