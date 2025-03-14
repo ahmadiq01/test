@@ -14,7 +14,7 @@ const ContactPage = () => {
       </div>
       <div className="flex flex-col lg:flex-row items-start">
         {/* Left Column - Title & Paragraph */}
-        <div className="w-full lg:w-1/2 pr-4 lg:pr-10 md:mt-[40px] lg:ml-[1px] ml-4 lg:ml-[-14px]">
+        <div className="w-full lg:w-1/2 pr-4 lg:pr-10 md:mt-[40px] ml-4 lg:ml-[-14px]">
           {/* Title "Our Story" - Shown first on all screen sizes */}
           <div className="mb-12 ml-4 lg:ml-[40px] w-full">
             <h1 className="text-[7rem] md:text-[12rem] font-semi-bold tracking-[0.3rem] md:tracking-[1rem] uppercase font-[Heathergreen] leading-[1.1]">
@@ -28,7 +28,7 @@ const ContactPage = () => {
           </div>
 
           {/* Lorem Ipsum paragraph - Shown third on mobile */}
-          <p className="text-gray-700 w-full leading-tight mb-[100px] font-semi-bold text-2xl ml-[122px] lg:ml-[30px] lg:w-[55%] text-justify break-words">
+          <p className="text-gray-700 w-full leading-tight mb-[100px] font-semi-bold text-2xl ml-4 lg:ml-[30px] lg:w-[55%] text-justify break-words">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
