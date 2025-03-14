@@ -141,7 +141,7 @@ const ContactPage = () => {
             value={formData.firstName}
             onChange={handleChange}
             placeholder=""
-            className="border p-3 md:p-6 rounded-full w-full h-10 md:h-20 text-base md:text-lg"
+            className="border p-3 md:p-6 rounded-full w-50% h-10 md:h-20 text-base md:text-lg"
             required
           />
         </div>
@@ -244,14 +244,14 @@ const ContactPage = () => {
         </fieldset>
 
         <button
-          type="submit"
-          className={`bg-[#474cba] text-white py-2 md:py-5 px-6 md:px-10 rounded-full w-1/3 md:w-auto hover:bg-blue-700 col-span-2 mt-4 md:mt-6 text-base md:text-lg ${
-            isSubmitting ? "opacity-70 cursor-not-allowed" : ""
-          }`}
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </button>
+  type="submit"
+  className={`bg-[#474cba] text-white py-2 md:py-5 px-6 md:px-10 rounded-full w-24 md:w-32 hover:bg-blue-700 col-span-2 mt-4 md:mt-6 text-base md:text-lg ${
+    isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+  }`}
+  disabled={isSubmitting}
+>
+  {isSubmitting ? "Submitting..." : "Submit"}
+</button>
       </form>
     </div>
   </div>
