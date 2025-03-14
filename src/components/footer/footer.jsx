@@ -41,7 +41,7 @@ const Footer = () => {
   <div className="flex flex-col text-[8px] ml-[90px] mt-[-99px] md:text-[14px] lg:text-[24px] text-[#474cba] font-extrabold leading-relaxed tracking-[-0.04em] font-[Poppins] text-center md:mt-[-220px] lg:mt-[-340px]">
     <div className="md:mt-[45px] lg:mt-[45px] mt-[-18px] mr-[10px]">
       <p>Dubai, Lahore, wtv Road bt</p>
-      <p className=" md:mr-[20px] ml-[-20px] lg:mr-[70px]">Address, wtv, 43543</p>
+      <p className=" md:mr-[20px] ml-[-20px] lg:mr-[50px]">Address, wtv, 43543</p>
     </div>
     <br />
     <div className="">

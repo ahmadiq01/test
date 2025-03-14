@@ -115,15 +115,6 @@ const ContactPage = () => {
       {/* Header */}
       <Header />
 
-      {/* Floating Icon */}
-      {/* <a href="home">
-        <img
-          src={vectorIcon}
-          alt="Decoration"
-          className="fixed top-6 right-6 w-10 h-10 cursor-pointer "
-        />
-      </a> */}
-
       {/* Background Image */}
       <div className="w-full">
         <img
