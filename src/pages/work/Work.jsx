@@ -16,8 +16,6 @@ import Pic5 from "../../assets/5.svg";
 import Pic6 from "../../assets/6.svg";
 import Pic7 from "../../assets/7.svg";
 import Pic8 from "../../assets/8.svg";
-import { ClipLoader } from 'react-spinners';
-
 import Pic9 from "../../assets/9.svg";
 
 const ContactPage = () => {
@@ -112,30 +110,28 @@ const ContactPage = () => {
     return imageData.filter(item => item.category === activeFilter);
   };
   
-  const [isLoading, setIsLoading] = useState(true);
-  
   return (
     <div className="relative min-h-screen bg-white">
       {/* Header */}
       <Header />
 
-      {/* Background Image with Spinner */}
-      <div className="w-full relative">
-        {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-            <ClipLoader color="#D9E021" size={50} />
-          </div>
-        )}
-     <img
-    src={imageSrc}
-    alt="Main Image"
-    className="w-full h-auto max-h-[440.5px] md:max-h-[881px] object-cover"
-    onLoad={() => setIsLoading(false)}
-    onError={() => {
-      setImageSrc(brokenImage);
-      setIsLoading(false);
-    }}
+      {/* Floating Icon */}
+      {/* <a href="home">
+        <img
+          src={vectorIcon}
+          alt="Decoration"
+          className="fixed top-6 right-6 w-10 h-10 cursor-pointer "
         />
+      </a> */}
+
+      {/* Background Image */}
+      <div className="w-full">
+        <img
+        src={imageSrc}
+        alt="Main Image"
+        className="w-full h-auto max-h-[440.5px] md:max-h-[881px] object-cover"
+        onError={() => setImageSrc(brokenImage)} 
+      />
       </div>
 
       {/* Filter Section - Now Positioned After the GIF and Before Footer */}
@@ -178,80 +174,57 @@ const ContactPage = () => {
         </div>
       </div>
       
-      {/* Responsive Card Grid with spinner for each card */}
+      {/* Responsive Card Grid with 3 cards per row on mobile */}
       <div className="relative flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-8 lg:gap-16 px-2 md:px-4 mt-6 md:mt-10">
-        {getFilteredImages().map((item) => {
-          const [isPrimaryLoading, setIsPrimaryLoading] = useState(true);
-          const [isSecondaryLoading, setIsSecondaryLoading] = useState(true);
-          
-          return (
-            <a
-              key={item.id}
-              href={item.link}
-              className="w-[calc(33.33%-8px)] sm:w-[calc(33.33%-12px)] md:w-[calc(50%-16px)] lg:w-[487.76px] h-[120px] sm:h-[180px] md:h-[280px] lg:h-[332.09px] rounded-[10px] bg-white shadow-lg transition-all duration-300 flex items-center justify-center relative overflow-hidden group"
-              style={{ boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.2)" }}
-            >
-              {item.secondary ? (
-                <>
-                  {isPrimaryLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                      <ClipLoader color="#D9E021" size={30} />
-                    </div>
-                  )}
-                  <img
-                    src={item.primary}
-                    alt="Primary"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-800 ${isPrimaryLoading ? 'opacity-0' : 'opacity-100'} group-hover:opacity-0`}
-                    onLoad={() => setIsPrimaryLoading(false)}
-                  />
-                  {isSecondaryLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100 opacity-0 group-hover:opacity-100">
-                      <ClipLoader color="#D9E021" size={30} />
-                    </div>
-                  )}
-                  <img
-                    src={item.secondary}
-                    alt="Secondary"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100`}
-                    onLoad={() => setIsSecondaryLoading(false)}
-                  />
-                </>
-              ) : (
-                <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-                  {isPrimaryLoading && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                      <ClipLoader color="#D9E021" size={30} />
-                    </div>
-                  )}
-                  <img 
-                    src={item.primary} 
-                    alt="" 
-                    className={`absolute inset-0 w-full h-full object-cover ${isPrimaryLoading ? 'opacity-0' : 'opacity-100'}`}
-                    onLoad={() => setIsPrimaryLoading(false)}
-                  />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
-                </div>
-              )}
-              
-              {/* Bottom left text - hidden on smallest screens, visible on hover for larger */}
-              <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 text-white text-[10px] sm:text-xs md:text-sm lg:text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                {item.text}
+        {getFilteredImages().map((item) => (
+          <a
+            key={item.id}
+            href={item.link}
+            className="w-[calc(33.33%-8px)] sm:w-[calc(33.33%-12px)] md:w-[calc(50%-16px)] lg:w-[487.76px] h-[120px] sm:h-[180px] md:h-[280px] lg:h-[332.09px] rounded-[10px] bg-white shadow-lg transition-all duration-300 flex items-center justify-center relative overflow-hidden group"
+            style={{ boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.2)" }}
+          >
+            {item.secondary ? (
+              <>
+                <img
+                  src={item.primary}
+                  alt="Primary"
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-800 opacity-100 group-hover:opacity-0"
+                />
+                <img
+                  src={item.secondary}
+                  alt="Secondary"
+                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                />
+              </>
+            ) : (
+              <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+                <img 
+                  src={item.primary} 
+                  alt="" 
+                  className="absolute inset-0 w-full h-full object-cover" 
+                />
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
               </div>
+            )}
+            
+            {/* Bottom left text - hidden on smallest screens, visible on hover for larger */}
+            <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4 text-white text-[10px] sm:text-xs md:text-sm lg:text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              {item.text}
+            </div>
 
-              {/* Category badge - hidden on smallest screens, visible on hover for larger */}
-              <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-black bg-opacity-70 text-white text-[8px] sm:text-xs px-1 py-0.5 md:px-2 md:py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                {item.category}
+            {/* Category badge - hidden on smallest screens, visible on hover for larger */}
+            <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-black bg-opacity-70 text-white text-[8px] sm:text-xs px-1 py-0.5 md:px-2 md:py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              {item.category}
+            </div>
+
+            {/* Bottom right icon */}
+            {item.icon && (
+              <div className="absolute bottom-2 right-2 md:bottom-8 md:right-4 w-3 h-3 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <img src={item.icon} alt="icon" className="w-full h-full" />
               </div>
-
-              {/* Bottom right icon */}
-              {item.icon && (
-                <div className="absolute bottom-2 right-2 md:bottom-8 md:right-4 w-3 h-3 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                  <img src={item.icon} alt="icon" className="w-full h-full" />
-                </div>
-              )}
-            </a>
-          );
-        })}
+            )}
+          </a>
+        ))}
       </div>
 
       {/* Call to Action Section */}
