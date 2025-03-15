@@ -192,7 +192,7 @@ export default function Home() {
 
             {/* Right side with APPS text and monkey */}
             <div className="relative w-full md:mt-0">
-              <p className="text-black text-[420px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-120px] ml-[-14px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
+              <p className="text-black text-[400px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-120px] ml-[-14px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
                 APPS
               </p>
               <div className="absolute left-1/2 bottom-1/3 md:bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
