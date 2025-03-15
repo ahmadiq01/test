@@ -306,29 +306,36 @@ export default function Home() {
 
             {/* Right side with UI/UX text and human */}
             <div className="relative w-full md:mt-20">
+              {/* CTA Button */}
               <a
                 href="/work?category=UI/UX"
-                className="bg-[rgba(222,225,62,1)] absolute top-1/4 md:top-1/2 left-1/4 md:left-auto transform -translate-x-1/2 md:-translate-x-0 md:ml-[-58px] whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-4xl rounded-full"
+                className="bg-[rgba(222,225,62,1)] absolute mt-[440px] ml-[55px] md:top-1/2 left-1/2 md:left-auto transform -translate-x-1/2 md:-translate-x-0 md:ml-[-58px] whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full  md:text-4xl"
               >
                 SEE UI/UX WORK
               </a>
 
-              <p className="text-black text-[250px] sm:text-[350px] md:text-[650px] lg:text-[1050px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap leading-[1] mt-[-50px] md:mt-[-180px] md:ml-[280px]">
+              {/* Heading */}
+              <p className="text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] 
+                            font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap 
+                            leading-[1] mt-[-30px] md:mt-[-180px] md:ml-[280px]">
                 UI/UX
               </p>
-              <div className="absolute left-1/2 md:left-[829px] bottom-1/3 md:bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+
+              {/* Character Image */}
+              <div className="absolute left-1/2 md:left-[829px] bottom-[-190px] md:bottom-1/2 transform -translate-x-1/2 translate-y-4">
                 <img
                   ref={humanRef}
                   src={human}
                   alt="Human character"
-                  className="h-[200px] md:h-[350px] lg:h-[500px]"
+                  className="h-[550px] md:h-[350px] lg:h-[500px]"
                 />
               </div>
             </div>
+
           </div>
 
           {/* Button and Back Arrow positioned together */}
-          <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
+          <div className="absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
             <button className="text-white p-4 rounded-full">
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
