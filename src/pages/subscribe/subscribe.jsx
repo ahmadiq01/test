@@ -353,7 +353,7 @@ const Home = () => {
 <div className="block md:hidden w-full max-w-sm overflow-x-auto">
   <div className="grid grid-cols-5 items-start pb-4">
     {/* Feature Column - Mobile */}
-    <div className="bg-black text-white rounded-xl w-32 ml-3 p-3 h-64 flex flex-col relative col-span-1">
+    <div className="bg-black text-white rounded-xl w-40 ml-3 p-3 h-64 flex flex-col relative col-span-1">
       <h3 className="text-lg tracking-wide font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-1 rounded-t-xl">
         Plans
       </h3>
@@ -367,7 +367,7 @@ const Home = () => {
     </div>
 
     {/* Basic Plan */}
-    <div className="text-center w-16 ml-12 h-64 flex flex-col col-span-1">
+    <div className="text-center w-16 ml-22 h-64 flex flex-col col-span-1">
       <h3 className="text-lg font-semi-bold mb-2 px-1 leading-tight">
         Basic
       </h3>
@@ -391,7 +391,7 @@ const Home = () => {
     </div>
 
     {/* Standard Plan */}
-    <div className="text-center w-16 ml-2 h-64 flex flex-col col-span-1">
+    <div className="text-center w-16 ml-14 h-64 flex flex-col col-span-1">
       <h3 className="text-lg font-semi-bold mb-2 px-1 leading-tight">
         Standard
       </h3>
@@ -415,7 +415,7 @@ const Home = () => {
     </div>
 
     {/* Premium Plan */}
-    <div className="text-center w-16 ml-2 h-64 flex flex-col col-span-1">
+    <div className="text-center w-16 ml-8 h-64 flex flex-col col-span-1">
       <h3 className="text-lg font-semi-bold mb-2 px-1 leading-tight">
         Premium
       </h3>
