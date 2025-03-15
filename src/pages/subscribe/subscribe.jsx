@@ -353,7 +353,7 @@ const Home = () => {
         <div className="block md:hidden w-[400px] ">
           <div className=" grid grid-cols-5 gap-0 items-start pb-[30px]">
             {/* Feature Column - Mobile */}
-            <div className="bg-black text-white ml-[-10px] rounded-xl w-[130px] shadow-lg p-4 h-[320px] flex flex-col relative">
+            <div className="bg-black text-white ml-[-6px] rounded-xl w-[130px] shadow-lg p-4 h-[320px] flex flex-col relative">
               <h3 className="text-2xl font-semi-bold  bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
                 Plans
               </h3>
@@ -373,9 +373,12 @@ const Home = () => {
             {plans.map((plan, index) => (
               <div
               key={index}
-              className="ml-[-50px] text-center w-[250px] min-h-[300px] pr-[20px] flex flex-col " // Added minimal padding
+              className="ml-[-50px] text-center w-[250px] min-h-[300px] flex flex-col " // Added minimal padding
             >
-              <h3 className="text-3xl font-semi-bold mb-6 -mx-2">{plan}</h3> {/* Negative margin to pull text closer */}
+              {/* <h3 className="text-3xl gap-6 font-semi-bold mb-6 -mx-2">{plan}</h3> Negative margin to pull text closer */}
+              <h3 className="text-3xl pr-[2px] font-semi-bold mb-6">{plan}</h3> {/* Increased negative margin to decrease width */}
+
+
               <ul className="space-y-6 ">
                 {features.map((_, idx) => {
                   // Cycle through the icons sequentially
