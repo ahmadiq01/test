@@ -251,7 +251,7 @@ export default function Home() {
               {/* Text Heading */}
               <p
                 className="text-black text-[200px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
-                    ml-[-20px] md:ml-[100px] font-[Heathergreen] text-center md:text-left"
+                    ml-[-12px] md:ml-[100px] font-[Heathergreen] text-center md:text-left"
               >
                 WEBSITES
               </p>
