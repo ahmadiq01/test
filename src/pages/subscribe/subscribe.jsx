@@ -353,7 +353,7 @@ const Home = () => {
         <div className="block md:hidden max-w-sm">
           <div className="grid grid-cols-5 items-start pb-[30px]">
             {/* Feature Column - Mobile */}
-            <div className="bg-black text-white rounded-xl w-[160px] ml-[2px] p-4 h-[320px] flex flex-col relative col-span-1">
+            <div className="bg-black text-white rounded-xl w-[160px] ml-[12px] p-4 h-[320px] flex flex-col relative col-span-1">
               <h3 className="text-[25px] tracking-wide font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
                 Plans
               </h3>

@@ -5,7 +5,7 @@ import vectorIcon from "../../assets/Group 55.svg";
 import brokenImage from "../../assets/brokenimage.png";
 import { ClipLoader } from 'react-spinners';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 import Mobile1 from "../../assets/mobile1.svg";
@@ -25,6 +25,11 @@ const ContactPage = () => {
   const [imageSrc, setImageSrc] = useState(
     "https://s3-alpha-sig.figma.com/img/dd4f/9d43/80fbdbdcfb9e32c6aa893ccf48e17ab7?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=k9rcfgzH4xuSqz6UjTdezXwAqs2L0G~RlYEUo7N-QfujR0e6TsnGOJhjx9Oa7rypnQT2ndP6Pnd2RBR8rxWQj2beg~5sO98JEc-uCbshBZPwzhDCE7S28ei0wavv5iSeQSwzV5pbCc4MaK1BqTBHqLYEHBZRfpq0kcO5sXtzGCBcjWx3GAOO1~DW9KOcKRQe8ZQ2EOGNAzwBODRldnYfpZRGNP-9lPn2kTyB9nqRrTMFsyYWN5W~GDUZB9Ebx71qxGVjnBryVb2hx7xp7lWc3wY7HS8ZVFJFYXxC9h~Q0F6ojN6sX8ircChh3~G8L8hX6HIHXKaNjOCe7h8Wm~dH~w__"
   );
+  
+  // Create refs for scrolling
+  const filterSectionRef = useRef(null);
+  const contentSectionRef = useRef(null);
+  
   // Add category property to each item
   const imageData = [
     { 
@@ -108,6 +113,19 @@ const ContactPage = () => {
   // State for active filter
   const [activeFilter, setActiveFilter] = useState("All");
   
+  // Function to scroll to content section with smooth behavior
+  const scrollToContent = () => {
+    if (contentSectionRef.current) {
+      // Add a small delay to ensure the DOM is ready
+      setTimeout(() => {
+        contentSectionRef.current.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 300);
+    }
+  };
+  
   // Effect to check for category in URL query params when component mounts
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -116,6 +134,12 @@ const ContactPage = () => {
     // Set active filter if category parameter exists and is valid
     if (categoryParam && ["All", "App", "Web", "UI/UX", "Creative"].includes(categoryParam)) {
       setActiveFilter(categoryParam);
+      
+      // Scroll to the content section after state update
+      // Need setTimeout to ensure state has updated
+      setTimeout(() => {
+        scrollToContent();
+      }, 100);
     }
   }, [location]);
   
@@ -134,6 +158,10 @@ const ContactPage = () => {
   // Handle filter click
   const handleFilterClick = (category) => {
     setActiveFilter(category);
+    // When user clicks filter, also scroll them to content section
+    setTimeout(() => {
+      scrollToContent();
+    }, 100);
   };
   
   // Get filtered images based on active filter
@@ -151,22 +179,25 @@ const ContactPage = () => {
 
       {/* Background Image */}
       <div className="w-full">
-      {loading && (
-        <div className="w-full h-[440.5px] md:h-[881px] flex items-center justify-center bg-gray-100">
-          <ClipLoader color="#3B82F6" size={50} />
-        </div>
-      )}
-      <img
-        src={imageSrc}
-        alt="Main Image"
-        className={`w-full h-auto max-h-[440.5px] md:max-h-[881px] object-cover ${loading ? 'hidden' : 'block'}`}
-        onError={() => setImageSrc(brokenImage)}
-        onLoad={() => setLoading(false)}
-      />
-    </div>
+        {loading && (
+          <div className="w-full h-[440.5px] md:h-[881px] flex items-center justify-center bg-gray-100">
+            <ClipLoader color="#3B82F6" size={50} />
+          </div>
+        )}
+        <img
+          src={imageSrc}
+          alt="Main Image"
+          className={`w-full h-auto max-h-[440.5px] md:max-h-[881px] object-cover ${loading ? 'hidden' : 'block'}`}
+          onError={() => setImageSrc(brokenImage)}
+          onLoad={() => setLoading(false)}
+        />
+      </div>
 
       {/* Filter Section - Now Positioned After the GIF and Before Footer */}
-      <div className="relative w-full flex justify-center px-4 md:ml-[-60px]">
+      <div 
+        ref={filterSectionRef} 
+        className="relative w-full flex justify-center px-4 md:ml-[-60px]"
+      >
         {/* Background container */}
         <div className="w-full max-w-[1588px] py-6 md:h-[185px] flex flex-wrap items-center justify-start">
           <p className="font-poppins font-normal text-lg md:text-[25px] leading-[37.5px] text-black">
@@ -206,7 +237,11 @@ const ContactPage = () => {
       </div>
       
       {/* Responsive Card Grid with 3 cards per row on mobile */}
-      <div className="relative flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-8 lg:gap-16 px-2 md:px-4 mt-6 md:mt-10">
+      <div 
+        ref={contentSectionRef} 
+        id="filtered-content"
+        className="relative flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-8 lg:gap-16 px-2 md:px-4 mt-6 md:mt-10"
+      >
         {getFilteredImages().map((item) => (
           <a
             key={item.id}
