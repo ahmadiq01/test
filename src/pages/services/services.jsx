@@ -241,7 +241,7 @@ export default function Home() {
           <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
             {/* Left side */}
             <div className="flex flex-col md:pl-4 md:mt-[40px] mt-[-10px]">
-              <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-200px] md:ml-0">
+              <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-180px] md:ml-0">
                 WE MAKE
               </p>
             </div>
@@ -303,7 +303,7 @@ export default function Home() {
           <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
             {/* Left side */}
             <div className="flex flex-col md:pl-4 md:mt-[40px] mt-[-10px]">
-              <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-200px] md:ml-0">
+              <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-180px] md:ml-0">
                 WE MAKE
               </p>
             </div>
@@ -367,7 +367,7 @@ export default function Home() {
           <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
             {/* Left side */}
             <div className="flex flex-col md:pl-4 md:mt-[40px] mt-[-10px]">
-              <p className="text-black hidden md:block text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-200px] md:ml-0">
+              <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-180px] md:ml-0">
                 WE MAKE
               </p>
             </div>
