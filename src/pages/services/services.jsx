@@ -246,36 +246,36 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Right side with WEBSITES text and bee */}
+            {/* Right side with WEBSITES text */}
             <div className="relative w-full md:mt-[20px] lg:mt-[-90px] mt-[-120px]">
               {/* Text Heading */}
               <p
                 className="text-black text-[220px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
-                            ml-2 md:ml-[100px] font-[Heathergreen] text-center md:text-left"
+                    ml-2 md:ml-[100px] font-[Heathergreen] text-center md:text-left"
               >
                 WEBSITES
               </p>
+            </div>
+          </div>
 
-              {/* GIF Section */}
-              <div
-                className="absolute mt- left-1/2 bottom-[30px] md:bottom-1/2 transform -translate-x-1/2 
-                              translate-y-0.5/5 w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-auto md:h-auto"
-              >
-                <img
-                  ref={beeRef}
-                  src={bee}
-                  alt="Bee character"
-                  className="w-[400px] h-[300px] sm:w-[250px] sm:h-[250px] md:w-[150px] md:h-[250px] lg:w-[350px] lg:h-[350px]"
-                />
-              </div>
+          {/* Bee image as a full-screen overlay */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+            <div className="w-full h-full max-w-screen max-h-screen mt-[-90px] ml-[-120px] flex items-center justify-center">
+              <img
+                ref={beeRef}
+                src={bee}
+                alt="Bee character"
+                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
+                style={{ aspectRatio: "preserve" }}
+              />
             </div>
           </div>
 
           {/* Button and Back Arrow positioned together */}
-          <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
+          <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
             <a
               href="/work?category=Web"
-              className="bg-[rgba(186,71,174,1)] mt-[-220px] ml-[-100px] text-white font-bold p-4 md:p-10 rounded-full text-lg md:text-2xl w-[220px] lg:w-3/6 md:w-auto md:ml-[370px] text-center block"
+              className="bg-[rgba(186,71,174,1)] mt-[-190px] ml-[-100px] text-white font-bold p-4 md:p-10 rounded-full text-lg md:text-2xl w-[220px] lg:w-3/6 md:w-auto md:ml-[370px] text-center block"
             >
               SEE WEBSITES WORK
             </a>
@@ -308,39 +308,43 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Right side with UI/UX text and human */}
-            <div className="relative w-full md:mt-20">
+            {/* Right side with UI/UX text */}
+            <div className="relative w-full md:mt-20 text-center">
               {/* CTA Button */}
               <a
                 href="/work?category=UI/UX"
-                className="bg-[rgba(222,225,62,1)] absolute lg:mt-[-70px] md:mt-[220px] mt-[440px] md:top-1/2 left-1/2 md:left-auto transform -translate-x-1/2 md:-translate-x-0 md:ml-[-58px] lg:ml-[28px] whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full  md:text-4xl"
+                className="bg-[rgba(222,225,62,1)] absolute lg:mt-[-70px] md:mt-[220px] mt-[400px] ml-[75px] w-[220px] h-[80px] text-center md:top-1/2 left-1/2 md:left-auto transform -translate-x-1/2 md:-translate-x-0 md:ml-[-58px] lg:ml-[28px] whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full md:text-4xl z-30"
               >
-                SEE UI/UX WORK
+                <p className="mt-[10px]">                SEE UI/UX WORK
+                </p>
               </a>
 
               {/* Heading */}
               <p
-                className="text-black text-[350px]  sm:text-[350px] md:text-[650px] lg:text-[1050px] 
-                            font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap 
-                            leading-[1] mt-[-65px] md:mt-[-180px] md:ml-[280px]"
+                className="text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] 
+                    font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap 
+                    leading-[1] mt-[-65px] md:mt-[-180px] md:ml-[280px]"
               >
                 UI/UX
               </p>
+            </div>
+          </div>
 
-              {/* Character Image */}
-              <div className="absolute left-1/2 md:left-[889px] bottom-[-190px] md:bottom-[-50px] transform -translate-x-1/2 translate-y-4">
-                <img
-                  ref={humanRef}
-                  src={human}
-                  alt="Human character"
-                  className="h-[550px] md:h-[350px] lg:h-[500px]"
-                />
-              </div>
+          {/* Human image as a full-screen overlay */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+            <div className="w-full h-full max-w-screen max-h-screen flex items-center justify-center">
+              <img
+                ref={humanRef}
+                src={human}
+                alt="Human character"
+                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
+                style={{ aspectRatio: "preserve" }}
+              />
             </div>
           </div>
 
           {/* Button and Back Arrow positioned together */}
-          <div className="absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
+          <div className="absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
             <button className="text-white p-4 rounded-full">
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
