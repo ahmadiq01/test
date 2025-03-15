@@ -4,9 +4,9 @@ import Footer from "../../components/footer/footer";
 import vectorIcon from "../../assets/Group 55.svg";
 import brokenImage from "../../assets/brokenimage.png";
 import { ClipLoader } from 'react-spinners';
-// import brokenImage from './path-to-your-broken-image'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Mobile1 from "../../assets/mobile1.svg";
 import Mobile2 from "../../assets/mobile2.svg";
@@ -21,9 +21,6 @@ import Pic8 from "../../assets/8.svg";
 import Pic9 from "../../assets/9.svg";
 
 const ContactPage = () => {
-  // const [imageSrc, setImageSrc] = useState(
-  //   "https://s3-alpha-sig.figma.com/img/dd4f/9d43/80fbdbdcfb9e32c6aa893ccf48e17ab7?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=k9rcfgzH4xuSqz6UjTdezXwAqs2L0G~RlYEUo7N-QfujR0e6TsnGOJhjx9Oa7rypnQT2ndP6Pnd2RBR8rxWQj2beg~5sO98JEc-uCbshBZPwzhDCE7S28ei0wavv5iSeQSwzV5pbCc4MaK1BqTBHqLYEHBZRfpq0kcO5sXtzGCBcjWx3GAOO1~DW9KOcKRQe8ZQ2EOGNAzwBODRldnYfpZRGNP-9lPn2kTyB9nqRrTMFsyYWN5W~GDUZB9Ebx71qxGVjnBryVb2hx7xp7lWc3wY7HS8ZVFJFYXxC9h~Q0F6ojN6sX8ircChh3~G8L8hX6HIHXKaNjOCe7h8Wm~dH~w__"
-  // );
   const [loading, setLoading] = useState(true);
   const [imageSrc, setImageSrc] = useState(
     "https://s3-alpha-sig.figma.com/img/dd4f/9d43/80fbdbdcfb9e32c6aa893ccf48e17ab7?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=k9rcfgzH4xuSqz6UjTdezXwAqs2L0G~RlYEUo7N-QfujR0e6TsnGOJhjx9Oa7rypnQT2ndP6Pnd2RBR8rxWQj2beg~5sO98JEc-uCbshBZPwzhDCE7S28ei0wavv5iSeQSwzV5pbCc4MaK1BqTBHqLYEHBZRfpq0kcO5sXtzGCBcjWx3GAOO1~DW9KOcKRQe8ZQ2EOGNAzwBODRldnYfpZRGNP-9lPn2kTyB9nqRrTMFsyYWN5W~GDUZB9Ebx71qxGVjnBryVb2hx7xp7lWc3wY7HS8ZVFJFYXxC9h~Q0F6ojN6sX8ircChh3~G8L8hX6HIHXKaNjOCe7h8Wm~dH~w__"
@@ -105,8 +102,39 @@ const ContactPage = () => {
     },
   ];
   
+  // Use location to get URL parameters
+  const location = useLocation();
+  
   // State for active filter
   const [activeFilter, setActiveFilter] = useState("All");
+  
+  // Effect to check for category in URL query params when component mounts
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const categoryParam = queryParams.get('category');
+    
+    // Set active filter if category parameter exists and is valid
+    if (categoryParam && ["All", "App", "Web", "UI/UX", "Creative"].includes(categoryParam)) {
+      setActiveFilter(categoryParam);
+    }
+  }, [location]);
+  
+  // New effect to update URL when filter changes
+  useEffect(() => {
+    // Update URL when filter changes without full page reload
+    const url = new URL(window.location);
+    if (activeFilter === "All") {
+      url.searchParams.delete('category');
+    } else {
+      url.searchParams.set('category', activeFilter);
+    }
+    window.history.pushState({}, '', url);
+  }, [activeFilter]);
+  
+  // Handle filter click
+  const handleFilterClick = (category) => {
+    setActiveFilter(category);
+  };
   
   // Get filtered images based on active filter
   const getFilteredImages = () => {
@@ -145,31 +173,31 @@ const ContactPage = () => {
             Filter by:
             <span 
               className={`ml-2 md:ml-4 cursor-pointer hover:underline ${activeFilter === "All" ? "underline font-semibold" : ""}`}
-              onClick={() => setActiveFilter("All")}
+              onClick={() => handleFilterClick("All")}
             >
               All
             </span>
             <span 
               className={`ml-2 md:ml-4 cursor-pointer hover:underline ${activeFilter === "App" ? "underline font-semibold" : ""}`}
-              onClick={() => setActiveFilter("App")}
+              onClick={() => handleFilterClick("App")}
             >
               App
             </span>
             <span 
               className={`ml-2 md:ml-4 cursor-pointer hover:underline ${activeFilter === "Web" ? "underline font-semibold" : ""}`}
-              onClick={() => setActiveFilter("Web")}
+              onClick={() => handleFilterClick("Web")}
             >
               Web
             </span>
             <span 
               className={`ml-2 md:ml-4 cursor-pointer hover:underline ${activeFilter === "UI/UX" ? "underline font-semibold" : ""}`}
-              onClick={() => setActiveFilter("UI/UX")}
+              onClick={() => handleFilterClick("UI/UX")}
             >
               UI/UX
             </span>
             <span 
               className={`ml-2 md:ml-4 cursor-pointer hover:underline ${activeFilter === "Creative" ? "underline font-semibold" : ""}`}
-              onClick={() => setActiveFilter("Creative")}
+              onClick={() => handleFilterClick("Creative")}
             >
               Creative
             </span>

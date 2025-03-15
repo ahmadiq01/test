@@ -5,6 +5,8 @@ import human from "../../assets/human.gif";
 import banana from "../../assets/banana.gif";
 import { FaArrowLeft } from "react-icons/fa";
 import Header from "../../components/header/header";
+import { Link } from "react-router-dom";
+
 
 
 export default function Home() {
@@ -204,13 +206,19 @@ export default function Home() {
 
   {/* Button and Back Arrow positioned together */}
   <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
-    <button className="bg-[rgba(71,76,186,1)] text-white font-bold p-2 md:p-10 rounded-full text-lg md:text-5xl md:ml-[108px] w-2/3 md:w-auto">
+  {/* Link Integrated in the Button */}
+  <a href="/work?category=App">
+    <button className="bg-[rgba(71,76,186,1)] text-white font-bold p-2 md:p-10 rounded-full text-lg md:text-5xl md:ml-[108px] w-full">
       SEE APPS WORK
     </button>
-    <button className="text-white p-2 md:p-4 rounded-full mt-[15px] md:mt-[90px]">
-      <FaArrowLeft className="text-2xl md:text-5xl" />
-    </button>
-  </div>
+  </a>
+  
+  {/* Back Button */}
+  <button className="text-white p-2 md:p-4 rounded-full mt-[15px] md:mt-[90px]">
+    <FaArrowLeft className="text-2xl md:text-5xl" />
+  </button>
+</div>
+
 </div>
 
   {/* bee div */}
