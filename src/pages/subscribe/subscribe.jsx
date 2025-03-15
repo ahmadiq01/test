@@ -373,19 +373,19 @@ const Home = () => {
       </h3>
       <ul className="space-y-4 mt-2">
         <li>
-          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[10px]" /> 
         </li>
         <li>
-          <img src={tickIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={tickIcon} alt="Number" className="w-4 h-4 inline mt-[-6px]" /> 
         </li>
         <li>
-          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline" />
+          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline mt-[-15px]" />
         </li>
         <li>
-          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[-36px]" /> 
         </li>
         <li>
-          <img src={naIcon} alt="N/A" className="w-4 h-4 inline" />
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-44px]" />
         </li>
       </ul>
     </div>
@@ -396,20 +396,20 @@ const Home = () => {
         Standard
       </h3>
       <ul className="space-y-4 mt-2">
-        <li>
-          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+      <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[10px]" /> 
         </li>
         <li>
-          <img src={tickIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={tickIcon} alt="Number" className="w-4 h-4 inline mt-[-6px]" /> 
         </li>
         <li>
-          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline" />
+          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline mt-[-15px]" />
         </li>
         <li>
-          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[-36px]" /> 
         </li>
         <li>
-          <img src={naIcon} alt="N/A" className="w-4 h-4 inline" />
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-44px]" />
         </li>
       </ul>
     </div>
@@ -420,20 +420,20 @@ const Home = () => {
         Premium
       </h3>
       <ul className="space-y-4 mt-2">
-        <li>
-          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+      <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[10px]" /> 
         </li>
         <li>
-          <img src={tickIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={tickIcon} alt="Number" className="w-4 h-4 inline mt-[-6px]" /> 
         </li>
         <li>
-          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline" />
+          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline mt-[-15px]" />
         </li>
         <li>
-          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[-36px]" /> 
         </li>
         <li>
-          <img src={naIcon} alt="N/A" className="w-4 h-4 inline" />
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-44px]" />
         </li>
       </ul>
     </div>
@@ -444,20 +444,20 @@ const Home = () => {
         Custom
       </h3>
       <ul className="space-y-4 mt-2">
-        <li>
-          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+      <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[10px]" /> 
         </li>
         <li>
-          <img src={tickIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={tickIcon} alt="Number" className="w-4 h-4 inline mt-[-6px]" /> 
         </li>
         <li>
-          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline" />
+          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline mt-[-15px]" />
         </li>
         <li>
-          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[-36px]" /> 
         </li>
         <li>
-          <img src={naIcon} alt="N/A" className="w-4 h-4 inline" />
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-44px]" />
         </li>
       </ul>
     </div>
