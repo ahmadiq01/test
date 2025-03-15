@@ -385,7 +385,7 @@ const Home = () => {
           <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[-36px]" /> 
         </li>
         <li>
-          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-46px]" />
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-50px]" />
         </li>
       </ul>
     </div>
@@ -409,7 +409,7 @@ const Home = () => {
           <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[-36px]" /> 
         </li>
         <li>
-          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-46px]" />
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-50px]" />
         </li>
       </ul>
     </div>
@@ -433,7 +433,7 @@ const Home = () => {
           <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[-36px]" /> 
         </li>
         <li>
-          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-46px]" />
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-50px]" />
         </li>
       </ul>
     </div>
@@ -457,7 +457,7 @@ const Home = () => {
           <img src={vectorIcon} alt="Number" className="w-4 h-4 inline mt-[-36px]" /> 
         </li>
         <li>
-          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-46px]" />
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline mt-[-50px]" />
         </li>
       </ul>
     </div>
