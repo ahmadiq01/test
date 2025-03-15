@@ -366,7 +366,7 @@ export default function Home() {
           {/* Main content */}
           <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
             {/* Left side */}
-            <div className="flex flex-col md:pl-4 md:mt-[40px] mt-[-10px]">
+            <div className="flex flex-col md:pl-4 hidden md:block md:mt-[40px] mt-[-10px]">
               <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-180px] md:ml-0">
                 WE MAKE
               </p>
@@ -376,7 +376,7 @@ export default function Home() {
             <div className="relative w-full md:mt-40">
               <a
                 href="/work?category=Creative"
-                className="bg-[rgba(92,186,71,1)] absolute mt-[600px] w-[200px] md:top-auto md:left-3/5 left-1/3 transform -translate-x-1/2 md:-translate-x-0 whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-5xl z-30"
+                className="bg-[rgba(92,186,71,1)] absolute mt-[550px] w-[200px] md:top-auto md:left-3/5 left-1/3 transform -translate-x-1/2 md:-translate-x-0 whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-5xl z-30"
               >
                 <p className="text-[18px]">SEE CREATIVE WORK</p>
               </a>
