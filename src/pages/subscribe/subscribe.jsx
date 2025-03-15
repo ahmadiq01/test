@@ -353,7 +353,7 @@ const Home = () => {
         <div className="block md:hidden max-w-sm">
           <div className="grid grid-cols-5 items-start pb-[30px]">
             {/* Feature Column - Mobile */}
-            <div className="bg-black text-white rounded-xl w-[180px] ml-[-10px] p-4 h-[320px] flex flex-col relative col-span-1">
+            <div className="bg-black text-white rounded-xl w-[160px] ml-[-4px] p-4 h-[320px] flex flex-col relative col-span-1">
               <h3 className="text-[25px] tracking-wide font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
                 Plans
               </h3>
@@ -367,86 +367,95 @@ const Home = () => {
             </div>
 
             {/* Basic Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[70px] mt-[-8px] h-[200px] flex flex-col col-span-1">
-              <h3 className="text-[30px] font-semi-bold mb-2 px-1 leading-normal">
+            <div className="text-center text-[24px] w-[100px] ml-[60px] mt-[-8px] h-[200px] flex flex-col col-span-1">
+              <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
                 Basic
               </h3>
               <ul className="space-y-6">
                 <li>
-                  <img src={vectorIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[14px]" /> 
                 </li>
                 <li>
-                  <img src={tickIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={tickIcon} alt="Number" className="w-5 h-5 inline mt-[-22px]" /> 
                 </li>
                 <li>
-                  <img src={tickIcon} alt="Tick" className="w-6 h-6 inline" />
+                  <img src={tickIcon} alt="Tick" className="w-5 h-5 inline mt-[-68px]" />
                 </li>
                 <li>
-                  <img src={vectorIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[-112px]" /> 
                 </li>
                 <li>
-                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline" />
+                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline mt-[-154px]" />
                 </li>
               </ul>
             </div>
 
             {/* Standard Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[48px] mt-[-8px] h-[200px] flex flex-col col-span-1">
+            <div className="text-center text-[24px] w-[100px] ml-[40px] mt-[-8px] h-[200px] flex flex-col col-span-1">
               <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
                 Standard
               </h3>
               <ul className="space-y-6">
                 <li>
-                  <img src={vectorIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[14px]" /> 
                 </li>
                 <li>
-                  <img src={tickIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={tickIcon} alt="Number" className="w-5 h-5 inline mt-[-22px]" /> 
                 </li>
                 <li>
-                  <img src={tickIcon} alt="Tick" className="w-6 h-6 inline" />
+                  <img src={tickIcon} alt="Tick" className="w-5 h-5 inline mt-[-68px]" />
                 </li>
                 <li>
-                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline" />
+                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[-112px]" /> 
+                </li>
+                <li>
+                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline mt-[-154px]" />
                 </li>
               </ul>
             </div>
 
             {/* Premium Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[35px] mt-[-8px] h-[200px] flex flex-col col-span-1">
+            <div className="text-center text-[24px] w-[100px] ml-[30px] mt-[-8px] h-[200px] flex flex-col col-span-1">
               <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
                 Premium
               </h3>
               <ul className="space-y-6">
                 <li>
-                  <img src={vectorIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[14px]" /> 
                 </li>
                 <li>
-                  <img src={tickIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={tickIcon} alt="Number" className="w-5 h-5 inline mt-[-22px]" /> 
                 </li>
                 <li>
-                  <img src={tickIcon} alt="Tick" className="w-6 h-6 inline" />
+                  <img src={tickIcon} alt="Tick" className="w-5 h-5 inline mt-[-68px]" />
                 </li>
                 <li>
-                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline" />
+                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[-112px]" /> 
+                </li>
+                <li>
+                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline mt-[-154px]" />
                 </li>
               </ul>
             </div>
-            <div className="text-center text-[24px] w-[100px] ml-[20px] mt-[-8px] h-[200px] flex flex-col col-span-1">
+            <div className="text-center text-[24px] w-[100px] ml-[16px] mt-[-8px] h-[200px] flex flex-col col-span-1">
               <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
                 Custom
               </h3>
               <ul className="space-y-6">
                 <li>
-                  <img src={vectorIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[14px]" /> 
                 </li>
                 <li>
-                  <img src={tickIcon} alt="Number" className="w-6 h-6 inline" /> 
+                  <img src={tickIcon} alt="Number" className="w-5 h-5 inline mt-[-22px]" /> 
                 </li>
                 <li>
-                  <img src={tickIcon} alt="Tick" className="w-6 h-6 inline" />
+                  <img src={tickIcon} alt="Tick" className="w-5 h-5 inline mt-[-68px]" />
                 </li>
                 <li>
-                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline" />
+                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[-112px]" /> 
+                </li>
+                <li>
+                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline mt-[-154px]" />
                 </li>
               </ul>
             </div>
