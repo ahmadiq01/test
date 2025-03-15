@@ -353,11 +353,11 @@ const Home = () => {
   <div className="block md:hidden w-full max-w-sm px-2">
     <div className="grid grid-cols-5 gap-0 items-start pb-[30px]">
       {/* Feature Column - Mobile */}
-      <div className="bg-black text-white rounded-xl w-[140px] ml-[-20px] shadow-lg p-4 h-[320px] flex flex-col relative col-span-1">
+      <div className="bg-black text-white rounded-xl w-[140px] ml-[-18px] shadow-lg p-4 h-[320px] flex flex-col relative col-span-1">
         <h3 className="text-xl font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
           Plans
         </h3>
-        <ul className="mt-14 text-center space-y-6 flex-grow">
+        <ul className="mt-14 text-center space-y-6 flex-grow ">
           {features.map((feature, index) => (
             <li
               key={index}
@@ -373,7 +373,7 @@ const Home = () => {
       {plans.map((plan, index) => (
         <div
           key={index}
-          className="text-center w-[100px] ml-[20px] min-h-[300px] flex flex-col col-span-1"
+          className="text-center w-[100px] ml-[22px] min-h-[300px] flex flex-col col-span-1"
         >
           <h3 className="text-lg font-semi-bold mb-6 px-1">{plan}</h3>
 
