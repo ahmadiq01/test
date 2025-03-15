@@ -381,7 +381,7 @@ export default function Home() {
                 <p className="text-[18px]">SEE CREATIVE WORK</p>
               </a>
 
-              <p className="text-black text-[220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-110px] md:mt-[-190px] md:ml-[100px]">
+              <p className="text-black text-[220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-90px] md:mt-[-190px] md:ml-[100px]">
                 CREATIVE
               </p>
             </div>
