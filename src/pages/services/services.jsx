@@ -165,8 +165,6 @@ export default function Home() {
       `}</style>
 
       <div ref={containerRef} className="sticky-container">
-
-
         {/* monkey div */}
         <div
           ref={monkeySectionRef}
@@ -189,39 +187,42 @@ export default function Home() {
               </p>
             </div>
 
-
-            {/* Right side with APPS text and monkey */}
+            {/* Right side with APPS text */}
             <div className="relative w-full md:mt-0">
-              <p className="text-black text-[400px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-120px] ml-[-14px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
+              <p className="text-black text-[400px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-100px] ml-[-14px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
                 APPS
               </p>
-              <div className="absolute left-1/2 bottom-1/3 md:bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
-                <img
-                  ref={monkeyRef}
-                  src={monkey}
-                  alt="Blue monkey meditating"
-                  className="h-[400px] w-[200px] md:h-[350px] md:w-auto lg:h-[500px]"
-                />
-              </div>
+            </div>
+          </div>
+
+          {/* Monkey image as a full-screen overlay */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+            <div className="w-full h-full max-w-screen max-h-screen mt-[220px] flex items-center justify-center">
+              <img
+                ref={monkeyRef}
+                src={monkey}
+                alt="Blue monkey meditating"
+                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
+                style={{ aspectRatio: "preserve" }}
+              />
             </div>
           </div>
 
           {/* Button and Back Arrow positioned together */}
-          <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
+          <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
             {/* Link Integrated in the Button */}
             <a href="/work?category=App">
-              <button className="bg-[rgba(71,76,186,1)] text-white font-bold p-2 md:p-10 rounded-full text-lg md:text-5xl md:ml-[108px] w-full">
+              <button className="bg-[rgba(71,76,186,1)] mb-[35px] ml-[190px] text-white font-bold p-2 md:p-10 rounded-full text-lg md:text-5xl md:ml-[108px] w-[160px] md:w-full lg:w-[500px]">
                 SEE APPS WORK
               </button>
             </a>
 
             {/* Back Button */}
-            <button className="text-white p-2 md:p-4 rounded-full mt-[15px] md:mt-[90px]">
+            <button className="text-white hidden md:block p-2 md:p-4 rounded-full md:mt-[90px]">
               <FaArrowLeft className="text-2xl md:text-5xl" />
             </button>
           </div>
         </div>
-
 
         {/* bee div */}
         <div
@@ -245,17 +246,21 @@ export default function Home() {
               </p>
             </div>
 
-                {/* Right side with WEBSITES text and bee */}
+            {/* Right side with WEBSITES text and bee */}
             <div className="relative w-full md:mt-[20px] lg:mt-[-90px] mt-[-120px]">
               {/* Text Heading */}
-              <p className="text-black text-[220px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
-                            ml-2 md:ml-[100px] font-[Heathergreen] text-center md:text-left">
+              <p
+                className="text-black text-[220px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
+                            ml-2 md:ml-[100px] font-[Heathergreen] text-center md:text-left"
+              >
                 WEBSITES
               </p>
 
               {/* GIF Section */}
-              <div className="absolute mt- left-1/2 bottom-[30px] md:bottom-1/2 transform -translate-x-1/2 
-                              translate-y-0.5/5 w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-auto md:h-auto">
+              <div
+                className="absolute mt- left-1/2 bottom-[30px] md:bottom-1/2 transform -translate-x-1/2 
+                              translate-y-0.5/5 w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-auto md:h-auto"
+              >
                 <img
                   ref={beeRef}
                   src={bee}
@@ -264,7 +269,6 @@ export default function Home() {
                 />
               </div>
             </div>
-
           </div>
 
           {/* Button and Back Arrow positioned together */}
@@ -315,9 +319,11 @@ export default function Home() {
               </a>
 
               {/* Heading */}
-              <p className="text-black text-[350px]  sm:text-[350px] md:text-[650px] lg:text-[1050px] 
+              <p
+                className="text-black text-[350px]  sm:text-[350px] md:text-[650px] lg:text-[1050px] 
                             font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap 
-                            leading-[1] mt-[-65px] md:mt-[-180px] md:ml-[280px]">
+                            leading-[1] mt-[-65px] md:mt-[-180px] md:ml-[280px]"
+              >
                 UI/UX
               </p>
 
@@ -331,7 +337,6 @@ export default function Home() {
                 />
               </div>
             </div>
-
           </div>
 
           {/* Button and Back Arrow positioned together */}
