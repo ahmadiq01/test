@@ -168,50 +168,50 @@ export default function Home() {
 <div ref={containerRef} className="sticky-container">
   {/* monkey div */}
   <div
-    ref={monkeySectionRef}
-    className="sticky-section bg-[rgba(92,186,71,1)] min-h-screen relative"
-    style={{ zIndex: sectionVisibility.monkey ? 40 : 10 }}
-   >
-    {/* Logo in top left corner */}
-    <div className="absolute md:p-4 lg:p-4  ">
-      <h1 className="text-black text-xl md:text-3xl font-bold"><Header/></h1>
+  ref={monkeySectionRef}
+  className="sticky-section bg-[rgba(92,186,71,1)] min-h-screen relative"
+  style={{ zIndex: sectionVisibility.monkey ? 40 : 10 }}
+>
+  {/* Logo in top left corner - fixed position on mobile */}
+  <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
+    <h1 className="text-black text-xl md:text-3xl font-bold"><Header/></h1>
+  </div>
+
+  {/* Main content */}
+  <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
+    {/* Left side */}
+    <div className="flex flex-col md:pl-4 md:mt-[40px]">
+      <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-20px] md:ml-0">
+        WE MAKE
+      </p>
     </div>
 
-    {/* Main content */}
-    <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
-      {/* Left side */}
-      <div className="flex flex-col md:pl-4 md:mt-[40px]">
-        <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins">
-          WE MAKE
-        </p>
+    {/* Right side with APPS text and monkey */}
+    <div className="relative w-full md:mt-0">
+      <p className="text-black text-[440px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-120px] ml-[-20px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
+        APPS
+      </p>
+      <div className="absolute left-1/2 bottom-1/3 md:bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
+        <img
+          ref={monkeyRef}
+          src={monkey}
+          alt="Blue monkey meditating"
+          className="h-[400px] w-[200px] md:h-[350px] md:w-auto lg:h-[500px]"
+        />
       </div>
-
-      {/* Right side with APPS text and monkey */}
-      <div className="relative w-full md:mt-0">
-        <p className="text-black text-[440px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-120px] ml-[-20px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
-          APPS
-        </p>
-        <div className="absolute left-1/2 bottom-1/3 md:bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
-          <img
-            ref={monkeyRef}
-            src={monkey}
-            alt="Blue monkey meditating"
-            className="h-[200px] md:h-[350px] lg:h-[500px]"
-          />
-        </div>
-      </div>
-    </div>
-
-    {/* Button and Back Arrow positioned together */}
-    <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
-      <button className="bg-[rgba(71,76,186,1)] text-white font-bold p-4 md:p-10 rounded-full text-2xl md:text-5xl md:ml-[108px] w-3/4 md:w-auto">
-        SEE APPS WORK
-      </button>
-      <button className="text-white p-4 rounded-full mt-[30px] md:mt-[90px]">
-        <FaArrowLeft className="text-3xl md:text-5xl" />
-      </button>
     </div>
   </div>
+
+  {/* Button and Back Arrow positioned together */}
+  <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
+    <button className="bg-[rgba(71,76,186,1)] text-white font-bold p-2 md:p-10 rounded-full text-lg md:text-5xl md:ml-[108px] w-2/3 md:w-auto">
+      SEE APPS WORK
+    </button>
+    <button className="text-white p-2 md:p-4 rounded-full mt-[15px] md:mt-[90px]">
+      <FaArrowLeft className="text-2xl md:text-5xl" />
+    </button>
+  </div>
+</div>
 
   {/* bee div */}
   <div
@@ -220,9 +220,9 @@ export default function Home() {
     style={{ zIndex: sectionVisibility.bee ? 30 : 9 }}
   >
     {/* Logo in top left corner */}
-    <div className="absolute top-0 left-0 p-4">
-      <h1 className="text-black text-xl md:text-3xl font-bold"><Header/></h1>
-    </div>
+    <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
+    <h1 className="text-black text-xl md:text-3xl font-bold"><Header/></h1>
+  </div>
 
     {/* Main content */}
     <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
@@ -265,9 +265,9 @@ export default function Home() {
     style={{ zIndex: sectionVisibility.human ? 20 : 8 }}
   >
     {/* Logo in top left corner */}
-    <div className="absolute top-0 left-0 p-4">
-      <h1 className="text-black text-xl md:text-3xl font-bold"><Header/></h1>
-    </div>
+    <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
+    <h1 className="text-black text-xl md:text-3xl font-bold"><Header/></h1>
+  </div>
 
     {/* Main content */}
     <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
@@ -312,15 +312,15 @@ export default function Home() {
     style={{ zIndex: sectionVisibility.banana ? 10 : 7 }}
   >
     {/* Logo in top left corner */}
-    <div className="absolute top-0 left-0 p-4">
-      <h1 className="text-black text-xl md:text-3xl font-bold"><Header/></h1>
-    </div>
+    <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
+    <h1 className="text-black text-xl md:text-3xl font-bold"><Header/></h1>
+  </div>
 
     {/* Main content */}
     <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
       {/* Left side */}
       <div className="flex flex-col md:pl-4 md:mt-[40px]">
-        <p className="text-black text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins">
+        <p className="text-black hidden md:block text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins">
           WE MAKE
         </p>
       </div>
@@ -345,11 +345,12 @@ export default function Home() {
     </div>
 
     {/* Button and Back Arrow positioned together */}
-    <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
+    <div className="absolute hidden md:block bottom-8 left-8 flex flex-col items-start space-y-4">
       <button className="text-black p-4 rounded-full">
         <FaArrowLeft className="text-3xl md:text-5xl" />
       </button>
     </div>
+
   </div>
 </div>
     </>
