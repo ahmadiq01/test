@@ -310,15 +310,16 @@ export default function Home() {
 
             {/* Right side with UI/UX text */}
             <div className="relative w-full md:mt-20 text-center">
-              {/* CTA Button */}
               <a
                 href="/work?category=UI/UX"
-                className="bg-[rgba(222,225,62,1)] absolute lg:mt-[-70px] md:mt-[220px] mt-[400px] ml-[75px] w-[220px] h-[80px] text-center md:top-1/2 left-1/2 md:left-auto transform -translate-x-1/2 md:-translate-x-0 md:ml-[-58px] lg:ml-[28px] whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full md:text-4xl z-30"
+                className="bg-[rgba(222,225,62,1)] absolute
+                lg:mt-[-70px] md:mt-[220px] mt-[400px] ml-[75px] w-[220px] h-[80px] md:w-[400px] md:h-[80px] lg:w-[400px] lg:h-[130px]
+                text-center md:top-1/2 left-1/2 md:left-auto transform -translate-x-1/2
+                md:-translate-x-0 md:ml-[-58px] lg:ml-[-708px] whitespace-nowrap text-black 
+                font-bold p-4 md:p-10 rounded-full md:text-4xl z-30"
               >
-                <p className="mt-[10px]"> SEE UI/UX WORK</p>
+                <p className="mt-[10px] md:mt-[10px] lg:mt-[-4px]"> SEE UI/UX WORK</p>
               </a>
-
-              {/* Heading */}
               <p
                 className="text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] 
                     font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap 
@@ -331,12 +332,12 @@ export default function Home() {
 
           {/* Human image as a full-screen overlay */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-            <div className="w-full h-full max-w-screen max-h-screen flex items-center justify-center">
+            <div className="w-full h-full  max-w-screen max-h-screen flex items-center justify-center">
               <img
                 ref={humanRef}
                 src={human}
                 alt="Human character"
-                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
+                className="max-w-full md:ml-[200px] lg:ml-[700px] md:mt-[200px] lg:mt-[470px] max-h-full md:max-w-full lg:max-w-full xl:max-w-5xl object-contain"
                 style={{ aspectRatio: "preserve" }}
               />
             </div>
@@ -367,7 +368,7 @@ export default function Home() {
           <div className="flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0">
             {/* Left side */}
             <div className="flex flex-col md:pl-4 hidden md:block md:mt-[40px] mt-[-10px]">
-              <p className="text-white text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-180px] md:ml-0">
+              <p className="text-black text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-180px] md:ml-0">
                 WE MAKE
               </p>
             </div>
@@ -376,9 +377,11 @@ export default function Home() {
             <div className="relative w-full md:mt-40">
               <a
                 href="/work?category=Creative"
-                className="bg-[rgba(92,186,71,1)] absolute mt-[550px] w-[200px] md:top-auto md:left-3/5 left-1/3 transform -translate-x-1/2 md:-translate-x-0 whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-5xl z-30"
+                className="bg-[rgba(92,186,71,1)] absolute 
+                mt-[550px] w-[200px] md:w-[200px] lg:w-[330px] lg:h-[130px] md:top-auto md:left-3/5 left-1/3 
+                transform -translate-x-1/2 md:-translate-x-0 whitespace-nowrap lg:mt-[40px] lg:ml-[240px] text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-5xl z-30"
               >
-                <p className="text-[18px]">SEE CREATIVE WORK</p>
+                <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">SEE CREATIVE WORK</p>
               </a>
 
               <p className="text-black text-[220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-90px] md:mt-[-190px] md:ml-[100px]">
