@@ -349,10 +349,10 @@ const Home = () => {
           Plan Comparison
         </h2>
 
-        <div className="w-full hidden md:grid md:grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
+        <div className="w-1/2 md:w-full lg:w-full grid grid-cols-5 md:grid md:grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
           {/* Feature Column */}
-          <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
-            <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
+          <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-100px] mr-[-68px] md:ml-[-140px] md:mt-[-1px] md:mr-[-68px] lg:ml-[-140px] lg:mt-[-1px] lg:mr-[-68px]">
+            <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] md:ml-[-32px] lg:ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
               Plans
             </h3>
             <ul className="mt-6 text-center space-y-6 flex-grow">
@@ -370,9 +370,9 @@ const Home = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className="text-black text-center mt-[-14px] w-[250px] md:w-full min-h-[500px] flex flex-col"
+              className="text-black  text-center mt-[-14px] w-[250px] md:mt-[-14px] lg:mt-[-14px] lg:w-[250px] md:w-full min-h-[500px] flex flex-col"
             >
-              <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
+              <h3 className="text-8xl font-semi-bold mb-6 md:mb-6 lg:mb-6">{plan}</h3>
               <ul className="space-y-6 flex-grow">
                 {features.map((_, idx) => {
                   // Cycle through the icons sequentially
@@ -389,66 +389,22 @@ const Home = () => {
             </div>
           ))}
         </div>
-
-        {/* Mobile Comparison Table - Only visible on small screens */}
-        <div className="block md:hidden w-full max-w-full px-2 pb-[50px] overflow-x-hidden">
-          <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
-            <div className="grid grid-cols-5 bg-black text-white font-bold text-xs py-4 text-center">
-              <div className="col-span-1">Features</div>
-              {mobilePlans.map((plan) => (
-                <div key={plan.name} className="px-1 text-xs">
-                  {plan.name}
-                </div>
-              ))}
-            </div>
-
-            {mobileFeatures.map((feature) => (
-              <div
-                key={feature.key}
-                className="text-xs grid grid-cols-5 items-center text-center"
-              >
-                <div className="col-span-1 text-left pl-2 py-3 font-medium border-b text-xs">
-                  {feature.label}
-                </div>
-
-                {mobilePlans.map((plan) => (
-                  <div
-                    key={`${plan.name}-${feature.key}`}
-                    className="border-b py-3"
-                  >
-                    {feature.icon ? (
-                      plan[feature.key] ? (
-                        <FaCheck className="w-3 h-3 mx-auto text-green-600" />
-                      ) : (
-                        <FaTimes className="w-3 h-3 mx-auto text-red-500" />
-                      )
-                    ) : (
-                      plan[feature.key]
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        
       </div>
 
-      {/* FAQ Section */}
       <div className="bg-[#a7429c] py-10 md:py-16 px-4 flex flex-col items-center overflow-hidden">
         <h2 className="text-black font-normal font-[Heathergreen] text-4xl md:text-5xl lg:text-[150px] mb-8 text-center w-full flex flex-col items-center">
           Frequently Asked Questions
         </h2>
 
-        {/* FAQ List */}
         <div className="w-full pb-[100px] space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
               className={`w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-2 md:p-4 ${
-                index >= 2 ? "md:hidden" : "" // Hide after first two on md and larger screens
+                index >= 2 ? "md:hidden" : "" 
               }`}
             >
-              {/* Question Section */}
               <div
                 className="w-full md:w-[80%] mx-auto flex justify-between items-center text-xl md:text-4xl p-2 md:p-4 font-[Poppins]"
                 onClick={() => toggleFAQ(index)}
@@ -461,7 +417,6 @@ const Home = () => {
                 )}
               </div>
 
-              {/* Answer Section (Aligned with the question) */}
               {openIndex === index && (
                 <p className="w-full md:w-[70%] md:ml-auto md:mr-[20%] text-white text-lg md:text-2xl font-semibold mt-[-12px] p-2 md:p-4 rounded-lg">
                   {faq.answer}
@@ -471,9 +426,6 @@ const Home = () => {
           ))}
         </div>
       </div>
-      {/* Extra Spacing Before Footer */}
-      {/* <div className="h-16"></div> */}
-
       <Footer />
     </div>
   );
