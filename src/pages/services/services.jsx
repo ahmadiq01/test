@@ -245,32 +245,38 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Right side with WEBSITES text and bee */}
-            <div className="relative w-full md:mt-20">
-              <p className="text-black text-[150px] sm:text-[250px] md:text-[450px] lg:text-[750px] mt-[-50px] md:mt-[-190px] ml-0 md:ml-[100px] font-[Heathergreen] text-center md:text-left">
+                {/* Right side with WEBSITES text and bee */}
+            <div className="relative w-full md:mt-[20px] lg:mt-[-90px] mt-[-120px]">
+              {/* Text Heading */}
+              <p className="text-black text-[220px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
+                            ml-0 md:ml-[100px] font-[Heathergreen] text-center md:text-left">
                 WEBSITES
               </p>
-              <div className="absolute left-1/2 bottom-1/3 md:bottom-1/2 transform -translate-x-1/2 translate-y-0.5/5">
+
+              {/* GIF Section */}
+              <div className="absolute mt- left-1/2 bottom-[30px] md:bottom-1/2 transform -translate-x-1/2 
+                              translate-y-0.5/5 w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-auto md:h-auto">
                 <img
                   ref={beeRef}
                   src={bee}
                   alt="Bee character"
-                  className="h-[150px] md:h-[250px] lg:h-[350px]"
+                  className="w-[400px] h-[300px] sm:w-[250px] sm:h-[250px] md:w-[150px] md:h-[250px] lg:w-[350px] lg:h-[350px]"
                 />
               </div>
             </div>
+
           </div>
 
           {/* Button and Back Arrow positioned together */}
           <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4">
             <a
               href="/work?category=Web"
-              className="bg-[rgba(186,71,174,1)] text-white font-bold p-4 md:p-10 rounded-full text-lg md:text-2xl w-3/4 md:w-auto md:ml-[370px] text-center block"
+              className="bg-[rgba(186,71,174,1)] mt-[-220px] ml-[-100px] text-white font-bold p-4 md:p-10 rounded-full text-lg md:text-2xl w-[220px] lg:w-3/6 md:w-auto md:ml-[370px] text-center block"
             >
               SEE WEBSITES WORK
             </a>
 
-            <button className="text-white p-4 rounded-full">
+            <button className="text-white hidden md:block p-4 rounded-full">
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
@@ -302,7 +308,7 @@ export default function Home() {
             <div className="relative w-full md:mt-20">
               <a
                 href="/work?category=UI/UX"
-                className="bg-[rgba(222,225,62,1)] absolute top-1/4 md:top-1/2 left-1/2 md:left-auto transform -translate-x-1/2 md:-translate-x-0 md:ml-[-58px] whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-4xl rounded-full"
+                className="bg-[rgba(222,225,62,1)] absolute top-1/4 md:top-1/2 left-1/4 md:left-auto transform -translate-x-1/2 md:-translate-x-0 md:ml-[-58px] whitespace-nowrap text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-4xl rounded-full"
               >
                 SEE UI/UX WORK
               </a>
