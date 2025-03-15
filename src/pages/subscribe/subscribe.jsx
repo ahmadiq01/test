@@ -373,7 +373,7 @@ const Home = () => {
             {plans.map((plan, index) => (
               <div
               key={index}
-              className="ml-[-50px] text-center w-[250px] min-h-[300px] flex flex-col " // Added minimal padding
+              className="ml-[-60px] text-center w-[250px] min-h-[300px] flex flex-col " // Added minimal padding
             >
               {/* <h3 className="text-3xl gap-6 font-semi-bold mb-6 -mx-2">{plan}</h3> Negative margin to pull text closer */}
               <h3 className="text-3xl pr-[2px] font-semi-bold mb-6">{plan}</h3> {/* Increased negative margin to decrease width */}
