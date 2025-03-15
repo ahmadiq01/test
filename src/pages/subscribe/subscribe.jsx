@@ -341,107 +341,105 @@ const Home = () => {
 
       {/* Plan Comparison Section */}
       <div
-        id="targetDivId"
-        className="bg-[#dee13e] py-8 md:py-16 flex flex-col items-center font-[Heathergreen] font-normal"
-      >
-        {/* Title for both views */}
-        <h2 className="text-black font-[Heathergreen] text-5xl md:mt-10 md:text-[150px] rounded-2xl text-center mb-8 md:mb-16 px-4">
-          Plan Comparison
-        </h2>
+  id="targetDivId"
+  className="bg-[#dee13e] py-8 md:py-16 flex flex-col items-center font-[Heathergreen] font-normal"
+>
+  {/* Title for both views */}
+  <h2 className="text-black font-[Heathergreen] text-4xl md:mt-10 md:text-[150px] rounded-2xl text-center mb-8 md:mb-16 px-4">
+    Plan Comparison
+  </h2>
 
-        {/* Mobile View - Only visible on small screens */}
-        <div className="block md:hidden w-[400px] ">
-          <div className=" grid grid-cols-5 gap-0 items-start pb-[30px]">
-            {/* Feature Column - Mobile */}
-            <div className="bg-black text-white ml-[-6px] rounded-xl w-[130px] shadow-lg p-4 h-[320px] flex flex-col relative">
-              <h3 className="text-2xl font-semi-bold  bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
-                Plans
-              </h3>
-              <ul className="mt-14 text-center space-y-6 flex-grow ">
-                {features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="text-xl font-[Poppins] font-semi-bold"
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Plan Columns - Mobile */}
-            {plans.map((plan, index) => (
-              <div
+  {/* Mobile View - Only visible on small screens */}
+  <div className="block md:hidden w-full max-w-sm px-2">
+    <div className="grid grid-cols-5 gap-0 items-start pb-[30px]">
+      {/* Feature Column - Mobile */}
+      <div className="bg-black text-white rounded-xl w-[140px] ml-[-20px] shadow-lg p-4 h-[320px] flex flex-col relative col-span-1">
+        <h3 className="text-xl font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
+          Plans
+        </h3>
+        <ul className="mt-14 text-center space-y-6 flex-grow">
+          {features.map((feature, index) => (
+            <li
               key={index}
-              className="ml-[-28px] text-center w-[180px] min-h-[300px] flex flex-col " // Added minimal padding
+              className="text-sm font-[Poppins] font-semi-bold"
             >
-              {/* <h3 className="text-3xl gap-6 font-semi-bold mb-6 -mx-2">{plan}</h3> Negative margin to pull text closer */}
-              <h3 className="text-3xl pr-[2px] font-semi-bold mb-6">{plan}</h3> {/* Increased negative margin to decrease width */}
-
-
-              <ul className="space-y-6 ">
-                {features.map((_, idx) => {
-                  // Cycle through the icons sequentially
-                  const icons = [vectorIcon, naIcon, tickIcon];
-                  const icon = icons[idx % icons.length];
-            
-                  return (
-                    <li key={idx} className="flex justify-center">
-                      <img src={icon} alt="Checkmark" className="w-6 h-6" />
-                    </li>
-                  );
-                })}
-              </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop View - Only visible on medium screens and up */}
-        <div className="hidden md:block w-full lg:w-full ml-[820px] mt-[40px]">
-          <div className="grid grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
-            {/* Feature Column - Desktop */}
-            <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
-              <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
-                Plans
-              </h3>
-              <ul className="mt-6 text-center space-y-6 flex-grow">
-                {features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="text-4xl font-[Poppins] font-semi-bold"
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Plan Columns - Desktop */}
-            {plans.map((plan, index) => (
-              <div
-                key={index}
-                className="text-black text-center mt-[-14px] w-[250px] min-h-[500px] flex flex-col"
-              >
-                <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
-                <ul className="space-y-6 flex-grow">
-                  {features.map((_, idx) => {
-                    // Cycle through the icons sequentially
-                    const icons = [vectorIcon, naIcon, tickIcon];
-                    const icon = icons[idx % icons.length];
-
-                    return (
-                      <li key={idx} className="flex justify-center">
-                        <img src={icon} alt="Checkmark" className="w-10 h-10" />
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+              {feature}
+            </li>
+          ))}
+        </ul>
       </div>
+
+      {/* Plan Columns - Mobile */}
+      {plans.map((plan, index) => (
+        <div
+          key={index}
+          className="text-center w-[100px] ml-[20px] min-h-[300px] flex flex-col col-span-1"
+        >
+          <h3 className="text-lg font-semi-bold mb-6 px-1">{plan}</h3>
+
+          <ul className="space-y-6">
+            {features.map((_, idx) => {
+              // Cycle through the icons sequentially
+              const icons = [vectorIcon, naIcon, tickIcon];
+              const icon = icons[idx % icons.length];
+      
+              return (
+                <li key={idx} className="flex justify-center">
+                  <img src={icon} alt="Checkmark" className="w-4 h-4" />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Desktop View - Only visible on medium screens and up */}
+  <div className="hidden md:block w-full lg:w-full ml-[820px] mt-[40px]">
+    <div className="grid grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
+      {/* Feature Column - Desktop */}
+      <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
+        <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
+          Plans
+        </h3>
+        <ul className="mt-6 text-center space-y-6 flex-grow">
+          {features.map((feature, index) => (
+            <li
+              key={index}
+              className="text-4xl font-[Poppins] font-semi-bold"
+            >
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Plan Columns - Desktop */}
+      {plans.map((plan, index) => (
+        <div
+          key={index}
+          className="text-black text-center mt-[-14px] w-[250px] min-h-[500px] flex flex-col"
+        >
+          <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
+          <ul className="space-y-6 flex-grow">
+            {features.map((_, idx) => {
+              // Cycle through the icons sequentially
+              const icons = [vectorIcon, naIcon, tickIcon];
+              const icon = icons[idx % icons.length];
+
+              return (
+                <li key={idx} className="flex justify-center">
+                  <img src={icon} alt="Checkmark" className="w-10 h-10" />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
 
       <div className="bg-[#a7429c] py-10 md:py-16 px-4 flex flex-col items-center overflow-hidden">
         <h2 className="text-black font-normal font-[Heathergreen] text-4xl md:text-5xl lg:text-[150px] mb-8 text-center w-full flex flex-col items-center">
