@@ -376,12 +376,12 @@ export default function Home() {
               <p className="text-black text-[240px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-110px] md:mt-[-190px] md:ml-[100px]">
                 CREATIVE
               </p>
-              <div className="absolute left-[310px] md:left-1/2 bottom-[-200px] md:bottom-1/2 transform -translate-x-1/2 md:-translate-x-[140px] translate-y-[140px] md:translate-y-[280px]">
+              <div className="absolute left-[330px] md:left-1/2 bottom-[80px] md:bottom-1/2 transform -translate-x-1/2 md:-translate-x-[140px] translate-y-[140px] md:translate-y-[280px]">
                 <img
                   ref={bananaRef}
                   src="https://s3-alpha-sig.figma.com/img/6465/3baa/9d4dc74ca70b3f26e6ba194c3fb94c91?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=XR2df6Ecz0jNnDR3Wj01Wli3KUeMWhP2WSo0cpW6-qt7kgm7XnFGOYJoxoEL~~afqsW201cVdPzgfU1Qelmld-Bw7XJ2itoI6hzxZROm~fSdrQ3oQjAgBsmOyfdwz0FD4OPXzhz1uPSyfDZYmJjmdSnmRH9m5btZGdJUJpK0nwy5xrMIiJaY9-ldtM8kcPa3l588lhemF6ayIUuXbiMj~O3r~ty2i7E2d92lxw4B8JYg-IELYIVDqX~R7c8Kgqia1jqy-JSEEgpBY87rCiDHXbupwgyS7WWyCh6LNe580NepVHYXsLlTuHBfCTHSBZt9jhiWyBtFVErS-sOodBkVtA__"
                   alt="Banana character"
-                  className=" bg-red-400 h-[150px] md:h-[250px] lg:h-[400px]"
+                  className=" h-[150px] md:h-[250px] lg:h-[400px]"
                 />
               </div>
             </div>
