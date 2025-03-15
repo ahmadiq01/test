@@ -199,7 +199,8 @@ const ContactPage = () => {
         className="relative w-full flex justify-center px-4 md:ml-[-60px]"
       >
         {/* Background container */}
-        <div className="w-full max-w-[1588px] py-6 md:h-[185px] flex flex-wrap items-center justify-start">
+        <div ref={contentSectionRef} 
+        id="filtered-content" className="w-full max-w-[1588px] py-6 md:h-[185px] flex flex-wrap items-center justify-start">
           <p className="font-poppins font-normal text-lg md:text-[25px] leading-[37.5px] text-black">
             Filter by:
             <span 
@@ -238,8 +239,7 @@ const ContactPage = () => {
       
       {/* Responsive Card Grid with 3 cards per row on mobile */}
       <div 
-        ref={contentSectionRef} 
-        id="filtered-content"
+        
         className="relative flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-8 lg:gap-16 px-2 md:px-4 mt-6 md:mt-10"
       >
         {getFilteredImages().map((item) => (
