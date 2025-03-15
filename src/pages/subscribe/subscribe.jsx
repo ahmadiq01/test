@@ -350,118 +350,119 @@ const Home = () => {
         </h2>
 
         {/* Mobile View - Only visible on small screens */}
-        <div className="block md:hidden max-w-sm">
-          <div className="grid grid-cols-5 items-start pb-[30px]">
-            {/* Feature Column - Mobile */}
-            <div className="bg-black text-white rounded-xl w-[160px] ml-[12px] p-4 h-[320px] flex flex-col relative col-span-1">
-              <h3 className="text-[25px] tracking-wide font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
-                Plans
-              </h3>
-              <ul className="mt-14 text-center space-y-4.5 flex-grow">
-                <li className="text-sm font-[Poppins] font-semibold">Ayein</li>
-                <li className="text-sm font-[Poppins] font-semibold">Ayein</li>
-                <li className="text-sm font-[Poppins] font-semibold">Ayein</li>
-                <li className="text-sm font-[Poppins] font-semibold">Ayein</li>
-                <li className="text-sm font-[Poppins] font-semibold">Ayein</li>
-              </ul>
-            </div>
+<div className="block md:hidden w-full max-w-sm overflow-x-auto">
+  <div className="grid grid-cols-5 items-start pb-4">
+    {/* Feature Column - Mobile */}
+    <div className="bg-black text-white rounded-xl w-32 ml-3 p-3 h-64 flex flex-col relative col-span-1">
+      <h3 className="text-lg tracking-wide font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-1 rounded-t-xl">
+        Plans
+      </h3>
+      <ul className="mt-10 text-center space-y-4 flex-grow">
+        <li className="text-xs font-[Poppins] font-semibold">Ayein</li>
+        <li className="text-xs font-[Poppins] font-semibold">Ayein</li>
+        <li className="text-xs font-[Poppins] font-semibold">Ayein</li>
+        <li className="text-xs font-[Poppins] font-semibold">Ayein</li>
+        <li className="text-xs font-[Poppins] font-semibold">Ayein</li>
+      </ul>
+    </div>
 
-            {/* Basic Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[55px] mt-[-8px] h-[200px] flex flex-col col-span-1">
-              <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
-                Basic
-              </h3>
-              <ul className="space-y-6">
-                <li>
-                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[14px]" /> 
-                </li>
-                <li>
-                  <img src={tickIcon} alt="Number" className="w-5 h-5 inline mt-[-22px]" /> 
-                </li>
-                <li>
-                  <img src={tickIcon} alt="Tick" className="w-5 h-5 inline mt-[-68px]" />
-                </li>
-                <li>
-                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[-112px]" /> 
-                </li>
-                <li>
-                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline mt-[-154px]" />
-                </li>
-              </ul>
-            </div>
+    {/* Basic Plan */}
+    <div className="text-center w-16 ml-12 h-64 flex flex-col col-span-1">
+      <h3 className="text-lg font-semi-bold mb-2 px-1 leading-tight">
+        Basic
+      </h3>
+      <ul className="space-y-4 mt-2">
+        <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={tickIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline" />
+        </li>
+        <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline" />
+        </li>
+      </ul>
+    </div>
 
-            {/* Standard Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[35px] mt-[-8px] h-[200px] flex flex-col col-span-1">
-              <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
-                Standard
-              </h3>
-              <ul className="space-y-6">
-                <li>
-                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[14px]" /> 
-                </li>
-                <li>
-                  <img src={tickIcon} alt="Number" className="w-5 h-5 inline mt-[-22px]" /> 
-                </li>
-                <li>
-                  <img src={tickIcon} alt="Tick" className="w-5 h-5 inline mt-[-68px]" />
-                </li>
-                <li>
-                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[-112px]" /> 
-                </li>
-                <li>
-                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline mt-[-154px]" />
-                </li>
-              </ul>
-            </div>
+    {/* Standard Plan */}
+    <div className="text-center w-16 ml-2 h-64 flex flex-col col-span-1">
+      <h3 className="text-lg font-semi-bold mb-2 px-1 leading-tight">
+        Standard
+      </h3>
+      <ul className="space-y-4 mt-2">
+        <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={tickIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline" />
+        </li>
+        <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline" />
+        </li>
+      </ul>
+    </div>
 
-            {/* Premium Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[25px] mt-[-8px] h-[200px] flex flex-col col-span-1">
-              <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
-                Premium
-              </h3>
-              <ul className="space-y-6">
-                <li>
-                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[14px]" /> 
-                </li>
-                <li>
-                  <img src={tickIcon} alt="Number" className="w-5 h-5 inline mt-[-22px]" /> 
-                </li>
-                <li>
-                  <img src={tickIcon} alt="Tick" className="w-5 h-5 inline mt-[-68px]" />
-                </li>
-                <li>
-                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[-112px]" /> 
-                </li>
-                <li>
-                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline mt-[-154px]" />
-                </li>
-              </ul>
-            </div>
+    {/* Premium Plan */}
+    <div className="text-center w-16 ml-2 h-64 flex flex-col col-span-1">
+      <h3 className="text-lg font-semi-bold mb-2 px-1 leading-tight">
+        Premium
+      </h3>
+      <ul className="space-y-4 mt-2">
+        <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={tickIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline" />
+        </li>
+        <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline" />
+        </li>
+      </ul>
+    </div>
 
-            <div className="text-center text-[24px] w-[100px] ml-[10px] mt-[-8px] h-[200px] flex flex-col col-span-1">
-              <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
-                Custom
-              </h3>
-              <ul className="space-y-6">
-                <li>
-                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[14px]" /> 
-                </li>
-                <li>
-                  <img src={tickIcon} alt="Number" className="w-5 h-5 inline mt-[-22px]" /> 
-                </li>
-                <li>
-                  <img src={tickIcon} alt="Tick" className="w-5 h-5 inline mt-[-68px]" />
-                </li>
-                <li>
-                  <img src={vectorIcon} alt="Number" className="w-5 h-5 inline mt-[-112px]" /> 
-                </li>
-                <li>
-                  <img src={naIcon} alt="N/A" className="w-6 h-6 inline mt-[-154px]" />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    {/* Custom Plan */}
+    <div className="text-center w-16 ml-2 h-64 flex flex-col col-span-1">
+      <h3 className="text-lg font-semi-bold mb-2 px-1 leading-tight">
+        Custom
+      </h3>
+      <ul className="space-y-4 mt-2">
+        <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={tickIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={tickIcon} alt="Tick" className="w-4 h-4 inline" />
+        </li>
+        <li>
+          <img src={vectorIcon} alt="Number" className="w-4 h-4 inline" /> 
+        </li>
+        <li>
+          <img src={naIcon} alt="N/A" className="w-4 h-4 inline" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
         {/* Desktop View - Only visible on medium screens and up */}
         <div className="hidden md:block w-full lg:w-full ml-[820px] mt-[40px]">
