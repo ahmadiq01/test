@@ -349,47 +349,95 @@ const Home = () => {
           Plan Comparison
         </h2>
 
-        <div className="w-1/2 md:w-full lg:w-full grid grid-cols-5 md:grid md:grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
-          {/* Feature Column */}
-          <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-100px] mr-[-68px] md:ml-[-140px] md:mt-[-1px] md:mr-[-68px] lg:ml-[-140px] lg:mt-[-1px] lg:mr-[-68px]">
-            <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] md:ml-[-32px] lg:ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
-              Plans
-            </h3>
-            <ul className="mt-6 text-center space-y-6 flex-grow">
-              {features.map((feature, index) => (
-                <li
-                  key={index}
-                  className="text-4xl font-[Poppins] font-semi-bold"
-                >
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-          {/* Plan Columns */}
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className="text-black  text-center mt-[-14px] w-[250px] md:mt-[-14px] lg:mt-[-14px] lg:w-[250px] md:w-full min-h-[500px] flex flex-col"
-            >
-              <h3 className="text-8xl font-semi-bold mb-6 md:mb-6 lg:mb-6">{plan}</h3>
-              <ul className="space-y-6 flex-grow">
-                {features.map((_, idx) => {
-                  // Cycle through the icons sequentially
-                  const icons = [vectorIcon, naIcon, tickIcon];
-                  const icon = icons[idx % icons.length];
-
-                  return (
-                    <li key={idx} className="flex justify-center">
-                      <img src={icon} alt="Checkmark" className="w-10 h-10" />
-                    </li>
-                  );
-                })}
+        {/* Mobile View - Only visible on small screens */}
+        <div className="block md:hidden w-full overflow-x-auto">
+          <div className="min-w-[768px] grid grid-cols-5 gap-0 items-start pb-[30px]">
+            {/* Feature Column - Mobile */}
+            <div className="bg-black text-white rounded-xl shadow-lg p-4 min-h-[300px] flex flex-col relative">
+              <h3 className="text-2xl font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
+                Plans
+              </h3>
+              <ul className="mt-14 text-center space-y-6 flex-grow">
+                {features.map((feature, index) => (
+                  <li
+                    key={index}
+                    className="text-xl font-[Poppins] font-semi-bold"
+                  >
+                    {feature}
+                  </li>
+                ))}
               </ul>
             </div>
-          ))}
+
+            {/* Plan Columns - Mobile */}
+            {plans.map((plan, index) => (
+              <div
+                key={index}
+                className="text-black text-center w-full min-h-[300px] flex flex-col"
+              >
+                <h3 className="text-3xl font-semi-bold mb-6">{plan}</h3>
+                <ul className="space-y-6 flex-grow">
+                  {features.map((_, idx) => {
+                    // Cycle through the icons sequentially
+                    const icons = [vectorIcon, naIcon, tickIcon];
+                    const icon = icons[idx % icons.length];
+
+                    return (
+                      <li key={idx} className="flex justify-center">
+                        <img src={icon} alt="Checkmark" className="w-6 h-6" />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-        
+
+        {/* Desktop View - Only visible on medium screens and up */}
+        <div className="hidden md:block w-full lg:w-full ml-[820px] mt-[40px]">
+          <div className="grid grid-cols-5 max-w-6xl gap-12 items-start pb-[50px]">
+            {/* Feature Column - Desktop */}
+            <div className="bg-black text-white rounded-xl shadow-lg p-8 min-h-[500px] flex flex-col ml-[-140px] mt-[-1px] mr-[-68px]">
+              <h3 className="text-6xl font-semi-bold bg-white text-center text-black ml-[-32px] mt-[-32px] pt-[2px] mr-[-32px] py-4 rounded-t-xl">
+                Plans
+              </h3>
+              <ul className="mt-6 text-center space-y-6 flex-grow">
+                {features.map((feature, index) => (
+                  <li
+                    key={index}
+                    className="text-4xl font-[Poppins] font-semi-bold"
+                  >
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Plan Columns - Desktop */}
+            {plans.map((plan, index) => (
+              <div
+                key={index}
+                className="text-black text-center mt-[-14px] w-[250px] min-h-[500px] flex flex-col"
+              >
+                <h3 className="text-8xl font-semi-bold mb-6">{plan}</h3>
+                <ul className="space-y-6 flex-grow">
+                  {features.map((_, idx) => {
+                    // Cycle through the icons sequentially
+                    const icons = [vectorIcon, naIcon, tickIcon];
+                    const icon = icons[idx % icons.length];
+
+                    return (
+                      <li key={idx} className="flex justify-center">
+                        <img src={icon} alt="Checkmark" className="w-10 h-10" />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="bg-[#a7429c] py-10 md:py-16 px-4 flex flex-col items-center overflow-hidden">
@@ -402,7 +450,7 @@ const Home = () => {
             <div
               key={index}
               className={`w-full bg-transparent text-white text-lg font-semibold cursor-pointer p-2 md:p-4 ${
-                index >= 2 ? "md:hidden" : "" 
+                index >= 2 ? "md:hidden" : ""
               }`}
             >
               <div
