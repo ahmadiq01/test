@@ -192,7 +192,7 @@ export default function Home() {
 
             {/* Right side with APPS text and monkey */}
             <div className="relative w-full md:mt-0">
-              <p className="text-black text-[440px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-120px] ml-[-20px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
+              <p className="text-black text-[430px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-120px] ml-[-16px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
                 APPS
               </p>
               <div className="absolute left-1/2 bottom-1/3 md:bottom-1/2 transform -translate-x-1/2 translate-y-8/9">
@@ -249,7 +249,7 @@ export default function Home() {
             <div className="relative w-full md:mt-[20px] lg:mt-[-90px] mt-[-120px]">
               {/* Text Heading */}
               <p className="text-black text-[220px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
-                            ml-0 md:ml-[100px] font-[Heathergreen] text-center md:text-left">
+                            ml-2 md:ml-[100px] font-[Heathergreen] text-center md:text-left">
                 WEBSITES
               </p>
 
