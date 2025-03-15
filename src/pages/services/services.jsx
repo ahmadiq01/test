@@ -189,7 +189,7 @@ export default function Home() {
 
             {/* Right side with APPS text */}
             <div className="relative w-full md:mt-0">
-              <p className="text-black text-[400px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-100px] ml-[-14px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
+              <p className="text-black text-[380px] sm:text-[350px] md:text-[650px] lg:text-[1150px] md:mt-[-160px] mt-[-100px] ml-[-12px] md:ml-[260px] font-[Heathergreen] leading-[1] text-center md:text-left">
                 APPS
               </p>
             </div>
