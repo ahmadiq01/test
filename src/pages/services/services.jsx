@@ -384,7 +384,7 @@ export default function Home() {
                 <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">SEE CREATIVE WORK</p>
               </a>
 
-              <p className="text-black text-[220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-90px] md:mt-[-190px] md:ml-[100px]">
+              <p className="text-black text-[220px] lg:mt-[-220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-90px] md:mt-[-190px] md:ml-[100px]">
                 CREATIVE
               </p>
             </div>
@@ -397,7 +397,7 @@ export default function Home() {
                 ref={bananaRef}
                 src={banana}
                 alt="Banana character"
-                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
+                className="max-w-full max-h-full lg:mt-[450px] lg:ml-[520px] md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
                 style={{ aspectRatio: "preserve" }}
               />
             </div>

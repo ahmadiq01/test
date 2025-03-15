@@ -353,7 +353,7 @@ const Home = () => {
         <div className="block md:hidden max-w-sm">
           <div className="grid grid-cols-5 items-start pb-[30px]">
             {/* Feature Column - Mobile */}
-            <div className="bg-black text-white rounded-xl w-[160px] ml-[-4px] p-4 h-[320px] flex flex-col relative col-span-1">
+            <div className="bg-black text-white rounded-xl w-[160px] ml-[2px] p-4 h-[320px] flex flex-col relative col-span-1">
               <h3 className="text-[25px] tracking-wide font-semi-bold bg-white text-center text-black absolute top-0 left-0 right-0 py-2 rounded-t-xl">
                 Plans
               </h3>
@@ -367,7 +367,7 @@ const Home = () => {
             </div>
 
             {/* Basic Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[60px] mt-[-8px] h-[200px] flex flex-col col-span-1">
+            <div className="text-center text-[24px] w-[100px] ml-[55px] mt-[-8px] h-[200px] flex flex-col col-span-1">
               <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
                 Basic
               </h3>
@@ -391,7 +391,7 @@ const Home = () => {
             </div>
 
             {/* Standard Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[40px] mt-[-8px] h-[200px] flex flex-col col-span-1">
+            <div className="text-center text-[24px] w-[100px] ml-[35px] mt-[-8px] h-[200px] flex flex-col col-span-1">
               <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
                 Standard
               </h3>
@@ -415,7 +415,7 @@ const Home = () => {
             </div>
 
             {/* Premium Plan */}
-            <div className="text-center text-[24px] w-[100px] ml-[30px] mt-[-8px] h-[200px] flex flex-col col-span-1">
+            <div className="text-center text-[24px] w-[100px] ml-[25px] mt-[-8px] h-[200px] flex flex-col col-span-1">
               <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
                 Premium
               </h3>
@@ -437,7 +437,8 @@ const Home = () => {
                 </li>
               </ul>
             </div>
-            <div className="text-center text-[24px] w-[100px] ml-[16px] mt-[-8px] h-[200px] flex flex-col col-span-1">
+
+            <div className="text-center text-[24px] w-[100px] ml-[10px] mt-[-8px] h-[200px] flex flex-col col-span-1">
               <h3 className="text-[30px] font-semi-bold mb-4 px-1 leading-normal">
                 Custom
               </h3>
