@@ -13,10 +13,11 @@ import Apply from "./pages/apply/apply";
 import Getintouch from "./pages/getintouch/getintouch";
 import Footer from './components/footer/footer';
 import './App.css';
+// Remove this line: import { Link } from 'react-router-dom';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/test">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />
@@ -31,7 +32,6 @@ export default function App() {
         <Route path="/apply" element={<Apply />} />
         <Route path="/getintouch" element={<Getintouch />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }
