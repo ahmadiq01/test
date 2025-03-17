@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/home/Home';
-import Work from './pages/work/Work';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/home/home';
+import Work from './pages/work/work';
 import Subscribe from "./pages/subscribe/subscribe";
 import Contact from "./pages/contact/contact";
 import Clients from "./pages/clients/clients";
@@ -17,7 +17,6 @@ import './App.css'; // Ensure Tailwind CSS is imported here
 export default function App() {
   return (
     <Router>
-      {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -32,7 +31,6 @@ export default function App() {
         <Route path="/footer" element={<Footer />} />
         <Route path="/imgtogether" element={<Imgtogether />} />
         <Route path="/secondaryimg" element={<Secondaryimg />} />
-        
       </Routes>
     </Router>
   );

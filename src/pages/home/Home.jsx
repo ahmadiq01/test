@@ -22,10 +22,10 @@ const Home = ({
         <div className="relative lg:mt-[-60px]" >
           <div className="flex flex-col text-black font-extrabold italic text-[0px] md:text-[30px] lg:text-[50px] font-poppins items-end ">
             <p className="md:pr-[120px] lg:pr-[104px]">
-              SUBSCRIPTION BASED SOLUTIONS
+              SUBSCRIPTION BASED SOLUTIONSss
             </p>
             <p className="pr-[75px] md:mt-[-20px] lg:mt-[-20px]">
-              FOR ALL YOUR BUSINESS DIGITAL NEEDS
+              FOR ALL YOUR BUSINESS DIGITAL NEEDSss
             </p>
           </div>
         </div>
@@ -38,8 +38,8 @@ const Home = ({
               paddingLeft: "min(16px, calc(16px * (100vw/1920)))" 
             }}
           >
-            <a
-              href="work" 
+            <Link
+              to="work" 
               className="text-[240px] font-light w-full leading-[1] tracking-wider transition-colors duration-300 hover:text-[#5cba47] pl-10 -mt-[85px]"
               style={{ 
                 fontSize: "min(240px, calc(240px * (100vw/1920)))",
@@ -47,8 +47,8 @@ const Home = ({
                 marginTop: "min(-85px, calc(-85px * (100vw/1920)))" 
               }}
             >
-              Work
-            </a>
+              Works
+            </Link>
             <a
               href="services" 
               className="text-[200px] font-light leading-none w-full transition-colors duration-300 hover:text-[#474cba] -mt-[40px] pl-40"
