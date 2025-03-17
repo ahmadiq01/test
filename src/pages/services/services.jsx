@@ -253,7 +253,7 @@ export default function Home() {
                 className="text-black text-[200px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
                     ml-[-12px] md:ml-[100px] font-[Heathergreen] text-center md:text-left"
               >
-                WEBSITES
+                WEBSITEZ
               </p>
             </div>
           </div>
