@@ -9,7 +9,7 @@ import StoryImg from "../../assets/story.png";
 const ContactPage = () => {
   return (
     <div className="relative bg-white overflow-x-hidden">
-      <div className="lg:ml-[-25px]">
+      <div className="md:ml-[10px] lg:ml-[10px] pt-[20px]">
         <Header />
       </div>
       <div className="flex flex-col lg:flex-row items-start">
@@ -28,7 +28,7 @@ const ContactPage = () => {
           </div>
 
           {/* Lorem Ipsum paragraph - Shown third on mobile */}
-          <p className="text-gray-700 w-[370px] leading-tight mb-[100px] font-semi-bold text-xl ml-[5px] md:ml-[-8px] lg:ml-[40px] lg:w-[55%] text-justify break-words">
+          <p className="text-gray-700 ml-[-4px] text-xl font-semi-bold mx-4 md:mx-8 lg:mx-10 max-w-full md:max-w-[80%] lg:max-w-[55%] leading-tight mb-8 md:mb-12 lg:mb-[100px] text-justify">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
