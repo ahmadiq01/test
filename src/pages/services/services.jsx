@@ -66,7 +66,7 @@ export default function Home() {
         if (!ref.current) return;
         
         // Adjust animation speed - lower values make animations slower
-        const animationSpeed = 1.5; // Adjust this value to control animation speed
+        const animationSpeed = 0.2; // Adjust this value to control animation speed
         
         if (isVisible) {
           const entryProgress = Math.min(progress * animationSpeed, 1);
