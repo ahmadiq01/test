@@ -34,7 +34,6 @@ export default function App() {
         <Route path="/apply" element={<Apply />} />
         <Route path="/getintouch" element={<Getintouch />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }
