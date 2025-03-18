@@ -213,12 +213,12 @@ const ContactPage = () => {
           Want to see what can Fooliz do for you?
         </p>
         <div className="flex flex-col md:flex-row items-center gap-2 mt-[-10px]">
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="bg-[#D9E021] font-semi-bold px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-[16px] sm:text-[20px] md:text-[65px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
           >
             Fill out a project
-          </a>
+          </Link>
           <p className="text-[24px] sm:text-[30px] md:text-[50px] lg:text-[80px] text-black">
             Brief and get the ball rolling!
           </p>

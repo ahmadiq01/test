@@ -2,6 +2,8 @@ import React from "react";
 import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 import frameLogo from "../../assets/Frame.svg"; // Adjust path if needed
 import Bhaloo from "../../assets/bhaloo.gif"; // Adjust path if needed
+import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   return (
@@ -13,12 +15,12 @@ const Footer = () => {
         Let's Build Your Apps Together
       </p>
       <div className="absolute bottom-0 translate-y-[5px] md:translate-y-[40px] lg:translate-y-[30px]">
-        <a
-          href="/apply"
+        <Link
+          to="/apply"
           className="text-[#474CBA] ml-[8px] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
         >
           Get In Touch
-        </a>
+        </Link>
       </div>
     </div>
   </div>
@@ -29,12 +31,12 @@ const Footer = () => {
       Careers
     </p>
     <div className="mt-[-10px] ml-[-6px] md:mt-[-10px] lg:mt-[-10px] md:ml-[-100px] lg:ml-[-100px]">
-      <a
-        href="apply"
+      <Link
+        to="apply"
         className="text-[#474CBA] text-[12px]  font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
       >
         Apply here
-      </a>
+      </Link>
     </div>
   </div>
 
@@ -62,62 +64,62 @@ const Footer = () => {
   <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[0px]">
     {/* Left Section: Logo */}
     <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
-      <a href="home">
+      <Link to="home">
       <img
         src={frameLogo}
         alt="Logo"
         className="w-[1.8em] h-[1.8em] md:w-[3.2em] md:h-[3.2em] lg:w-[5.5em] lg:h-[5.5em] object-contain"
       />
-      </a>
+      </Link>
     </div>
 
     {/* Middle Section: Navigation Links */}
     <nav className="flex items-center font-bold ">
-      <a
-        href="/work"
+      <Link
+        to="/work"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Work
-      </a>
-      <a
-        href="/contact"
+      </Link>
+      <Link
+        to="/contact"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Contact
-      </a>
-      <a
-        href="/story"
+      </Link>
+      <Link
+        to="/story"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         About
-      </a>
-      <a
-        href="/clients"
+      </Link>
+      <Link
+        to="/clients"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Clients
-      </a>
-      <a
-        href="/services"
+      </Link>
+      <Link
+        to="/services"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Services
-      </a>
+      </Link>
     </nav>
 
     {/* Right Section: Social Media Icons */}
    <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1 md:mr-3 lg:mr-6">
-    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+    <Link to="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
       <FaInstagram className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
-    </a>
+    </Link>
 
-    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+    <Link to="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
       <FaLinkedin className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
-    </a>
+    </Link>
 
-    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+    <Link to="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
       <FaFacebook className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
-    </a>
+    </Link>
   </div>
 
   </div>

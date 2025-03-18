@@ -268,14 +268,14 @@ const Home = () => {
               ></div>
 
               {/* Third div - WhatsApp link with dynamic text parameter */}
-              <a
-                href={`https://api.whatsapp.com/send?phone=923315829371&text=${
+              <Link
+                to={`https://api.whatsapp.com/send?phone=923315829371&text=${
                   index + 1
                 }`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-0 left-0 w-full h-1/6 z-10 cursor-pointer"
-              ></a>
+              ></Link>
             </div>
           ))}
         </div>
@@ -326,14 +326,14 @@ const Home = () => {
               ></div>
 
               {/* Third div - WhatsApp link with dynamic text parameter */}
-              <a
-                href={`https://api.whatsapp.com/send?phone=923315829371&text=${
+              <Link
+                to={`https://api.whatsapp.com/send?phone=923315829371&text=${
                   index + 1
                 }`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute bottom-0 left-0 w-full h-1/6 z-10 cursor-pointer"
-              ></a>
+              ></Link>
             </div>
           ))}
         </div>

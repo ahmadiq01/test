@@ -4,6 +4,8 @@ import Footer from "../../components/footer/footer";
 import vectorIcon from "../../assets/Group 55.svg";
 import { database } from "../../firebase"; // Import your Firebase Realtime Database configuration
 import { ref, set, push, serverTimestamp } from "firebase/database";
+import { Link } from 'react-router-dom';
+
 
 const ContactPage = () => {
    // State for form fields
@@ -72,13 +74,13 @@ const ContactPage = () => {
 <div className="relative min-h-screen">
   <Header />
 
-  <a href="home" className="md:block hidden">
+  <Link to="home" className="md:block hidden">
     <img
       src={vectorIcon}
       alt="Decoration"
       className="fixed top-6 right-6 w-10 h-10 cursor-pointer"
     />
-  </a>
+  </Link>
 
   <div className="flex flex-col sm:flex-row md:flex-row lg:flex-row w-full">
     {/* Contact Info Section */}

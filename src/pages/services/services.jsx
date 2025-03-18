@@ -211,11 +211,11 @@ export default function Home() {
           {/* Button and Back Arrow positioned together */}
           <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
             {/* Link Integrated in the Button */}
-            <a href="/work?category=App">
+            <Link to="/work?category=App">
               <button className="bg-[rgba(71,76,186,1)] mb-[35px] ml-[190px] text-white font-bold p-2 md:p-10 rounded-full text-lg md:text-5xl md:ml-[108px] w-[160px] md:w-full lg:w-[500px]">
                 SEE APPS WORK
               </button>
-            </a>
+            </Link>
 
             {/* Back Button */}
             <button className="text-white hidden md:block p-2 md:p-4 rounded-full md:mt-[90px]">
@@ -273,12 +273,12 @@ export default function Home() {
 
           {/* Button and Back Arrow positioned together */}
           <div className="absolute bottom-8 left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
-            <a
-              href="/work?category=Web"
+            <Link
+              to="/work?category=Web"
               className="bg-[rgba(186,71,174,1)] mt-[-190px] ml-[-100px] text-white font-bold p-4 md:p-10 rounded-full text-lg md:text-2xl w-[220px] lg:w-3/6 md:w-auto md:ml-[370px] text-center block"
             >
               SEE WEBSITES WORK
-            </a>
+            </Link>
 
             <button className="text-white hidden md:block p-4 rounded-full">
               <FaArrowLeft className="text-3xl md:text-5xl" />
@@ -310,8 +310,8 @@ export default function Home() {
 
             {/* Right side with UI/UX text */}
             <div className="relative w-full md:mt-20 text-center">
-              <a
-                href="/work?category=UI/UX"
+              <Link
+                to="/work?category=UI/UX"
                 className="bg-[rgba(222,225,62,1)] absolute
                 lg:mt-[-70px] md:mt-[220px] mt-[400px] ml-[75px] w-[220px] h-[80px] md:w-[400px] md:h-[80px] lg:w-[400px] lg:h-[130px]
                 text-center md:top-1/2 left-1/2 md:left-auto transform -translate-x-1/2
@@ -319,7 +319,7 @@ export default function Home() {
                 font-bold p-4 md:p-10 rounded-full md:text-4xl z-30"
               >
                 <p className="mt-[10px] md:mt-[10px] lg:mt-[-4px]"> SEE UI/UX WORK</p>
-              </a>
+              </Link>
               <p
                 className="text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] 
                     font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap 
@@ -375,14 +375,14 @@ export default function Home() {
 
             {/* Right side with CREATIVE text */}
             <div className="relative w-full md:mt-40">
-              <a
-                href="/work?category=Creative"
+              <Link
+                to="/work?category=Creative"
                 className="bg-[rgba(92,186,71,1)] absolute 
                 mt-[550px] w-[200px] md:w-[200px] lg:w-[330px] lg:h-[130px] md:top-auto md:left-3/5 left-1/3 
                 transform -translate-x-1/2 md:-translate-x-0 whitespace-nowrap lg:mt-[40px] lg:ml-[240px] text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-5xl z-30"
               >
                 <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">SEE CREATIVE WORK</p>
-              </a>
+              </Link>
 
               <p className="text-black text-[220px] lg:mt-[-220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-90px] md:mt-[-190px] md:ml-[100px]">
                 CREATIVE

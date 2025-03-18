@@ -243,9 +243,9 @@ const ContactPage = () => {
         className="relative flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-8 lg:gap-16 px-2 md:px-4 mt-6 md:mt-10"
       >
         {getFilteredImages().map((item) => (
-          <a
+          <Link
             key={item.id}
-            href={item.link}
+            to={item.link}
             className="w-[calc(33.33%-8px)] sm:w-[calc(33.33%-12px)] md:w-[calc(50%-16px)] lg:w-[487.76px] h-[120px] sm:h-[180px] md:h-[280px] lg:h-[332.09px] rounded-[10px] bg-white shadow-lg transition-all duration-300 flex items-center justify-center relative overflow-hidden group"
             style={{ boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.2)" }}
           >
@@ -289,7 +289,7 @@ const ContactPage = () => {
                 <img src={item.icon} alt="icon" className="w-full h-full" />
               </div>
             )}
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -299,12 +299,12 @@ const ContactPage = () => {
           Want to see what can Fooliz do for you?
         </p>
         <div className="flex flex-row md:flex-row items-center gap-2 mt-[-5px] md:mt-[-13px] lg:mt-[-13px]">
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="bg-[#D9E021] font-semi-bold px-8 py-2 sm:px-6 sm:py-3 md:px-8 md:py-2 rounded-full text-[16px] sm:text-[20px] md:text-[65px] font-handwritten transition-all duration-300 ease-out hover:opacity-80"
           >
             Fill out a project
-          </a>
+          </Link>
           <p className="text-[30px] md:text-[50px] lg:text-[80px] text-black">
             brief and get the ball rolling!
           </p>
