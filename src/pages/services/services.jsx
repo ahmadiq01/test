@@ -23,8 +23,9 @@ export default function Home() {
   // Track current active section (0-3) for mobile navigation
   const [activeSection, setActiveSection] = useState(0);
 
+  // Initialize with monkey section visible by default
   const [sectionVisibility, setSectionVisibility] = useState({
-    monkey: false,
+    monkey: true,  // Set to true by default
     bee: false,
     human: false,
     banana: false,
@@ -315,7 +316,9 @@ export default function Home() {
         {/* monkey div */}
         <div
           ref={monkeySectionRef}
-          className={`sticky-section bg-[rgba(92,186,71,1)] min-h-screen relative ${window.innerWidth < 768 && sectionVisibility.monkey ? "active" : ""}`}
+          className={`sticky-section bg-[rgba(92,186,71,1)] min-h-screen relative ${
+            window.innerWidth < 768 ? (sectionVisibility.monkey ? "active" : "") : ""
+          }`}
           style={{ zIndex: sectionVisibility.monkey ? 40 : 10 }}
         >
           {/* Logo in top left corner - fixed position on mobile */}
@@ -349,7 +352,7 @@ export default function Home() {
                 ref={monkeyRef}
                 src={monkey}
                 alt="Blue monkey meditating"
-                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
+                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain animate-from-left"
                 style={{ aspectRatio: "preserve" }}
               />
             </div>
@@ -369,7 +372,9 @@ export default function Home() {
         {/* bee div */}
         <div
           ref={beeSectionRef}
-          className={`sticky-section bg-[rgba(71,76,186,1)] min-h-screen relative ${window.innerWidth < 768 && sectionVisibility.bee ? "active" : ""}`}
+          className={`sticky-section bg-[rgba(71,76,186,1)] min-h-screen relative ${
+            window.innerWidth < 768 ? (sectionVisibility.bee ? "active" : "") : ""
+          }`}
           style={{ zIndex: sectionVisibility.bee ? 30 : 9 }}
         >
           {/* Logo in top left corner */}
@@ -432,7 +437,9 @@ export default function Home() {
         {/* ui/ux div */}
         <div
           ref={humanSectionRef}
-          className={`sticky-section bg-[rgba(186,71,174,1)] min-h-screen relative ${window.innerWidth < 768 && sectionVisibility.human ? "active" : ""}`}
+          className={`sticky-section bg-[rgba(186,71,174,1)] min-h-screen relative ${
+            window.innerWidth < 768 ? (sectionVisibility.human ? "active" : "") : ""
+          }`}
           style={{ zIndex: sectionVisibility.human ? 20 : 8 }}
         >
           {/* Logo in top left corner */}
@@ -497,7 +504,9 @@ export default function Home() {
         {/* banana div */}
         <div
           ref={bananaSectionRef}
-          className={`sticky-section bg-[rgba(222,225,62,1)] min-h-screen relative ${window.innerWidth < 768 && sectionVisibility.banana ? "active" : ""}`}
+          className={`sticky-section bg-[rgba(222,225,62,1)] min-h-screen relative ${
+            window.innerWidth < 768 ? (sectionVisibility.banana ? "active" : "") : ""
+          }`}
           style={{ zIndex: sectionVisibility.banana ? 10 : 7 }}
         >
           {/* Logo in top left corner */}
