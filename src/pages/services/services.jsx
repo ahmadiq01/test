@@ -363,30 +363,6 @@ export default function Home() {
                 SEE APPS WORK
               </button>
             </Link>
-
-            {/* Mobile navigation controls */}
-            {/* <div className="md:hidden flex gap-4 items-center mt-4 justify-center w-full">
-              <button
-                onClick={navigatePrev}
-                disabled={activeSection === 0}
-                className={`text-white p-2 rounded-full ${
-                  activeSection === 0 ? "opacity-50" : ""
-                }`}
-              >
-                <FaArrowLeft className="text-xl transform rotate-90" />
-              </button>
-              <button
-                onClick={navigateNext}
-                className="text-white p-2 rounded-full"
-              >
-                <FaArrowLeft className="text-xl transform -rotate-90" />
-              </button>
-            </div> */}
-
-            {/* Back Button for desktop */}
-            {/* <button className="text-white hidden md:block p-2 md:p-4 rounded-full md:mt-[90px]">
-              <FaArrowLeft className="text-2xl md:text-5xl" />
-            </button> */}
           </div>
         </div>
 
@@ -445,22 +421,6 @@ export default function Home() {
             >
               SEE WEBSITES WORK
             </Link>
-
-            {/* Mobile navigation controls */}
-            {/* <div className="md:hidden flex gap-4 items-center mt-4 justify-center w-full">
-              <button
-                onClick={navigatePrev}
-                className="text-white p-2 rounded-full"
-              >
-                <FaArrowLeft className="text-xl transform rotate-90" />
-              </button>
-              <button
-                onClick={navigateNext}
-                className="text-white p-2 rounded-full"
-              >
-                <FaArrowLeft className="text-xl transform -rotate-90" />
-              </button>
-            </div> */}
 
             {/* Desktop button */}
             <button className="text-white hidden md:block p-4 rounded-full">
@@ -526,22 +486,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile navigation controls */}
-          {/* <div className="absolute bottom-8 left-0 right-0 md:hidden flex items-center justify-center gap-4 z-10">
-            <button
-              onClick={navigatePrev}
-              className="text-white p-2 rounded-full"
-            >
-              <FaArrowLeft className="text-xl transform rotate-90" />
-            </button>
-            <button
-              onClick={navigateNext}
-              className="text-white p-2 rounded-full"
-            >
-              <FaArrowLeft className="text-xl transform -rotate-90" />
-            </button>
-          </div> */}
-
           {/* Button and Back Arrow positioned together for desktop */}
           <div className="absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
             <button className="text-white p-4 rounded-full">
@@ -601,17 +545,6 @@ export default function Home() {
               />
             </div>
           </div>
-
-          {/* Mobile navigation controls */}
-          {/* <div className="absolute bottom-8 left-0 right-0 md:hidden flex items-center justify-center gap-4 z-10">
-            <button
-              onClick={navigatePrev}
-              className="text-black p-2 rounded-full"
-            >
-              <FaArrowLeft className="text-xl transform rotate-90" />
-            </button>
-          </div> */}
-
           {/* Button and Back Arrow positioned together for desktop */}
           <div className="absolute hidden md:block bottom-8 left-8 flex flex-col items-start space-y-4 z-10">
             <button className="text-black p-4 rounded-full">
