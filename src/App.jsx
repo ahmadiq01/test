@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'; 
 import Home from './pages/home/home';
 import Work from './pages/work/work';
 import Subscribe from "./pages/subscribe/subscribe";
@@ -13,11 +13,13 @@ import Apply from "./pages/apply/apply";
 import Getintouch from "./pages/getintouch/getintouch";
 import Footer from './components/footer/footer';
 import './App.css';
-// Remove this line: import { Link } from 'react-router-dom';
 
 export default function App() {
+  // Since you're using HashRouter, you don't need to specify a basename
+  // HashRouter uses the hash portion of the URL which is independent of the base path
+  
   return (
-    <Router basename="/test">
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/work" element={<Work />} />
@@ -32,6 +34,7 @@ export default function App() {
         <Route path="/apply" element={<Apply />} />
         <Route path="/getintouch" element={<Getintouch />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

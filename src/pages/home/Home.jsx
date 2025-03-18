@@ -23,10 +23,10 @@ const Home = ({
         <div className="relative lg:mt-[-60px]" >
           <div className="flex flex-col text-black font-extrabold italic text-[0px] md:text-[30px] lg:text-[50px] font-poppins items-end ">
             <p className="md:pr-[120px] lg:pr-[104px]">
-              SUBSCRIPTION BASED SOLUTIONSss
+              SUBSCRIPTION BASED SOLUTIONS
             </p>
             <p className="pr-[75px] md:mt-[-20px] lg:mt-[-20px]">
-              FOR ALL YOUR BUSINESS DIGITAL NEEDSss
+              FOR ALL YOUR BUSINESS DIGITAL NEEDS
             </p>
           </div>
         </div>
@@ -50,8 +50,8 @@ const Home = ({
             >
               Works
             </Link>
-            <a
-              href="services" 
+            <Link
+              to="services" 
               className="text-[200px] font-light leading-none w-full transition-colors duration-300 hover:text-[#474cba] -mt-[40px] pl-40"
               style={{ 
                 fontSize: "min(200px, calc(200px * (100vw/1920)))",
@@ -60,8 +60,8 @@ const Home = ({
               }}
             >
               Services
-            </a>
-            <a href="contact" 
+            </Link>
+            <Link to="contact" 
               className="text-[180px] font-light leading-none w-full transition-colors duration-300 hover:text-[#dee13e] -mt-[20px] pl-55"
               style={{ 
                 fontSize: "min(180px, calc(180px * (100vw/1920)))",
@@ -70,9 +70,9 @@ const Home = ({
               }}
             >
               Contact Us
-            </a>
-            <a
-              href="clients" 
+            </Link>
+            <Link
+              to="clients" 
               className="text-[120px] font-light leading-none w-full transition-colors duration-300 hover:text-[#5cba47] -mt-[20px] pl-72"
               style={{ 
                 fontSize: "min(120px, calc(120px * (100vw/1920)))",
@@ -81,9 +81,9 @@ const Home = ({
               }}
             >
               Our Clients
-            </a>
-            <a 
-              href="story"
+            </Link>
+            <Link 
+              to="story"
               className="text-[100px] font-light leading-none w-full transition-colors duration-300 hover:text-[#ba47ae] -mt-[20px] pl-102"
               style={{ 
                 fontSize: "min(100px, calc(100px * (100vw/1920)))",
@@ -92,7 +92,7 @@ const Home = ({
               }}
             >
               Our Story
-            </a>
+            </Link>
           </div>
 
           <div 
@@ -120,8 +120,8 @@ const Home = ({
               }}
             />
 
-            <a
-              href="subscribe"  
+            <Link
+              to="subscribe"  
               className="absolute top-[626px] left-[590px] w-[367px] h-[130.8px] bg-green-500 text-black font-bold rounded-[65px] text-2xl flex items-center justify-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
               style={{ 
                 top: "min(686px, calc(686px * (100vw/1920)))",
@@ -133,93 +133,93 @@ const Home = ({
               }}
             >
               Subscribe Now!
-            </a>
+            </Link>
           </div>
         </div>
 
       </div>
 
-      <div className="block md:hidden">
+      <div className="block md:hidden lg:hidden">
         <div className="ml-5">
         </div>
 
         <div className="bg-[#dee13e] ">
 
         <div 
-      style={{
-        color: 'black',
-        fontWeight: 900, // Increased from 800 to 900 for extra thickness
-        fontStyle: 'italic',
-        fontFamily: 'Poppins, sans-serif',
-        width: '100%',
-        maxWidth: '100%',
-        overflow: 'hidden',
-        padding: '10px 15px',
-      }}
-    >
-      <p 
-        style={{ 
-          paddingTop: '12px',
-          paddingLeft: 'clamp(0px, 8vw, 50px)', // Reduced padding to shift text more to the left
-          fontSize: 'clamp(1rem, 4vw, 1.75rem)',
-          whiteSpace: 'nowrap',
-          marginBottom: '4px',
-          fontWeight: 900, // Ensuring extra bold text
-        }}
-      >
-        SUBSCRIPTION BASED SOLUTIONS
-      </p>
-      <p 
-        style={{ 
-          paddingLeft: 'clamp(8px, 2vw, 14px)',
-          fontSize: 'clamp(1rem, 4vw, 1.75rem)',
-          whiteSpace: 'nowrap',
-          marginTop: '4px',
-          fontWeight: 900, // Ensuring extra bold text
-        }}
-      >
-        FOR ALL YOUR BUSINESS DIGITAL NEEDS
-      </p>
-    </div>
-
-          <div className="relative w-full flex justify-center ">
-            <img 
-              src={Girl}
-              alt="img" 
-              className="w-[350px] h-[350px] mb-[-50px] mt-[-55px] max-w-md rounded-full"
-            />
-            
-            <a
-              href="subscribe"  
-              className="absolute w-[150px] h-[60px] bg-[#5cba47] ml-[190px] top-[182px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
-              style={{ 
-                bottom: '40%'
-              }}
-            >
-              Subscribe Now!
-            </a>
-          </div>
+          style={{
+            color: 'black',
+            fontWeight: 900, // Increased from 800 to 900 for extra thickness
+            fontStyle: 'italic',
+            fontFamily: 'Poppins, sans-serif',
+            width: '100%',
+            maxWidth: '100%',
+            overflow: 'hidden',
+            padding: '10px 15px',
+          }}
+        >
+          <p 
+            style={{ 
+              paddingTop: '12px',
+              paddingLeft: 'clamp(0px, 8vw, 50px)', // Reduced padding to shift text more to the left
+              fontSize: 'clamp(1rem, 4vw, 1.75rem)',
+              whiteSpace: 'nowrap',
+              marginBottom: '4px',
+              fontWeight: 900, // Ensuring extra bold text
+            }}
+          >
+            SUBSCRIPTION BASED SOLUTIONS
+          </p>
+          <p 
+            style={{ 
+              paddingLeft: 'clamp(8px, 2vw, 14px)',
+              fontSize: 'clamp(1rem, 4vw, 1.75rem)',
+              whiteSpace: 'nowrap',
+              marginTop: '4px',
+              fontWeight: 900, // Ensuring extra bold text
+            }}
+          >
+            FOR ALL YOUR BUSINESS DIGITAL NEEDS
+          </p>
         </div>
 
-        <div className="flex flex-col items-start font-bold uppercase" style={{ fontFamily: 'Heathergreen, sans-serif' }}>
-          <div>
-          <a href="work" className="text-8xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
-            Work
-          </a>
-          </div>
-          <a href="services" className="text-9xl mt-[-14px] ml-[130px] font-light transition-colors duration-300 hover:text-[#474cba]">
-            Services
-          </a>
-          <a href="contact" className="text-8xl font-light ml-[65px] transition-colors duration-300 hover:text-[#dee13e]">
-            Contact Us
-          </a>
-          <a href="clients" className="text-6xl font-light ml-[70px] transition-colors duration-300 hover:text-[#5cba47]">
-            Our Clients
-          </a>
-          <a href="story" className="text-5xl font-light ml-[225px] mt-[-60px] transition-colors duration-300 hover:text-[#ba47ae]">
-            Our Story
-          </a>
-        </div>
+              <div className="relative w-full flex justify-center ">
+                <img 
+                  src={Girl}
+                  alt="img" 
+                  className="w-[350px] h-[350px] mb-[-50px] mt-[-55px] max-w-md rounded-full"
+                />
+                
+                <Link
+                  to="subscribe"  
+                  className="absolute w-[150px] h-[60px] bg-[#5cba47] ml-[190px] top-[182px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
+                  style={{ 
+                    bottom: '40%'
+                  }}
+                >
+                  Subscribe Now!
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-start font-bold uppercase" style={{ fontFamily: 'Heathergreen, sans-serif' }}>
+              <div>
+              <Link to="work" className="text-8xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
+                Work
+              </Link>
+              </div>
+              <Link to="services" className="text-9xl mt-[-14px] ml-[130px] font-light transition-colors duration-300 hover:text-[#474cba]">
+                Services
+              </Link>
+              <Link to="contact" className="text-8xl font-light ml-[65px] transition-colors duration-300 hover:text-[#dee13e]">
+                Contact Us
+              </Link>
+              <Link to="clients" className="text-6xl font-light ml-[70px] transition-colors duration-300 hover:text-[#5cba47]">
+                Our Clients
+              </Link>
+              <Link to="story" className="text-5xl font-light ml-[225px] mt-[-60px] transition-colors duration-300 hover:text-[#ba47ae]">
+                Our Story
+              </Link>
+            </div>
 
       </div>
     </>
