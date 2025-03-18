@@ -16,7 +16,7 @@ const Footer = () => {
       </p>
       <div className="absolute bottom-0 translate-y-[5px] md:translate-y-[40px] lg:translate-y-[30px]">
         <Link
-          to="/apply"
+          to="apply"
           className="text-[#474CBA] ml-[8px] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
         >
           Get In Touch
@@ -76,31 +76,31 @@ const Footer = () => {
     {/* Middle Section: Navigation Links */}
     <nav className="flex items-center font-bold ">
       <Link
-        to="/work"
+        to="work"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Work
       </Link>
       <Link
-        to="/contact"
+        to="contact"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Contact
       </Link>
       <Link
-        to="/story"
+        to="story"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         About
       </Link>
       <Link
-        to="/clients"
+        to="clients"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Clients
       </Link>
       <Link
-        to="/services"
+        to="services"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Services

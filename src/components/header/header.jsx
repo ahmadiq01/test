@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className=" top-6  w-full p-4">
       <div className="flex pr-2 pt-2">
-        <Link to="/home">
+        <Link to="home">
         <img src={frameLogo} alt="Logo" className="h-12 w-auto" />
         </Link>
       </div>

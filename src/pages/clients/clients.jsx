@@ -282,57 +282,57 @@ const ContactPage = () => {
 
       {/* Mobile View */}
       <div className="overflow-hidden relative mt-[60px] mb-[60px] md:hidden">
-  <div
-    ref={mobileCarouselRef}
-    onTouchStart={startDragging}
-    onTouchMove={drag}
-    onTouchEnd={stopDragging}
-    className="
-      mobile-slider
-      flex
-      flex-col
-      space-y-6
-      px-4
-      py-6
-      mobile-infinite-scroll-wrapper
-    "
-  >
-    {mobileRows.map((row, rowIndex) => (
-      <div key={`row-${rowIndex}`} className="flex space-x-4 mobile-row">
-        {row.map((testimonial, index) => (
-          <div
-            key={`mobile-${rowIndex}-${index}`}
-            style={{ backgroundColor: testimonial.bgColor }}
-            className="
-              flex-shrink-0
-              w-[160px]
-              h-[240px]
-              rounded-2xl
-              shadow-lg
-              flex
-              flex-col
-              items-center
-              text-center
-              p-3
-            "
-          >
-            <img 
-              src={testimonial.image}
-              alt={`${testimonial.name} testimonial`}
-              className="w-[70px] h-[70px] rounded-full mb-2 object-cover"
-            />
-            <h3 className="text-white font-bold text-xl">
-              {testimonial.name}
-            </h3>
-            <p className="text-black mt-2 text-[11px] line-clamp-6 text-center leading-none">
-              {testimonial.text}
-            </p>
-          </div>
-        ))}
+        <div
+          ref={mobileCarouselRef}
+          onTouchStart={startDragging}
+          onTouchMove={drag}
+          onTouchEnd={stopDragging}
+          className="
+            mobile-slider
+            flex
+            flex-col
+            space-y-6
+            px-4
+            py-6
+            mobile-infinite-scroll-wrapper
+          "
+        >
+          {mobileRows.map((row, rowIndex) => (
+            <div key={`row-${rowIndex}`} className="flex space-x-4 mobile-row">
+              {row.map((testimonial, index) => (
+                <div
+                  key={`mobile-${rowIndex}-${index}`}
+                  style={{ backgroundColor: testimonial.bgColor }}
+                  className="
+                    flex-shrink-0
+                    w-[160px]
+                    h-[240px]
+                    rounded-2xl
+                    shadow-lg
+                    flex
+                    flex-col
+                    items-center
+                    text-center
+                    p-3
+                  "
+                >
+                  <img 
+                    src={testimonial.image}
+                    alt={`${testimonial.name} testimonial`}
+                    className="w-[70px] h-[70px] rounded-full mb-2 object-cover"
+                  />
+                  <h3 className="text-white font-bold text-xl">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-black mt-2 text-[11px] line-clamp-6 text-center leading-none">
+                    {testimonial.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
       <Footer />
     </div>

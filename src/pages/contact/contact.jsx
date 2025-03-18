@@ -74,7 +74,7 @@ const ContactPage = () => {
 <div className="relative min-h-screen">
   <Header />
 
-  <Link to="/home" className="md:block hidden">
+  <Link to="home" className="md:block hidden">
     <img
       src={vectorIcon}
       alt="Decoration"
