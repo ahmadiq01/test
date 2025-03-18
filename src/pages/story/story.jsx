@@ -5,7 +5,7 @@ import V1 from "../../assets/Vector 1.svg";
 import V2 from "../../assets/Vector 2.svg";
 import V3 from "../../assets/Vector 3.svg";
 import StoryImg from "../../assets/story.png";
-
+import { Link } from 'react-router-dom';
 const ContactPage = () => {
   return (
     <div className="relative bg-white overflow-x-hidden">

@@ -19,6 +19,7 @@ import Pic6 from "../../assets/6.svg";
 import Pic7 from "../../assets/7.svg";
 import Pic8 from "../../assets/8.svg";
 import Pic9 from "../../assets/9.svg";
+import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
   const [loading, setLoading] = useState(true);

@@ -14,6 +14,7 @@ import Img5 from "../../assets/Show Categories 2.svg"; // Adjust path if needed
 import Img6 from "../../assets/Messages - Selection 1.svg"; // Adjust path if needed
 import Img7 from "../../assets/Group 16.svg"; // Adjust path if needed
 import Img8 from "../../assets/Group 17.svg"; // Adjust path if needed
+import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
   return (

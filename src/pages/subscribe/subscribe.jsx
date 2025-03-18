@@ -5,6 +5,7 @@ import { FaChevronDown, FaChevronUp, FaCheck, FaTimes } from "react-icons/fa";
 import vectorIcon from "../../assets/Vector.svg"; // Adjust the path as needed
 import tickIcon from "../../assets/number.svg"; // Adjust the path as needed
 import naIcon from "../../assets/na.svg"; // Adjust the path as needed
+import { Link } from 'react-router-dom';
 
 import Basic from "../../assets/basic.svg";
 import Standard from "../../assets/standard.svg";
