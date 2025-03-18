@@ -19,6 +19,10 @@ export default function Home() {
   const bananaSectionRef = useRef(null);
 
   const containerRef = useRef(null);
+  
+  // Control the scroll speed with this factor
+  // Higher value = slower scroll (more content to scroll through)
+  const scrollSpeedFactor = 2.5; // Adjust this value to control scroll speed
 
   const [sectionVisibility, setSectionVisibility] = useState({
     monkey: false,
@@ -30,22 +34,23 @@ export default function Home() {
   useEffect(() => {
     // Calculate the height needed for smooth scrolling
     if (containerRef.current) {
-      const containerHeight = window.innerHeight * 4; // 4 sections
+      // Increase the height by the scrollSpeedFactor to make scrolling slower
+      const containerHeight = window.innerHeight * 4 * scrollSpeedFactor; // 4 sections with speed factor
       containerRef.current.style.height = `${containerHeight}px`;
     }
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
+      const adjustedWindowHeight = windowHeight * scrollSpeedFactor;
 
-      // Determine which section should be visible based on scroll position
-      const sectionIndex = Math.floor(scrollPosition / windowHeight);
-      const sectionProgress = (scrollPosition % windowHeight) / windowHeight;
+      // Determine which section should be visible based on scroll position with adjusted height
+      const sectionIndex = Math.floor(scrollPosition / adjustedWindowHeight);
+      const sectionProgress = (scrollPosition % adjustedWindowHeight) / adjustedWindowHeight;
 
       // Calculate visible section
       const sections = ["monkey", "bee", "human", "banana"];
-      const currentSection =
-        sections[Math.min(sectionIndex, sections.length - 1)];
+      const currentSection = sections[Math.min(sectionIndex, sections.length - 1)];
 
       // Update section visibility state
       const newVisibility = {
@@ -53,6 +58,27 @@ export default function Home() {
         bee: currentSection === "bee",
         human: currentSection === "human",
         banana: currentSection === "banana",
+      };
+
+      // For smoother transitions, we can gradually update the transform and opacity
+      // based on the scroll progress within each section
+      const applyScrollBasedStyles = (ref, isVisible, progress) => {
+        if (!ref.current) return;
+        
+        // Adjust animation speed - lower values make animations slower
+        const animationSpeed = 1.5; // Adjust this value to control animation speed
+        
+        if (isVisible) {
+          const entryProgress = Math.min(progress * animationSpeed, 1);
+          ref.current.style.transform = `translateX(${-200 + entryProgress * 200}%)`;
+          ref.current.style.opacity = entryProgress;
+        } else {
+          // Apply exit animation
+          if (ref.current.classList.contains('animate-from-left')) {
+            ref.current.classList.remove('animate-from-left');
+            ref.current.classList.add('animate-to-left');
+          }
+        }
       };
 
       // Apply animations based on visibility changes
@@ -121,11 +147,11 @@ export default function Home() {
     <>
       <style jsx global>{`
         .animate-from-left {
-          animation: slideInFromLeft 1s forwards;
+          animation: slideInFromLeft 1.5s forwards; /* Increased animation duration from 1s to 1.5s */
         }
 
         .animate-to-left {
-          animation: slideOutToLeft 1s forwards;
+          animation: slideOutToLeft 1.5s forwards; /* Increased animation duration from 1s to 1.5s */
         }
 
         @keyframes slideInFromLeft {
@@ -161,6 +187,11 @@ export default function Home() {
           height: 100vh;
           width: 100%;
           overflow: hidden;
+        }
+        
+        /* Add smooth scrolling to the body */
+        html {
+          scroll-behavior: smooth;
         }
       `}</style>
 
@@ -224,6 +255,7 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Remaining sections - bee, human, banana - unchanged for brevity */}
         {/* bee div */}
         <div
           ref={beeSectionRef}
