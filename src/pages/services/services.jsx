@@ -19,7 +19,7 @@ export default function Home() {
   const bananaSectionRef = useRef(null);
 
   const containerRef = useRef(null);
-  
+
   // Track current active section (0-3)
   const [activeSection, setActiveSection] = useState(0);
 
@@ -33,7 +33,7 @@ export default function Home() {
   // Navigation functions
   const navigateToSection = (sectionIndex) => {
     if (sectionIndex < 0 || sectionIndex > 3) return;
-    
+
     const sections = ["monkey", "bee", "human", "banana"];
     const newVisibility = {
       monkey: false,
@@ -41,7 +41,7 @@ export default function Home() {
       human: false,
       banana: false,
     };
-    
+
     newVisibility[sections[sectionIndex]] = true;
     setSectionVisibility(newVisibility);
     setActiveSection(sectionIndex);
@@ -59,7 +59,7 @@ export default function Home() {
     // Apply animations based on visibility changes
     const applyAnimation = (ref, isVisible) => {
       if (!ref.current) return;
-      
+
       if (isVisible) {
         ref.current.classList.add("animate-from-left");
         ref.current.classList.remove("animate-to-left");
@@ -82,7 +82,7 @@ export default function Home() {
     const handleTouchEnd = (e) => {
       const touchEndY = e.changedTouches[0].clientY;
       const diffY = touchStartY - touchEndY;
-      
+
       // If swipe distance is significant
       if (Math.abs(diffY) > 50) {
         if (diffY > 0) {
@@ -96,24 +96,24 @@ export default function Home() {
     };
 
     let touchStartY = 0;
-    document.addEventListener('touchstart', handleTouchStart, false);
-    document.addEventListener('touchend', handleTouchEnd, false);
+    document.addEventListener("touchstart", handleTouchStart, false);
+    document.addEventListener("touchend", handleTouchEnd, false);
 
     // Add keyboard navigation
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      if (e.key === "ArrowDown" || e.key === "PageDown") {
         navigateNext();
-      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
         navigatePrev();
       }
     };
-    
-    document.addEventListener('keydown', handleKeyDown);
+
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchend", handleTouchEnd);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [activeSection, sectionVisibility]);
 
@@ -181,9 +181,9 @@ export default function Home() {
 
         .nav-dots {
           position: fixed;
-          right: 20px;
-          top: 50%;
-          transform: translateY(-50%);
+          left: 20px;
+          bottom: 20px; /* Move to bottom */
+          transform: none; /* Remove vertical centering */
           z-index: 100;
           display: flex;
           flex-direction: column;
@@ -208,20 +208,20 @@ export default function Home() {
       <div className="section-container">
         {/* Navigation dots */}
         <div className="nav-dots">
-          <div 
-            className={`nav-dot ${activeSection === 0 ? 'active' : ''}`} 
+          <div
+            className={`nav-dot ${activeSection === 0 ? "active" : ""}`}
             onClick={() => navigateToSection(0)}
           />
-          <div 
-            className={`nav-dot ${activeSection === 1 ? 'active' : ''}`} 
+          <div
+            className={`nav-dot ${activeSection === 1 ? "active" : ""}`}
             onClick={() => navigateToSection(1)}
           />
-          <div 
-            className={`nav-dot ${activeSection === 2 ? 'active' : ''}`} 
+          <div
+            className={`nav-dot ${activeSection === 2 ? "active" : ""}`}
             onClick={() => navigateToSection(2)}
           />
-          <div 
-            className={`nav-dot ${activeSection === 3 ? 'active' : ''}`} 
+          <div
+            className={`nav-dot ${activeSection === 3 ? "active" : ""}`}
             onClick={() => navigateToSection(3)}
           />
         </div>
@@ -229,7 +229,9 @@ export default function Home() {
         {/* monkey div */}
         <div
           ref={monkeySectionRef}
-          className={`section bg-[rgba(92,186,71,1)] ${sectionVisibility.monkey ? 'active' : ''}`}
+          className={`section bg-[rgba(92,186,71,1)] ${
+            sectionVisibility.monkey ? "active" : ""
+          }`}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -279,14 +281,16 @@ export default function Home() {
 
             {/* Navigation buttons */}
             <div className="hidden md:flex gap-4 items-center mt-4">
-              <button 
-                onClick={navigatePrev} 
+              <button
+                onClick={navigatePrev}
                 disabled={activeSection === 0}
-                className={`text-white p-4 rounded-full ${activeSection === 0 ? 'opacity-50' : ''}`}
+                className={`text-white p-4 rounded-full ${
+                  activeSection === 0 ? "opacity-50" : ""
+                }`}
               >
                 <FaArrowLeft className="text-2xl md:text-5xl transform rotate-90" />
               </button>
-              <button 
+              <button
                 onClick={navigateNext}
                 className="text-white p-4 rounded-full"
               >
@@ -299,7 +303,9 @@ export default function Home() {
         {/* bee div */}
         <div
           ref={beeSectionRef}
-          className={`section bg-[rgba(71,76,186,1)] ${sectionVisibility.bee ? 'active' : ''}`}
+          className={`section bg-[rgba(71,76,186,1)] ${
+            sectionVisibility.bee ? "active" : ""
+          }`}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -352,13 +358,13 @@ export default function Home() {
 
             {/* Navigation buttons */}
             <div className="hidden md:flex gap-4 items-center mt-4">
-              <button 
+              <button
                 onClick={navigatePrev}
                 className="text-white p-4 rounded-full"
               >
                 <FaArrowLeft className="text-2xl md:text-5xl transform rotate-90" />
               </button>
-              <button 
+              <button
                 onClick={navigateNext}
                 className="text-white p-4 rounded-full"
               >
@@ -371,7 +377,9 @@ export default function Home() {
         {/* ui/ux div */}
         <div
           ref={humanSectionRef}
-          className={`section bg-[rgba(186,71,174,1)] ${sectionVisibility.human ? 'active' : ''}`}
+          className={`section bg-[rgba(186,71,174,1)] ${
+            sectionVisibility.human ? "active" : ""
+          }`}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -399,7 +407,10 @@ export default function Home() {
                 md:-translate-x-0 md:ml-[-58px] lg:ml-[-708px] whitespace-nowrap text-black 
                 font-bold p-4 md:p-10 rounded-full md:text-4xl z-30"
               >
-                <p className="mt-[10px] md:mt-[10px] lg:mt-[-4px]"> SEE UI/UX WORK</p>
+                <p className="mt-[10px] md:mt-[10px] lg:mt-[-4px]">
+                  {" "}
+                  SEE UI/UX WORK
+                </p>
               </Link>
               <p
                 className="text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] 
@@ -426,13 +437,13 @@ export default function Home() {
 
           {/* Navigation buttons */}
           <div className="absolute bottom-8 hidden md:flex left-8 items-center gap-4 z-10">
-            <button 
+            <button
               onClick={navigatePrev}
               className="text-white p-4 rounded-full"
             >
               <FaArrowLeft className="text-3xl md:text-5xl transform rotate-90" />
             </button>
-            <button 
+            <button
               onClick={navigateNext}
               className="text-white p-4 rounded-full"
             >
@@ -444,7 +455,9 @@ export default function Home() {
         {/* banana div */}
         <div
           ref={bananaSectionRef}
-          className={`section bg-[rgba(222,225,62,1)] ${sectionVisibility.banana ? 'active' : ''}`}
+          className={`section bg-[rgba(222,225,62,1)] ${
+            sectionVisibility.banana ? "active" : ""
+          }`}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -470,7 +483,9 @@ export default function Home() {
                 mt-[550px] w-[200px] md:w-[200px] lg:w-[330px] lg:h-[130px] md:top-auto md:left-3/5 left-1/3 
                 transform -translate-x-1/2 md:-translate-x-0 whitespace-nowrap lg:mt-[40px] lg:ml-[240px] text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-5xl z-30"
               >
-                <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">SEE CREATIVE WORK</p>
+                <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">
+                  SEE CREATIVE WORK
+                </p>
               </Link>
 
               <p className="text-black text-[220px] lg:mt-[-220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-90px] md:mt-[-190px] md:ml-[100px]">
@@ -494,7 +509,7 @@ export default function Home() {
 
           {/* Navigation buttons */}
           <div className="absolute bottom-8 hidden md:flex left-8 items-center gap-4 z-10">
-            <button 
+            <button
               onClick={navigatePrev}
               className="text-black p-4 rounded-full"
             >
