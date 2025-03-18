@@ -40,7 +40,7 @@ const Home = ({
             }}
           >
             <Link
-              to="work" 
+              to="/work" 
               className="text-[240px] font-light w-full leading-[1] tracking-wider transition-colors duration-300 hover:text-[#5cba47] pl-10 -mt-[85px]"
               style={{ 
                 fontSize: "min(240px, calc(240px * (100vw/1920)))",
@@ -51,7 +51,7 @@ const Home = ({
               Works
             </Link>
             <Link
-              to="services" 
+              to="/services" 
               className="text-[200px] font-light leading-none w-full transition-colors duration-300 hover:text-[#474cba] -mt-[40px] pl-40"
               style={{ 
                 fontSize: "min(200px, calc(200px * (100vw/1920)))",
@@ -61,7 +61,7 @@ const Home = ({
             >
               Services
             </Link>
-            <Link to="contact" 
+            <Link to="/contact" 
               className="text-[180px] font-light leading-none w-full transition-colors duration-300 hover:text-[#dee13e] -mt-[20px] pl-55"
               style={{ 
                 fontSize: "min(180px, calc(180px * (100vw/1920)))",
@@ -72,7 +72,7 @@ const Home = ({
               Contact Us
             </Link>
             <Link
-              to="clients" 
+              to="/clients" 
               className="text-[120px] font-light leading-none w-full transition-colors duration-300 hover:text-[#5cba47] -mt-[20px] pl-72"
               style={{ 
                 fontSize: "min(120px, calc(120px * (100vw/1920)))",
@@ -83,7 +83,7 @@ const Home = ({
               Our Clients
             </Link>
             <Link 
-              to="story"
+              to="/story"
               className="text-[100px] font-light leading-none w-full transition-colors duration-300 hover:text-[#ba47ae] -mt-[20px] pl-102"
               style={{ 
                 fontSize: "min(100px, calc(100px * (100vw/1920)))",
@@ -121,7 +121,7 @@ const Home = ({
             />
 
             <Link
-              to="subscribe"  
+              to="/subscribe"  
               className="absolute top-[626px] left-[590px] w-[367px] h-[130.8px] bg-green-500 text-black font-bold rounded-[65px] text-2xl flex items-center justify-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
               style={{ 
                 top: "min(686px, calc(686px * (100vw/1920)))",
@@ -190,7 +190,7 @@ const Home = ({
                 />
                 
                 <Link
-                  to="subscribe"  
+                  to="/subscribe"  
                   className="absolute w-[150px] h-[60px] bg-[#5cba47] ml-[190px] top-[182px] text-black font-bold rounded-full py-5 px-4 text-center transition-all duration-300 hover:bg-[#474cba] hover:text-white"
                   style={{ 
                     bottom: '40%'
@@ -203,20 +203,20 @@ const Home = ({
 
             <div className="flex flex-col items-start font-bold uppercase" style={{ fontFamily: 'Heathergreen, sans-serif' }}>
               <div>
-              <Link to="work" className="text-8xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
+              <Link to="/work" className="text-8xl ml-[60px] font-light py-1 transition-colors duration-300 hover:text-[#5cba47]">
                 Work
               </Link>
               </div>
-              <Link to="services" className="text-9xl mt-[-14px] ml-[130px] font-light transition-colors duration-300 hover:text-[#474cba]">
+              <Link to="/services" className="text-9xl mt-[-14px] ml-[130px] font-light transition-colors duration-300 hover:text-[#474cba]">
                 Services
               </Link>
-              <Link to="contact" className="text-8xl font-light ml-[65px] transition-colors duration-300 hover:text-[#dee13e]">
+              <Link to="/contact" className="text-8xl font-light ml-[65px] transition-colors duration-300 hover:text-[#dee13e]">
                 Contact Us
               </Link>
-              <Link to="clients" className="text-6xl font-light ml-[70px] transition-colors duration-300 hover:text-[#5cba47]">
+              <Link to="/clients" className="text-6xl font-light ml-[70px] transition-colors duration-300 hover:text-[#5cba47]">
                 Our Clients
               </Link>
-              <Link to="story" className="text-5xl font-light ml-[225px] mt-[-60px] transition-colors duration-300 hover:text-[#ba47ae]">
+              <Link to="/story" className="text-5xl font-light ml-[225px] mt-[-60px] transition-colors duration-300 hover:text-[#ba47ae]">
                 Our Story
               </Link>
             </div>

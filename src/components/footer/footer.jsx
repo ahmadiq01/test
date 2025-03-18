@@ -16,7 +16,7 @@ const Footer = () => {
       </p>
       <div className="absolute bottom-0 translate-y-[5px] md:translate-y-[40px] lg:translate-y-[30px]">
         <Link
-          to="apply"
+          to="/apply"
           className="text-[#474CBA] ml-[8px] text-[12px] font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
         >
           Get In Touch
@@ -32,7 +32,7 @@ const Footer = () => {
     </p>
     <div className="mt-[-10px] ml-[-6px] md:mt-[-10px] lg:mt-[-10px] md:ml-[-100px] lg:ml-[-100px]">
       <Link
-        to="apply"
+        to="/apply"
         className="text-[#474CBA] text-[12px]  font-bold md:text-[15px] lg:text-[30px] cursor-pointer hover:text-gray-600"
       >
         Apply here
@@ -64,7 +64,7 @@ const Footer = () => {
   <div className="flex justify-between items-center px-3 md:px-5 lg:px-8 py-4 md:py-6 lg:py-[0px]">
     {/* Left Section: Logo */}
     <div className="text-black text-lg md:text-xl lg:text-2xl font-bold">
-      <Link to="home">
+      <Link to="/home">
       <img
         src={frameLogo}
         alt="Logo"
@@ -76,31 +76,31 @@ const Footer = () => {
     {/* Middle Section: Navigation Links */}
     <nav className="flex items-center font-bold ">
       <Link
-        to="work"
+        to="/work"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Work
       </Link>
       <Link
-        to="contact"
+        to="/contact"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Contact
       </Link>
       <Link
-        to="story"
+        to="/story"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         About
       </Link>
       <Link
-        to="clients"
+        to="/clients"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Clients
       </Link>
       <Link
-        to="services"
+        to="/services"
         className="text-black hover:text-gray-600 cursor-pointer text-[10px] md:text-sm lg:text-lg px-1 md:px-2 lg:px-4"
       >
         Services
@@ -109,17 +109,17 @@ const Footer = () => {
 
     {/* Right Section: Social Media Icons */}
    <div className="flex items-center gap-2 md:gap-4 lg:gap-6 mr-1 md:mr-3 lg:mr-6">
-    <Link to="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
       <FaInstagram className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
-    </Link>
+    </a>
 
-    <Link to="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
       <FaLinkedin className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
-    </Link>
+    </a>
 
-    <Link to="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
       <FaFacebook className="text-black text-sm md:text-lg lg:text-2xl cursor-pointer hover:text-gray-600" />
-    </Link>
+    </a>
   </div>
 
   </div>
