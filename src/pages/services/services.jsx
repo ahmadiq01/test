@@ -19,18 +19,18 @@ export default function Home() {
   const bananaSectionRef = useRef(null);
 
   const containerRef = useRef(null);
-
-  // Track current active section (0-3)
+  
+  // Track current active section (0-3) for mobile navigation
   const [activeSection, setActiveSection] = useState(0);
 
   const [sectionVisibility, setSectionVisibility] = useState({
-    monkey: true,
+    monkey: false,
     bee: false,
     human: false,
     banana: false,
   });
 
-  // Navigation functions
+  // Navigation functions for mobile
   const navigateToSection = (sectionIndex) => {
     if (sectionIndex < 0 || sectionIndex > 3) return;
 
@@ -56,25 +56,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Apply animations based on visibility changes
-    const applyAnimation = (ref, isVisible) => {
-      if (!ref.current) return;
-
-      if (isVisible) {
-        ref.current.classList.add("animate-from-left");
-        ref.current.classList.remove("animate-to-left");
-      } else {
-        ref.current.classList.add("animate-to-left");
-        ref.current.classList.remove("animate-from-left");
-      }
-    };
-
-    applyAnimation(monkeyRef, sectionVisibility.monkey);
-    applyAnimation(beeRef, sectionVisibility.bee);
-    applyAnimation(humanRef, sectionVisibility.human);
-    applyAnimation(bananaRef, sectionVisibility.banana);
-
-    // Set up touch events
+    // Mobile navigation touch and keyboard events
+    let touchStartY = 0;
+    
     const handleTouchStart = (e) => {
       touchStartY = e.touches[0].clientY;
     };
@@ -95,10 +79,6 @@ export default function Home() {
       }
     };
 
-    let touchStartY = 0;
-    document.addEventListener("touchstart", handleTouchStart, false);
-    document.addEventListener("touchend", handleTouchEnd, false);
-
     // Add keyboard navigation
     const handleKeyDown = (e) => {
       if (e.key === "ArrowDown" || e.key === "PageDown") {
@@ -108,24 +88,117 @@ export default function Home() {
       }
     };
 
+    // Set up mobile navigation events
+    document.addEventListener("touchstart", handleTouchStart, false);
+    document.addEventListener("touchend", handleTouchEnd, false);
     document.addEventListener("keydown", handleKeyDown);
 
+    // Desktop scroll-based functionality
+    // Calculate the height needed for smooth scrolling
+    if (containerRef.current) {
+      const containerHeight = window.innerHeight * 4; // 4 sections
+      containerRef.current.style.height = `${containerHeight}px`;
+    }
+
+    const handleScroll = () => {
+      // Only apply scroll-based navigation on desktop
+      if (window.innerWidth >= 768) {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        // Determine which section should be visible based on scroll position
+        const sectionIndex = Math.floor(scrollPosition / windowHeight);
+        const sectionProgress = (scrollPosition % windowHeight) / windowHeight;
+
+        // Calculate visible section
+        const sections = ["monkey", "bee", "human", "banana"];
+        const currentSection =
+          sections[Math.min(sectionIndex, sections.length - 1)];
+
+        // Update section visibility state
+        const newVisibility = {
+          monkey: currentSection === "monkey",
+          bee: currentSection === "bee",
+          human: currentSection === "human",
+          banana: currentSection === "banana",
+        };
+
+        // Apply animations based on visibility changes
+        if (newVisibility.monkey !== sectionVisibility.monkey) {
+          if (monkeyRef.current) {
+            if (newVisibility.monkey) {
+              monkeyRef.current.classList.add("animate-from-left");
+              monkeyRef.current.classList.remove("animate-to-left");
+            } else {
+              monkeyRef.current.classList.add("animate-to-left");
+              monkeyRef.current.classList.remove("animate-from-left");
+            }
+          }
+        }
+
+        if (newVisibility.bee !== sectionVisibility.bee) {
+          if (beeRef.current) {
+            if (newVisibility.bee) {
+              beeRef.current.classList.add("animate-from-left");
+              beeRef.current.classList.remove("animate-to-left");
+            } else {
+              beeRef.current.classList.add("animate-to-left");
+              beeRef.current.classList.remove("animate-from-left");
+            }
+          }
+        }
+
+        if (newVisibility.human !== sectionVisibility.human) {
+          if (humanRef.current) {
+            if (newVisibility.human) {
+              humanRef.current.classList.add("animate-from-left");
+              humanRef.current.classList.remove("animate-to-left");
+            } else {
+              humanRef.current.classList.add("animate-to-left");
+              humanRef.current.classList.remove("animate-from-left");
+            }
+          }
+        }
+
+        if (newVisibility.banana !== sectionVisibility.banana) {
+          if (bananaRef.current) {
+            if (newVisibility.banana) {
+              bananaRef.current.classList.add("animate-from-left");
+              bananaRef.current.classList.remove("animate-to-left");
+            } else {
+              bananaRef.current.classList.add("animate-to-left");
+              bananaRef.current.classList.remove("animate-from-left");
+            }
+          }
+        }
+
+        setSectionVisibility(newVisibility);
+        setActiveSection(sectionIndex);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Initialize on mount
+    handleScroll();
+
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("touchstart", handleTouchStart);
       document.removeEventListener("touchend", handleTouchEnd);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeSection, sectionVisibility]);
+  }, [sectionVisibility]);
 
   return (
     <>
       <style jsx global>{`
         .animate-from-left {
-          animation: slideInFromLeft 1.5s forwards;
+          animation: slideInFromLeft 1s forwards;
         }
 
         .animate-to-left {
-          animation: slideOutToLeft 1.5s forwards;
+          animation: slideOutToLeft 1s forwards;
         }
 
         @keyframes slideInFromLeft {
@@ -150,46 +223,59 @@ export default function Home() {
           }
         }
 
-        .section-container {
-          position: fixed;
+        .sticky-container {
+          position: relative;
+          height: 400vh;
+        }
+
+        .sticky-section {
+          position: sticky;
           top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
           height: 100vh;
-          width: 100vw;
+          width: 100%;
           overflow: hidden;
         }
-
-        .section {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          transition: opacity 0.3s ease-in-out;
-          z-index: 0;
-          opacity: 0;
-          pointer-events: none;
+        
+        /* Mobile navigation styles */
+        @media (max-width: 767px) {
+          .sticky-container {
+            height: 100vh;
+          }
+          
+          .sticky-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+          }
+          
+          .sticky-section.active {
+            opacity: 1;
+            pointer-events: auto;
+          }
         }
-
-        .section.active {
-          opacity: 1;
-          z-index: 40;
-          pointer-events: auto;
-        }
-
+        
+        /* Navigation dots for mobile */
         .nav-dots {
           position: fixed;
           left: 20px;
-          bottom: 20px; /* Move to bottom */
-          transform: none; /* Remove vertical centering */
+          bottom: 20px;
           z-index: 100;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
+          display: none;
         }
-
+        
+        @media (max-width: 767px) {
+          .nav-dots {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+          }
+        }
+        
         .nav-dot {
           width: 12px;
           height: 12px;
@@ -198,42 +284,41 @@ export default function Home() {
           cursor: pointer;
           transition: all 0.3s ease;
         }
-
+        
         .nav-dot.active {
           background-color: white;
           transform: scale(1.5);
         }
       `}</style>
 
-      <div className="section-container">
-        {/* Navigation dots */}
-        <div className="nav-dots">
-          <div
-            className={`nav-dot ${activeSection === 0 ? "active" : ""}`}
-            onClick={() => navigateToSection(0)}
-          />
-          <div
-            className={`nav-dot ${activeSection === 1 ? "active" : ""}`}
-            onClick={() => navigateToSection(1)}
-          />
-          <div
-            className={`nav-dot ${activeSection === 2 ? "active" : ""}`}
-            onClick={() => navigateToSection(2)}
-          />
-          <div
-            className={`nav-dot ${activeSection === 3 ? "active" : ""}`}
-            onClick={() => navigateToSection(3)}
-          />
-        </div>
+      {/* Navigation dots for mobile */}
+      <div className="nav-dots">
+        <div
+          className={`nav-dot ${activeSection === 0 ? "active" : ""}`}
+          onClick={() => navigateToSection(0)}
+        />
+        <div
+          className={`nav-dot ${activeSection === 1 ? "active" : ""}`}
+          onClick={() => navigateToSection(1)}
+        />
+        <div
+          className={`nav-dot ${activeSection === 2 ? "active" : ""}`}
+          onClick={() => navigateToSection(2)}
+        />
+        <div
+          className={`nav-dot ${activeSection === 3 ? "active" : ""}`}
+          onClick={() => navigateToSection(3)}
+        />
+      </div>
 
+      <div ref={containerRef} className="sticky-container">
         {/* monkey div */}
         <div
           ref={monkeySectionRef}
-          className={`section bg-[rgba(92,186,71,1)] ${
-            sectionVisibility.monkey ? "active" : ""
-          }`}
+          className={`sticky-section bg-[rgba(92,186,71,1)] min-h-screen relative ${window.innerWidth < 768 && sectionVisibility.monkey ? "active" : ""}`}
+          style={{ zIndex: sectionVisibility.monkey ? 40 : 10 }}
         >
-          {/* Logo in top left corner */}
+          {/* Logo in top left corner - fixed position on mobile */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
             <h1 className="text-black text-xl md:text-3xl font-bold">
               <Header />
@@ -264,7 +349,7 @@ export default function Home() {
                 ref={monkeyRef}
                 src={monkey}
                 alt="Blue monkey meditating"
-                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain animate-from-left"
+                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
                 style={{ aspectRatio: "preserve" }}
               />
             </div>
@@ -279,33 +364,37 @@ export default function Home() {
               </button>
             </Link>
 
-            {/* Navigation buttons */}
-            <div className="hidden md:flex gap-4 items-center mt-4">
+            {/* Mobile navigation controls */}
+            {/* <div className="md:hidden flex gap-4 items-center mt-4 justify-center w-full">
               <button
                 onClick={navigatePrev}
                 disabled={activeSection === 0}
-                className={`text-white p-4 rounded-full ${
+                className={`text-white p-2 rounded-full ${
                   activeSection === 0 ? "opacity-50" : ""
                 }`}
               >
-                <FaArrowLeft className="text-2xl md:text-5xl transform rotate-90" />
+                <FaArrowLeft className="text-xl transform rotate-90" />
               </button>
               <button
                 onClick={navigateNext}
-                className="text-white p-4 rounded-full"
+                className="text-white p-2 rounded-full"
               >
-                <FaArrowLeft className="text-2xl md:text-5xl transform -rotate-90" />
+                <FaArrowLeft className="text-xl transform -rotate-90" />
               </button>
-            </div>
+            </div> */}
+
+            {/* Back Button for desktop */}
+            {/* <button className="text-white hidden md:block p-2 md:p-4 rounded-full md:mt-[90px]">
+              <FaArrowLeft className="text-2xl md:text-5xl" />
+            </button> */}
           </div>
         </div>
 
         {/* bee div */}
         <div
           ref={beeSectionRef}
-          className={`section bg-[rgba(71,76,186,1)] ${
-            sectionVisibility.bee ? "active" : ""
-          }`}
+          className={`sticky-section bg-[rgba(71,76,186,1)] min-h-screen relative ${window.innerWidth < 768 && sectionVisibility.bee ? "active" : ""}`}
+          style={{ zIndex: sectionVisibility.bee ? 30 : 9 }}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -325,6 +414,7 @@ export default function Home() {
 
             {/* Right side with WEBSITES text */}
             <div className="relative w-full md:mt-[20px] lg:mt-[-90px] mt-[-120px]">
+              {/* Text Heading */}
               <p
                 className="text-black text-[200px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
                     ml-[-12px] md:ml-[100px] font-[Heathergreen] text-center md:text-left"
@@ -356,30 +446,34 @@ export default function Home() {
               SEE WEBSITES WORK
             </Link>
 
-            {/* Navigation buttons */}
-            <div className="hidden md:flex gap-4 items-center mt-4">
+            {/* Mobile navigation controls */}
+            {/* <div className="md:hidden flex gap-4 items-center mt-4 justify-center w-full">
               <button
                 onClick={navigatePrev}
-                className="text-white p-4 rounded-full"
+                className="text-white p-2 rounded-full"
               >
-                <FaArrowLeft className="text-2xl md:text-5xl transform rotate-90" />
+                <FaArrowLeft className="text-xl transform rotate-90" />
               </button>
               <button
                 onClick={navigateNext}
-                className="text-white p-4 rounded-full"
+                className="text-white p-2 rounded-full"
               >
-                <FaArrowLeft className="text-2xl md:text-5xl transform -rotate-90" />
+                <FaArrowLeft className="text-xl transform -rotate-90" />
               </button>
-            </div>
+            </div> */}
+
+            {/* Desktop button */}
+            <button className="text-white hidden md:block p-4 rounded-full">
+              <FaArrowLeft className="text-3xl md:text-5xl" />
+            </button>
           </div>
         </div>
 
         {/* ui/ux div */}
         <div
           ref={humanSectionRef}
-          className={`section bg-[rgba(186,71,174,1)] ${
-            sectionVisibility.human ? "active" : ""
-          }`}
+          className={`sticky-section bg-[rgba(186,71,174,1)] min-h-screen relative ${window.innerWidth < 768 && sectionVisibility.human ? "active" : ""}`}
+          style={{ zIndex: sectionVisibility.human ? 20 : 8 }}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -407,10 +501,7 @@ export default function Home() {
                 md:-translate-x-0 md:ml-[-58px] lg:ml-[-708px] whitespace-nowrap text-black 
                 font-bold p-4 md:p-10 rounded-full md:text-4xl z-30"
               >
-                <p className="mt-[10px] md:mt-[10px] lg:mt-[-4px]">
-                  {" "}
-                  SEE UI/UX WORK
-                </p>
+                <p className="mt-[10px] md:mt-[10px] lg:mt-[-4px]"> SEE UI/UX WORK</p>
               </Link>
               <p
                 className="text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] 
@@ -424,7 +515,7 @@ export default function Home() {
 
           {/* Human image as a full-screen overlay */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-            <div className="w-full h-full max-w-screen max-h-screen flex items-center justify-center">
+            <div className="w-full h-full  max-w-screen max-h-screen flex items-center justify-center">
               <img
                 ref={humanRef}
                 src={human}
@@ -435,19 +526,26 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Navigation buttons */}
-          <div className="absolute bottom-8 hidden md:flex left-8 items-center gap-4 z-10">
+          {/* Mobile navigation controls */}
+          {/* <div className="absolute bottom-8 left-0 right-0 md:hidden flex items-center justify-center gap-4 z-10">
             <button
               onClick={navigatePrev}
-              className="text-white p-4 rounded-full"
+              className="text-white p-2 rounded-full"
             >
-              <FaArrowLeft className="text-3xl md:text-5xl transform rotate-90" />
+              <FaArrowLeft className="text-xl transform rotate-90" />
             </button>
             <button
               onClick={navigateNext}
-              className="text-white p-4 rounded-full"
+              className="text-white p-2 rounded-full"
             >
-              <FaArrowLeft className="text-3xl md:text-5xl transform -rotate-90" />
+              <FaArrowLeft className="text-xl transform -rotate-90" />
+            </button>
+          </div> */}
+
+          {/* Button and Back Arrow positioned together for desktop */}
+          <div className="absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
+            <button className="text-white p-4 rounded-full">
+              <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
         </div>
@@ -455,9 +553,8 @@ export default function Home() {
         {/* banana div */}
         <div
           ref={bananaSectionRef}
-          className={`section bg-[rgba(222,225,62,1)] ${
-            sectionVisibility.banana ? "active" : ""
-          }`}
+          className={`sticky-section bg-[rgba(222,225,62,1)] min-h-screen relative ${window.innerWidth < 768 && sectionVisibility.banana ? "active" : ""}`}
+          style={{ zIndex: sectionVisibility.banana ? 10 : 7 }}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -483,9 +580,7 @@ export default function Home() {
                 mt-[550px] w-[200px] md:w-[200px] lg:w-[330px] lg:h-[130px] md:top-auto md:left-3/5 left-1/3 
                 transform -translate-x-1/2 md:-translate-x-0 whitespace-nowrap lg:mt-[40px] lg:ml-[240px] text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-5xl z-30"
               >
-                <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">
-                  SEE CREATIVE WORK
-                </p>
+                <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">SEE CREATIVE WORK</p>
               </Link>
 
               <p className="text-black text-[220px] lg:mt-[-220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-90px] md:mt-[-190px] md:ml-[100px]">
@@ -507,13 +602,20 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Navigation buttons */}
-          <div className="absolute bottom-8 hidden md:flex left-8 items-center gap-4 z-10">
+          {/* Mobile navigation controls */}
+          {/* <div className="absolute bottom-8 left-0 right-0 md:hidden flex items-center justify-center gap-4 z-10">
             <button
               onClick={navigatePrev}
-              className="text-black p-4 rounded-full"
+              className="text-black p-2 rounded-full"
             >
-              <FaArrowLeft className="text-3xl md:text-5xl transform rotate-90" />
+              <FaArrowLeft className="text-xl transform rotate-90" />
+            </button>
+          </div> */}
+
+          {/* Button and Back Arrow positioned together for desktop */}
+          <div className="absolute hidden md:block bottom-8 left-8 flex flex-col items-start space-y-4 z-10">
+            <button className="text-black p-4 rounded-full">
+              <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
         </div>
