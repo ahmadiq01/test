@@ -20,138 +20,112 @@ export default function Home() {
 
   const containerRef = useRef(null);
   
-  // Control the scroll speed with this factor
-  // Higher value = slower scroll (more content to scroll through)
-  const scrollSpeedFactor = 2.5; // Adjust this value to control scroll speed
+  // Track current active section (0-3)
+  const [activeSection, setActiveSection] = useState(0);
 
   const [sectionVisibility, setSectionVisibility] = useState({
-    monkey: false,
+    monkey: true,
     bee: false,
     human: false,
     banana: false,
   });
 
+  // Navigation functions
+  const navigateToSection = (sectionIndex) => {
+    if (sectionIndex < 0 || sectionIndex > 3) return;
+    
+    const sections = ["monkey", "bee", "human", "banana"];
+    const newVisibility = {
+      monkey: false,
+      bee: false,
+      human: false,
+      banana: false,
+    };
+    
+    newVisibility[sections[sectionIndex]] = true;
+    setSectionVisibility(newVisibility);
+    setActiveSection(sectionIndex);
+  };
+
+  const navigateNext = () => {
+    navigateToSection(Math.min(activeSection + 1, 3));
+  };
+
+  const navigatePrev = () => {
+    navigateToSection(Math.max(activeSection - 1, 0));
+  };
+
   useEffect(() => {
-    // Calculate the height needed for smooth scrolling
-    if (containerRef.current) {
-      // Increase the height by the scrollSpeedFactor to make scrolling slower
-      const containerHeight = window.innerHeight * 4 * scrollSpeedFactor; // 4 sections with speed factor
-      containerRef.current.style.height = `${containerHeight}px`;
-    }
-
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const adjustedWindowHeight = windowHeight * scrollSpeedFactor;
-
-      // Determine which section should be visible based on scroll position with adjusted height
-      const sectionIndex = Math.floor(scrollPosition / adjustedWindowHeight);
-      const sectionProgress = (scrollPosition % adjustedWindowHeight) / adjustedWindowHeight;
-
-      // Calculate visible section
-      const sections = ["monkey", "bee", "human", "banana"];
-      const currentSection = sections[Math.min(sectionIndex, sections.length - 1)];
-
-      // Update section visibility state
-      const newVisibility = {
-        monkey: currentSection === "monkey",
-        bee: currentSection === "bee",
-        human: currentSection === "human",
-        banana: currentSection === "banana",
-      };
-
-      // For smoother transitions, we can gradually update the transform and opacity
-      // based on the scroll progress within each section
-      const applyScrollBasedStyles = (ref, isVisible, progress) => {
-        if (!ref.current) return;
-        
-        // Adjust animation speed - lower values make animations slower
-        const animationSpeed = 0.2; // Adjust this value to control animation speed
-        
-        if (isVisible) {
-          const entryProgress = Math.min(progress * animationSpeed, 1);
-          ref.current.style.transform = `translateX(${-200 + entryProgress * 200}%)`;
-          ref.current.style.opacity = entryProgress;
-        } else {
-          // Apply exit animation
-          if (ref.current.classList.contains('animate-from-left')) {
-            ref.current.classList.remove('animate-from-left');
-            ref.current.classList.add('animate-to-left');
-          }
-        }
-      };
-
-      // Apply animations based on visibility changes
-      if (newVisibility.monkey !== sectionVisibility.monkey) {
-        if (monkeyRef.current) {
-          if (newVisibility.monkey) {
-            monkeyRef.current.classList.add("animate-from-left");
-            monkeyRef.current.classList.remove("animate-to-left");
-          } else {
-            monkeyRef.current.classList.add("animate-to-left");
-            monkeyRef.current.classList.remove("animate-from-left");
-          }
-        }
+    // Apply animations based on visibility changes
+    const applyAnimation = (ref, isVisible) => {
+      if (!ref.current) return;
+      
+      if (isVisible) {
+        ref.current.classList.add("animate-from-left");
+        ref.current.classList.remove("animate-to-left");
+      } else {
+        ref.current.classList.add("animate-to-left");
+        ref.current.classList.remove("animate-from-left");
       }
-
-      if (newVisibility.bee !== sectionVisibility.bee) {
-        if (beeRef.current) {
-          if (newVisibility.bee) {
-            beeRef.current.classList.add("animate-from-left");
-            beeRef.current.classList.remove("animate-to-left");
-          } else {
-            beeRef.current.classList.add("animate-to-left");
-            beeRef.current.classList.remove("animate-from-left");
-          }
-        }
-      }
-
-      if (newVisibility.human !== sectionVisibility.human) {
-        if (humanRef.current) {
-          if (newVisibility.human) {
-            humanRef.current.classList.add("animate-from-left");
-            humanRef.current.classList.remove("animate-to-left");
-          } else {
-            humanRef.current.classList.add("animate-to-left");
-            humanRef.current.classList.remove("animate-from-left");
-          }
-        }
-      }
-
-      if (newVisibility.banana !== sectionVisibility.banana) {
-        if (bananaRef.current) {
-          if (newVisibility.banana) {
-            bananaRef.current.classList.add("animate-from-left");
-            bananaRef.current.classList.remove("animate-to-left");
-          } else {
-            bananaRef.current.classList.add("animate-to-left");
-            bananaRef.current.classList.remove("animate-from-left");
-          }
-        }
-      }
-
-      setSectionVisibility(newVisibility);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    applyAnimation(monkeyRef, sectionVisibility.monkey);
+    applyAnimation(beeRef, sectionVisibility.bee);
+    applyAnimation(humanRef, sectionVisibility.human);
+    applyAnimation(bananaRef, sectionVisibility.banana);
 
-    // Initialize on mount
-    handleScroll();
+    // Set up touch events
+    const handleTouchStart = (e) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchEnd = (e) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffY = touchStartY - touchEndY;
+      
+      // If swipe distance is significant
+      if (Math.abs(diffY) > 50) {
+        if (diffY > 0) {
+          // Swipe up - go to next section
+          navigateNext();
+        } else {
+          // Swipe down - go to previous section
+          navigatePrev();
+        }
+      }
+    };
+
+    let touchStartY = 0;
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchend', handleTouchEnd, false);
+
+    // Add keyboard navigation
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        navigateNext();
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        navigatePrev();
+      }
+    };
+    
+    document.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [sectionVisibility]);
+  }, [activeSection, sectionVisibility]);
 
   return (
     <>
       <style jsx global>{`
         .animate-from-left {
-          animation: slideInFromLeft 1.5s forwards; /* Increased animation duration from 1s to 1.5s */
+          animation: slideInFromLeft 1.5s forwards;
         }
 
         .animate-to-left {
-          animation: slideOutToLeft 1.5s forwards; /* Increased animation duration from 1s to 1.5s */
+          animation: slideOutToLeft 1.5s forwards;
         }
 
         @keyframes slideInFromLeft {
@@ -176,33 +150,88 @@ export default function Home() {
           }
         }
 
-        .sticky-container {
-          position: relative;
-          height: 400vh;
-        }
-
-        .sticky-section {
-          position: sticky;
+        .section-container {
+          position: fixed;
           top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
           height: 100vh;
-          width: 100%;
+          width: 100vw;
           overflow: hidden;
         }
-        
-        /* Add smooth scrolling to the body */
-        html {
-          scroll-behavior: smooth;
+
+        .section {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transition: opacity 0.3s ease-in-out;
+          z-index: 0;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .section.active {
+          opacity: 1;
+          z-index: 40;
+          pointer-events: auto;
+        }
+
+        .nav-dots {
+          position: fixed;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 100;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .nav-dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+          background-color: white;
+          transform: scale(1.5);
         }
       `}</style>
 
-      <div ref={containerRef} className="sticky-container">
+      <div className="section-container">
+        {/* Navigation dots */}
+        <div className="nav-dots">
+          <div 
+            className={`nav-dot ${activeSection === 0 ? 'active' : ''}`} 
+            onClick={() => navigateToSection(0)}
+          />
+          <div 
+            className={`nav-dot ${activeSection === 1 ? 'active' : ''}`} 
+            onClick={() => navigateToSection(1)}
+          />
+          <div 
+            className={`nav-dot ${activeSection === 2 ? 'active' : ''}`} 
+            onClick={() => navigateToSection(2)}
+          />
+          <div 
+            className={`nav-dot ${activeSection === 3 ? 'active' : ''}`} 
+            onClick={() => navigateToSection(3)}
+          />
+        </div>
+
         {/* monkey div */}
         <div
           ref={monkeySectionRef}
-          className="sticky-section bg-[rgba(92,186,71,1)] min-h-screen relative"
-          style={{ zIndex: sectionVisibility.monkey ? 40 : 10 }}
+          className={`section bg-[rgba(92,186,71,1)] ${sectionVisibility.monkey ? 'active' : ''}`}
         >
-          {/* Logo in top left corner - fixed position on mobile */}
+          {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
             <h1 className="text-black text-xl md:text-3xl font-bold">
               <Header />
@@ -233,7 +262,7 @@ export default function Home() {
                 ref={monkeyRef}
                 src={monkey}
                 alt="Blue monkey meditating"
-                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain"
+                className="max-w-full max-h-full md:max-w-3xl lg:max-w-4xl xl:max-w-5xl object-contain animate-from-left"
                 style={{ aspectRatio: "preserve" }}
               />
             </div>
@@ -248,19 +277,29 @@ export default function Home() {
               </button>
             </Link>
 
-            {/* Back Button */}
-            <button className="text-white hidden md:block p-2 md:p-4 rounded-full md:mt-[90px]">
-              <FaArrowLeft className="text-2xl md:text-5xl" />
-            </button>
+            {/* Navigation buttons */}
+            <div className="hidden md:flex gap-4 items-center mt-4">
+              <button 
+                onClick={navigatePrev} 
+                disabled={activeSection === 0}
+                className={`text-white p-4 rounded-full ${activeSection === 0 ? 'opacity-50' : ''}`}
+              >
+                <FaArrowLeft className="text-2xl md:text-5xl transform rotate-90" />
+              </button>
+              <button 
+                onClick={navigateNext}
+                className="text-white p-4 rounded-full"
+              >
+                <FaArrowLeft className="text-2xl md:text-5xl transform -rotate-90" />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Remaining sections - bee, human, banana - unchanged for brevity */}
         {/* bee div */}
         <div
           ref={beeSectionRef}
-          className="sticky-section bg-[rgba(71,76,186,1)] min-h-screen relative"
-          style={{ zIndex: sectionVisibility.bee ? 30 : 9 }}
+          className={`section bg-[rgba(71,76,186,1)] ${sectionVisibility.bee ? 'active' : ''}`}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -280,7 +319,6 @@ export default function Home() {
 
             {/* Right side with WEBSITES text */}
             <div className="relative w-full md:mt-[20px] lg:mt-[-90px] mt-[-120px]">
-              {/* Text Heading */}
               <p
                 className="text-black text-[200px] sm:text-[250px] md:text-[450px] lg:text-[750px] 
                     ml-[-12px] md:ml-[100px] font-[Heathergreen] text-center md:text-left"
@@ -312,17 +350,28 @@ export default function Home() {
               SEE WEBSITES WORK
             </Link>
 
-            <button className="text-white hidden md:block p-4 rounded-full">
-              <FaArrowLeft className="text-3xl md:text-5xl" />
-            </button>
+            {/* Navigation buttons */}
+            <div className="hidden md:flex gap-4 items-center mt-4">
+              <button 
+                onClick={navigatePrev}
+                className="text-white p-4 rounded-full"
+              >
+                <FaArrowLeft className="text-2xl md:text-5xl transform rotate-90" />
+              </button>
+              <button 
+                onClick={navigateNext}
+                className="text-white p-4 rounded-full"
+              >
+                <FaArrowLeft className="text-2xl md:text-5xl transform -rotate-90" />
+              </button>
+            </div>
           </div>
         </div>
 
         {/* ui/ux div */}
         <div
           ref={humanSectionRef}
-          className="sticky-section bg-[rgba(186,71,174,1)] min-h-screen relative"
-          style={{ zIndex: sectionVisibility.human ? 20 : 8 }}
+          className={`section bg-[rgba(186,71,174,1)] ${sectionVisibility.human ? 'active' : ''}`}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -364,7 +413,7 @@ export default function Home() {
 
           {/* Human image as a full-screen overlay */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
-            <div className="w-full h-full  max-w-screen max-h-screen flex items-center justify-center">
+            <div className="w-full h-full max-w-screen max-h-screen flex items-center justify-center">
               <img
                 ref={humanRef}
                 src={human}
@@ -375,10 +424,19 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Button and Back Arrow positioned together */}
-          <div className="absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
-            <button className="text-white p-4 rounded-full">
-              <FaArrowLeft className="text-3xl md:text-5xl" />
+          {/* Navigation buttons */}
+          <div className="absolute bottom-8 hidden md:flex left-8 items-center gap-4 z-10">
+            <button 
+              onClick={navigatePrev}
+              className="text-white p-4 rounded-full"
+            >
+              <FaArrowLeft className="text-3xl md:text-5xl transform rotate-90" />
+            </button>
+            <button 
+              onClick={navigateNext}
+              className="text-white p-4 rounded-full"
+            >
+              <FaArrowLeft className="text-3xl md:text-5xl transform -rotate-90" />
             </button>
           </div>
         </div>
@@ -386,8 +444,7 @@ export default function Home() {
         {/* banana div */}
         <div
           ref={bananaSectionRef}
-          className="sticky-section bg-[rgba(222,225,62,1)] min-h-screen relative"
-          style={{ zIndex: sectionVisibility.banana ? 10 : 7 }}
+          className={`section bg-[rgba(222,225,62,1)] ${sectionVisibility.banana ? 'active' : ''}`}
         >
           {/* Logo in top left corner */}
           <div className="absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4">
@@ -435,10 +492,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Button and Back Arrow positioned together */}
-          <div className="absolute hidden md:block bottom-8 left-8 flex flex-col items-start space-y-4 z-10">
-            <button className="text-black p-4 rounded-full">
-              <FaArrowLeft className="text-3xl md:text-5xl" />
+          {/* Navigation buttons */}
+          <div className="absolute bottom-8 hidden md:flex left-8 items-center gap-4 z-10">
+            <button 
+              onClick={navigatePrev}
+              className="text-black p-4 rounded-full"
+            >
+              <FaArrowLeft className="text-3xl md:text-5xl transform rotate-90" />
             </button>
           </div>
         </div>
