@@ -19,10 +19,10 @@ export default function Home() {
   const bananaSectionRef = useRef(null);
 
   const containerRef = useRef(null);
-  
+
   // Track current active section (0-3) for navigation
   const [activeSection, setActiveSection] = useState(0);
-  
+
   // Add a more restrictive debounce control for wheel events
   const [isScrolling, setIsScrolling] = useState(false);
   // Add a lock to prevent rapid section changes
@@ -32,7 +32,7 @@ export default function Home() {
 
   // Initialize with monkey section visible by default
   const [sectionVisibility, setSectionVisibility] = useState({
-    monkey: true,  // Set to true by default
+    monkey: true, // Set to true by default
     bee: false,
     human: false,
     banana: false,
@@ -41,7 +41,7 @@ export default function Home() {
   // Navigation functions
   const navigateToSection = (sectionIndex) => {
     if (sectionIndex < 0 || sectionIndex > 3 || isTransitioning) return;
-    
+
     // Set transitioning lock
     setIsTransitioning(true);
 
@@ -55,10 +55,10 @@ export default function Home() {
 
     // Update the visibility state
     newVisibility[sections[sectionIndex]] = true;
-    
+
     // Apply animations
     const imageRefs = [monkeyRef, beeRef, humanRef, bananaRef];
-    
+
     // Add animation classes to the active section's image
     if (imageRefs[sectionIndex].current) {
       // Remove any existing animation classes
@@ -66,10 +66,14 @@ export default function Home() {
       // Add the entry animation
       imageRefs[sectionIndex].current.classList.add("animate-from-left");
     }
-    
+
     // Add exit animation to previously visible sections
     sections.forEach((section, idx) => {
-      if (idx !== sectionIndex && sectionVisibility[section] && imageRefs[idx].current) {
+      if (
+        idx !== sectionIndex &&
+        sectionVisibility[section] &&
+        imageRefs[idx].current
+      ) {
         imageRefs[idx].current.classList.remove("animate-from-left");
         imageRefs[idx].current.classList.add("animate-to-left");
       }
@@ -77,16 +81,16 @@ export default function Home() {
 
     setSectionVisibility(newVisibility);
     setActiveSection(sectionIndex);
-    
+
     // Scroll to corresponding position on desktop - using a more reliable approach
     if (isDesktop) {
       const sectionHeight = window.innerHeight;
       window.scrollTo({
         top: sectionIndex * sectionHeight,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
-    
+
     // Release the transition lock after animation completes
     setTimeout(() => {
       setIsTransitioning(false);
@@ -107,13 +111,13 @@ export default function Home() {
       setIsDesktop(desktop);
       return desktop;
     };
-    
+
     // Set initial desktop state
     checkIfDesktop();
 
     // Mobile navigation touch and keyboard events
     let touchStartY = 0;
-    
+
     const handleTouchStart = (e) => {
       touchStartY = e.touches[0].clientY;
     };
@@ -146,13 +150,13 @@ export default function Home() {
     // Enhanced wheel event handler with better sensitivity
     const handleWheel = (e) => {
       if (!isDesktop) return;
-      
+
       e.preventDefault();
-      
+
       // More restrictive debouncing for smoother transitions
       if (!isScrolling && !isTransitioning) {
         setIsScrolling(true);
-        
+
         // Lower threshold for more responsive scrolling
         if (e.deltaY > 30) {
           // Scrolling down
@@ -161,7 +165,7 @@ export default function Home() {
           // Scrolling up
           navigatePrev();
         }
-        
+
         // Reset the scrolling flag after a shorter delay for better responsiveness
         setTimeout(() => {
           setIsScrolling(false);
@@ -181,22 +185,23 @@ export default function Home() {
       if (isDesktop && !isTransitioning) {
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
-        
+
         // Use a more precise calculation with threshold
         const rawSectionIndex = scrollPosition / windowHeight;
         const sectionIndex = Math.round(rawSectionIndex);
-        
+
         // Only update if we're very close to a section boundary
-        if (sectionIndex !== activeSection && 
-            sectionIndex >= 0 && 
-            sectionIndex <= 3 && 
-            Math.abs(rawSectionIndex - sectionIndex) < 0.1) {
-            
+        if (
+          sectionIndex !== activeSection &&
+          sectionIndex >= 0 &&
+          sectionIndex <= 3 &&
+          Math.abs(rawSectionIndex - sectionIndex) < 0.1
+        ) {
           // Lock transitions during this update
           setIsTransitioning(true);
-          
+
           setActiveSection(sectionIndex);
-          
+
           const sections = ["monkey", "bee", "human", "banana"];
           const newVisibility = {
             monkey: false,
@@ -204,20 +209,20 @@ export default function Home() {
             human: false,
             banana: false,
           };
-          
+
           // Update the visibility state
           newVisibility[sections[sectionIndex]] = true;
           setSectionVisibility(newVisibility);
-          
+
           // Apply animations
           const imageRefs = [monkeyRef, beeRef, humanRef, bananaRef];
-          
+
           // Add animation classes to the active section's image
           if (imageRefs[sectionIndex].current) {
             imageRefs[sectionIndex].current.classList.remove("animate-to-left");
             imageRefs[sectionIndex].current.classList.add("animate-from-left");
           }
-          
+
           // Release transition lock after animation completes
           setTimeout(() => {
             setIsTransitioning(false);
@@ -229,7 +234,7 @@ export default function Home() {
     // Handle window resize
     const handleResize = () => {
       const isNowDesktop = checkIfDesktop();
-      
+
       if (isNowDesktop) {
         // Reset container height for desktop
         if (containerRef.current) {
@@ -244,7 +249,9 @@ export default function Home() {
     };
 
     // Set up event listeners
-    document.addEventListener("touchstart", handleTouchStart, { passive: false });
+    document.addEventListener("touchstart", handleTouchStart, {
+      passive: false,
+    });
     document.addEventListener("touchend", handleTouchEnd, { passive: false });
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("wheel", handleWheel, { passive: false });
@@ -255,7 +262,7 @@ export default function Home() {
     if (!isDesktop) {
       document.body.style.overflow = "hidden";
     }
-    
+
     // Initialize animations for the first section
     if (monkeyRef.current) {
       monkeyRef.current.classList.add("animate-from-left");
@@ -268,10 +275,16 @@ export default function Home() {
       document.removeEventListener("wheel", handleWheel);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
-      
+
       document.body.style.overflow = ""; // Reset overflow setting
     };
-  }, [isScrolling, sectionVisibility, activeSection, isTransitioning, isDesktop]);
+  }, [
+    isScrolling,
+    sectionVisibility,
+    activeSection,
+    isTransitioning,
+    isDesktop,
+  ]);
   return (
     <>
       <style jsx global>{`
@@ -329,12 +342,12 @@ export default function Home() {
           pointer-events: none;
           transition: opacity 0.3s ease;
         }
-        
+
         .sticky-section.active {
           opacity: 1;
           pointer-events: auto;
         }
-        
+
         @media (min-width: 768px) {
           .sticky-section {
             position: sticky;
@@ -343,7 +356,7 @@ export default function Home() {
             pointer-events: auto;
           }
         }
-        
+
         /* Navigation dots */
         .nav-dots {
           position: fixed;
@@ -354,7 +367,7 @@ export default function Home() {
           flex-direction: column;
           gap: 10px;
         }
-        
+
         .nav-dot {
           width: 12px;
           height: 12px;
@@ -363,19 +376,19 @@ export default function Home() {
           cursor: pointer;
           transition: all 0.3s ease;
         }
-        
+
         .nav-dot.active {
           background-color: white;
           transform: scale(1.5);
         }
-        
+
         /* Hide navigation dots on desktop */
         @media (min-width: 768px) {
           .nav-dots {
             display: none;
           }
         }
-        
+
         /* Custom scroll indicator for desktop */
         .scroll-indicator {
           position: fixed;
@@ -383,25 +396,27 @@ export default function Home() {
           top: 50%;
           transform: translateY(-50%);
           z-index: 100;
-          display: none;
-          flex-direction: column;
-          align-items: center;
-          gap: 15px;
+          display: none; /* Prevents it from taking space */
+          visibility: hidden; /* Ensures it's fully hidden */
+          opacity: 0; /* Makes it fully transparent */
+          pointer-events: none; /* Prevents interaction */
         }
-        
+
+        /* Ensure it remains hidden even on desktops */
         @media (min-width: 768px) {
           .scroll-indicator {
-            display: flex;
+            display: none !important; /* Ensures no override */
+            visibility: hidden !important;
           }
         }
-        
+
         .scroll-line {
           width: 2px;
           height: 100px;
           background-color: rgba(255, 255, 255, 0.5);
           position: relative;
         }
-        
+
         .scroll-progress {
           position: absolute;
           top: 0;
@@ -410,7 +425,7 @@ export default function Home() {
           background-color: white;
           transition: height 0.3s ease;
         }
-        
+
         .scroll-text {
           color: white;
           font-size: 12px;
@@ -440,15 +455,15 @@ export default function Home() {
           onClick={() => navigateToSection(3)}
         />
       </div>
-      
+
       {/* Custom scroll indicator for desktop */}
       <div className="scroll-indicator">
         <span className="scroll-text">SCROLL</span>
         <div className="scroll-line">
-          <div 
-            className="scroll-progress" 
-            style={{ 
-              height: `${(activeSection / 3) * 100}%` 
+          <div
+            className="scroll-progress"
+            style={{
+              height: `${(activeSection / 3) * 100}%`,
             }}
           ></div>
         </div>
@@ -569,7 +584,10 @@ export default function Home() {
             </Link>
 
             {/* Desktop button */}
-            <button onClick={navigatePrev} className="text-white hidden md:block p-4 rounded-full">
+            <button
+              onClick={navigatePrev}
+              className="text-white hidden md:block p-4 rounded-full"
+            >
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
@@ -609,7 +627,10 @@ export default function Home() {
                 md:-translate-x-0 md:ml-[-58px] lg:ml-[-708px] whitespace-nowrap text-black 
                 font-bold p-4 md:p-10 rounded-full md:text-4xl z-30"
               >
-                <p className="mt-[10px] md:mt-[10px] lg:mt-[-4px]"> SEE UI/UX WORK</p>
+                <p className="mt-[10px] md:mt-[10px] lg:mt-[-4px]">
+                  {" "}
+                  SEE UI/UX WORK
+                </p>
               </Link>
               <p
                 className="text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] 
@@ -636,7 +657,10 @@ export default function Home() {
 
           {/* Button and Back Arrow positioned together for desktop */}
           <div className="absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
-            <button onClick={navigatePrev} className="text-white p-4 rounded-full">
+            <button
+              onClick={navigatePrev}
+              className="text-white p-4 rounded-full"
+            >
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
@@ -674,7 +698,9 @@ export default function Home() {
                 mt-[550px] w-[200px] md:w-[200px] lg:w-[330px] lg:h-[130px] md:top-auto md:left-3/5 left-1/3 
                 transform -translate-x-1/2 md:-translate-x-0 whitespace-nowrap lg:mt-[40px] lg:ml-[240px] text-black font-bold p-4 md:p-10 rounded-full text-xl md:text-5xl z-30"
               >
-                <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">SEE CREATIVE WORK</p>
+                <p className="text-[18px] mt:text-[18px] lg:text-[26px] lg:mt-[14px]">
+                  SEE CREATIVE WORK
+                </p>
               </Link>
 
               <p className="text-black text-[220px] lg:mt-[-220px] ml-[-15px] sm:text-[250px] md:text-[500px] lg:text-[800px] font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap mt-[-90px] md:mt-[-190px] md:ml-[100px]">
@@ -697,7 +723,10 @@ export default function Home() {
           </div>
           {/* Button and Back Arrow positioned together for desktop */}
           <div className="absolute hidden md:block bottom-8 left-8 flex flex-col items-start space-y-4 z-10">
-            <button onClick={navigatePrev} className="text-black p-4 rounded-full">
+            <button
+              onClick={navigatePrev}
+              className="text-black p-4 rounded-full"
+            >
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
