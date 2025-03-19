@@ -20,8 +20,13 @@ export default function Home() {
 
   const containerRef = useRef(null);
   
-  // Track current active section (0-3) for mobile navigation
+  // Track current active section (0-3) for navigation
   const [activeSection, setActiveSection] = useState(0);
+  
+  // Add a more restrictive debounce control for wheel events
+  const [isScrolling, setIsScrolling] = useState(false);
+  // Add a lock to prevent rapid section changes
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Initialize with monkey section visible by default
   const [sectionVisibility, setSectionVisibility] = useState({
@@ -31,9 +36,12 @@ export default function Home() {
     banana: false,
   });
 
-  // Navigation functions for mobile
+  // Navigation functions
   const navigateToSection = (sectionIndex) => {
-    if (sectionIndex < 0 || sectionIndex > 3) return;
+    if (sectionIndex < 0 || sectionIndex > 3 || isTransitioning) return;
+    
+    // Set transitioning lock
+    setIsTransitioning(true);
 
     const sections = ["monkey", "bee", "human", "banana"];
     const newVisibility = {
@@ -43,9 +51,44 @@ export default function Home() {
       banana: false,
     };
 
+    // Update the visibility state
     newVisibility[sections[sectionIndex]] = true;
+    
+    // Apply animations
+    const imageRefs = [monkeyRef, beeRef, humanRef, bananaRef];
+    
+    // Add animation classes to the active section's image
+    if (imageRefs[sectionIndex].current) {
+      // Remove any existing animation classes
+      imageRefs[sectionIndex].current.classList.remove("animate-to-left");
+      // Add the entry animation
+      imageRefs[sectionIndex].current.classList.add("animate-from-left");
+    }
+    
+    // Add exit animation to previously visible sections
+    sections.forEach((section, idx) => {
+      if (idx !== sectionIndex && sectionVisibility[section] && imageRefs[idx].current) {
+        imageRefs[idx].current.classList.remove("animate-from-left");
+        imageRefs[idx].current.classList.add("animate-to-left");
+      }
+    });
+
     setSectionVisibility(newVisibility);
     setActiveSection(sectionIndex);
+    
+    // Scroll to corresponding position on desktop - using a more reliable approach
+    if (window.innerWidth >= 768) {
+      const sectionHeight = window.innerHeight;
+      window.scrollTo({
+        top: sectionIndex * sectionHeight,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Release the transition lock after animation completes
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 1000); // Match this with your animation duration
   };
 
   const navigateNext = () => {
@@ -55,7 +98,6 @@ export default function Home() {
   const navigatePrev = () => {
     navigateToSection(Math.max(activeSection - 1, 0));
   };
-
   useEffect(() => {
     // Mobile navigation touch and keyboard events
     let touchStartY = 0;
@@ -89,117 +131,126 @@ export default function Home() {
       }
     };
 
-    // Set up mobile navigation events
-    document.addEventListener("touchstart", handleTouchStart, false);
-    document.addEventListener("touchend", handleTouchEnd, false);
-    document.addEventListener("keydown", handleKeyDown);
+    // Improved wheel event handler with stronger debounce
+    const handleWheel = (e) => {
+      e.preventDefault();
+      
+      // More restrictive debouncing for smoother transitions
+      if (!isScrolling && !isTransitioning) {
+        setIsScrolling(true);
+        
+        // Determine direction based on deltaY and use a threshold to avoid accidental scrolls
+        if (e.deltaY > 50) {
+          // Scrolling down
+          navigateNext();
+        } else if (e.deltaY < -50) {
+          // Scrolling up
+          navigatePrev();
+        }
+        
+        // Reset the scrolling flag after a longer delay
+        setTimeout(() => {
+          setIsScrolling(false);
+        }, 1200); // Increased timing for smoother experience
+      }
+    };
 
-    // Desktop scroll-based functionality
-    // Calculate the height needed for smooth scrolling
-    if (containerRef.current) {
+    // Desktop scroll-based functionality - improved
+    if (containerRef.current && window.innerWidth >= 768) {
       const containerHeight = window.innerHeight * 4; // 4 sections
       containerRef.current.style.height = `${containerHeight}px`;
     }
 
+    // Improved scroll handler with thresholds to prevent flickering
     const handleScroll = () => {
-      // Only apply scroll-based navigation on desktop
-      if (window.innerWidth >= 768) {
+      // Only apply scroll-based navigation on desktop and when not actively transitioning
+      if (window.innerWidth >= 768 && !isTransitioning) {
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
-
-        // Determine which section should be visible based on scroll position
-        const sectionIndex = Math.floor(scrollPosition / windowHeight);
-        const sectionProgress = (scrollPosition % windowHeight) / windowHeight;
-
-        // Calculate visible section
-        const sections = ["monkey", "bee", "human", "banana"];
-        const currentSection =
-          sections[Math.min(sectionIndex, sections.length - 1)];
-
-        // Update section visibility state
-        const newVisibility = {
-          monkey: currentSection === "monkey",
-          bee: currentSection === "bee",
-          human: currentSection === "human",
-          banana: currentSection === "banana",
-        };
-
-        // Apply animations based on visibility changes
-        if (newVisibility.monkey !== sectionVisibility.monkey) {
-          if (monkeyRef.current) {
-            if (newVisibility.monkey) {
-              monkeyRef.current.classList.add("animate-from-left");
-              monkeyRef.current.classList.remove("animate-to-left");
-            } else {
-              monkeyRef.current.classList.add("animate-to-left");
-              monkeyRef.current.classList.remove("animate-from-left");
-            }
+        
+        // Use a more precise calculation with threshold
+        const rawSectionIndex = scrollPosition / windowHeight;
+        const sectionIndex = Math.round(rawSectionIndex);
+        
+        // Only update if we're very close to a section boundary
+        // This helps prevent unwanted section changes during scroll animations
+        if (sectionIndex !== activeSection && 
+            sectionIndex >= 0 && 
+            sectionIndex <= 3 && 
+            Math.abs(rawSectionIndex - sectionIndex) < 0.1) {
+            
+          // Lock transitions during this update
+          setIsTransitioning(true);
+          
+          setActiveSection(sectionIndex);
+          
+          const sections = ["monkey", "bee", "human", "banana"];
+          const newVisibility = {
+            monkey: false,
+            bee: false,
+            human: false,
+            banana: false,
+          };
+          
+          // Update the visibility state
+          newVisibility[sections[sectionIndex]] = true;
+          setSectionVisibility(newVisibility);
+          
+          // Apply animations
+          const imageRefs = [monkeyRef, beeRef, humanRef, bananaRef];
+          
+          // Add animation classes to the active section's image
+          if (imageRefs[sectionIndex].current) {
+            imageRefs[sectionIndex].current.classList.remove("animate-to-left");
+            imageRefs[sectionIndex].current.classList.add("animate-from-left");
           }
+          
+          // Release transition lock after animation completes
+          setTimeout(() => {
+            setIsTransitioning(false);
+          }, 1000);
         }
-
-        if (newVisibility.bee !== sectionVisibility.bee) {
-          if (beeRef.current) {
-            if (newVisibility.bee) {
-              beeRef.current.classList.add("animate-from-left");
-              beeRef.current.classList.remove("animate-to-left");
-            } else {
-              beeRef.current.classList.add("animate-to-left");
-              beeRef.current.classList.remove("animate-from-left");
-            }
-          }
-        }
-
-        if (newVisibility.human !== sectionVisibility.human) {
-          if (humanRef.current) {
-            if (newVisibility.human) {
-              humanRef.current.classList.add("animate-from-left");
-              humanRef.current.classList.remove("animate-to-left");
-            } else {
-              humanRef.current.classList.add("animate-to-left");
-              humanRef.current.classList.remove("animate-from-left");
-            }
-          }
-        }
-
-        if (newVisibility.banana !== sectionVisibility.banana) {
-          if (bananaRef.current) {
-            if (newVisibility.banana) {
-              bananaRef.current.classList.add("animate-from-left");
-              bananaRef.current.classList.remove("animate-to-left");
-            } else {
-              bananaRef.current.classList.add("animate-to-left");
-              bananaRef.current.classList.remove("animate-from-left");
-            }
-          }
-        }
-
-        setSectionVisibility(newVisibility);
-        setActiveSection(sectionIndex);
       }
     };
 
+    // Set up event listeners
+    document.addEventListener("touchstart", handleTouchStart, { passive: false });
+    document.addEventListener("touchend", handleTouchEnd, { passive: false });
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("wheel", handleWheel, { passive: false });
     window.addEventListener("scroll", handleScroll);
 
-    // Initialize on mount
-    handleScroll();
+    // Prevent default scrolling behavior on mobile
+    if (window.innerWidth < 768) {
+      document.body.style.overflow = "hidden";
+    }
+    
+    // Initialize animations for the first section
+    if (monkeyRef.current) {
+      monkeyRef.current.classList.add("animate-from-left");
+    }
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("touchstart", handleTouchStart);
       document.removeEventListener("touchend", handleTouchEnd);
       document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("scroll", handleScroll);
+      
+      if (window.innerWidth < 768) {
+        document.body.style.overflow = ""; // Reset overflow setting
+      }
     };
-  }, [sectionVisibility]);
-
+  }, [isScrolling, sectionVisibility, activeSection, isTransitioning]);
   return (
     <>
       <style jsx global>{`
         .animate-from-left {
-          animation: slideInFromLeft 1s forwards;
+          animation: slideInFromLeft 0.8s forwards;
         }
 
         .animate-to-left {
-          animation: slideOutToLeft 1s forwards;
+          animation: slideOutToLeft 0.8s forwards;
         }
 
         @keyframes slideInFromLeft {
@@ -226,55 +277,52 @@ export default function Home() {
 
         .sticky-container {
           position: relative;
-          height: 400vh;
+          height: 100vh;
+          overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+          .sticky-container {
+            height: 400vh;
+            overflow: visible;
+          }
         }
 
         .sticky-section {
-          position: sticky;
+          position: absolute;
           top: 0;
+          left: 0;
           height: 100vh;
           width: 100%;
           overflow: hidden;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.3s ease;
         }
         
-        /* Mobile navigation styles */
-        @media (max-width: 767px) {
-          .sticky-container {
-            height: 100vh;
-          }
-          
+        .sticky-section.active {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        
+        @media (min-width: 768px) {
           .sticky-section {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-          }
-          
-          .sticky-section.active {
             opacity: 1;
             pointer-events: auto;
           }
         }
         
-        /* Navigation dots for mobile */
+        /* Navigation dots */
         .nav-dots {
           position: fixed;
           left: 20px;
           bottom: 20px;
           z-index: 100;
-          display: none;
-        }
-        
-        @media (max-width: 767px) {
-          .nav-dots {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-          }
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
         }
         
         .nav-dot {
@@ -292,7 +340,7 @@ export default function Home() {
         }
       `}</style>
 
-      {/* Navigation dots for mobile */}
+      {/* Navigation dots */}
       <div className="nav-dots">
         <div
           className={`nav-dot ${activeSection === 0 ? "active" : ""}`}
@@ -317,7 +365,7 @@ export default function Home() {
         <div
           ref={monkeySectionRef}
           className={`sticky-section bg-[rgba(92,186,71,1)] min-h-screen relative ${
-            window.innerWidth < 768 ? (sectionVisibility.monkey ? "active" : "") : ""
+            sectionVisibility.monkey ? "active" : ""
           }`}
           style={{ zIndex: sectionVisibility.monkey ? 40 : 10 }}
         >
@@ -373,7 +421,7 @@ export default function Home() {
         <div
           ref={beeSectionRef}
           className={`sticky-section bg-[rgba(71,76,186,1)] min-h-screen relative ${
-            window.innerWidth < 768 ? (sectionVisibility.bee ? "active" : "") : ""
+            sectionVisibility.bee ? "active" : ""
           }`}
           style={{ zIndex: sectionVisibility.bee ? 30 : 9 }}
         >
@@ -428,7 +476,7 @@ export default function Home() {
             </Link>
 
             {/* Desktop button */}
-            <button className="text-white hidden md:block p-4 rounded-full">
+            <button onClick={navigatePrev} className="text-white hidden md:block p-4 rounded-full">
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
@@ -438,7 +486,7 @@ export default function Home() {
         <div
           ref={humanSectionRef}
           className={`sticky-section bg-[rgba(186,71,174,1)] min-h-screen relative ${
-            window.innerWidth < 768 ? (sectionVisibility.human ? "active" : "") : ""
+            sectionVisibility.human ? "active" : ""
           }`}
           style={{ zIndex: sectionVisibility.human ? 20 : 8 }}
         >
@@ -495,7 +543,7 @@ export default function Home() {
 
           {/* Button and Back Arrow positioned together for desktop */}
           <div className="absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10">
-            <button className="text-white p-4 rounded-full">
+            <button onClick={navigatePrev} className="text-white p-4 rounded-full">
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
@@ -505,7 +553,7 @@ export default function Home() {
         <div
           ref={bananaSectionRef}
           className={`sticky-section bg-[rgba(222,225,62,1)] min-h-screen relative ${
-            window.innerWidth < 768 ? (sectionVisibility.banana ? "active" : "") : ""
+            sectionVisibility.banana ? "active" : ""
           }`}
           style={{ zIndex: sectionVisibility.banana ? 10 : 7 }}
         >
@@ -556,7 +604,7 @@ export default function Home() {
           </div>
           {/* Button and Back Arrow positioned together for desktop */}
           <div className="absolute hidden md:block bottom-8 left-8 flex flex-col items-start space-y-4 z-10">
-            <button className="text-black p-4 rounded-full">
+            <button onClick={navigatePrev} className="text-black p-4 rounded-full">
               <FaArrowLeft className="text-3xl md:text-5xl" />
             </button>
           </div>
