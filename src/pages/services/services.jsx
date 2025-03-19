@@ -27,6 +27,8 @@ export default function Home() {
   const [isScrolling, setIsScrolling] = useState(false);
   // Add a lock to prevent rapid section changes
   const [isTransitioning, setIsTransitioning] = useState(false);
+  // Track if we're on desktop or mobile
+  const [isDesktop, setIsDesktop] = useState(false);
 
   // Initialize with monkey section visible by default
   const [sectionVisibility, setSectionVisibility] = useState({
@@ -77,7 +79,7 @@ export default function Home() {
     setActiveSection(sectionIndex);
     
     // Scroll to corresponding position on desktop - using a more reliable approach
-    if (window.innerWidth >= 768) {
+    if (isDesktop) {
       const sectionHeight = window.innerHeight;
       window.scrollTo({
         top: sectionIndex * sectionHeight,
@@ -99,6 +101,16 @@ export default function Home() {
     navigateToSection(Math.max(activeSection - 1, 0));
   };
   useEffect(() => {
+    // Check if we're on desktop
+    const checkIfDesktop = () => {
+      const desktop = window.innerWidth >= 768;
+      setIsDesktop(desktop);
+      return desktop;
+    };
+    
+    // Set initial desktop state
+    checkIfDesktop();
+
     // Mobile navigation touch and keyboard events
     let touchStartY = 0;
     
@@ -131,32 +143,34 @@ export default function Home() {
       }
     };
 
-    // Improved wheel event handler with stronger debounce
+    // Enhanced wheel event handler with better sensitivity
     const handleWheel = (e) => {
+      if (!isDesktop) return;
+      
       e.preventDefault();
       
       // More restrictive debouncing for smoother transitions
       if (!isScrolling && !isTransitioning) {
         setIsScrolling(true);
         
-        // Determine direction based on deltaY and use a threshold to avoid accidental scrolls
-        if (e.deltaY > 50) {
+        // Lower threshold for more responsive scrolling
+        if (e.deltaY > 30) {
           // Scrolling down
           navigateNext();
-        } else if (e.deltaY < -50) {
+        } else if (e.deltaY < -30) {
           // Scrolling up
           navigatePrev();
         }
         
-        // Reset the scrolling flag after a longer delay
+        // Reset the scrolling flag after a shorter delay for better responsiveness
         setTimeout(() => {
           setIsScrolling(false);
-        }, 1200); // Increased timing for smoother experience
+        }, 800);
       }
     };
 
     // Desktop scroll-based functionality - improved
-    if (containerRef.current && window.innerWidth >= 768) {
+    if (containerRef.current && isDesktop) {
       const containerHeight = window.innerHeight * 4; // 4 sections
       containerRef.current.style.height = `${containerHeight}px`;
     }
@@ -164,7 +178,7 @@ export default function Home() {
     // Improved scroll handler with thresholds to prevent flickering
     const handleScroll = () => {
       // Only apply scroll-based navigation on desktop and when not actively transitioning
-      if (window.innerWidth >= 768 && !isTransitioning) {
+      if (isDesktop && !isTransitioning) {
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
         
@@ -173,7 +187,6 @@ export default function Home() {
         const sectionIndex = Math.round(rawSectionIndex);
         
         // Only update if we're very close to a section boundary
-        // This helps prevent unwanted section changes during scroll animations
         if (sectionIndex !== activeSection && 
             sectionIndex >= 0 && 
             sectionIndex <= 3 && 
@@ -213,15 +226,33 @@ export default function Home() {
       }
     };
 
+    // Handle window resize
+    const handleResize = () => {
+      const isNowDesktop = checkIfDesktop();
+      
+      if (isNowDesktop) {
+        // Reset container height for desktop
+        if (containerRef.current) {
+          containerRef.current.style.height = `${window.innerHeight * 4}px`;
+        }
+        // Enable scrolling on desktop
+        document.body.style.overflow = "";
+      } else {
+        // Disable scrolling on mobile
+        document.body.style.overflow = "hidden";
+      }
+    };
+
     // Set up event listeners
     document.addEventListener("touchstart", handleTouchStart, { passive: false });
     document.addEventListener("touchend", handleTouchEnd, { passive: false });
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("wheel", handleWheel, { passive: false });
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
 
     // Prevent default scrolling behavior on mobile
-    if (window.innerWidth < 768) {
+    if (!isDesktop) {
       document.body.style.overflow = "hidden";
     }
     
@@ -236,12 +267,11 @@ export default function Home() {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("wheel", handleWheel);
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
       
-      if (window.innerWidth < 768) {
-        document.body.style.overflow = ""; // Reset overflow setting
-      }
+      document.body.style.overflow = ""; // Reset overflow setting
     };
-  }, [isScrolling, sectionVisibility, activeSection, isTransitioning]);
+  }, [isScrolling, sectionVisibility, activeSection, isTransitioning, isDesktop]);
   return (
     <>
       <style jsx global>{`
@@ -338,9 +368,60 @@ export default function Home() {
           background-color: white;
           transform: scale(1.5);
         }
+        
+        /* Hide navigation dots on desktop */
+        @media (min-width: 768px) {
+          .nav-dots {
+            display: none;
+          }
+        }
+        
+        /* Custom scroll indicator for desktop */
+        .scroll-indicator {
+          position: fixed;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 100;
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+        
+        @media (min-width: 768px) {
+          .scroll-indicator {
+            display: flex;
+          }
+        }
+        
+        .scroll-line {
+          width: 2px;
+          height: 100px;
+          background-color: rgba(255, 255, 255, 0.5);
+          position: relative;
+        }
+        
+        .scroll-progress {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: white;
+          transition: height 0.3s ease;
+        }
+        
+        .scroll-text {
+          color: white;
+          font-size: 12px;
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+          transform: rotate(180deg);
+          letter-spacing: 2px;
+        }
       `}</style>
 
-      {/* Navigation dots */}
+      {/* Navigation dots - Only shown on mobile */}
       <div className="nav-dots">
         <div
           className={`nav-dot ${activeSection === 0 ? "active" : ""}`}
@@ -359,7 +440,19 @@ export default function Home() {
           onClick={() => navigateToSection(3)}
         />
       </div>
-
+      
+      {/* Custom scroll indicator for desktop */}
+      <div className="scroll-indicator">
+        <span className="scroll-text">SCROLL</span>
+        <div className="scroll-line">
+          <div 
+            className="scroll-progress" 
+            style={{ 
+              height: `${(activeSection / 3) * 100}%` 
+            }}
+          ></div>
+        </div>
+      </div>
       <div ref={containerRef} className="sticky-container">
         {/* monkey div */}
         <div
