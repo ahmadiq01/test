@@ -2023,12 +2023,12 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(const e of t
           pointer-events: none;
           transition: opacity 0.3s ease;
         }
-        
+
         .sticky-section.active {
           opacity: 1;
           pointer-events: auto;
         }
-        
+
         @media (min-width: 768px) {
           .sticky-section {
             position: sticky;
@@ -2037,7 +2037,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(const e of t
             pointer-events: auto;
           }
         }
-        
+
         /* Navigation dots */
         .nav-dots {
           position: fixed;
@@ -2048,7 +2048,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(const e of t
           flex-direction: column;
           gap: 10px;
         }
-        
+
         .nav-dot {
           width: 12px;
           height: 12px;
@@ -2057,19 +2057,19 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(const e of t
           cursor: pointer;
           transition: all 0.3s ease;
         }
-        
+
         .nav-dot.active {
           background-color: white;
           transform: scale(1.5);
         }
-        
+
         /* Hide navigation dots on desktop */
         @media (min-width: 768px) {
           .nav-dots {
             display: none;
           }
         }
-        
+
         /* Custom scroll indicator for desktop */
         .scroll-indicator {
           position: fixed;
@@ -2077,25 +2077,27 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(const e of t
           top: 50%;
           transform: translateY(-50%);
           z-index: 100;
-          display: none;
-          flex-direction: column;
-          align-items: center;
-          gap: 15px;
+          display: none; /* Prevents it from taking space */
+          visibility: hidden; /* Ensures it's fully hidden */
+          opacity: 0; /* Makes it fully transparent */
+          pointer-events: none; /* Prevents interaction */
         }
-        
+
+        /* Ensure it remains hidden even on desktops */
         @media (min-width: 768px) {
           .scroll-indicator {
-            display: flex;
+            display: none !important; /* Ensures no override */
+            visibility: hidden !important;
           }
         }
-        
+
         .scroll-line {
           width: 2px;
           height: 100px;
           background-color: rgba(255, 255, 255, 0.5);
           position: relative;
         }
-        
+
         .scroll-progress {
           position: absolute;
           top: 0;
@@ -2104,7 +2106,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(const e of t
           background-color: white;
           transition: height 0.3s ease;
         }
-        
+
         .scroll-text {
           color: white;
           font-size: 12px;
@@ -2118,7 +2120,7 @@ FIREBASE: `))}restoreState_(){this.tryAuth(),this.tryAppCheck();for(const e of t
                 lg:mt-[-70px] md:mt-[220px] mt-[400px] ml-[75px] w-[220px] h-[80px] md:w-[400px] md:h-[80px] lg:w-[400px] lg:h-[130px]\r
                 text-center md:top-1/2 left-1/2 md:left-auto transform -translate-x-1/2\r
                 md:-translate-x-0 md:ml-[-58px] lg:ml-[-708px] whitespace-nowrap text-black \r
-                font-bold p-4 md:p-10 rounded-full md:text-4xl z-30`,children:g.jsx("p",{className:"mt-[10px] md:mt-[10px] lg:mt-[-4px]",children:" SEE UI/UX WORK"})}),g.jsx("p",{className:`text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] \r
+                font-bold p-4 md:p-10 rounded-full md:text-4xl z-30`,children:g.jsxs("p",{className:"mt-[10px] md:mt-[10px] lg:mt-[-4px]",children:[" ","SEE UI/UX WORK"]})}),g.jsx("p",{className:`text-black text-[350px] sm:text-[350px] md:text-[650px] lg:text-[1050px] \r
                     font-[Heathergreen] text-center md:text-right md:float-right whitespace-nowrap \r
                     leading-[1] mt-[-65px] md:mt-[-180px] md:ml-[280px]`,children:"UI/UX"})]})]}),g.jsx("div",{className:"absolute inset-0 flex items-center justify-center pointer-events-none z-20",children:g.jsx("div",{className:"w-full h-full  max-w-screen max-h-screen flex items-center justify-center",children:g.jsx("img",{ref:s,src:qD,alt:"Human character",className:"max-w-full md:ml-[200px] lg:ml-[700px] md:mt-[200px] lg:mt-[470px] max-h-full md:max-w-full lg:max-w-full xl:max-w-5xl object-contain",style:{aspectRatio:"preserve"}})})}),g.jsx("div",{className:"absolute bottom-8 hidden md:block left-0 right-0 md:left-8 md:right-auto flex flex-col items-center md:items-start space-y-4 z-10",children:g.jsx("button",{onClick:U,className:"text-white p-4 rounded-full",children:g.jsx(sd,{className:"text-3xl md:text-5xl"})})})]}),g.jsxs("div",{ref:h,className:`sticky-section bg-[rgba(222,225,62,1)] min-h-screen relative ${M.banana?"active":""}`,style:{zIndex:M.banana?10:7},children:[g.jsx("div",{className:"absolute mt-[-12px] ml-[-6px] md:p-4 lg:p-4",children:g.jsx("h1",{className:"text-black text-xl md:text-3xl font-bold",children:g.jsx(Ht,{})})}),g.jsxs("div",{className:"flex flex-col items-center md:items-start md:flex-row px-4 md:px-8 gap-4 md:gap-10 pt-16 md:pt-0",children:[g.jsx("div",{className:"flex flex-col md:pl-4 hidden md:block md:mt-[40px] mt-[-10px]",children:g.jsx("p",{className:"text-black text-4xl md:text-[80px] font-light leading-[100%] py-8 md:py-20 whitespace-nowrap font-poppins ml-[-180px] md:ml-0",children:"WE MAKE"})}),g.jsxs("div",{className:"relative w-full md:mt-40",children:[g.jsx(_e,{to:"/work?category=Creative",className:`bg-[rgba(92,186,71,1)] absolute \r
                 mt-[550px] w-[200px] md:w-[200px] lg:w-[330px] lg:h-[130px] md:top-auto md:left-3/5 left-1/3 \r
